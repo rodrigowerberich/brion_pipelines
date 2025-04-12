@@ -41,9 +41,94 @@ auto print_container(auto& container) -> void {
  * PRIVATE CLASSES
  *****************************************************************************/
 
+namespace pipelines::log_message_organizer {
+
+struct NextIdInfo {
+  bool invalid = false;
+  bool terminator = false;
+
+  bool valid_id() const { return !invalid && !terminator; }
+};
+
+}  // namespace pipelines::log_message_organizer
+
 /******************************************************************************
  * PRIVATE HELPER IMPLEMENTATIONS
  *****************************************************************************/
+
+namespace pipelines::log_message_organizer {
+
+std::list<PipelineLogMessage> GetNextElements(
+    const PipelineLogMessage& current_message,
+    const std::multimap<std::string, PipelineLogMessage>& messages_by_id,
+    std::map<std::string, bool>& messages_visited,
+    std::set<PipelineLogMessage>&
+        alread_visited_next_elements_from_current_chain) {
+  std::cout << "\n\n<< GetNextElements Current message: " << current_message
+            << std::endl;
+
+  const auto& current_id = current_message.id();
+  auto [first, end] = messages_by_id.equal_range(current_id);
+  auto same_element_chain = std::list<PipelineLogMessage>{};
+  auto next_ids = std::map<std::string, NextIdInfo>{};
+  auto current_chain = std::list<PipelineLogMessage>{};
+
+  for (auto it = first; it != end; ++it) {
+    const auto& next_id = it->second.next_id();
+    auto next_id_info = NextIdInfo{};
+    std::cout << "Next ID: " << next_id << std::endl;
+    if (kTerminator == next_id) {
+      next_id_info.terminator = true;
+    } else if (!messages_by_id.contains(next_id)) {
+      next_id_info.invalid = true;
+    }
+
+    if (!next_id_info.valid_id()) {
+      same_element_chain.push_back(it->second);
+    } else {
+      same_element_chain.push_front(it->second);
+      if (messages_visited.at(next_id)) {
+        auto [next_element_first, next_element_last] =
+            messages_by_id.equal_range(next_id);
+        for (auto it_next = next_element_first; it_next != next_element_last;
+             ++it_next) {
+          alread_visited_next_elements_from_current_chain.insert(
+              it_next->second);
+        }
+      } else {
+        next_ids.emplace(next_id, next_id_info);
+      }
+    }
+  }
+  std::cout << "Same element chain: ";
+  print_container(same_element_chain);
+  current_chain.splice(std::end(current_chain), same_element_chain);
+  std::cout << "Current chain: ";
+  print_container(current_chain);
+  // We want a message with a next_id if it exists
+  messages_visited.at(current_id) = true;
+  std::cout << "Next IDs: ";
+  for (const auto& [next_id, next_id_info] : next_ids) {
+    std::cout << next_id << " ";
+  }
+  std::cout << std::endl;
+  for (const auto& [next_id, next_id_info] : next_ids) {
+    auto last_element_in_chain = std::prev(std::end(current_chain));
+    if (auto it = messages_by_id.find(next_id);
+        it != std::end(messages_by_id)) {
+      auto next_elements =
+          GetNextElements(it->second, messages_by_id, messages_visited,
+                          alread_visited_next_elements_from_current_chain);
+      current_chain.splice(std::next(last_element_in_chain), next_elements);
+    }
+  }
+
+  std::cout << ">>>>>>>> GetNextElements Current message: " << current_message
+            << std::endl;
+  return current_chain;
+}
+
+}  // namespace pipelines::log_message_organizer
 
 /******************************************************************************
  * PRIVATE CLASS METHODS IMPLEMENTATION
@@ -76,99 +161,15 @@ PipelineLogMessages OrganizeById::Organize() const {
     }
     auto alread_visited_next_elements_from_current_chain =
         std::set<PipelineLogMessage>{};
-    auto current_chain = std::list<PipelineLogMessage>{};
-    auto current_message = message;
-    auto next_id_invalid = false;
-    auto next_element_already_visited = false;
-    auto next_element_id_terminator = false;
-    while (!next_element_id_terminator && !next_element_already_visited &&
-           !next_id_invalid) {
+    auto current_chain =
+        GetNextElements(message, messages_by_id, messages_visited,
+                        alread_visited_next_elements_from_current_chain);
 
-      std::cout << "\n\nCurrent message: " << current_message << std::endl;
-      const auto& current_id = current_message.id();
-      auto [first, end] = messages_by_id.equal_range(current_id);
-      auto same_element_chain = std::list<PipelineLogMessage>{};
-      auto all_are_terminators = true;
-      auto all_are_not_found = true;
-      for (auto it = first; it != end; ++it) {
-        const auto& next_id = it->second.next_id();
-        std::cout << "Next ID: " << next_id << std::endl;
-        auto is_element_at_end = false;
-        if (kTerminator == next_id) {
-          is_element_at_end = true;
-          all_are_not_found = false;
-        } else if (messages_by_id.contains(next_id)) {
-          all_are_terminators = false;
-          all_are_not_found = false;
-        } else {
-          is_element_at_end = true;
-          all_are_terminators = false;
-        }
-
-        if (is_element_at_end) {
-          same_element_chain.push_back(it->second);
-        } else {
-          same_element_chain.push_front(it->second);
-          if (messages_visited.at(next_id)) {
-            auto [next_element_first, next_element_last] =
-                messages_by_id.equal_range(next_id);
-            for (auto it_next = next_element_first;
-                 it_next != next_element_last; ++it_next) {
-              alread_visited_next_elements_from_current_chain.insert(
-                  it_next->second);
-            }
-          }
-        }
-      }
-      next_element_already_visited =
-          !alread_visited_next_elements_from_current_chain.empty();
-      next_element_id_terminator = all_are_terminators;
-      next_id_invalid = all_are_not_found;
-      std::cout << "Same element chain: ";
-      print_container(same_element_chain);
-      current_message = same_element_chain.front();
-      std::cout << "Current message: " << current_message << std::endl;
-      current_chain.splice(std::end(current_chain), same_element_chain);
-      std::cout << "Current chain: ";
-      print_container(current_chain);
-      // We want a message with a next_id if it exists
-      messages_visited.at(current_id) = true;
-      std::cout << "next_element_already_visited: "
-                << next_element_already_visited << std::endl;
-      std::cout << "next_id_invalid: " << next_id_invalid << std::endl;
-      std::cout << "next_element_id_terminator: " << next_element_id_terminator
-                << std::endl;
-      if (!next_element_already_visited && !next_id_invalid &&
-          !next_element_id_terminator) {
-        if (auto it = messages_by_id.find(current_message.next_id());
-            it != std::end(messages_by_id)) {
-          current_message = it->second;
-        }
-      }
-    }
+    auto next_element_already_visited =
+        !alread_visited_next_elements_from_current_chain.empty();
 
     if (next_element_already_visited) {
-      // We need to find it in the organized list and add our current chain before it
-      if (auto it = std::ranges::find_if(
-              organized_list,
-              [&alread_visited_next_elements_from_current_chain](
-                  const auto& message) {
-                std::cout << "Searching for: " << message << std::endl;
-                std::cout << "In: ";
-                print_container(
-                    alread_visited_next_elements_from_current_chain);
-                return alread_visited_next_elements_from_current_chain.contains(
-                    message);
-              });
-          it != std::end(organized_list)) {
-        organized_list.splice(it, current_chain);
-        std::cout << "Adding before: " << *it << std::endl;
-        std::cout << "Organized list: ";
-        print_container(organized_list);
-      } else {
-        std::cout << "Did not find the element in the organized list"
-                  << std::endl;
-      }
+      organized_list.splice(std::begin(organized_list), current_chain);
     } else {
       // We need to add the current chain to the organized list
       organized_list.splice(std::end(organized_list), current_chain);
