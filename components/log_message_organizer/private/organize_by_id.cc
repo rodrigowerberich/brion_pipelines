@@ -46,8 +46,9 @@ namespace pipelines::log_message_organizer {
 struct NextIdInfo {
   bool invalid = false;
   bool terminator = false;
+  bool same_id = false;
 
-  bool valid_id() const { return !invalid && !terminator; }
+  bool valid_id() const { return !invalid && !terminator && !same_id; }
 };
 
 }  // namespace pipelines::log_message_organizer
@@ -64,8 +65,8 @@ std::list<PipelineLogMessage> GetNextElements(
     std::map<std::string, bool>& messages_visited,
     std::set<PipelineLogMessage>&
         alread_visited_next_elements_from_current_chain) {
-  std::cout << "\n\n<< GetNextElements Current message: " << current_message
-            << std::endl;
+  // std::cout << "\n\n<< GetNextElements Current message: " << current_message
+  // << std::endl;
 
   const auto& current_id = current_message.id();
   auto [first, end] = messages_by_id.equal_range(current_id);
@@ -76,9 +77,11 @@ std::list<PipelineLogMessage> GetNextElements(
   for (auto it = first; it != end; ++it) {
     const auto& next_id = it->second.next_id();
     auto next_id_info = NextIdInfo{};
-    std::cout << "Next ID: " << next_id << std::endl;
+    // std::cout << "Next ID: " << next_id << std::endl;
     if (kTerminator == next_id) {
       next_id_info.terminator = true;
+    } else if (next_id == current_id) {
+      next_id_info.same_id = true;
     } else if (!messages_by_id.contains(next_id)) {
       next_id_info.invalid = true;
     }
@@ -100,31 +103,38 @@ std::list<PipelineLogMessage> GetNextElements(
       }
     }
   }
-  std::cout << "Same element chain: ";
-  print_container(same_element_chain);
+  // std::cout << "Same element chain: ";
+  // // print_container(same_element_chain);
   current_chain.splice(std::end(current_chain), same_element_chain);
-  std::cout << "Current chain: ";
-  print_container(current_chain);
+  // std::cout << "Current chain: ";
+  // print_container(current_chain);
   // We want a message with a next_id if it exists
   messages_visited.at(current_id) = true;
-  std::cout << "Next IDs: ";
+  // std::cout << "Next IDs: ";
+  // for (const auto& [next_id, next_id_info] : next_ids) {
+  //   std::cout << next_id << " ";
+  // }
+  // std::cout << std::endl;
+  auto last_element_in_chain = std::prev(std::end(current_chain));
   for (const auto& [next_id, next_id_info] : next_ids) {
-    std::cout << next_id << " ";
-  }
-  std::cout << std::endl;
-  for (const auto& [next_id, next_id_info] : next_ids) {
-    auto last_element_in_chain = std::prev(std::end(current_chain));
+    if (messages_visited.at(next_id)) {
+      continue;
+    }
     if (auto it = messages_by_id.find(next_id);
         it != std::end(messages_by_id)) {
       auto next_elements =
           GetNextElements(it->second, messages_by_id, messages_visited,
                           alread_visited_next_elements_from_current_chain);
+      // std::cout << "Adding: ";
+      // print_container(next_elements);
       current_chain.splice(std::next(last_element_in_chain), next_elements);
+      // std::cout << "Current chain: ";
+      // print_container(current_chain);
     }
   }
 
-  std::cout << ">>>>>>>> GetNextElements Current message: " << current_message
-            << std::endl;
+  // std::cout << ">>>>>>>> GetNextElements Current message: " << current_message
+  //           << std::endl;
   return current_chain;
 }
 
@@ -173,9 +183,9 @@ PipelineLogMessages OrganizeById::Organize() const {
     } else {
       // We need to add the current chain to the organized list
       organized_list.splice(std::end(organized_list), current_chain);
-      std::cout << "Adding to the end" << std::endl;
-      std::cout << "Organized list: ";
-      print_container(organized_list);
+      // std::cout << "Adding to the end" << std::endl;
+      // std::cout << "Organized list: ";
+      // print_container(organized_list);
     }
   }
 
@@ -184,8 +194,8 @@ PipelineLogMessages OrganizeById::Organize() const {
   }
 
   // Print the organized messages for debugging
-  std::cout << "Organized messages: ";
-  print_container(organized_messages);
+  // std::cout << "Organized messages: ";
+  // print_container(organized_messages);
 
   return organized_messages;
 }

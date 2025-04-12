@@ -3,13 +3,16 @@
 #include <algorithm>
 #include "log_message_organizer/organize_by_id.h"
 
+using ::testing::Contains;
 using ::testing::Eq;
+using ::testing::SizeIs;
+using ::testing::UnorderedElementsAreArray;
 
-// static bool MessageLessThan(
-//     const pipelines::log_message_organizer::PipelineLogMessage& lhs,
-//     const pipelines::log_message_organizer::PipelineLogMessage& rhs) {
-//   return lhs.id() < rhs.id();
-// }
+static bool MessageLessThan(
+    const pipelines::log_message_organizer::PipelineLogMessage& lhs,
+    const pipelines::log_message_organizer::PipelineLogMessage& rhs) {
+  return lhs.id() < rhs.id();
+}
 
 static constexpr pipelines::log_message_organizer::PipelineLogMessage
 CreateMessageIndexNextIndex(const std::string& id, const std::string& next_id) {
@@ -366,134 +369,364 @@ TEST_F(OrganizeByIdTest, MultiplePointingToSameMessage2) {
                           }));
 }
 
-// TEST_F(OrganizeByIdTest, MultipleElementsWithSameId1) {
-//   using pipelines::log_message_organizer::OrganizeById;
-//   using pipelines::log_message_organizer::PipelineLogMessages;
+TEST_F(OrganizeByIdTest, MultipleElementsWithSameId1) {
+  using pipelines::log_message_organizer::OrganizeById;
+  using pipelines::log_message_organizer::PipelineLogMessages;
 
-//   auto input = PipelineLogMessages{
-//       CreateMessageIndexNextIndex("z", "a"),
-//       CreateMessageIndexNextIndex("a", "h"),
-//       CreateMessageIndexNextIndex("a", "t"),
-//       CreateMessageIndexNextIndex("a", "b"),
-//       CreateFinalMessage("h"),
-//       CreateFinalMessage("t"),
-//       CreateFinalMessage("b"),
-//   };
+  auto input = PipelineLogMessages{
+      CreateMessageIndexNextIndex("z", "a"),
+      CreateMessageIndexNextIndex("a", "h"),
+      CreateMessageIndexNextIndex("a", "t"),
+      CreateMessageIndexNextIndex("a", "b"),
+      CreateFinalMessage("h"),
+      CreateFinalMessage("t"),
+      CreateFinalMessage("b"),
+  };
 
-//   auto organizer = OrganizeById{input};
-//   auto result = organizer.Organize();
+  auto organizer = OrganizeById{input};
+  auto result = organizer.Organize();
 
-//   ASSERT_THAT(result, ElementsAreAfterAnyIn(
-//                           PipelineLogMessages{
-//                               CreateFinalMessage("t"),
-//                               CreateFinalMessage("h"),
-//                               CreateFinalMessage("b"),
-//                           },
-//                           PipelineLogMessages{
-//                               CreateMessageIndexNextIndex("a", "h"),
-//                               CreateMessageIndexNextIndex("a", "t"),
-//                               CreateMessageIndexNextIndex("a", "b"),
-//                               CreateMessageIndexNextIndex("z", "a"),
-//                           }));
-//   ASSERT_THAT(result, ElementsAreAfterAnyIn(
-//                           PipelineLogMessages{
-//                               CreateMessageIndexNextIndex("a", "h"),
-//                               CreateMessageIndexNextIndex("a", "t"),
-//                               CreateMessageIndexNextIndex("a", "b"),
-//                           },
-//                           PipelineLogMessages{
-//                               CreateMessageIndexNextIndex("z", "a"),
-//                           }));
-// }
+  ASSERT_THAT(result, ElementsAreAfterAnyIn(
+                          PipelineLogMessages{
+                              CreateFinalMessage("t"),
+                              CreateFinalMessage("h"),
+                              CreateFinalMessage("b"),
+                          },
+                          PipelineLogMessages{
+                              CreateMessageIndexNextIndex("a", "h"),
+                              CreateMessageIndexNextIndex("a", "t"),
+                              CreateMessageIndexNextIndex("a", "b"),
+                              CreateMessageIndexNextIndex("z", "a"),
+                          }));
+  ASSERT_THAT(result, ElementsAreAfterAnyIn(
+                          PipelineLogMessages{
+                              CreateMessageIndexNextIndex("a", "h"),
+                              CreateMessageIndexNextIndex("a", "t"),
+                              CreateMessageIndexNextIndex("a", "b"),
+                          },
+                          PipelineLogMessages{
+                              CreateMessageIndexNextIndex("z", "a"),
+                          }));
+}
 
-// TEST_F(OrganizeByIdTest, MultipleElementsWithSameId2) {
-//   using pipelines::log_message_organizer::OrganizeById;
-//   using pipelines::log_message_organizer::PipelineLogMessages;
+TEST_F(OrganizeByIdTest, MultipleElementsWithSameId2) {
+  using pipelines::log_message_organizer::OrganizeById;
+  using pipelines::log_message_organizer::PipelineLogMessages;
 
-//   auto input = PipelineLogMessages{
-//       CreateFinalMessage("c"),
-//       CreateFinalMessage("z"),
-//       CreateMessageIndexNextIndex("z", "c"),
-//   };
+  auto input = PipelineLogMessages{
+      CreateFinalMessage("c"),
+      CreateFinalMessage("z"),
+      CreateMessageIndexNextIndex("z", "c"),
+  };
 
-//   std::ranges::sort(input, MessageLessThan);
+  std::ranges::sort(input, MessageLessThan);
 
-//   do {
-//     auto organizer = OrganizeById{input};
-//     auto result = organizer.Organize();
+  do {
+    auto organizer = OrganizeById{input};
+    auto result = organizer.Organize();
 
-//     ASSERT_THAT(result, ElementsAreAfterAnyIn(
-//                             PipelineLogMessages{
-//                                 CreateFinalMessage("c"),
-//                             },
-//                             PipelineLogMessages{
-//                                 CreateFinalMessage("z"),
-//                                 CreateMessageIndexNextIndex("z", "c"),
-//                             }));
-//   } while (std::ranges::next_permutation(input, MessageLessThan).found);
-// }
+    ASSERT_THAT(result, ElementsAreAfterAnyIn(
+                            PipelineLogMessages{
+                                CreateFinalMessage("c"),
+                            },
+                            PipelineLogMessages{
+                                CreateFinalMessage("z"),
+                                CreateMessageIndexNextIndex("z", "c"),
+                            }));
+  } while (std::ranges::next_permutation(input, MessageLessThan).found);
+}
 
-// TEST_F(OrganizeByIdTest, MultipleElementsWithSameId3) {
-//   using pipelines::log_message_organizer::OrganizeById;
-//   using pipelines::log_message_organizer::PipelineLogMessages;
+TEST_F(OrganizeByIdTest, MultipleElementsWithSameId3) {
+  using pipelines::log_message_organizer::OrganizeById;
+  using pipelines::log_message_organizer::PipelineLogMessages;
 
-//   auto input = PipelineLogMessages{
-//       CreateMessageIndexNextIndex("1", "3"),
-//       CreateMessageIndexNextIndex("7", "3"),
-//       CreateMessageIndexNextIndex("3", "z"),
-//       CreateMessageIndexNextIndex("3", "kl"),
-//       CreateMessageIndexNextIndex("3", "m"),
-//       CreateMessageIndexNextIndex("z", "2"),
-//       CreateMessageIndexNextIndex("m", "j"),
-//       CreateFinalMessage("2"),
-//       CreateFinalMessage("kl"),
-//   };
+  auto input = PipelineLogMessages{
+      CreateMessageIndexNextIndex("7", "3"),
+      CreateMessageIndexNextIndex("3", "z"),
+      CreateMessageIndexNextIndex("3", "kl"),
+      CreateMessageIndexNextIndex("3", "m"),
+      CreateMessageIndexNextIndex("z", "2"),
+      CreateMessageIndexNextIndex("m", "j"),
+      CreateFinalMessage("2"),
+      CreateFinalMessage("kl"),
+  };
 
-//   std::ranges::sort(input, MessageLessThan);
+  std::ranges::sort(input, MessageLessThan);
 
-//   do {
-//     auto organizer = OrganizeById{input};
-//     auto result = organizer.Organize();
+  do {
+    auto organizer = OrganizeById{input};
+    auto result = organizer.Organize();
 
-//     ASSERT_THAT(result, ElementsAreAfterAnyIn(
-//                             PipelineLogMessages{
-//                                 CreateFinalMessage("2"),
-//                             },
-//                             PipelineLogMessages{
-//                                 CreateMessageIndexNextIndex("3", "kl"),
-//                                 CreateMessageIndexNextIndex("3", "m"),
-//                                 CreateMessageIndexNextIndex("3", "z"),
-//                                 CreateMessageIndexNextIndex("z", "2"),
-//                             }));
-//     ASSERT_THAT(result, ElementsAreAfterAnyIn(
-//                             PipelineLogMessages{
-//                                 CreateFinalMessage("kl"),
-//                             },
-//                             PipelineLogMessages{
-//                                 CreateMessageIndexNextIndex("3", "kl"),
-//                                 CreateMessageIndexNextIndex("3", "m"),
-//                                 CreateMessageIndexNextIndex("3", "z"),
-//                             }));
+    ASSERT_THAT(result, ElementsAreAfterAnyIn(
+                            PipelineLogMessages{
+                                CreateFinalMessage("2"),
+                            },
+                            PipelineLogMessages{
+                                CreateMessageIndexNextIndex("3", "kl"),
+                                CreateMessageIndexNextIndex("3", "m"),
+                                CreateMessageIndexNextIndex("3", "z"),
+                                CreateMessageIndexNextIndex("z", "2"),
+                            }));
+    ASSERT_THAT(result, ElementsAreAfterAnyIn(
+                            PipelineLogMessages{
+                                CreateFinalMessage("kl"),
+                            },
+                            PipelineLogMessages{
+                                CreateMessageIndexNextIndex("3", "kl"),
+                                CreateMessageIndexNextIndex("3", "m"),
+                                CreateMessageIndexNextIndex("3", "z"),
+                            }));
 
-//     ASSERT_THAT(result, ElementsAreAfterAnyIn(
-//                             PipelineLogMessages{
-//                                 CreateMessageIndexNextIndex("m", "j"),
-//                             },
-//                             PipelineLogMessages{
-//                                 CreateMessageIndexNextIndex("3", "kl"),
-//                                 CreateMessageIndexNextIndex("3", "m"),
-//                                 CreateMessageIndexNextIndex("3", "z"),
-//                             }));
-//     ASSERT_THAT(result, ElementsAreAfterAnyIn(
-//                             PipelineLogMessages{
-//                                 CreateMessageIndexNextIndex("3", "kl"),
-//                                 CreateMessageIndexNextIndex("3", "m"),
-//                                 CreateMessageIndexNextIndex("3", "z"),
-//                             },
-//                             PipelineLogMessages{
-//                                 CreateMessageIndexNextIndex("1", "3"),
-//                                 CreateMessageIndexNextIndex("7", "3"),
-//                             }));
+    ASSERT_THAT(result, ElementsAreAfterAnyIn(
+                            PipelineLogMessages{
+                                CreateMessageIndexNextIndex("m", "j"),
+                            },
+                            PipelineLogMessages{
+                                CreateMessageIndexNextIndex("3", "kl"),
+                                CreateMessageIndexNextIndex("3", "m"),
+                                CreateMessageIndexNextIndex("3", "z"),
+                            }));
+    ASSERT_THAT(result, ElementsAreAfterAnyIn(
+                            PipelineLogMessages{
+                                CreateMessageIndexNextIndex("3", "kl"),
+                                CreateMessageIndexNextIndex("3", "m"),
+                                CreateMessageIndexNextIndex("3", "z"),
+                            },
+                            PipelineLogMessages{
+                                CreateMessageIndexNextIndex("7", "3"),
+                            }));
 
-//   } while (std::ranges::next_permutation(input, MessageLessThan).found);
-// }
+  } while (std::ranges::next_permutation(input, MessageLessThan).found);
+}
+
+TEST_F(OrganizeByIdTest, SelfPointing) {
+  using pipelines::log_message_organizer::OrganizeById;
+  using pipelines::log_message_organizer::PipelineLogMessages;
+
+  auto input = PipelineLogMessages{
+      CreateMessageIndexNextIndex("4", "1"),
+      CreateMessageIndexNextIndex("1", "1"),
+      CreateMessageIndexNextIndex("2", "2"),
+      CreateFinalMessage("3"),
+  };
+
+  auto organizer = OrganizeById{input};
+  auto result = organizer.Organize();
+
+  ASSERT_THAT(result, ElementsAreAfterAnyIn(
+                          PipelineLogMessages{
+                              CreateMessageIndexNextIndex("1", "1"),
+                          },
+                          PipelineLogMessages{
+                              CreateMessageIndexNextIndex("4", "1"),
+                          }));
+
+  ASSERT_THAT(result, SizeIs(input.size()));
+  ASSERT_THAT(result, Contains(CreateMessageIndexNextIndex("1", "1")).Times(1));
+  ASSERT_THAT(result, Contains(CreateMessageIndexNextIndex("2", "2")).Times(1));
+}
+
+TEST_F(OrganizeByIdTest, MultipleSameIdPointingToSame) {
+  using pipelines::log_message_organizer::OrganizeById;
+  using pipelines::log_message_organizer::PipelineLogMessages;
+
+  auto input = PipelineLogMessages{
+      CreateMessageIndexNextIndex("k", "2"),
+      CreateMessageIndexNextIndex("k", "2"),
+      CreateMessageIndexNextIndex("k", "3"),
+      CreateFinalMessage("2"),
+      CreateFinalMessage("2"),
+      CreateMessageIndexNextIndex("3", "3"),
+      CreateMessageIndexNextIndex("3", "j"),
+      CreateMessageIndexNextIndex("j", "l"),
+      CreateMessageIndexNextIndex("j", "p"),
+
+  };
+
+  auto organizer = OrganizeById{input};
+  auto result = organizer.Organize();
+
+  ASSERT_THAT(result, SizeIs(input.size()));
+  ASSERT_THAT(result, UnorderedElementsAreArray(input));
+
+  ASSERT_THAT(result, ElementsAreAfterAnyIn(
+                          PipelineLogMessages{
+                              CreateFinalMessage("2"),
+                              CreateFinalMessage("2"),
+                          },
+                          PipelineLogMessages{
+                              CreateMessageIndexNextIndex("k", "2"),
+                              CreateMessageIndexNextIndex("k", "2"),
+                              CreateMessageIndexNextIndex("k", "3"),
+                          }));
+
+  ASSERT_THAT(result, ElementsAreAfterAnyIn(
+                          PipelineLogMessages{
+                              CreateMessageIndexNextIndex("3", "3"),
+                              CreateMessageIndexNextIndex("3", "j"),
+                          },
+                          PipelineLogMessages{
+                              CreateMessageIndexNextIndex("k", "2"),
+                              CreateMessageIndexNextIndex("k", "2"),
+                              CreateMessageIndexNextIndex("k", "3"),
+                          }));
+  ASSERT_THAT(result, ElementsAreAfterAnyIn(
+                          PipelineLogMessages{
+                              CreateMessageIndexNextIndex("j", "l"),
+                              CreateMessageIndexNextIndex("j", "p"),
+                          },
+                          PipelineLogMessages{
+                              CreateMessageIndexNextIndex("3", "3"),
+                              CreateMessageIndexNextIndex("3", "j"),
+                          }));
+}
+
+TEST_F(OrganizeByIdTest, MultipleBranchesOneTermination) {
+  using pipelines::log_message_organizer::OrganizeById;
+  using pipelines::log_message_organizer::PipelineLogMessages;
+
+  auto input = PipelineLogMessages{
+      CreateMessageIndexNextIndex("z", "1"),
+      CreateMessageIndexNextIndex("1", "j"),
+      CreateMessageIndexNextIndex("1", "casa"),
+      CreateMessageIndexNextIndex("1", "-"),
+      CreateMessageIndexNextIndex("j", "3l"),
+      CreateMessageIndexNextIndex("casa", "3l"),
+      CreateMessageIndexNextIndex("-", "3l"),
+      CreateFinalMessage("3l"),
+
+  };
+
+  auto organizer = OrganizeById{input};
+  auto result = organizer.Organize();
+
+  ASSERT_THAT(result, SizeIs(input.size()));
+  ASSERT_THAT(result, UnorderedElementsAreArray(input));
+
+  ASSERT_THAT(result, ElementsAreAfterAnyIn(
+                          PipelineLogMessages{
+                              CreateFinalMessage("3l"),
+                          },
+                          PipelineLogMessages{
+                              CreateMessageIndexNextIndex("j", "3l"),
+                              CreateMessageIndexNextIndex("casa", "3l"),
+                              CreateMessageIndexNextIndex("-", "3l"),
+                          }));
+
+  ASSERT_THAT(result, ElementsAreAfterAnyIn(
+                          PipelineLogMessages{
+                              CreateMessageIndexNextIndex("j", "3l"),
+                              CreateMessageIndexNextIndex("casa", "3l"),
+                              CreateMessageIndexNextIndex("-", "3l"),
+                          },
+                          PipelineLogMessages{
+                              CreateMessageIndexNextIndex("1", "j"),
+                              CreateMessageIndexNextIndex("1", "casa"),
+                              CreateMessageIndexNextIndex("1", "-"),
+                          }));
+
+  ASSERT_THAT(result, ElementsAreAfterAnyIn(
+                          PipelineLogMessages{
+                              CreateMessageIndexNextIndex("1", "j"),
+                              CreateMessageIndexNextIndex("1", "casa"),
+                              CreateMessageIndexNextIndex("1", "-"),
+                          },
+                          PipelineLogMessages{
+                              CreateMessageIndexNextIndex("z", "1"),
+                          }));
+}
+
+TEST_F(OrganizeByIdTest, TerminationAsId) {
+  using pipelines::log_message_organizer::OrganizeById;
+  using pipelines::log_message_organizer::PipelineLogMessages;
+
+  auto input = PipelineLogMessages{
+      CreateMessageIndexNextIndex("-1", "-1"),
+      CreateMessageIndexNextIndex("-1", "6"),
+      CreateMessageIndexNextIndex("6", "j"),
+      CreateMessageIndexNextIndex("j", "m"),
+      CreateMessageIndexNextIndex("j", "-1"),
+      CreateMessageIndexNextIndex("j", "k"),
+      CreateFinalMessage("m"),
+      CreateFinalMessage("m"),
+      CreateFinalMessage("m"),
+  };
+
+  auto organizer = OrganizeById{input};
+  auto result = organizer.Organize();
+
+  ASSERT_THAT(result, SizeIs(input.size()));
+  ASSERT_THAT(result, UnorderedElementsAreArray(input));
+
+  ASSERT_THAT(result, ElementsAreAfterAnyIn(
+                          PipelineLogMessages{
+                              CreateFinalMessage("m"),
+                              CreateFinalMessage("m"),
+                              CreateFinalMessage("m"),
+                          },
+                          PipelineLogMessages{
+                              CreateMessageIndexNextIndex("j", "m"),
+                              CreateMessageIndexNextIndex("j", "-1"),
+                              CreateMessageIndexNextIndex("j", "k"),
+                          }));
+
+  ASSERT_THAT(result, ElementsAreAfterAnyIn(
+                          PipelineLogMessages{
+                              CreateMessageIndexNextIndex("j", "m"),
+                              CreateMessageIndexNextIndex("j", "-1"),
+                              CreateMessageIndexNextIndex("j", "k"),
+                          },
+                          PipelineLogMessages{
+                              CreateMessageIndexNextIndex("6", "j"),
+                          }));
+  ASSERT_THAT(result, ElementsAreAfterAnyIn(
+                          PipelineLogMessages{
+                              CreateMessageIndexNextIndex("6", "j"),
+                          },
+                          PipelineLogMessages{
+                              CreateMessageIndexNextIndex("-1", "-1"),
+                              CreateMessageIndexNextIndex("-1", "6"),
+                          }));
+}
+
+TEST_F(OrganizeByIdTest, TerminationAsId2) {
+  using pipelines::log_message_organizer::OrganizeById;
+  using pipelines::log_message_organizer::PipelineLogMessages;
+
+  auto input = PipelineLogMessages{
+      CreateMessageIndexNextIndex("a", "b"),
+      CreateMessageIndexNextIndex("a", "d"),
+      CreateMessageIndexNextIndex("b", "d"),
+      CreateFinalMessage("d"),
+      CreateFinalMessage("-1"),
+  };
+
+  std::ranges::sort(input, MessageLessThan);
+
+  do {
+    auto organizer = OrganizeById{input};
+    auto result = organizer.Organize();
+
+    ASSERT_THAT(result, SizeIs(input.size()));
+    ASSERT_THAT(result, UnorderedElementsAreArray(input));
+
+    ASSERT_THAT(result, ElementsAreAfterAnyIn(
+                            PipelineLogMessages{
+                                CreateFinalMessage("d"),
+                            },
+                            PipelineLogMessages{
+                                CreateMessageIndexNextIndex("b", "d"),
+                                CreateMessageIndexNextIndex("a", "b"),
+                                CreateMessageIndexNextIndex("a", "d"),
+                            }));
+
+    ASSERT_THAT(result, ElementsAreAfterAnyIn(
+                            PipelineLogMessages{
+                                CreateMessageIndexNextIndex("b", "d"),
+                            },
+                            PipelineLogMessages{
+                                CreateMessageIndexNextIndex("a", "b"),
+                                CreateMessageIndexNextIndex("a", "d"),
+                            }));
+  } while (std::ranges::next_permutation(input, MessageLessThan).found);
+}
