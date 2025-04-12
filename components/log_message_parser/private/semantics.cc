@@ -30,7 +30,7 @@ ParseResult Parser::parse() {
 
       } catch (const BodyParserError& e) {
         std::stringstream error_message;
-        error_message << "Failed to parse body for log message : \""
+        error_message << "Failed to parse body for log message: \""
                       << structure_message << "\" with encoding \"" << encoding
                       << "\": " << e.what();
         errors.emplace_back(error_message.str());
@@ -38,7 +38,7 @@ ParseResult Parser::parse() {
     } else {
       std::stringstream error_message;
       error_message << "Encoding \"" << encoding
-                    << "\" is not supported for log message : \""
+                    << "\" is not supported for log message: \""
                     << structure_message << "\"";
       errors.emplace_back(error_message.str());
     }
