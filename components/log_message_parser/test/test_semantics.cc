@@ -72,7 +72,7 @@ TEST_F(SemanticsParserTest, BodyParserThrowsError) {
   ASSERT_THAT(parse_result.messages().size(), Eq(0));
   ASSERT_THAT(parse_result.errors().size(), Eq(1));
   ASSERT_THAT(parse_result.errors()[0].message(),
-              HasSubstr("Failed to Parse body for log message"));
+              HasSubstr("Failed to parse body for log message"));
 }
 
 TEST_F(SemanticsParserTest, BodyParserWorksCorrectly) {

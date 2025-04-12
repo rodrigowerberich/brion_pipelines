@@ -23,7 +23,7 @@ class LogMessage {
   const std::string& id() const { return id_; }
   const std::string& body() const { return body_; }
   const std::string& next_id() const { return next_id_; }
-  const std::string& get_encoding() const { return encoding_; }
+  const std::string& encoding() const { return encoding_; }
 
   bool operator==(const LogMessage& other) const {
     return pipeline_id_ == other.pipeline_id_ && id_ == other.id_ &&
