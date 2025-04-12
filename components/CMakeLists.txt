@@ -3,3 +3,4 @@ include(GoogleTest)
 
 add_subdirectory(log_message)
 add_subdirectory(log_message_parser)
+add_subdirectory(log_message_organizer)
