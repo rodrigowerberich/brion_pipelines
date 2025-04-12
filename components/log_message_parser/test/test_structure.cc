@@ -45,7 +45,7 @@ TEST_F(LogMessageParserTest, MissingId) {
   ASSERT_THAT(parse_result.errors().size(), Eq(1));
   ASSERT_THAT(parse_result.errors()[0].message(),
               HasSubstr("File ended while parsing"));
-  ASSERT_THAT(parse_result.errors()[0].get_line_number(), Eq(1));
+  ASSERT_THAT(parse_result.errors()[0].line_number(), Eq(1));
   ASSERT_THAT(result.size(), Eq(0));
 }
 
@@ -61,7 +61,7 @@ TEST_F(LogMessageParserTest, MissingEncoding) {
   ASSERT_THAT(parse_result.errors().size(), Eq(1));
   ASSERT_THAT(parse_result.errors()[0].message(),
               HasSubstr("File ended while parsing"));
-  ASSERT_THAT(parse_result.errors()[0].get_line_number(), Eq(1));
+  ASSERT_THAT(parse_result.errors()[0].line_number(), Eq(1));
   ASSERT_THAT(result.size(), Eq(0));
 }
 
@@ -77,7 +77,7 @@ TEST_F(LogMessageParserTest, MissingBody) {
   ASSERT_THAT(parse_result.errors().size(), Eq(1));
   ASSERT_THAT(parse_result.errors()[0].message(),
               HasSubstr("File ended while parsing"));
-  ASSERT_THAT(parse_result.errors()[0].get_line_number(), Eq(1));
+  ASSERT_THAT(parse_result.errors()[0].line_number(), Eq(1));
   ASSERT_THAT(result.size(), Eq(0));
 }
 
@@ -94,13 +94,13 @@ TEST_F(LogMessageParserTest, MissingBodyNoBracket) {
 
   ASSERT_THAT(parse_result.errors()[0].message(),
               HasSubstr("Expected an opening bracket"));
-  ASSERT_THAT(parse_result.errors()[0].get_line_number(), Eq(1));
+  ASSERT_THAT(parse_result.errors()[0].line_number(), Eq(1));
 
   std::cout << parse_result.errors()[1].message() << std::endl;
 
   ASSERT_THAT(parse_result.errors()[1].message(),
               HasSubstr("There is unparsed data in line "));
-  ASSERT_THAT(parse_result.errors()[1].get_line_number(), Eq(1));
+  ASSERT_THAT(parse_result.errors()[1].line_number(), Eq(1));
 
   ASSERT_THAT(result.size(), Eq(0));
 }
@@ -117,7 +117,7 @@ TEST_F(LogMessageParserTest, MissingBodyTwoManyOpeningBrackets) {
   ASSERT_THAT(parse_result.errors().size(), Eq(1));
   ASSERT_THAT(parse_result.errors()[0].message(),
               HasSubstr("Expected a closing bracket"));
-  ASSERT_THAT(parse_result.errors()[0].get_line_number(), Eq(1));
+  ASSERT_THAT(parse_result.errors()[0].line_number(), Eq(1));
   ASSERT_THAT(result.size(), Eq(0));
 }
 
@@ -161,7 +161,7 @@ TEST_F(LogMessageParserTest, MissingNextId) {
   ASSERT_THAT(parse_result.errors().size(), Eq(1));
   ASSERT_THAT(parse_result.errors()[0].message(),
               HasSubstr("File ended while parsing"));
-  ASSERT_THAT(parse_result.errors()[0].get_line_number(), Eq(1));
+  ASSERT_THAT(parse_result.errors()[0].line_number(), Eq(1));
   ASSERT_THAT(result.size(), Eq(0));
 }
 
@@ -641,7 +641,7 @@ legacy-hex legacy-1 1 [566976616d75732072757472756d2069642065726174206e656320766
   ASSERT_THAT(
       parse_result.errors()[0].message(),
       HasSubstr("File ended while parsing: Expected a closing bracket"));
-  ASSERT_THAT(parse_result.errors()[0].get_line_number(), Eq(8));
+  ASSERT_THAT(parse_result.errors()[0].line_number(), Eq(8));
 
   // Check for messages
   for (size_t i = 0; i < expected_result.size(); ++i) {
@@ -706,7 +706,7 @@ legacy-hex legacy-1 1
   ASSERT_THAT(
       parse_result.errors()[0].message(),
       HasSubstr("File ended while parsing: Expected a closing bracket"));
-  ASSERT_THAT(parse_result.errors()[0].get_line_number(), Eq(13));
+  ASSERT_THAT(parse_result.errors()[0].line_number(), Eq(13));
 
   // Check for messages
   for (size_t i = 0; i < expected_result.size(); ++i) {
