@@ -14,7 +14,7 @@ TEST_F(LogMessageParserTest, EmptyInput) {
 
   std::istringstream input("");
   auto parser = Parser{input};
-  auto parse_result = parser.parse();
+  auto parse_result = parser.Parse();
   auto result = parse_result.get_messages();
 
   ASSERT_THAT(parse_result.has_errors(), Eq(false));
@@ -26,7 +26,7 @@ TEST_F(LogMessageParserTest, WhitespaceOnly) {
 
   std::istringstream input("   \n");
   auto parser = Parser{input};
-  auto parse_result = parser.parse();
+  auto parse_result = parser.Parse();
   auto result = parse_result.get_messages();
 
   ASSERT_THAT(parse_result.has_errors(), Eq(false));
@@ -38,7 +38,7 @@ TEST_F(LogMessageParserTest, MissingId) {
 
   std::istringstream input("This \n");
   auto parser = Parser{input};
-  auto parse_result = parser.parse();
+  auto parse_result = parser.Parse();
   auto result = parse_result.get_messages();
 
   ASSERT_THAT(parse_result.has_errors(), Eq(true));
@@ -54,7 +54,7 @@ TEST_F(LogMessageParserTest, MissingEncoding) {
 
   std::istringstream input("This is \n");
   auto parser = Parser{input};
-  auto parse_result = parser.parse();
+  auto parse_result = parser.Parse();
   auto result = parse_result.get_messages();
 
   ASSERT_THAT(parse_result.has_errors(), Eq(true));
@@ -70,7 +70,7 @@ TEST_F(LogMessageParserTest, MissingBody) {
 
   std::istringstream input("This is a \n");
   auto parser = Parser{input};
-  auto parse_result = parser.parse();
+  auto parse_result = parser.Parse();
   auto result = parse_result.get_messages();
 
   ASSERT_THAT(parse_result.has_errors(), Eq(true));
@@ -86,7 +86,7 @@ TEST_F(LogMessageParserTest, MissingBodyNoBracket) {
 
   std::istringstream input("This is a test\n");
   auto parser = Parser{input};
-  auto parse_result = parser.parse();
+  auto parse_result = parser.Parse();
   auto result = parse_result.get_messages();
 
   ASSERT_THAT(parse_result.has_errors(), Eq(true));
@@ -110,7 +110,7 @@ TEST_F(LogMessageParserTest, MissingBodyTwoManyOpeningBrackets) {
 
   std::istringstream input("This is a [tes[t] [test]\n");
   auto parser = Parser{input};
-  auto parse_result = parser.parse();
+  auto parse_result = parser.Parse();
   auto result = parse_result.get_messages();
 
   ASSERT_THAT(parse_result.has_errors(), Eq(true));
@@ -127,7 +127,7 @@ TEST_F(LogMessageParserTest, MissingBodyNonNestedBrackets1) {
 
   std::istringstream input("This is a [test] [test]\n");
   auto parser = Parser{input};
-  auto parse_result = parser.parse();
+  auto parse_result = parser.Parse();
   auto result = parse_result.get_messages();
 
   ASSERT_THAT(parse_result.has_errors(), Eq(false));
@@ -140,7 +140,7 @@ TEST_F(LogMessageParserTest, MissingBodyNonNestedBrackets2) {
 
   std::istringstream input("This is a [test] [test] [test]\n");
   auto parser = Parser{input};
-  auto parse_result = parser.parse();
+  auto parse_result = parser.Parse();
   auto result = parse_result.get_messages();
 
   ASSERT_THAT(parse_result.has_errors(), Eq(true));
@@ -154,7 +154,7 @@ TEST_F(LogMessageParserTest, MissingNextId) {
 
   std::istringstream input("This is a [test]\n");
   auto parser = Parser{input};
-  auto parse_result = parser.parse();
+  auto parse_result = parser.Parse();
   auto result = parse_result.get_messages();
 
   ASSERT_THAT(parse_result.has_errors(), Eq(true));
@@ -171,7 +171,7 @@ TEST_F(LogMessageParserTest, SingleLineInput) {
 
   std::istringstream input("1 2 3 [4F4B] -1");
   auto parser = Parser{input};
-  auto parse_result = parser.parse();
+  auto parse_result = parser.Parse();
   auto result = parse_result.get_messages();
 
   ASSERT_THAT(parse_result.has_errors(), Eq(false));
@@ -185,7 +185,7 @@ TEST_F(LogMessageParserTest, SingleLineInputWithTabs) {
 
   std::istringstream input("1\t2\t3\t[4F4B]\t-1\n");
   auto parser = Parser{input};
-  auto parse_result = parser.parse();
+  auto parse_result = parser.Parse();
   auto result = parse_result.get_messages();
 
   ASSERT_THAT(parse_result.has_errors(), Eq(false));
@@ -199,7 +199,7 @@ TEST_F(LogMessageParserTest, SingleLineInputWithMultipleSpaces) {
 
   std::istringstream input("1    2    3    [4F4B]    -1\n");
   auto parser = Parser{input};
-  auto parse_result = parser.parse();
+  auto parse_result = parser.Parse();
   auto result = parse_result.get_messages();
 
   ASSERT_THAT(parse_result.has_errors(), Eq(false));
@@ -213,7 +213,7 @@ TEST_F(LogMessageParserTest, SingleLineInputWithMixedSpacesAndTabs) {
 
   std::istringstream input("1\t2    3\t[4F4B] -1\n");
   auto parser = Parser{input};
-  auto parse_result = parser.parse();
+  auto parse_result = parser.Parse();
   auto result = parse_result.get_messages();
 
   ASSERT_THAT(parse_result.has_errors(), Eq(false));
@@ -227,7 +227,7 @@ TEST_F(LogMessageParserTest, SingleLineInputWithTrailingSpaces) {
 
   std::istringstream input("1 2 3 [4F4B] -1   \n");
   auto parser = Parser{input};
-  auto parse_result = parser.parse();
+  auto parse_result = parser.Parse();
   auto result = parse_result.get_messages();
 
   ASSERT_THAT(parse_result.has_errors(), Eq(false));
@@ -242,7 +242,7 @@ TEST_F(LogMessageParserTest, SingleLineInputWithLeadingSpaces) {
 
   std::istringstream input("   1 2 3 [4F4B] -1\n");
   auto parser = Parser{input};
-  auto parse_result = parser.parse();
+  auto parse_result = parser.Parse();
   auto result = parse_result.get_messages();
 
   ASSERT_THAT(parse_result.has_errors(), Eq(false));
@@ -256,7 +256,7 @@ TEST_F(LogMessageParserTest, SingleLineInputWithMultipleNewlines) {
 
   std::istringstream input("1 2 3 [4F4B] -1\n\n");
   auto parser = Parser{input};
-  auto parse_result = parser.parse();
+  auto parse_result = parser.Parse();
   auto result = parse_result.get_messages();
 
   ASSERT_THAT(parse_result.has_errors(), Eq(false));
@@ -270,7 +270,7 @@ TEST_F(LogMessageParserTest, SingleLineInputWithCarriageReturn) {
 
   std::istringstream input("1 2 3 [4F4B] -1\r");
   auto parser = Parser{input};
-  auto parse_result = parser.parse();
+  auto parse_result = parser.Parse();
   auto result = parse_result.get_messages();
 
   ASSERT_THAT(parse_result.has_errors(), Eq(false));
@@ -284,7 +284,7 @@ TEST_F(LogMessageParserTest, SingleLineInputWithCarriageReturnAndNewline) {
 
   std::istringstream input("1 2 3 [4F4B] -1\r\n");
   auto parser = Parser{input};
-  auto parse_result = parser.parse();
+  auto parse_result = parser.Parse();
   auto result = parse_result.get_messages();
 
   ASSERT_THAT(parse_result.has_errors(), Eq(false));
@@ -298,7 +298,7 @@ TEST_F(LogMessageParserTest, SingleLineInputWithMultipleCarriageReturns) {
 
   std::istringstream input("1 2 3 [4F4B] -1\r\r");
   auto parser = Parser{input};
-  auto parse_result = parser.parse();
+  auto parse_result = parser.Parse();
   auto result = parse_result.get_messages();
 
   ASSERT_THAT(parse_result.has_errors(), Eq(false));
@@ -312,7 +312,7 @@ TEST_F(LogMessageParserTest, SingleLineInputWithCarriageReturnAndSpaces) {
 
   std::istringstream input("1 2 3 [4F4B] -1\r   ");
   auto parser = Parser{input};
-  auto parse_result = parser.parse();
+  auto parse_result = parser.Parse();
   auto result = parse_result.get_messages();
 
   ASSERT_THAT(parse_result.has_errors(), Eq(false));
@@ -326,7 +326,7 @@ TEST_F(LogMessageParserTest, SingleLineInputWithCarriageReturnAndTabs) {
 
   std::istringstream input("1 2 3 [4F4B] -1\r\t");
   auto parser = Parser{input};
-  auto parse_result = parser.parse();
+  auto parse_result = parser.Parse();
   auto result = parse_result.get_messages();
 
   ASSERT_THAT(parse_result.has_errors(), Eq(false));
@@ -340,7 +340,7 @@ TEST_F(LogMessageParserTest, SingleLineInputWithBodyWithSpaces) {
 
   std::istringstream input("1 2 3 [a test message] -1\n");
   auto parser = Parser{input};
-  auto parse_result = parser.parse();
+  auto parse_result = parser.Parse();
   auto result = parse_result.get_messages();
 
   ASSERT_THAT(parse_result.has_errors(), Eq(false));
@@ -354,7 +354,7 @@ TEST_F(LogMessageParserTest, SingleLineInputWithBodyWithTabs) {
 
   std::istringstream input("1 2 3 [a\ttest\tmessage] -1\n");
   auto parser = Parser{input};
-  auto parse_result = parser.parse();
+  auto parse_result = parser.Parse();
   auto result = parse_result.get_messages();
 
   ASSERT_THAT(parse_result.has_errors(), Eq(false));
@@ -369,7 +369,7 @@ TEST_F(LogMessageParserTest, SingleLineInputWithBodyWithNewlines) {
 
   std::istringstream input("1 2 3 [a\ntest\nmessage] -1\n");
   auto parser = Parser{input};
-  auto parse_result = parser.parse();
+  auto parse_result = parser.Parse();
   auto result = parse_result.get_messages();
 
   ASSERT_THAT(parse_result.has_errors(), Eq(false));
@@ -384,7 +384,7 @@ TEST_F(LogMessageParserTest, SingleLineInputWithBodyWithCarriageReturns) {
 
   std::istringstream input("1 2 3 [a\ntest\rmessage] -1\n");
   auto parser = Parser{input};
-  auto parse_result = parser.parse();
+  auto parse_result = parser.Parse();
   auto result = parse_result.get_messages();
 
   ASSERT_THAT(parse_result.has_errors(), Eq(false));
@@ -399,7 +399,7 @@ TEST_F(LogMessageParserTest, SingleLineInputWithBodyWithMixedSpacesAndTabs) {
 
   std::istringstream input("1 2 3 [a test\tmessage] -1\n");
   auto parser = Parser{input};
-  auto parse_result = parser.parse();
+  auto parse_result = parser.Parse();
   auto result = parse_result.get_messages();
 
   ASSERT_THAT(parse_result.has_errors(), Eq(false));
@@ -415,7 +415,7 @@ TEST_F(LogMessageParserTest,
 
   std::istringstream input("1 2 3 [a test\nmessage] -1\n");
   auto parser = Parser{input};
-  auto parse_result = parser.parse();
+  auto parse_result = parser.Parse();
   auto result = parse_result.get_messages();
 
   ASSERT_THAT(parse_result.has_errors(), Eq(false));
@@ -430,7 +430,7 @@ TEST_F(LogMessageParserTest, SingleLineInputWithBodyWithMultipleBrackets) {
 
   std::istringstream input("1 2 3 [a test [message]] -1\n");
   auto parser = Parser{input};
-  auto parse_result = parser.parse();
+  auto parse_result = parser.Parse();
   auto result = parse_result.get_messages();
 
   ASSERT_THAT(parse_result.has_errors(), Eq(false));
@@ -446,7 +446,7 @@ TEST_F(LogMessageParserTest,
 
   std::istringstream input("1 2 3 [a test\n[message]] -1\n");
   auto parser = Parser{input};
-  auto parse_result = parser.parse();
+  auto parse_result = parser.Parse();
   auto result = parse_result.get_messages();
 
   ASSERT_THAT(parse_result.has_errors(), Eq(false));
@@ -467,7 +467,7 @@ TEST_F(LogMessageParserTest, MultipleLinesInput) {
       "1 2 1 [626F6479] -1\n");
 
   auto parser = Parser{input};
-  auto parse_result = parser.parse();
+  auto parse_result = parser.Parse();
   auto result = parse_result.get_messages();
 
   ASSERT_THAT(parse_result.has_errors(), Eq(false));
@@ -521,7 +521,7 @@ TEST_F(LogMessageParserTest, ActualLog1WithoutBreaklines) {
 legacy-hex 1 1 [566976616d75732072757472756d2069642065726174206e6563207665686963756c612e20446f6e6563206672696e67696c6c61206c6163696e696120656c656966656e642e] 2)");
 
   auto parser = Parser{input};
-  auto parse_result = parser.parse();
+  auto parse_result = parser.Parse();
   auto result = parse_result.get_messages();
 
   ASSERT_THAT(parse_result.has_errors(), Eq(false));
@@ -577,7 +577,7 @@ legacy-hex 1 1
 642e] 2)");
 
   auto parser = Parser{input};
-  auto parse_result = parser.parse();
+  auto parse_result = parser.Parse();
   auto result = parse_result.get_messages();
 
   ASSERT_THAT(parse_result.has_errors(), Eq(false));
@@ -630,7 +630,7 @@ legacy-hex legacy-1 1 [566976616d75732072757472756d2069642065726174206e656320766
 111 99 0 [......)");
 
   auto parser = Parser{input};
-  auto parse_result = parser.parse();
+  auto parse_result = parser.Parse();
   auto result = parse_result.get_messages();
 
   ASSERT_THAT(parse_result.has_errors(), Eq(true));
@@ -695,7 +695,7 @@ legacy-hex legacy-1 1
 642e] legacy-2
 111 99 0 [......)");
   auto parser = Parser{input};
-  auto parse_result = parser.parse();
+  auto parse_result = parser.Parse();
   auto result = parse_result.get_messages();
 
   ASSERT_THAT(parse_result.has_errors(), Eq(true));
@@ -755,7 +755,7 @@ TEST_F(LogMessageParserTest, ActualLog3WithoutBreaklines) {
 legacy-hex 1 1 [566976616d75732072757472756d2069642065726174206e6563207665686963756c612e20446f6e6563206672696e67696c6c61206c6163696e696120656c656966656e642e] 2 )");
 
   auto parser = Parser{input};
-  auto parse_result = parser.parse();
+  auto parse_result = parser.Parse();
   auto result = parse_result.get_messages();
 
   ASSERT_THAT(parse_result.has_errors(), Eq(false));
@@ -813,7 +813,7 @@ legacy-hex 1 1
 642e] 2 )");
 
   auto parser = Parser{input};
-  auto parse_result = parser.parse();
+  auto parse_result = parser.Parse();
   auto result = parse_result.get_messages();
 
   ASSERT_THAT(parse_result.has_errors(), Eq(false));

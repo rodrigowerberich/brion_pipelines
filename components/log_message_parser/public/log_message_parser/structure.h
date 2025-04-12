@@ -82,7 +82,7 @@ class Parser {
  public:
   explicit Parser(std::istream& input_stream) : input_stream_(input_stream) {}
 
-  ParseResult parse();
+  ParseResult Parse();
 
  private:
   std::istream& input_stream_;

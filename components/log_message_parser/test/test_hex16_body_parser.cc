@@ -12,28 +12,28 @@ class Hex16BodyParserTest : public ::testing::Test {
 TEST_F(Hex16BodyParserTest, EmptyString) {
   std::string input = "";
   std::string expected_output = "";
-  ASSERT_THAT(parser.parse(input), Eq(expected_output));
+  ASSERT_THAT(parser.Parse(input), Eq(expected_output));
 }
 
 TEST_F(Hex16BodyParserTest, ValidHexadecimalString) {
   std::string input = "626F6479";
   std::string expected_output = "body";
 
-  ASSERT_THAT(parser.parse(input), Eq(expected_output));
+  ASSERT_THAT(parser.Parse(input), Eq(expected_output));
 }
 
 TEST_F(Hex16BodyParserTest, ValidHexadecimalStringWithSpaces) {
   std::string input = "4F 4B";
   std::string expected_output = "OK";
 
-  ASSERT_THAT(parser.parse(input), Eq(expected_output));
+  ASSERT_THAT(parser.Parse(input), Eq(expected_output));
 }
 
 TEST_F(Hex16BodyParserTest, ValidHexadecimalStringWithNewlines) {
   std::string input = "4f\n4B";
   std::string expected_output = "OK";
 
-  ASSERT_THAT(parser.parse(input), Eq(expected_output));
+  ASSERT_THAT(parser.Parse(input), Eq(expected_output));
 }
 
 TEST_F(Hex16BodyParserTest, BigText) {
@@ -43,17 +43,17 @@ TEST_F(Hex16BodyParserTest, BigText) {
   std::string expected_output =
       "Vivamus rutrum id erat nec vehicula. Donec fringilla lacinia eleifend.";
 
-  ASSERT_THAT(parser.parse(input), Eq(expected_output));
+  ASSERT_THAT(parser.Parse(input), Eq(expected_output));
 }
 
 TEST_F(Hex16BodyParserTest, OddLengthHexadecimalString) {
   std::string input = "4F4B1";
-  ASSERT_THROW(parser.parse(input),
+  ASSERT_THROW(parser.Parse(input),
                pipelines::log_message_parser::semantics::BodyParserError);
 }
 
 TEST_F(Hex16BodyParserTest, NonHexadecimalCharacters) {
   std::string input = "4G4B";
-  ASSERT_THROW(parser.parse(input),
+  ASSERT_THROW(parser.Parse(input),
                pipelines::log_message_parser::semantics::BodyParserError);
 }

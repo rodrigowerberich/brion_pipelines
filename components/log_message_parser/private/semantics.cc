@@ -12,7 +12,7 @@ void Parser::register_body_parser(const std::string& encoding,
   body_parsers_[encoding] = std::move(body_parser);
 }
 
-ParseResult Parser::parse() {
+ParseResult Parser::Parse() {
   auto parsed_messages = LogMessages{};
   auto errors = ParseErrors{};
 
@@ -25,12 +25,12 @@ ParseResult Parser::parse() {
 
     if (auto it = body_parsers_.find(encoding); it != body_parsers_.end()) {
       try {
-        body = it->second->parse(body);
+        body = it->second->Parse(body);
         parsed_messages.emplace_back(pipeline_id, id, body, next_id);
 
       } catch (const BodyParserError& e) {
         std::stringstream error_message;
-        error_message << "Failed to parse body for log message: \""
+        error_message << "Failed to Parse body for log message: \""
                       << structure_message << "\" with encoding \"" << encoding
                       << "\": " << e.what();
         errors.emplace_back(error_message.str());

@@ -191,7 +191,7 @@ static std::string trim(const std::string& str) {
   return trimmed_str;
 }
 
-ParseResult Parser::parse() {
+ParseResult Parser::Parse() {
   auto raw_messages = LogMessages{};
   auto errors = ParseErrors{};
 

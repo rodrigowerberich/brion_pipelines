@@ -50,7 +50,7 @@ class BodyParserError : public std::runtime_error {
 class BodyParser {
  public:
   virtual ~BodyParser() = default;
-  virtual std::string parse(const std::string& body) const = 0;
+  virtual std::string Parse(const std::string& body) const = 0;
 };
 
 class Parser {
@@ -61,7 +61,7 @@ class Parser {
   void register_body_parser(const std::string& encoding,
                             std::unique_ptr<BodyParser> body_parser);
 
-  ParseResult parse();
+  ParseResult Parse();
 
  private:
   structure::LogMessages structure_log_messages_;

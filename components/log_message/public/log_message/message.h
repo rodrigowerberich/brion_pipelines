@@ -1,5 +1,5 @@
-/** @file message.h
- * 
+/** 
+ * @file message.h
  * Description: This file defines the basic Message class, which represents a log message
  * in a pipeline. And will be reused in the application. Other components should use this 
  * common reprentation of a log message.

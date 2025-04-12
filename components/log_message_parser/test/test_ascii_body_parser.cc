@@ -12,29 +12,29 @@ class AsciiBodyParserTest : public ::testing::Test {
 TEST_F(AsciiBodyParserTest, EmptyString) {
   std::string input = "";
   std::string expected_output = "";
-  ASSERT_THAT(parser.parse(input), Eq(expected_output));
+  ASSERT_THAT(parser.Parse(input), Eq(expected_output));
 }
 
 TEST_F(AsciiBodyParserTest, ValidAsciiString) {
   std::string input = "Hello, World!";
   std::string expected_output = "Hello, World!";
-  ASSERT_THAT(parser.parse(input), Eq(expected_output));
+  ASSERT_THAT(parser.Parse(input), Eq(expected_output));
 }
 
 TEST_F(AsciiBodyParserTest, StringWithSpaces) {
   std::string input = "Hello,   World!";
   std::string expected_output = "Hello,   World!";
-  ASSERT_THAT(parser.parse(input), Eq(expected_output));
+  ASSERT_THAT(parser.Parse(input), Eq(expected_output));
 }
 
 TEST_F(AsciiBodyParserTest, StringWithNewlines) {
   std::string input = "Hello,\nWorld!";
   std::string expected_output = "Hello,\nWorld!";
-  ASSERT_THAT(parser.parse(input), Eq(expected_output));
+  ASSERT_THAT(parser.Parse(input), Eq(expected_output));
 }
 
 TEST_F(AsciiBodyParserTest, StringWithTabs) {
   std::string input = "Hello,\tWorld!";
   std::string expected_output = "Hello,\tWorld!";
-  ASSERT_THAT(parser.parse(input), Eq(expected_output));
+  ASSERT_THAT(parser.Parse(input), Eq(expected_output));
 }

@@ -9,7 +9,7 @@ namespace pipelines::log_message_parser::semantics::test {
 
 class MockBodyParser : public BodyParser {
  public:
-  MOCK_METHOD(std::string, parse, (const std::string&), (const override));
+  MOCK_METHOD(std::string, Parse, (const std::string&), (const override));
 };
 
 }  // namespace pipelines::log_message_parser::semantics::test
@@ -25,7 +25,7 @@ TEST_F(SemanticsParserTest, EmptyInput) {
   auto input = LogMessages{};
 
   auto parser = Parser{input};
-  auto parse_result = parser.parse();
+  auto parse_result = parser.Parse();
 
   ASSERT_THAT(parse_result.has_errors(), Eq(false));
   ASSERT_THAT(parse_result.get_messages().size(), Eq(0));
@@ -40,7 +40,7 @@ TEST_F(SemanticsParserTest, NoBodyParserRegistered) {
   auto input = StructureLogMessages{{"1", "2", "3", "4F4B", "-1"}};
 
   auto parser = Parser{input};
-  auto parse_result = parser.parse();
+  auto parse_result = parser.Parse();
 
   ASSERT_THAT(parse_result.has_errors(), Eq(true));
   ASSERT_THAT(parse_result.get_messages().size(), Eq(0));
@@ -61,18 +61,18 @@ TEST_F(SemanticsParserTest, BodyParserThrowsError) {
   auto mock_body_parser = std::make_unique<MockBodyParser>();
   auto* mock_body_parser_ptr = mock_body_parser.get();
 
-  EXPECT_CALL(*mock_body_parser_ptr, parse("4F4B"))
+  EXPECT_CALL(*mock_body_parser_ptr, Parse("4F4B"))
       .WillOnce(testing::Throw(BodyParserError("Parsing error")));
 
   auto parser = Parser{input};
   parser.register_body_parser("3", std::move(mock_body_parser));
-  auto parse_result = parser.parse();
+  auto parse_result = parser.Parse();
 
   ASSERT_THAT(parse_result.has_errors(), Eq(true));
   ASSERT_THAT(parse_result.get_messages().size(), Eq(0));
   ASSERT_THAT(parse_result.get_errors().size(), Eq(1));
   ASSERT_THAT(parse_result.get_errors()[0].get_message(),
-              HasSubstr("Failed to parse body for log message"));
+              HasSubstr("Failed to Parse body for log message"));
 }
 
 TEST_F(SemanticsParserTest, BodyParserWorksCorrectly) {
@@ -89,12 +89,12 @@ TEST_F(SemanticsParserTest, BodyParserWorksCorrectly) {
   auto mock_body_parser = std::make_unique<MockBodyParser>();
   auto* mock_body_parser_ptr = mock_body_parser.get();
 
-  EXPECT_CALL(*mock_body_parser_ptr, parse("4F4B"))
+  EXPECT_CALL(*mock_body_parser_ptr, Parse("4F4B"))
       .WillOnce(testing::Return("Parsed body"));
 
   auto parser = Parser{input};
   parser.register_body_parser("3", std::move(mock_body_parser));
-  auto parse_result = parser.parse();
+  auto parse_result = parser.Parse();
 
   ASSERT_THAT(parse_result.has_errors(), Eq(false));
   ASSERT_THAT(parse_result.get_messages().size(), Eq(1));
@@ -121,14 +121,14 @@ TEST_F(SemanticsParserTest, MultipleMessages) {
   auto mock_body_parser = std::make_unique<MockBodyParser>();
   auto* mock_body_parser_ptr = mock_body_parser.get();
 
-  EXPECT_CALL(*mock_body_parser_ptr, parse("4F4B"))
+  EXPECT_CALL(*mock_body_parser_ptr, Parse("4F4B"))
       .WillOnce(testing::Return("Parsed body 1"));
-  EXPECT_CALL(*mock_body_parser_ptr, parse("8F8B"))
+  EXPECT_CALL(*mock_body_parser_ptr, Parse("8F8B"))
       .WillOnce(testing::Return("Parsed body 2"));
 
   auto parser = Parser{input};
   parser.register_body_parser("3", std::move(mock_body_parser));
-  auto parse_result = parser.parse();
+  auto parse_result = parser.Parse();
 
   ASSERT_THAT(parse_result.has_errors(), Eq(false));
   ASSERT_THAT(parse_result.get_messages().size(), Eq(2));
@@ -156,13 +156,13 @@ TEST_F(SemanticsParserTest, MultipleMessagesWithErrors) {
   auto mock_body_parser = std::make_unique<MockBodyParser>();
   auto* mock_body_parser_ptr = mock_body_parser.get();
 
-  EXPECT_CALL(*mock_body_parser_ptr, parse("4F4B"))
+  EXPECT_CALL(*mock_body_parser_ptr, Parse("4F4B"))
       .WillOnce(testing::Return("Parsed body"));
-  EXPECT_CALL(*mock_body_parser_ptr, parse("8F8B")).Times(0);
+  EXPECT_CALL(*mock_body_parser_ptr, Parse("8F8B")).Times(0);
 
   auto parser = Parser{input};
   parser.register_body_parser("3", std::move(mock_body_parser));
-  auto parse_result = parser.parse();
+  auto parse_result = parser.Parse();
 
   ASSERT_THAT(parse_result.has_errors(), Eq(true));
   ASSERT_THAT(parse_result.get_messages().size(), Eq(1));
