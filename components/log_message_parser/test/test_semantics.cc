@@ -27,9 +27,9 @@ TEST_F(SemanticsParserTest, EmptyInput) {
   auto parser = Parser{input};
   auto parse_result = parser.Parse();
 
-  ASSERT_THAT(parse_result.has_errors(), Eq(false));
-  ASSERT_THAT(parse_result.get_messages().size(), Eq(0));
-  ASSERT_THAT(parse_result.get_errors().size(), Eq(0));
+  ASSERT_THAT(parse_result.HasErrors(), Eq(false));
+  ASSERT_THAT(parse_result.messages().size(), Eq(0));
+  ASSERT_THAT(parse_result.errors().size(), Eq(0));
 }
 
 TEST_F(SemanticsParserTest, NoBodyParserRegistered) {
@@ -42,10 +42,10 @@ TEST_F(SemanticsParserTest, NoBodyParserRegistered) {
   auto parser = Parser{input};
   auto parse_result = parser.Parse();
 
-  ASSERT_THAT(parse_result.has_errors(), Eq(true));
-  ASSERT_THAT(parse_result.get_messages().size(), Eq(0));
-  ASSERT_THAT(parse_result.get_errors().size(), Eq(1));
-  ASSERT_THAT(parse_result.get_errors()[0].get_message(),
+  ASSERT_THAT(parse_result.HasErrors(), Eq(true));
+  ASSERT_THAT(parse_result.messages().size(), Eq(0));
+  ASSERT_THAT(parse_result.errors().size(), Eq(1));
+  ASSERT_THAT(parse_result.errors()[0].message(),
               HasSubstr("Encoding \"3\" is not supported for log message"));
 }
 
@@ -65,13 +65,13 @@ TEST_F(SemanticsParserTest, BodyParserThrowsError) {
       .WillOnce(testing::Throw(BodyParserError("Parsing error")));
 
   auto parser = Parser{input};
-  parser.register_body_parser("3", std::move(mock_body_parser));
+  parser.RegisterBodyParser("3", std::move(mock_body_parser));
   auto parse_result = parser.Parse();
 
-  ASSERT_THAT(parse_result.has_errors(), Eq(true));
-  ASSERT_THAT(parse_result.get_messages().size(), Eq(0));
-  ASSERT_THAT(parse_result.get_errors().size(), Eq(1));
-  ASSERT_THAT(parse_result.get_errors()[0].get_message(),
+  ASSERT_THAT(parse_result.HasErrors(), Eq(true));
+  ASSERT_THAT(parse_result.messages().size(), Eq(0));
+  ASSERT_THAT(parse_result.errors().size(), Eq(1));
+  ASSERT_THAT(parse_result.errors()[0].message(),
               HasSubstr("Failed to Parse body for log message"));
 }
 
@@ -93,15 +93,15 @@ TEST_F(SemanticsParserTest, BodyParserWorksCorrectly) {
       .WillOnce(testing::Return("Parsed body"));
 
   auto parser = Parser{input};
-  parser.register_body_parser("3", std::move(mock_body_parser));
+  parser.RegisterBodyParser("3", std::move(mock_body_parser));
   auto parse_result = parser.Parse();
 
-  ASSERT_THAT(parse_result.has_errors(), Eq(false));
-  ASSERT_THAT(parse_result.get_messages().size(), Eq(1));
+  ASSERT_THAT(parse_result.HasErrors(), Eq(false));
+  ASSERT_THAT(parse_result.messages().size(), Eq(1));
 
-  ASSERT_THAT(parse_result.get_messages()[0],
+  ASSERT_THAT(parse_result.messages()[0],
               Eq(SemanticLogMessage{"1", "2", "Parsed body", "-1"}));
-  ASSERT_THAT(parse_result.get_errors().size(), Eq(0));
+  ASSERT_THAT(parse_result.errors().size(), Eq(0));
 }
 
 TEST_F(SemanticsParserTest, MultipleMessages) {
@@ -127,15 +127,15 @@ TEST_F(SemanticsParserTest, MultipleMessages) {
       .WillOnce(testing::Return("Parsed body 2"));
 
   auto parser = Parser{input};
-  parser.register_body_parser("3", std::move(mock_body_parser));
+  parser.RegisterBodyParser("3", std::move(mock_body_parser));
   auto parse_result = parser.Parse();
 
-  ASSERT_THAT(parse_result.has_errors(), Eq(false));
-  ASSERT_THAT(parse_result.get_messages().size(), Eq(2));
+  ASSERT_THAT(parse_result.HasErrors(), Eq(false));
+  ASSERT_THAT(parse_result.messages().size(), Eq(2));
 
-  ASSERT_THAT(parse_result.get_messages()[0],
+  ASSERT_THAT(parse_result.messages()[0],
               Eq(SemanticLogMessage{"1", "2", "Parsed body 1", "-1"}));
-  ASSERT_THAT(parse_result.get_messages()[1],
+  ASSERT_THAT(parse_result.messages()[1],
               Eq(SemanticLogMessage{"5", "6", "Parsed body 2", "-2"}));
 }
 
@@ -161,16 +161,16 @@ TEST_F(SemanticsParserTest, MultipleMessagesWithErrors) {
   EXPECT_CALL(*mock_body_parser_ptr, Parse("8F8B")).Times(0);
 
   auto parser = Parser{input};
-  parser.register_body_parser("3", std::move(mock_body_parser));
+  parser.RegisterBodyParser("3", std::move(mock_body_parser));
   auto parse_result = parser.Parse();
 
-  ASSERT_THAT(parse_result.has_errors(), Eq(true));
-  ASSERT_THAT(parse_result.get_messages().size(), Eq(1));
-  ASSERT_THAT(parse_result.get_errors().size(), Eq(1));
+  ASSERT_THAT(parse_result.HasErrors(), Eq(true));
+  ASSERT_THAT(parse_result.messages().size(), Eq(1));
+  ASSERT_THAT(parse_result.errors().size(), Eq(1));
 
-  ASSERT_THAT(parse_result.get_messages()[0],
+  ASSERT_THAT(parse_result.messages()[0],
               Eq(SemanticLogMessage{"1", "2", "Parsed body", "-1"}));
 
-  ASSERT_THAT(parse_result.get_errors()[0].get_message(),
+  ASSERT_THAT(parse_result.errors()[0].message(),
               HasSubstr("Encoding \"7\" is not supported for log message"));
 }

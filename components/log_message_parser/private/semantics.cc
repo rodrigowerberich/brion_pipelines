@@ -7,11 +7,6 @@ namespace pipelines {
 namespace log_message_parser {
 namespace semantics {
 
-void Parser::register_body_parser(const std::string& encoding,
-                                  std::unique_ptr<BodyParser> body_parser) {
-  body_parsers_[encoding] = std::move(body_parser);
-}
-
 ParseResult Parser::Parse() {
   auto parsed_messages = LogMessages{};
   auto errors = ParseErrors{};

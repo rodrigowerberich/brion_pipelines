@@ -53,7 +53,7 @@ class ParseError {
   ParseError(const std::string& message, size_t line_number)
       : message_(message), line_number_(line_number) {}
 
-  const std::string& get_message() const { return message_; }
+  const std::string& message() const { return message_; }
   size_t get_line_number() const { return line_number_; }
 
  private:
@@ -69,9 +69,9 @@ class ParseResult {
   ParseResult(const LogMessages& messages, const ParseErrors& errors)
       : messages_(messages), errors_(errors) {}
 
-  const LogMessages& get_messages() const { return messages_; }
-  const ParseErrors& get_errors() const { return errors_; }
-  bool has_errors() const { return !errors_.empty(); }
+  const LogMessages& messages() const { return messages_; }
+  const ParseErrors& errors() const { return errors_; }
+  bool HasErrors() const { return !errors_.empty(); }
 
  private:
   LogMessages messages_;
