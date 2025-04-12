@@ -1,7 +1,12 @@
 cmake_minimum_required(VERSION 3.20)
 project(brion_pipelines LANGUAGES CXX VERSION 0.1.0)
 set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_FLAGS "-Wall -Wextra -Wpedantic -Werror")
+
+set(CMAKE_CXX_FLAGS "-Wall -Wpedantic -Werror")
+# If we are not on Windows, add -Wextra
+if (NOT WIN32)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wextra")
+endif()
 
 enable_testing()
 add_subdirectory(components)
