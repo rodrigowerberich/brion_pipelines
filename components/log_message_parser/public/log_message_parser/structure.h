@@ -19,10 +19,10 @@ class LogMessage {
         body_(body),
         next_id_(next_id) {}
 
-  const std::string& get_pipeline_id() const { return pipeline_id_; }
-  const std::string& get_id() const { return id_; }
-  const std::string& get_body() const { return body_; }
-  const std::string& get_next_id() const { return next_id_; }
+  const std::string& pipeline_id() const { return pipeline_id_; }
+  const std::string& id() const { return id_; }
+  const std::string& body() const { return body_; }
+  const std::string& next_id() const { return next_id_; }
   const std::string& get_encoding() const { return encoding_; }
 
   bool operator==(const LogMessage& other) const {

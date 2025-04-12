@@ -1,6 +1,15 @@
-Style guide used:
+# Dependencies
+
+- C++ compiler with c++20 support
+- Cmake
+- Doxygen
+- Graphviz
+
+# Style guide used:
 https://google.github.io/styleguide/cppguide.html
 
+
+# About this project
 Each log message is of the following format:
 
 pipeline_id id encoding [body] next_id 

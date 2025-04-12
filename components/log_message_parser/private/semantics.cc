@@ -17,11 +17,11 @@ ParseResult Parser::parse() {
   auto errors = ParseErrors{};
 
   for (const auto& structure_message : structure_log_messages_) {
-    auto pipeline_id = structure_message.get_pipeline_id();
-    auto id = structure_message.get_id();
+    auto pipeline_id = structure_message.pipeline_id();
+    auto id = structure_message.id();
     auto encoding = structure_message.get_encoding();
-    auto body = structure_message.get_body();
-    auto next_id = structure_message.get_next_id();
+    auto body = structure_message.body();
+    auto next_id = structure_message.next_id();
 
     if (auto it = body_parsers_.find(encoding); it != body_parsers_.end()) {
       try {
