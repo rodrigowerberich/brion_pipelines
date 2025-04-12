@@ -1,40 +1,34 @@
-#ifndef COMPONENT_LOG_MESSAGE_PARSER_PUBLIC_LOG_MESSAGE_PARSER_STRUCTURE_H_
-#define COMPONENT_LOG_MESSAGE_PARSER_PUBLIC_LOG_MESSAGE_PARSER_STRUCTURE_H_
+#ifndef COMPONENT_LOG_MESSAGE_PARSER_PUBLIC_LOG_MESSAGE_PARSER_SEMANTICS_H_
+#define COMPONENT_LOG_MESSAGE_PARSER_PUBLIC_LOG_MESSAGE_PARSER_SEMANTICS_H_
 
-#include <istream>
+#include <map>
+#include <memory>
+#include <ostream>
+#include <stdexcept>
 #include <string>
-#include <vector>
 
-namespace pipelines::log_message_parser::structure {
+#include "log_message_parser/structure.h"
+
+namespace pipelines::log_message_parser::semantics {
 
 class LogMessage {
  public:
   LogMessage() = default;
   LogMessage(const std::string& pipeline_id, const std::string& id,
-             const std::string& encoding, const std::string& body,
-             const std::string& next_id)
-      : pipeline_id_(pipeline_id),
-        id_(id),
-        encoding_(encoding),
-        body_(body),
-        next_id_(next_id) {}
+             const std::string& body, const std::string& next_id)
+      : pipeline_id_(pipeline_id), id_(id), body_(body), next_id_(next_id) {}
 
   const std::string& get_pipeline_id() const { return pipeline_id_; }
   const std::string& get_id() const { return id_; }
   const std::string& get_body() const { return body_; }
   const std::string& get_next_id() const { return next_id_; }
-  const std::string& get_encoding() const { return encoding_; }
-
   bool operator==(const LogMessage& other) const {
     return pipeline_id_ == other.pipeline_id_ && id_ == other.id_ &&
-           encoding_ == other.encoding_ && body_ == other.body_ &&
-           next_id_ == other.next_id_;
+           body_ == other.body_ && next_id_ == other.next_id_;
   }
-
   friend std::ostream& operator<<(std::ostream& os, const LogMessage& message) {
     os << "(Pipeline ID: \"" << message.pipeline_id_ << "\", "
        << "ID: \"" << message.id_ << "\", "
-       << "Encoding: \"" << message.encoding_ << "\", "
        << "Body: \"" << message.body_ << "\", "
        << "Next ID: \"" << message.next_id_ << "\")";
     return os;
@@ -43,22 +37,18 @@ class LogMessage {
  private:
   std::string pipeline_id_;
   std::string id_;
-  std::string encoding_;
   std::string body_;
   std::string next_id_;
 };
 
 class ParseError {
  public:
-  ParseError(const std::string& message, size_t line_number)
-      : message_(message), line_number_(line_number) {}
+  ParseError(const std::string& message) : message_(message) {}
 
   const std::string& get_message() const { return message_; }
-  size_t get_line_number() const { return line_number_; }
 
  private:
   std::string message_;
-  size_t line_number_;
 };
 
 using LogMessages = std::vector<LogMessage>;
@@ -78,16 +68,33 @@ class ParseResult {
   ParseErrors errors_;
 };
 
+class BodyParserError : public std::runtime_error {
+ public:
+  explicit BodyParserError(const std::string& message)
+      : std::runtime_error(message) {}
+};
+
+class BodyParser {
+ public:
+  virtual ~BodyParser() = default;
+  virtual std::string parse(const std::string& body) const = 0;
+};
+
 class Parser {
  public:
-  explicit Parser(std::istream& input_stream) : input_stream_(input_stream) {}
+  explicit Parser(const structure::LogMessages& structure_log_messages)
+      : structure_log_messages_(structure_log_messages) {}
+
+  void register_body_parser(const std::string& encoding,
+                            std::unique_ptr<BodyParser> body_parser);
 
   ParseResult parse();
 
  private:
-  std::istream& input_stream_;
+  structure::LogMessages structure_log_messages_;
+  std::map<std::string, std::unique_ptr<BodyParser>> body_parsers_;
 };
 
-}  // namespace pipelines::log_message_parser::structure
+}  // namespace pipelines::log_message_parser::semantics
 
-#endif  // COMPONENT_LOG_MESSAGE_PARSER_PUBLIC_LOG_MESSAGE_PARSER_STRUCTURE_H_
+#endif  // COMPONENT_LOG_MESSAGE_PARSER_PUBLIC_LOG_MESSAGE_PARSER_SEMANTICS_H_

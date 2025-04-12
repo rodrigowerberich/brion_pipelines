@@ -1,6 +1,5 @@
 #include "log_message_parser/structure.h"
 #include <algorithm>
-#include <iostream>
 #include <iterator>
 #include <locale>
 #include <ranges>
@@ -8,11 +7,7 @@
 #include <stdexcept>
 #include <string>
 
-namespace pipelines {
-
-namespace log_message_parser {
-
-namespace structure {
+namespace pipelines::log_message_parser::structure {
 
 class StreamReadError : public std::runtime_error {
  private:
@@ -234,7 +229,4 @@ ParseResult Parser::parse() {
   return {raw_messages, errors};
 }
 
-}  // namespace structure
-
-}  // namespace log_message_parser
-}  // namespace pipelines
+}  // namespace pipelines::log_message_parser::structure
