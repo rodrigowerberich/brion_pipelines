@@ -10,6 +10,7 @@ target_link_libraries(test_structure_parser
     gmock
     I_log_message_parser
 )
+gtest_discover_tests(test_structure_parser)
 
 # Tests for the semantics parser
 add_executable(test_semantics_parser
@@ -20,7 +21,9 @@ target_link_libraries(test_semantics_parser
     gtest_main
     gmock
     I_log_message_parser
+    I_log_message
 )
+gtest_discover_tests(test_semantics_parser)
 
 # Tests for the hex16 body parser
 add_executable(test_hex16_body_parser
@@ -31,7 +34,9 @@ target_link_libraries(test_hex16_body_parser
     gtest_main
     gmock
     I_log_message_parser
+    I_log_message
 )
+gtest_discover_tests(test_hex16_body_parser)
 
 # Tests for the ascii body parser
 add_executable(test_ascii_body_parser
@@ -42,4 +47,6 @@ target_link_libraries(test_ascii_body_parser
     gtest_main
     gmock
     I_log_message_parser
+    I_log_message
 )
+gtest_discover_tests(test_ascii_body_parser)

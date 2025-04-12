@@ -7,39 +7,12 @@
 #include <stdexcept>
 #include <string>
 
+#include "log_message/message.h"
 #include "log_message_parser/structure.h"
 
 namespace pipelines::log_message_parser::semantics {
 
-class LogMessage {
- public:
-  LogMessage() = default;
-  LogMessage(const std::string& pipeline_id, const std::string& id,
-             const std::string& body, const std::string& next_id)
-      : pipeline_id_(pipeline_id), id_(id), body_(body), next_id_(next_id) {}
-
-  const std::string& get_pipeline_id() const { return pipeline_id_; }
-  const std::string& get_id() const { return id_; }
-  const std::string& get_body() const { return body_; }
-  const std::string& get_next_id() const { return next_id_; }
-  bool operator==(const LogMessage& other) const {
-    return pipeline_id_ == other.pipeline_id_ && id_ == other.id_ &&
-           body_ == other.body_ && next_id_ == other.next_id_;
-  }
-  friend std::ostream& operator<<(std::ostream& os, const LogMessage& message) {
-    os << "(Pipeline ID: \"" << message.pipeline_id_ << "\", "
-       << "ID: \"" << message.id_ << "\", "
-       << "Body: \"" << message.body_ << "\", "
-       << "Next ID: \"" << message.next_id_ << "\")";
-    return os;
-  }
-
- private:
-  std::string pipeline_id_;
-  std::string id_;
-  std::string body_;
-  std::string next_id_;
-};
+using LogMessage = pipelines::log_message::Message;
 
 class ParseError {
  public:

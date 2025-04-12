@@ -16,6 +16,7 @@ target_include_directories(log_message_parser PRIVATE
 
 target_link_libraries(log_message_parser
     I_log_message_parser
+    I_log_message
 )
 
 add_subdirectory(test)
