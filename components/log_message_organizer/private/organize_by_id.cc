@@ -18,68 +18,155 @@
 #include <string>
 #include <string_view>
 
-#include <iostream>  // TODO: remove this include
-
 /******************************************************************************
- * CONSTANTS
+ * CONSTANTS AND TYPEDEFS
  ******************************************************************************/
+namespace pipelines::log_message_organizer::organize_by_id {
 
+/// Constant for the terminator ID
 constexpr auto kTerminator = std::string_view{"-1"};
+
+/// Type alias for pipeline log messages grouped by ID
+using MessagesById = std::multimap<std::string, PipelineLogMessage>;
+
+/// Type alias for an id map which tells if a message was already processed
+using MessagesVisited = std::map<std::string, bool>;
+
+/// Type alias for a list used to build the organized messages
+using PipelineLogMessagesChain = std::list<PipelineLogMessage>;
+
+/// Type alias with a set of all the ids that should have been added to the current chain, but are already visited
+using MessagesVisitedSet = std::set<PipelineLogMessage>;
+
+}  // namespace pipelines::log_message_organizer::organize_by_id
 
 /******************************************************************************
  * PRIVATE HELPER DECLARATIONS
  *****************************************************************************/
 
-auto print_container(auto& container) -> void {
-  for (const auto& item : container) {
-    std::cout << item << ", ";
-  }
-  std::cout << std::endl;
-}
-
 /******************************************************************************
  * PRIVATE CLASSES
  *****************************************************************************/
 
-namespace pipelines::log_message_organizer {
+namespace pipelines::log_message_organizer::organize_by_id {
 
+/**
+ * @struct NextIdInfo
+ * @brief Structure to hold information about the next ID in the log message chain.
+ *
+ * This structure contains flags to indicate whether the next ID is invalid,
+ * a terminator, or the same as the current ID.
+ */
 struct NextIdInfo {
-  bool invalid = false;
-  bool terminator = false;
-  bool same_id = false;
+  /// Indicates if there is an element with this ID in the log messages
+  bool invalid{false};
+  /// Indicates if this ID is a terminator (e.g., "-1")
+  bool terminator{false};
+  /// Indicates if this ID is the same as the current ID
+  bool same_id{false};
 
+  /**
+   * @brief Checks if the ID is valid, i.e., an ID that should be followed.
+   * @return true if the ID is valid (not invalid, not a terminator, and not the same ID),
+   */
   bool valid_id() const { return !invalid && !terminator && !same_id; }
 };
 
-}  // namespace pipelines::log_message_organizer
+class Organizer {
+ public:
+  Organizer() = delete;
+
+  explicit Organizer(const PipelineLogMessages& log_messages)
+      : log_messages_{log_messages},
+        organized_list_{},
+        messages_by_id_{},
+        messages_visited_{} {
+    for (const auto& message : log_messages) {
+      messages_by_id_.insert({message.id(), message});
+      messages_visited_.insert({message.id(), false});
+    }
+  }
+
+  void CreateOrganizedList();
+
+  PipelineLogMessages GetOrganizedList() const;
+
+ private:
+  const PipelineLogMessages& log_messages_;
+  PipelineLogMessagesChain organized_list_;
+  MessagesById messages_by_id_;
+  MessagesVisited messages_visited_;
+
+  void AddChainsFromThisMessageToList(const PipelineLogMessage& message);
+
+  PipelineLogMessagesChain GetNextElements(
+      const PipelineLogMessage& current_message,
+      MessagesVisitedSet& already_visited_next_elements_from_current_chain);
+};
+
+}  // namespace pipelines::log_message_organizer::organize_by_id
 
 /******************************************************************************
  * PRIVATE HELPER IMPLEMENTATIONS
  *****************************************************************************/
 
-namespace pipelines::log_message_organizer {
+/******************************************************************************
+ * PRIVATE CLASS METHODS IMPLEMENTATION
+ *****************************************************************************/
 
-std::list<PipelineLogMessage> GetNextElements(
+namespace pipelines::log_message_organizer::organize_by_id {
+
+void Organizer::CreateOrganizedList() {
+  for (const auto& message : log_messages_) {
+    if (!messages_visited_.at(message.id())) {
+      AddChainsFromThisMessageToList(message);
+    }
+  }
+}
+
+PipelineLogMessages Organizer::GetOrganizedList() const {
+  auto organized_messages = PipelineLogMessages{};
+  for (const auto& message : organized_list_ | std::views::reverse) {
+    organized_messages.push_back(message);
+  }
+  return organized_messages;
+}
+
+void Organizer::AddChainsFromThisMessageToList(
+    const PipelineLogMessage& message) {
+  auto already_visited_next_elements_from_current_chain = MessagesVisitedSet{};
+  auto current_chain = GetNextElements(
+      message, already_visited_next_elements_from_current_chain);
+
+  auto next_element_already_visited =
+      !already_visited_next_elements_from_current_chain.empty();
+
+  if (next_element_already_visited) {
+    organized_list_.splice(std::begin(organized_list_), current_chain);
+  } else {
+    // We need to add the current chain to the organized list
+    organized_list_.splice(std::end(organized_list_), current_chain);
+  }
+}
+
+PipelineLogMessagesChain Organizer::GetNextElements(
     const PipelineLogMessage& current_message,
-    const std::multimap<std::string, PipelineLogMessage>& messages_by_id,
-    std::map<std::string, bool>& messages_visited,
-    std::set<PipelineLogMessage>&
-        alread_visited_next_elements_from_current_chain) {
-
+    MessagesVisitedSet& already_visited_next_elements_from_current_chain) {
   const auto& current_id = current_message.id();
-  auto [first, end] = messages_by_id.equal_range(current_id);
-  auto same_element_chain = std::list<PipelineLogMessage>{};
+  auto [it_current_id_first, it_current_id_end] =
+      messages_by_id_.equal_range(current_id);
+  auto same_element_chain = PipelineLogMessagesChain{};
   auto next_ids = std::map<std::string, NextIdInfo>{};
-  auto current_chain = std::list<PipelineLogMessage>{};
+  auto current_chain = PipelineLogMessagesChain{};
 
-  for (auto it = first; it != end; ++it) {
+  for (auto it = it_current_id_first; it != it_current_id_end; ++it) {
     const auto& next_id = it->second.next_id();
     auto next_id_info = NextIdInfo{};
     if (kTerminator == next_id) {
       next_id_info.terminator = true;
     } else if (next_id == current_id) {
       next_id_info.same_id = true;
-    } else if (!messages_by_id.contains(next_id)) {
+    } else if (!messages_by_id_.contains(next_id)) {
       next_id_info.invalid = true;
     }
 
@@ -87,12 +174,12 @@ std::list<PipelineLogMessage> GetNextElements(
       same_element_chain.push_back(it->second);
     } else {
       same_element_chain.push_front(it->second);
-      if (messages_visited.at(next_id)) {
+      if (messages_visited_.at(next_id)) {
         auto [next_element_first, next_element_last] =
-            messages_by_id.equal_range(next_id);
+            messages_by_id_.equal_range(next_id);
         for (auto it_next = next_element_first; it_next != next_element_last;
              ++it_next) {
-          alread_visited_next_elements_from_current_chain.insert(
+          already_visited_next_elements_from_current_chain.insert(
               it_next->second);
         }
       } else {
@@ -101,17 +188,16 @@ std::list<PipelineLogMessage> GetNextElements(
     }
   }
   current_chain.splice(std::end(current_chain), same_element_chain);
-  messages_visited.at(current_id) = true;
+  messages_visited_.at(current_id) = true;
   auto last_element_in_chain = std::prev(std::end(current_chain));
   for (const auto& [next_id, next_id_info] : next_ids) {
-    if (messages_visited.at(next_id)) {
+    if (messages_visited_.at(next_id)) {
       continue;
     }
-    if (auto it = messages_by_id.find(next_id);
-        it != std::end(messages_by_id)) {
-      auto next_elements =
-          GetNextElements(it->second, messages_by_id, messages_visited,
-                          alread_visited_next_elements_from_current_chain);
+    if (auto it = messages_by_id_.find(next_id);
+        it != std::end(messages_by_id_)) {
+      auto next_elements = GetNextElements(
+          it->second, already_visited_next_elements_from_current_chain);
       current_chain.splice(std::next(last_element_in_chain), next_elements);
     }
   }
@@ -119,11 +205,7 @@ std::list<PipelineLogMessage> GetNextElements(
   return current_chain;
 }
 
-}  // namespace pipelines::log_message_organizer
-
-/******************************************************************************
- * PRIVATE CLASS METHODS IMPLEMENTATION
- *****************************************************************************/
+}  // namespace pipelines::log_message_organizer::organize_by_id
 
 /******************************************************************************
  * PUBLIC CLASS METHODS IMPLEMENTATION
@@ -132,43 +214,12 @@ std::list<PipelineLogMessage> GetNextElements(
 namespace pipelines::log_message_organizer {
 
 PipelineLogMessages OrganizeById::Organize() const {
-  auto organized_messages = PipelineLogMessages{};
-  auto messages_by_id = std::multimap<std::string, PipelineLogMessage>{};
-  auto organized_list = std::list<PipelineLogMessage>{};
-  auto messages_visited = std::map<std::string, bool>{};
+  using namespace pipelines::log_message_organizer::organize_by_id;
 
-  for (const auto& message : log_messages_) {
-    messages_by_id.insert({message.id(), message});
-    messages_visited.insert({message.id(), false});
-  }
+  auto organizer = Organizer(log_messages_);
+  organizer.CreateOrganizedList();
 
-  for (const auto& message : log_messages_) {
-    const auto& id = message.id();
-    if (messages_visited.at(id)) {
-      continue;
-    }
-    auto alread_visited_next_elements_from_current_chain =
-        std::set<PipelineLogMessage>{};
-    auto current_chain =
-        GetNextElements(message, messages_by_id, messages_visited,
-                        alread_visited_next_elements_from_current_chain);
-
-    auto next_element_already_visited =
-        !alread_visited_next_elements_from_current_chain.empty();
-
-    if (next_element_already_visited) {
-      organized_list.splice(std::begin(organized_list), current_chain);
-    } else {
-      // We need to add the current chain to the organized list
-      organized_list.splice(std::end(organized_list), current_chain);
-    }
-  }
-
-  for (const auto& message : organized_list | std::views::reverse) {
-    organized_messages.push_back(message);
-  }
-
-  return organized_messages;
+  return organizer.GetOrganizedList();
 }
 
 }  // namespace pipelines::log_message_organizer
