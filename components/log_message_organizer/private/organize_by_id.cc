@@ -37,7 +37,7 @@ using MessagesVisitedSet = std::set<PipelineLogMessage>;
 
 /// Type alias for a pair of pipeline log messages that share the same ID and all the valid next IDs
 using ElementsUnderSameId = std::pair<class PipelineLogMessagesChain,
-                                      std::map<std::string, class NextIdInfo>>;
+                                      std::map<std::string, struct NextIdInfo>>;
 
 }  // namespace pipelines::log_message_organizer::organize_by_id
 
