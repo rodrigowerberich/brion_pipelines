@@ -5,6 +5,7 @@ target_include_directories(I_log_message_organizer INTERFACE
 
 add_library(log_message_organizer STATIC
     private/organize_by_id.cc
+    private/split_by_pipeline.cc
 )
 
 target_include_directories(log_message_organizer PRIVATE
