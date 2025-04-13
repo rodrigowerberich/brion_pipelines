@@ -35,7 +35,7 @@ using MessagesVisited = std::map<std::string, bool>;
 /// Type alias with a set of all the ids that should have been added to the current chain, but are already visited
 using MessagesVisitedSet = std::set<PipelineLogMessage>;
 
-using ElementsUnderSameId = std::pair<class PipelineLogMessagesChain2,
+using ElementsUnderSameId = std::pair<class PipelineLogMessagesChain,
                                       std::map<std::string, class NextIdInfo>>;
 
 }  // namespace pipelines::log_message_organizer::organize_by_id
@@ -59,13 +59,13 @@ static inline void AddListAtEnd(T& list1, T&& list2) {
 
 namespace pipelines::log_message_organizer::organize_by_id {
 
-class PipelineLogMessagesChain2 {
+class PipelineLogMessagesChain {
 
  public:
   using Chain = std::list<PipelineLogMessage>;
   using ChainIterator = Chain::iterator;
 
-  PipelineLogMessagesChain2() = default;
+  PipelineLogMessagesChain() = default;
 
   void AddToChain(const PipelineLogMessage& message) {
     chain_.push_back(message);
@@ -79,19 +79,19 @@ class PipelineLogMessagesChain2 {
     invalid_chain_.push_back(message);
   }
 
-  void Merge(PipelineLogMessagesChain2& other) {
+  void Merge(PipelineLogMessagesChain& other) {
     AddListAtEnd(chain_, std::move(other.chain_));
     AddListAtEnd(termination_chain_, std::move(other.termination_chain_));
     AddListAtEnd(invalid_chain_, std::move(other.invalid_chain_));
   }
 
-  void MergeAfter(PipelineLogMessagesChain2& other, ChainIterator it) {
+  void MergeAfter(PipelineLogMessagesChain& other, ChainIterator it) {
     chain_.splice(std::next(it), std::move(other.chain_));
     AddListAtEnd(termination_chain_, std::move(other.termination_chain_));
     AddListAtEnd(invalid_chain_, std::move(other.invalid_chain_));
   }
 
-  void MergeAtBeginning(PipelineLogMessagesChain2& other) {
+  void MergeAtBeginning(PipelineLogMessagesChain& other) {
     chain_.splice(std::begin(chain_), std::move(other.chain_));
     AddListAtEnd(termination_chain_, std::move(other.termination_chain_));
     AddListAtEnd(invalid_chain_, std::move(other.invalid_chain_));
@@ -154,7 +154,7 @@ class Organizer {
 
  private:
   const PipelineLogMessages& log_messages_;
-  PipelineLogMessagesChain2 organized_list_;
+  PipelineLogMessagesChain organized_list_;
   MessagesById messages_by_id_;
   MessagesVisited messages_visited_;
 
@@ -176,9 +176,9 @@ class Organizer {
 
   void AddBranchesFromNextElements(
       const std::map<std::string, NextIdInfo>& next_ids,
-      PipelineLogMessagesChain2& current_chain);
+      PipelineLogMessagesChain& current_chain);
 
-  PipelineLogMessagesChain2 GetNextElements(
+  PipelineLogMessagesChain GetNextElements(
       const PipelineLogMessage& current_message);
 };
 
@@ -216,7 +216,7 @@ PipelineLogMessages Organizer::GetOrganizedList() {
 
 ElementsUnderSameId Organizer::GetElementsUnderSameId(
     const std::string& current_id) {
-  auto same_element_chain = PipelineLogMessagesChain2{};
+  auto same_element_chain = PipelineLogMessagesChain{};
   auto next_ids = std::map<std::string, NextIdInfo>{};
 
   auto [it_current_id_first, it_current_id_end] =
@@ -224,6 +224,7 @@ ElementsUnderSameId Organizer::GetElementsUnderSameId(
   for (auto it = it_current_id_first; it != it_current_id_end; ++it) {
     const auto& next_id = it->second.next_id();
     auto next_id_info = NextIdInfo{};
+
     if (kTerminator == next_id) {
       next_id_info.terminator = true;
       same_element_chain.AddToTerminationChain(it->second);
@@ -248,7 +249,7 @@ ElementsUnderSameId Organizer::GetElementsUnderSameId(
 
 void Organizer::AddBranchesFromNextElements(
     const std::map<std::string, NextIdInfo>& next_ids,
-    PipelineLogMessagesChain2& current_chain) {
+    PipelineLogMessagesChain& current_chain) {
 
   auto last_element_in_chain = current_chain.BeforeChainEnd();
   for (const auto& [next_id, next_id_info] : next_ids) {
@@ -263,9 +264,9 @@ void Organizer::AddBranchesFromNextElements(
   }
 }
 
-PipelineLogMessagesChain2 Organizer::GetNextElements(
+PipelineLogMessagesChain Organizer::GetNextElements(
     const PipelineLogMessage& current_message) {
-  auto current_chain = PipelineLogMessagesChain2{};
+  auto current_chain = PipelineLogMessagesChain{};
   const auto& current_id = current_message.id();
 
   auto [same_element_chain, next_ids] = GetElementsUnderSameId(current_id);
