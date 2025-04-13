@@ -38,7 +38,7 @@ using PipelineLogMessagesChain = std::list<PipelineLogMessage>;
 /// Type alias with a set of all the ids that should have been added to the current chain, but are already visited
 using MessagesVisitedSet = std::set<PipelineLogMessage>;
 
-using ElementsUnderSameId = std::pair<PipelineLogMessagesChain,
+using ElementsUnderSameId = std::pair<class PipelineLogMessagesChain2,
                                       std::map<std::string, class NextIdInfo>>;
 
 }  // namespace pipelines::log_message_organizer::organize_by_id
@@ -47,11 +47,40 @@ using ElementsUnderSameId = std::pair<PipelineLogMessagesChain,
  * PRIVATE HELPER DECLARATIONS
  *****************************************************************************/
 
+namespace pipelines::log_message_organizer::organize_by_id {
+
+static inline void AddListAddEnd(PipelineLogMessagesChain& list1,
+                                 PipelineLogMessagesChain&& list2) {
+  list1.splice(std::end(list1), std::move(list2));
+}
+
+}  // namespace pipelines::log_message_organizer::organize_by_id
+
 /******************************************************************************
  * PRIVATE CLASSES
  *****************************************************************************/
 
 namespace pipelines::log_message_organizer::organize_by_id {
+
+class PipelineLogMessagesChain2 {
+
+ public:
+  PipelineLogMessagesChain2() = default;
+
+  bool has_descendent_visited() const { return has_descendent_visited_; }
+
+  void set_has_descendent_visited(bool has_descendent_visited) {
+    has_descendent_visited_ |= has_descendent_visited;
+  }
+
+  PipelineLogMessagesChain& chain() { return chain_; }
+
+ private:
+  PipelineLogMessagesChain chain_;
+  PipelineLogMessagesChain termination_chain_;
+  PipelineLogMessagesChain invalid_chain_;
+  bool has_descendent_visited_{false};
+};
 
 /**
  * @struct NextIdInfo
@@ -100,14 +129,24 @@ class Organizer {
   MessagesById messages_by_id_;
   MessagesVisited messages_visited_;
 
+  void MarkMessageAsVisited(const PipelineLogMessage& message) {
+    MarkMessageAsVisited(message.id());
+  }
+
+  void MarkMessageAsVisited(const std::string& id) {
+    messages_visited_.at(id) = true;
+  }
+
   void AddChainsFromThisMessageToList(const PipelineLogMessage& message);
 
-  PipelineLogMessagesChain GetNextElements(
-      const PipelineLogMessage& current_message,
-      MessagesVisitedSet& already_visited_next_elements_from_current_chain);
-  ElementsUnderSameId GetElementsUnderSameId(
-      const std::string& current_id,
-      MessagesVisitedSet& already_visited_next_elements_from_current_chain);
+  ElementsUnderSameId GetElementsUnderSameId(const std::string& current_id);
+
+  void AddBranchesFromNextElements(
+      const std::map<std::string, NextIdInfo>& next_ids,
+      PipelineLogMessagesChain2& current_chain);
+
+  PipelineLogMessagesChain2 GetNextElements(
+      const PipelineLogMessage& current_message);
 };
 
 }  // namespace pipelines::log_message_organizer::organize_by_id
@@ -140,27 +179,23 @@ PipelineLogMessages Organizer::GetOrganizedList() const {
 
 void Organizer::AddChainsFromThisMessageToList(
     const PipelineLogMessage& message) {
-  auto already_visited_next_elements_from_current_chain = MessagesVisitedSet{};
-  auto current_chain = GetNextElements(
-      message, already_visited_next_elements_from_current_chain);
+  auto current_chain = GetNextElements(message);
 
-  auto next_element_already_visited =
-      !already_visited_next_elements_from_current_chain.empty();
+  auto next_element_already_visited = current_chain.has_descendent_visited();
 
   if (next_element_already_visited) {
-    organized_list_.splice(std::begin(organized_list_), current_chain);
+    organized_list_.splice(std::begin(organized_list_), current_chain.chain());
   } else {
     // We need to add the current chain to the organized list
-    organized_list_.splice(std::end(organized_list_), current_chain);
+    organized_list_.splice(std::end(organized_list_), current_chain.chain());
   }
 }
 
 ElementsUnderSameId Organizer::GetElementsUnderSameId(
-    const std::string& current_id,
-    MessagesVisitedSet& already_visited_next_elements_from_current_chain) {
+    const std::string& current_id) {
   auto [it_current_id_first, it_current_id_end] =
       messages_by_id_.equal_range(current_id);
-  auto same_element_chain = PipelineLogMessagesChain{};
+  auto same_element_chain = PipelineLogMessagesChain2{};
   auto next_ids = std::map<std::string, NextIdInfo>{};
 
   for (auto it = it_current_id_first; it != it_current_id_end; ++it) {
@@ -175,17 +210,11 @@ ElementsUnderSameId Organizer::GetElementsUnderSameId(
     }
 
     if (!next_id_info.valid_id()) {
-      same_element_chain.push_back(it->second);
+      same_element_chain.chain().push_back(it->second);
     } else {
-      same_element_chain.push_front(it->second);
+      same_element_chain.chain().push_front(it->second);
       if (messages_visited_.at(next_id)) {
-        auto [next_element_first, next_element_last] =
-            messages_by_id_.equal_range(next_id);
-        for (auto it_next = next_element_first; it_next != next_element_last;
-             ++it_next) {
-          already_visited_next_elements_from_current_chain.insert(
-              it_next->second);
-        }
+        same_element_chain.set_has_descendent_visited(true);
       } else {
         next_ids.emplace(next_id, next_id_info);
       }
@@ -195,30 +224,43 @@ ElementsUnderSameId Organizer::GetElementsUnderSameId(
   return {same_element_chain, next_ids};
 }
 
-PipelineLogMessagesChain Organizer::GetNextElements(
-    const PipelineLogMessage& current_message,
-    MessagesVisitedSet& already_visited_next_elements_from_current_chain) {
-  const auto& current_id = current_message.id();
+void Organizer::AddBranchesFromNextElements(
+    const std::map<std::string, NextIdInfo>& next_ids,
+    PipelineLogMessagesChain2& current_chain) {
 
-  auto current_chain = PipelineLogMessagesChain{};
-
-  auto [same_element_chain, next_ids] = GetElementsUnderSameId(
-      current_id, already_visited_next_elements_from_current_chain);
-
-  current_chain.splice(std::end(current_chain), same_element_chain);
-  messages_visited_.at(current_id) = true;
-  auto last_element_in_chain = std::prev(std::end(current_chain));
+  auto last_element_in_chain = std::prev(std::end(current_chain.chain()));
   for (const auto& [next_id, next_id_info] : next_ids) {
     if (messages_visited_.at(next_id)) {
       continue;
     }
     if (auto it = messages_by_id_.find(next_id);
         it != std::end(messages_by_id_)) {
-      auto next_elements = GetNextElements(
-          it->second, already_visited_next_elements_from_current_chain);
-      current_chain.splice(std::next(last_element_in_chain), next_elements);
+      auto next_elements = GetNextElements(it->second);
+
+      current_chain.set_has_descendent_visited(
+          next_elements.has_descendent_visited());
+      current_chain.chain().splice(std::next(last_element_in_chain),
+                                   next_elements.chain());
     }
   }
+}
+
+PipelineLogMessagesChain2 Organizer::GetNextElements(
+    const PipelineLogMessage& current_message) {
+  const auto& current_id = current_message.id();
+
+  auto current_chain = PipelineLogMessagesChain2{};
+
+  auto [same_element_chain, next_ids] = GetElementsUnderSameId(current_id);
+
+  current_chain.set_has_descendent_visited(
+      same_element_chain.has_descendent_visited());
+  // AddListAddEnd(current_chain, std::move(same_element_chain));
+  current_chain.chain().splice(std::end(current_chain.chain()),
+                               same_element_chain.chain());
+  MarkMessageAsVisited(current_id);
+
+  AddBranchesFromNextElements(next_ids, current_chain);
 
   return current_chain;
 }
