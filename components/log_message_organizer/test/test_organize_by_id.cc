@@ -64,6 +64,7 @@ MATCHER_P2(ElementsAreAfterAnyIn, first, second,
     first_iterators.push_back(it_first);
   }
   if (result) {
+    // The type of the iterator is the return type of the std::distance
     auto orders = std::vector<int>{};
     for (const auto& element : second) {
       auto it_second = std::ranges::find(arg, element);
@@ -72,7 +73,7 @@ MATCHER_P2(ElementsAreAfterAnyIn, first, second,
         break;
       }
       for (const auto& it_first : first_iterators) {
-        orders.push_back(std::distance(it_first, it_second));
+        orders.push_back(static_cast<int>(std::distance(it_first, it_second)));
       }
     }
     result &= std::all_of(orders.begin(), orders.end(),
