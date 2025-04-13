@@ -1,5 +1,4 @@
 add_executable(app
-    PUBLIC
      private/app.cc
 )
 
