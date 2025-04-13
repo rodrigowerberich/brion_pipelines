@@ -3,7 +3,6 @@
  * @brief This file defines the SplitByPipeline class, which is responsible for
  * splitting log messages by their pipeline identifiers.
  * 
- * It also provides a type for log messages from the same pipeline.
  */
 
 #ifndef COMPONENTS_LOG_MESSAGE_ORGANIZER_PUBLIC_LOG_MESSAGE_ORGANIZER_SPLIT_BY_PIPELINE_H_
@@ -36,7 +35,7 @@ class SplitByPipeline {
     * @brief Constructor to initialize the SplitByPipeline class with log messages.
     * @param log_messages The collection of log messages to be split.
     */
-  SplitByPipeline(const LogMessages& log_messages)
+  explicit SplitByPipeline(const LogMessages& log_messages)
       : log_messages_(log_messages) {}
 
   /**
