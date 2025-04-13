@@ -42,8 +42,8 @@ class OrganizeById {
   PipelineLogMessages Organize() const;
 
  private:
-  PipelineLogMessages
-      log_messages_; /**< Collection of log messages to be organized. */
+  // Collection of log messages to be organized.
+  PipelineLogMessages log_messages_;
 };
 
 }  // namespace pipelines::log_message_organizer
