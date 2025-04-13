@@ -97,17 +97,291 @@ TEST_F(OrganizeByIdTest, EmptyInput) {
   ASSERT_THAT(organizer.Organize(), Eq(expected_output));
 }
 
-TEST_F(OrganizeByIdTest, SingleMessage) {
+/*******************************************************************
+ * Test cases for Single node
+ ******************************************************************/
+
+TEST_F(OrganizeByIdTest, SingleMessagePoitingToTermination) {
   using pipelines::log_message_organizer::OrganizeById;
   using pipelines::log_message_organizer::PipelineLogMessages;
 
-  auto input = PipelineLogMessages{{"1", "Hello, World!", "-1"}};
-  auto expected_output = PipelineLogMessages{{"1", "Hello, World!", "-1"}};
+  auto input = PipelineLogMessages{CreateFinalMessage("sdna=123")};
+  auto expected_output = PipelineLogMessages{CreateFinalMessage("sdna=123")};
 
   auto organizer = OrganizeById{input};
 
   ASSERT_THAT(organizer.Organize(), Eq(expected_output));
 }
+
+TEST_F(OrganizeByIdTest, SingleMessagePointingToNonExistingIndex) {
+  using pipelines::log_message_organizer::OrganizeById;
+  using pipelines::log_message_organizer::PipelineLogMessages;
+
+  auto input =
+      PipelineLogMessages{CreateMessageIndexNextIndex("sdna=123", "23")};
+  auto expected_output =
+      PipelineLogMessages{CreateMessageIndexNextIndex("sdna=123", "23")};
+
+  auto organizer = OrganizeById{input};
+
+  ASSERT_THAT(organizer.Organize(), Eq(expected_output));
+}
+
+TEST_F(OrganizeByIdTest, SingleMessagePointingToSelf) {
+  using pipelines::log_message_organizer::OrganizeById;
+  using pipelines::log_message_organizer::PipelineLogMessages;
+
+  auto input =
+      PipelineLogMessages{CreateMessageIndexNextIndex("sdna=123", "sdna=123")};
+  auto expected_output =
+      PipelineLogMessages{CreateMessageIndexNextIndex("sdna=123", "sdna=123")};
+
+  auto organizer = OrganizeById{input};
+
+  ASSERT_THAT(organizer.Organize(), Eq(expected_output));
+}
+
+TEST_F(OrganizeByIdTest, SingleMessageWithTerminationId) {
+  using pipelines::log_message_organizer::OrganizeById;
+  using pipelines::log_message_organizer::PipelineLogMessages;
+
+  auto input = PipelineLogMessages{CreateFinalMessage("-1")};
+  auto expected_output = PipelineLogMessages{CreateFinalMessage("-1")};
+
+  auto organizer = OrganizeById{input};
+
+  ASSERT_THAT(organizer.Organize(), Eq(expected_output));
+}
+
+/*******************************************************************
+ * Test cases for Two nodes
+ ******************************************************************/
+
+TEST_F(OrganizeByIdTest, TwoMessagesPointingToTermination) {
+  using pipelines::log_message_organizer::OrganizeById;
+  using pipelines::log_message_organizer::PipelineLogMessages;
+
+  auto input = PipelineLogMessages{
+      CreateFinalMessage("95"),
+      CreateFinalMessage("-1"),
+  };
+
+  auto organizer = OrganizeById{input};
+  auto result = organizer.Organize();
+
+  ASSERT_THAT(result, SizeIs(2));
+  ASSERT_THAT(result, UnorderedElementsAreArray(input));
+}
+
+TEST_F(OrganizeByIdTest, TwoMessagesOnePointingToSelfOnToInvalidIndex) {
+  using pipelines::log_message_organizer::OrganizeById;
+  using pipelines::log_message_organizer::PipelineLogMessages;
+  auto input = PipelineLogMessages{
+      CreateMessageIndexNextIndex("sdna=123", "sdna=123"),
+      CreateMessageIndexNextIndex("l", "4"),  // Pointing to invalid index
+  };
+
+  auto organizer = OrganizeById{input};
+  auto result = organizer.Organize();
+
+  ASSERT_THAT(result, SizeIs(2));
+  ASSERT_THAT(result, UnorderedElementsAreArray(input));
+}
+
+TEST_F(OrganizeByIdTest, TwoMessagesBothPointingToSelf) {
+  using pipelines::log_message_organizer::OrganizeById;
+  using pipelines::log_message_organizer::PipelineLogMessages;
+
+  auto input = PipelineLogMessages{
+      CreateMessageIndexNextIndex("-65-2", "-65-2"),
+      CreateMessageIndexNextIndex("m", "m"),
+  };
+
+  auto organizer = OrganizeById{input};
+  auto result = organizer.Organize();
+
+  ASSERT_THAT(result, SizeIs(2));
+  ASSERT_THAT(result, UnorderedElementsAreArray(input));
+}
+
+TEST_F(OrganizeByIdTest, TwoMessages) {
+  using pipelines::log_message_organizer::OrganizeById;
+  using pipelines::log_message_organizer::PipelineLogMessages;
+
+  auto input = PipelineLogMessages{
+      CreateMessageIndexNextIndex("z", "b"),
+      CreateFinalMessage("b"),
+  };
+
+  auto organizer = OrganizeById{input};
+  auto result = organizer.Organize();
+
+  ASSERT_THAT(result, SizeIs(2));
+  ASSERT_THAT(result, UnorderedElementsAreArray(input));
+  ASSERT_THAT(result,
+              ElementsAreAfterAnyIn(
+                  PipelineLogMessages{CreateFinalMessage("b")},
+                  PipelineLogMessages{CreateMessageIndexNextIndex("z", "b")}));
+}
+
+TEST_F(OrganizeByIdTest, TwoMessagesSeriesOnePointingToSelf) {
+  using pipelines::log_message_organizer::OrganizeById;
+  using pipelines::log_message_organizer::PipelineLogMessages;
+
+  auto input = PipelineLogMessages{
+      CreateMessageIndexNextIndex("sdna=123", "sdna=123"),
+      CreateMessageIndexNextIndex("l", "sdna=123"),
+  };
+
+  auto organizer = OrganizeById{input};
+  auto result = organizer.Organize();
+
+  ASSERT_THAT(result, SizeIs(2));
+  ASSERT_THAT(result, UnorderedElementsAreArray(input));
+
+  ASSERT_THAT(
+      result,
+      ElementsAreAfterAnyIn(
+          PipelineLogMessages{
+              CreateMessageIndexNextIndex("sdna=123", "sdna=123")},
+          PipelineLogMessages{CreateMessageIndexNextIndex("l", "sdna=123")}));
+}
+
+TEST_F(OrganizeByIdTest, TwoMessagesCyclic) {
+  using pipelines::log_message_organizer::OrganizeById;
+  using pipelines::log_message_organizer::PipelineLogMessages;
+
+  auto input = PipelineLogMessages{
+      CreateMessageIndexNextIndex("1", "2"),
+      CreateMessageIndexNextIndex("2", "1"),
+  };
+
+  auto organizer = OrganizeById{input};
+  auto result = organizer.Organize();
+
+  ASSERT_THAT(result, SizeIs(2));
+  ASSERT_THAT(result, UnorderedElementsAreArray(input));
+}
+
+TEST_F(OrganizeByIdTest, TwoMessagesSameId) {
+  using pipelines::log_message_organizer::OrganizeById;
+  using pipelines::log_message_organizer::PipelineLogMessages;
+
+  auto input = PipelineLogMessages{
+      CreateMessageIndexNextIndex("1", "2"),
+      CreateMessageIndexNextIndex("1", "3"),
+  };
+
+  auto organizer = OrganizeById{input};
+  auto result = organizer.Organize();
+
+  ASSERT_THAT(result, SizeIs(2));
+  ASSERT_THAT(result, UnorderedElementsAreArray(input));
+}
+
+TEST_F(OrganizeByIdTest, TwoMessagesSameIdOneCyclic) {
+  using pipelines::log_message_organizer::OrganizeById;
+  using pipelines::log_message_organizer::PipelineLogMessages;
+
+  auto input = PipelineLogMessages{
+      CreateFinalMessage("1"),
+      CreateMessageIndexNextIndex("1", "1"),
+  };
+
+  auto organizer = OrganizeById{input};
+  auto result = organizer.Organize();
+
+  ASSERT_THAT(result, SizeIs(2));
+  ASSERT_THAT(result, UnorderedElementsAreArray(input));
+}
+
+TEST_F(OrganizeByIdTest, TwoMessagesSameIdBothCyclic) {
+  using pipelines::log_message_organizer::OrganizeById;
+  using pipelines::log_message_organizer::PipelineLogMessages;
+
+  auto input = PipelineLogMessages{
+      CreateMessageIndexNextIndex("1", "1"),
+      CreateMessageIndexNextIndex("1", "1"),
+  };
+
+  auto organizer = OrganizeById{input};
+  auto result = organizer.Organize();
+
+  ASSERT_THAT(result, SizeIs(2));
+  ASSERT_THAT(result, UnorderedElementsAreArray(input));
+}
+
+/*******************************************************************
+ * Test cases for three nodes
+ ******************************************************************/
+
+TEST_F(OrganizeByIdTest, ThreeMessages) {
+  using pipelines::log_message_organizer::OrganizeById;
+  using pipelines::log_message_organizer::PipelineLogMessages;
+
+  auto input = PipelineLogMessages{
+      CreateMessageIndexNextIndex("1", "2"),
+      CreateMessageIndexNextIndex("2", "3"),
+      CreateFinalMessage("3"),
+  };
+
+  auto organizer = OrganizeById{input};
+  auto result = organizer.Organize();
+
+  ASSERT_THAT(result, SizeIs(3));
+  ASSERT_THAT(result, UnorderedElementsAreArray(input));
+
+  ASSERT_THAT(result, ElementsAreAfterAnyIn(
+                          PipelineLogMessages{CreateFinalMessage("3")},
+                          PipelineLogMessages{
+                              CreateMessageIndexNextIndex("1", "2"),
+                              CreateMessageIndexNextIndex("2", "3"),
+                          }));
+  ASSERT_THAT(result,
+              ElementsAreAfterAnyIn(
+                  PipelineLogMessages{CreateMessageIndexNextIndex("2", "3")},
+                  PipelineLogMessages{
+                      CreateMessageIndexNextIndex("1", "2"),
+                  }));
+}
+
+TEST_F(OrganizeByIdTest, ThreeMessagesCyclic) {
+  using pipelines::log_message_organizer::OrganizeById;
+  using pipelines::log_message_organizer::PipelineLogMessages;
+
+  auto input = PipelineLogMessages{
+      CreateMessageIndexNextIndex("1", "2"),
+      CreateMessageIndexNextIndex("2", "3"),
+      CreateMessageIndexNextIndex("3", "1"),
+  };
+
+  auto organizer = OrganizeById{input};
+  auto result = organizer.Organize();
+
+  ASSERT_THAT(result, SizeIs(3));
+  ASSERT_THAT(result, UnorderedElementsAreArray(input));
+}
+
+TEST_F(OrganizeByIdTest, ThreeMessagesCyclicTwoSameId) {
+  using pipelines::log_message_organizer::OrganizeById;
+  using pipelines::log_message_organizer::PipelineLogMessages;
+
+  auto input = PipelineLogMessages{
+      CreateMessageIndexNextIndex("a", "j"),
+      CreateMessageIndexNextIndex("a", "j"),
+      CreateMessageIndexNextIndex("j", "a"),
+  };
+
+  auto organizer = OrganizeById{input};
+  auto result = organizer.Organize();
+
+  ASSERT_THAT(result, SizeIs(3));
+  ASSERT_THAT(result, UnorderedElementsAreArray(input));
+}
+
+/*******************************************************************
+ * Test cases for Multiple nodes
+ ******************************************************************/
 
 TEST_F(OrganizeByIdTest, MultipleMessages1) {
   using pipelines::log_message_organizer::OrganizeById;
@@ -729,4 +1003,23 @@ TEST_F(OrganizeByIdTest, TerminationAsId2) {
                                 CreateMessageIndexNextIndex("a", "d"),
                             }));
   } while (std::ranges::next_permutation(input, MessageLessThan).found);
+}
+
+TEST_F(OrganizeByIdTest, FiveMessagesCyclic) {
+  using pipelines::log_message_organizer::OrganizeById;
+  using pipelines::log_message_organizer::PipelineLogMessages;
+
+  auto input = PipelineLogMessages{
+      CreateMessageIndexNextIndex("j", "k"),
+      CreateMessageIndexNextIndex("k", "3"),
+      CreateMessageIndexNextIndex("3", "1"),
+      CreateMessageIndexNextIndex("1", "4"),
+      CreateMessageIndexNextIndex("4", "3"),
+  };
+
+  auto organizer = OrganizeById{input};
+  auto result = organizer.Organize();
+
+  ASSERT_THAT(result, SizeIs(input.size()));
+  ASSERT_THAT(result, UnorderedElementsAreArray(input));
 }
