@@ -703,9 +703,9 @@ TEST_F(OrganizeByIdTest, MultipleElementsWithSameId2) {
     ASSERT_THAT(result, ElementsAreAfterAnyIn(
                             PipelineLogMessages{
                                 CreateFinalMessage("c"),
+                                CreateFinalMessage("z"),
                             },
                             PipelineLogMessages{
-                                CreateFinalMessage("z"),
                                 CreateMessageIndexNextIndex("z", "c"),
                             }));
   } while (std::ranges::next_permutation(input, MessageLessThan).found);
@@ -959,7 +959,6 @@ TEST_F(OrganizeByIdTest, TerminationAsId) {
                               CreateMessageIndexNextIndex("6", "j"),
                           },
                           PipelineLogMessages{
-                              CreateMessageIndexNextIndex("-1", "-1"),
                               CreateMessageIndexNextIndex("-1", "6"),
                           }));
 }
