@@ -191,7 +191,7 @@ class StreamProcessor {
     * @throws FileEndError if the body cannot be read.
     * @throws BadFormatError if the body format is invalid.
     */
-  std::string AttemptToReadBody();
+  std::pair<std::string, std::string> AttemptToReadBodyAndNextId();
 
   /**
     * @brief Attempts to read the next ID from the stream.
@@ -205,6 +205,22 @@ class StreamProcessor {
     * @return A string containing the characters read.
     */
   std::string ReadUntilEndOfLine();
+
+  /**
+   * @brief Reads characters from the stream until the character is found.
+   * @param character The character to stop reading at.
+   * @return A string containing all the content until that character (character not included).
+   * @throws FileEndError if the end of the file is reached unexpectedly.
+   */
+  std::string ReadUntilCharacter(char character);
+
+  /**
+   * @brief Reads characters from the stream until whitespace or a specific character is found.
+   * @param character The character to stop reading at.
+   * @return A string containing all the content until that character (character not included).
+   * @throws FileEndError if the end of the file is reached unexpectedly.
+   */
+  std::string ReadUntilWhitespaceOrCharacter(char character);
 
   /**
     * @brief Checks if the stream processing is complete.
@@ -233,10 +249,12 @@ class StreamProcessor {
     * It is used to move through the input stream while processing characters.
     */
   void AdvanceCurrentCharacter() {
-    if (*current_character_ == '\n') {
-      ++line_number_;
+    if (current_character_ != end_character_) {
+      if (*current_character_ == '\n') {
+        ++line_number_;
+      }
+      ++current_character_;
     }
-    ++current_character_;
   }
 
   /**
@@ -303,7 +321,12 @@ class StreamProcessor {
    * @throws FileEndError if the end of the file is reached unexpectedly.
    * @pre The stream must be positioned at an opening bracket '['.
    */
-  std::string SearchForMatchingBrackets(size_t line_number);
+  std::pair<std::string, std::string> SearchForMatchingBrackets(
+      size_t line_number);
+
+  std::pair<bool, std::string> ReadOnlyWhitespaceUntilEndOfLine();
+
+  std::string ReadUntilNonWhitespace();
 };
 
 }  // namespace pipelines::log_message_parser::structure
@@ -339,8 +362,7 @@ static void AttemptToReadStructureLogMessage(StreamProcessor& stream_processor,
     auto pipeline_id = stream_processor.AttemptToReadPipelineId();
     auto id = stream_processor.AttemptToReadId();
     auto encoding = stream_processor.AttemptToReadEncoding();
-    auto body = stream_processor.AttemptToReadBody();
-    auto next_id = stream_processor.AttemptToReadNextId();
+    auto [body, next_id] = stream_processor.AttemptToReadBodyAndNextId();
 
     structure_messages.emplace_back(pipeline_id, id, encoding, body, next_id);
   } catch (const FileEndError& e) {
@@ -418,14 +440,15 @@ std::string StreamProcessor::AttemptToReadEncoding() {
   return AttemptToReadContinuousStringOrThrow("Failed to read encoding");
 }
 
-std::string StreamProcessor::AttemptToReadBody() {
-  auto body = std::string{};
+std::pair<std::string, std::string>
+StreamProcessor::AttemptToReadBodyAndNextId() {
+  auto body_next_id = std::pair<std::string, std::string>{};
   auto line_number = line_number_;
 
   SkipWhitespace();
 
   if (IsOpenBracket()) {
-    body = SearchForMatchingBrackets(line_number);
+    body_next_id = SearchForMatchingBrackets(line_number);
   } else if (!HasStreamEnded()) {
     line_number = line_number_;
     throw BadFormatError("Expected an opening bracket", line_number);
@@ -433,7 +456,7 @@ std::string StreamProcessor::AttemptToReadBody() {
     throw FileEndError("File ended while parsing body", line_number);
   }
 
-  return body;
+  return body_next_id;
 }
 
 std::string StreamProcessor::AttemptToReadNextId() {
@@ -449,41 +472,98 @@ std::string StreamProcessor::ReadUntilEndOfLine() {
   return result.str();
 }
 
+std::string StreamProcessor::ReadUntilCharacter(char character) {
+  auto result = std::ostringstream();
+  while (!HasStreamEnded() && *current_character_ != character) {
+    result << *current_character_;
+    AdvanceCurrentCharacter();
+  }
+  return result.str();
+}
+
+std::string StreamProcessor::ReadUntilWhitespaceOrCharacter(char character) {
+  auto result = std::ostringstream();
+  while (!HasStreamEnded() && (*current_character_ != character) &&
+         !std::isspace(*current_character_)) {
+    result << *current_character_;
+    AdvanceCurrentCharacter();
+  }
+  return result.str();
+}
+
+std::pair<bool, std::string>
+StreamProcessor::ReadOnlyWhitespaceUntilEndOfLine() {
+  auto result = std::ostringstream();
+  auto valid = true;
+  while (!HasStreamEnded() && !IsEndOfLine()) {
+    if (!std::isspace(*current_character_)) {
+      valid = false;
+      break;
+    }
+    result << *current_character_;
+    AdvanceCurrentCharacter();
+  }
+  return {valid, result.str()};
+}
+
+std::string StreamProcessor::ReadUntilNonWhitespace() {
+  auto result = std::ostringstream();
+  while (!HasStreamEnded() && std::isspace(*current_character_)) {
+    result << *current_character_;
+    AdvanceCurrentCharacter();
+  }
+  return result.str();
+}
+
 bool StreamProcessor::IsDone() {
   SkipWhitespace();
   return HasStreamEnded();
 }
 
-std::string StreamProcessor::SearchForMatchingBrackets(size_t line_number) {
-  auto open_bracket_count = 1;
-  auto close_bracket_count = 0;
+std::pair<std::string, std::string> StreamProcessor::SearchForMatchingBrackets(
+    size_t line_number) {
   auto body = std::ostringstream();
+  auto next_id = std::ostringstream();
 
-  auto bracket_count_does_not_match = [&open_bracket_count,
-                                       &close_bracket_count]() {
-    return open_bracket_count != close_bracket_count;
-  };
-
-  // Skip the opening bracket
+  auto found_closing_bracket = false;
   AdvanceCurrentCharacter();
+  while (!HasStreamEnded() && !found_closing_bracket) {
+    auto content_until_bracket = ReadUntilCharacter(']');
+    if (!HasStreamEnded()) {
 
-  while (!HasStreamEnded() && bracket_count_does_not_match()) {
-    if (IsOpenBracket()) {
-      ++open_bracket_count;
-    } else if (IsCloseBracket()) {
-      ++close_bracket_count;
+      body << content_until_bracket;
+      AdvanceCurrentCharacter();
+      auto whitespace1 = ReadUntilNonWhitespace();
+      auto continous_string = ReadUntilWhitespaceOrCharacter(']');
+      if (*current_character_ == ']') {
+        body << "]";
+        body << whitespace1;
+        body << continous_string;
+      } else {
+        auto [valid, whitespace2] = ReadOnlyWhitespaceUntilEndOfLine();
+        if (valid) {
+          next_id << continous_string;
+          found_closing_bracket = true;
+        } else {
+          body << "]";
+          body << whitespace1;
+          body << continous_string;
+          body << whitespace2;
+        }
+      }
     }
-    if (bracket_count_does_not_match()) {
-      body << *current_character_;
-    }
-    AdvanceCurrentCharacter();
   }
-  if (bracket_count_does_not_match()) {
-    throw FileEndError(
-        "Expected a closing bracket, but reached the end of the file",
-        line_number);
+  if (!found_closing_bracket) {
+    throw FileEndError("Expected a closing bracket ", line_number);
   }
-  return body.str();
+
+  auto next_id_str = next_id.str();
+
+  if (next_id_str.empty()) {
+    throw FileEndError("Couldn't find next id", line_number);
+  }
+
+  return {body.str(), next_id.str()};
 }
 
 }  // namespace pipelines::log_message_parser::structure

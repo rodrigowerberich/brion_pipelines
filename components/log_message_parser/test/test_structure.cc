@@ -116,7 +116,7 @@ TEST_F(LogMessageParserTest, MissingBodyTwoManyOpeningBrackets) {
   ASSERT_THAT(parse_result.HasErrors(), Eq(true));
   ASSERT_THAT(parse_result.errors().size(), Eq(1));
   ASSERT_THAT(parse_result.errors()[0].message(),
-              HasSubstr("Expected a closing bracket"));
+              HasSubstr("File ended while parsing: Couldn't find next id"));
   ASSERT_THAT(parse_result.errors()[0].line_number(), Eq(1));
   ASSERT_THAT(result.size(), Eq(0));
 }
@@ -130,9 +130,12 @@ TEST_F(LogMessageParserTest, MissingBodyNonNestedBrackets1) {
   auto parse_result = parser.Parse();
   auto result = parse_result.messages();
 
-  ASSERT_THAT(parse_result.HasErrors(), Eq(false));
-  ASSERT_THAT(result.size(), Eq(1));
-  ASSERT_THAT(result[0], Eq(LogMessage{"This", "is", "a", "test", "[test]"}));
+  ASSERT_THAT(parse_result.HasErrors(), Eq(true));
+  ASSERT_THAT(parse_result.errors().size(), Eq(1));
+  ASSERT_THAT(parse_result.errors()[0].message(),
+              HasSubstr("File ended while parsing: Couldn't find next id"));
+  ASSERT_THAT(parse_result.errors()[0].line_number(), Eq(1));
+  ASSERT_THAT(result.size(), Eq(0));
 }
 
 TEST_F(LogMessageParserTest, MissingBodyNonNestedBrackets2) {
@@ -146,7 +149,7 @@ TEST_F(LogMessageParserTest, MissingBodyNonNestedBrackets2) {
   ASSERT_THAT(parse_result.HasErrors(), Eq(true));
   ASSERT_THAT(parse_result.errors().size(), Eq(1));
   ASSERT_THAT(parse_result.errors()[0].message(),
-              HasSubstr("There is unparsed data in line"));
+              HasSubstr("File ended while parsing: Couldn't find next id"));
 }
 
 TEST_F(LogMessageParserTest, MissingNextId) {
@@ -173,6 +176,10 @@ TEST_F(LogMessageParserTest, SingleLineInput) {
   auto parser = Parser{input};
   auto parse_result = parser.Parse();
   auto result = parse_result.messages();
+
+  for (const auto& error : parse_result.errors()) {
+    std::cout << error.message() << std::endl;
+  }
 
   ASSERT_THAT(parse_result.HasErrors(), Eq(false));
   ASSERT_THAT(result.size(), Eq(1));
@@ -439,6 +446,21 @@ TEST_F(LogMessageParserTest, SingleLineInputWithBodyWithMultipleBrackets) {
               Eq(LogMessage{"1", "2", "3", "a test [message]", "-1"}));
 }
 
+TEST_F(LogMessageParserTest, SingleLineInputWithBodyWithMultipleBrackets1) {
+  using pipelines::log_message_parser::structure::LogMessage;
+  using pipelines::log_message_parser::structure::Parser;
+
+  std::istringstream input("1 2 3 [a te]st[] [message]]]]] -1\n");
+  auto parser = Parser{input};
+  auto parse_result = parser.Parse();
+  auto result = parse_result.messages();
+
+  ASSERT_THAT(parse_result.HasErrors(), Eq(false));
+  ASSERT_THAT(result.size(), Eq(1));
+  ASSERT_THAT(result[0],
+              Eq(LogMessage{"1", "2", "3", "a te]st[] [message]]]]", "-1"}));
+}
+
 TEST_F(LogMessageParserTest,
        SingleLineInputWithBodyWithMultipleBracketsAndNewlines) {
   using pipelines::log_message_parser::structure::LogMessage;
@@ -512,12 +534,12 @@ TEST_F(LogMessageParserTest, ActualLog1WithoutBreaklines) {
        "2"}};
 
   auto input = std::istringstream(
-      R"(legacy-hex 2 1 [4d6f726269206c6f626f72746973206d6178696d757320766976657272612e20416c697175616d2065742068656e647265726974206e756c6c61] -1 
-2 12 0 [nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.] 1 
-1 0 0 [Lorem ipsum dolor sit amet, consectetur adipiscing elit] -1 
-2 10 0 [Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea] 30 
-3 1 0 [sed do eiusmod tempor incididunt ut labore et dolore magna aliqua] -1 
-2 30 0 [commodo consequat. duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat] 12 
+      R"(legacy-hex 2 1 [4d6f726269206c6f626f72746973206d6178696d757320766976657272612e20416c697175616d2065742068656e647265726974206e756c6c61] -1
+2 12 0 [nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.] 1
+1 0 0 [Lorem ipsum dolor sit amet, consectetur adipiscing elit] -1
+2 10 0 [Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea] 30
+3 1 0 [sed do eiusmod tempor incididunt ut labore et dolore magna aliqua] -1
+2 30 0 [commodo consequat. duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat] 12
 legacy-hex 1 1 [566976616d75732072757472756d2069642065726174206e6563207665686963756c612e20446f6e6563206672696e67696c6c61206c6163696e696120656c656966656e642e] 2)");
 
   auto parser = Parser{input};
@@ -620,13 +642,13 @@ TEST_F(LogMessageParserTest, ActualLog2WithoutBreaklines) {
        "legacy-2"}};
 
   auto input = std::istringstream(
-      R"(legacy-hex legacy-2 1 [4d6f726269206c6f626f72746973206d6178696d757320766976657272612e20416c697175616d2065742068656e647265726974206e756c6c61] -1 
-2 12 0 [nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.] 1 
-1 0 0 [Lorem ipsum dolor sit amet, consectetur adipiscing elit] -1 
-2 10 0 [Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea] 30 
-3 1 0 [sed do eiusmod tempor incididunt ut labore et dolore magna aliqua] -1 
-2 30 0 [commodo consequat. duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat] 12 
-legacy-hex legacy-1 1 [566976616d75732072757472756d2069642065726174206e6563207665686963756c612e20446f6e6563206672696e67696c6c61206c6163696e696120656c656966656e642e] legacy-2 
+      R"(legacy-hex legacy-2 1 [4d6f726269206c6f626f72746973206d6178696d757320766976657272612e20416c697175616d2065742068656e647265726974206e756c6c61] -1
+2 12 0 [nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.] 1
+1 0 0 [Lorem ipsum dolor sit amet, consectetur adipiscing elit] -1
+2 10 0 [Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea] 30
+3 1 0 [sed do eiusmod tempor incididunt ut labore et dolore magna aliqua] -1
+2 30 0 [commodo consequat. duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat] 12
+legacy-hex legacy-1 1 [566976616d75732072757472756d2069642065726174206e6563207665686963756c612e20446f6e6563206672696e67696c6c61206c6163696e696120656c656966656e642e] legacy-2
 111 99 0 [......)");
 
   auto parser = Parser{input};
@@ -746,12 +768,12 @@ TEST_F(LogMessageParserTest, ActualLog3WithoutBreaklines) {
        "2"}};
 
   auto input = std::istringstream(
-      R"(legacy-hex 2 1 [4d6f726269206c6f626f72746973206d6178696d757320766976657272612e20416c697175616d2065742068656e647265726974206e756c6c61] -1 
-2 37620c47-da9b-4218-9c35-fdb5961d4239 0 [nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.] -1 
-1 0 0 [Lorem ipsum dolor sit amet, consectetur adipiscing elit] -1 
-2 04e28d3b-d945-4051-8eeb-6f049f391234 0 [Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea] 5352ab80-7b0a-421f-8ab4-5c840ae882ee 
-3 1 0 [sed do eiusmod tempor incididunt ut labore et dolore magna aliqua] -1 
-2 5352ab80-7b0a-421f-8ab4-5c840ae882ee 0 [commodo consequat. duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat] 37620c47-da9b-4218-9c35-fdb5961d4239 
+      R"(legacy-hex 2 1 [4d6f726269206c6f626f72746973206d6178696d757320766976657272612e20416c697175616d2065742068656e647265726974206e756c6c61] -1
+2 37620c47-da9b-4218-9c35-fdb5961d4239 0 [nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.] -1
+1 0 0 [Lorem ipsum dolor sit amet, consectetur adipiscing elit] -1
+2 04e28d3b-d945-4051-8eeb-6f049f391234 0 [Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea] 5352ab80-7b0a-421f-8ab4-5c840ae882ee
+3 1 0 [sed do eiusmod tempor incididunt ut labore et dolore magna aliqua] -1
+2 5352ab80-7b0a-421f-8ab4-5c840ae882ee 0 [commodo consequat. duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat] 37620c47-da9b-4218-9c35-fdb5961d4239
 legacy-hex 1 1 [566976616d75732072757472756d2069642065726174206e6563207665686963756c612e20446f6e6563206672696e67696c6c61206c6163696e696120656c656966656e642e] 2 )");
 
   auto parser = Parser{input};
