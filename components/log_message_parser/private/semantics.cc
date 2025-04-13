@@ -79,11 +79,12 @@ static std::string CreateUnsupportedEncodingErrorMessage(
 
 namespace pipelines::log_message_parser::semantics {
 
-ParseResult Parser::Parse() {
+ParseResult Parser::Parse(
+    const structure::LogMessages& structure_log_messages) {
   auto parsed_messages = LogMessages{};
   auto errors = ParseErrors{};
 
-  for (const auto& structure_message : structure_log_messages_) {
+  for (const auto& structure_message : structure_log_messages) {
     const auto& pipeline_id = structure_message.pipeline_id();
     const auto& id = structure_message.id();
     const auto& encoding = structure_message.encoding();

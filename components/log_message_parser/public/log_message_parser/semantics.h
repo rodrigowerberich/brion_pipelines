@@ -168,11 +168,9 @@ class Parser {
 
  public:
   /**
-   * @brief Constructs a Parser with the given structured log messages.
-   * @param structure_log_messages The structured log messages to parse.
+   * @brief Default constructor for the Parser class.
    */
-  explicit Parser(const structure::LogMessages& structure_log_messages)
-      : structure_log_messages_(structure_log_messages) {}
+  Parser() = default;
 
   /**
    * @brief Registers a body parser for a specific encoding.
@@ -186,13 +184,12 @@ class Parser {
 
   /**
    * @brief Parses the structured log messages.
+   * @param structure_log_messages The structured log messages to parse.
    * @return A ParseResult containing the parsed messages and errors.
    */
-  ParseResult Parse();
+  ParseResult Parse(const structure::LogMessages& structure_log_messages);
 
  private:
-  structure::LogMessages
-      structure_log_messages_; /**< The structured log messages to parse. */
   BodyParserMap body_parsers_; /**< Registered body parsers. */
 };
 

@@ -1,3 +1,6 @@
 [submodule "components/googletest"]
 	path = components/googletest
 	url = https://github.com/google/googletest.git
+[submodule "components/clipp"]
+	path = components/clipp
+	url = https://github.com/muellan/clipp.git

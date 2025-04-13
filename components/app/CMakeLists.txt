@@ -8,6 +8,7 @@ target_link_libraries(app
     I_log_message_parser
     log_message_organizer
     log_message_parser
+    clipp
 )
 
 # add_subdirectory(test)
