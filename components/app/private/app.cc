@@ -42,17 +42,37 @@ using MessagesByPipeline = log_message_organizer::PipelineLogMessagesByPipeline;
  *****************************************************************************/
 namespace pipelines::app {
 
+/**
+ * @class CommandLineArguments
+ * @brief The command line arguments of the application
+ * 
+ * This class has all the parsed command line arguments
+ */
 struct CommandLineArguments {
+  /// The name of the input file where the data is
   std::string input_file{};
+  /// If output_to_file is true, this will contain the name of the file where we will write the output
   std::string output_file{};
+  /// Set if the user wants the output written to a file
   bool output_to_file = false;
+  /// When set, will print out any warning/errors
   bool verbose = false;
+  /// If set will print out the help message
   bool help = false;
+  /// When set will make any error cause a failure
   bool strict = false;
 };
 
+/**
+ * @class ApplicationRuntimeError
+ * @brief All runtime application errors should inherit from this class
+ */
 class ApplicationRuntimeError : public std::runtime_error {
  public:
+  /**
+   * @brief Constructor
+   * @param message Error message
+   */
   explicit ApplicationRuntimeError(const std::string& message)
       : std::runtime_error(message) {}
 };

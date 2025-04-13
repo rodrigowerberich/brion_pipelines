@@ -83,7 +83,7 @@ class PipelineLogMessagesChain {
 
   /// Default constructor
   PipelineLogMessagesChain() = default;
-  /*
+  /**
    * @brief Adds a message to the chain of regular messages.
    * @param message The pipeline log message to add.
    * This method adds the message to the normal chain of messages.
@@ -91,7 +91,7 @@ class PipelineLogMessagesChain {
   void AddToChain(const PipelineLogMessage& message) {
     chain_.push_back(message);
   }
-  /*
+  /**
    * @brief Adds a message to the chain of termination messages.
    * @param message The pipeline log message to add.
    * This method adds the message to the termination chain of messages.
@@ -99,7 +99,7 @@ class PipelineLogMessagesChain {
   void AddToTerminationChain(const PipelineLogMessage& message) {
     termination_chain_.push_back(message);
   }
-  /*
+  /**
    * @brief Adds a message to the chain of invalid messages.
    * @param message The pipeline log message to add.
    * This method adds the message to the invalid chain of messages.
@@ -107,14 +107,14 @@ class PipelineLogMessagesChain {
   void AddToInvalidChain(const PipelineLogMessage& message) {
     invalid_chain_.push_back(message);
   }
-  /*
+  /**
    * @brief Merges another PipelineLogMessagesChain into this one. 
    * @param other The other PipelineLogMessagesChain to merge.
    * This method combines the messages from the other chain into this one. 
    * It adds all messages tot the end of their respective chains.
    */
   void Merge(PipelineLogMessagesChain& other);
-  /*
+  /**
    * @brief Same as Merge, but the regular messages are added after the given iterator.
    * @param other The other PipelineLogMessagesChain to merge.
    * @param it The iterator to the position in the chain where the merge should occur.
@@ -124,7 +124,7 @@ class PipelineLogMessagesChain {
    * @note The iterator must be valid and point to a position in the chain.
    */
   void MergeAfter(PipelineLogMessagesChain& other, ChainIterator it);
-  /*
+  /**
    * @brief Same as Merge, but the regular messages are added at the beginning of the chain.
    * @param other The other PipelineLogMessagesChain to merge.
    * This method combines the messages from the other chain into this one.
@@ -132,12 +132,12 @@ class PipelineLogMessagesChain {
    * The termination and invalid messages are added to the end of their respective chains.
    */
   void MergeAtBeginning(PipelineLogMessagesChain& other);
-  /*
+  /**
    * @brief Returns an iterator to last element of the chain.
    * @return An iterator to the last element of the chain.
    */
   ChainIterator BeforeChainEnd() { return std::prev(std::end(chain_)); }
-  /*
+  /** 
    * @brief Returns the complete chain of messages, including regular, invalid, and termination messages.
    * @return The complete chain of messages.
    * This method combines all the messages from the three chains into one.
