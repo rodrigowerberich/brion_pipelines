@@ -38,6 +38,9 @@ using PipelineLogMessagesChain = std::list<PipelineLogMessage>;
 /// Type alias with a set of all the ids that should have been added to the current chain, but are already visited
 using MessagesVisitedSet = std::set<PipelineLogMessage>;
 
+using ElementsUnderSameId = std::pair<PipelineLogMessagesChain,
+                                      std::map<std::string, class NextIdInfo>>;
+
 }  // namespace pipelines::log_message_organizer::organize_by_id
 
 /******************************************************************************
@@ -102,6 +105,9 @@ class Organizer {
   PipelineLogMessagesChain GetNextElements(
       const PipelineLogMessage& current_message,
       MessagesVisitedSet& already_visited_next_elements_from_current_chain);
+  ElementsUnderSameId GetElementsUnderSameId(
+      const std::string& current_id,
+      MessagesVisitedSet& already_visited_next_elements_from_current_chain);
 };
 
 }  // namespace pipelines::log_message_organizer::organize_by_id
@@ -149,15 +155,13 @@ void Organizer::AddChainsFromThisMessageToList(
   }
 }
 
-PipelineLogMessagesChain Organizer::GetNextElements(
-    const PipelineLogMessage& current_message,
+ElementsUnderSameId Organizer::GetElementsUnderSameId(
+    const std::string& current_id,
     MessagesVisitedSet& already_visited_next_elements_from_current_chain) {
-  const auto& current_id = current_message.id();
   auto [it_current_id_first, it_current_id_end] =
       messages_by_id_.equal_range(current_id);
   auto same_element_chain = PipelineLogMessagesChain{};
   auto next_ids = std::map<std::string, NextIdInfo>{};
-  auto current_chain = PipelineLogMessagesChain{};
 
   for (auto it = it_current_id_first; it != it_current_id_end; ++it) {
     const auto& next_id = it->second.next_id();
@@ -187,6 +191,20 @@ PipelineLogMessagesChain Organizer::GetNextElements(
       }
     }
   }
+
+  return {same_element_chain, next_ids};
+}
+
+PipelineLogMessagesChain Organizer::GetNextElements(
+    const PipelineLogMessage& current_message,
+    MessagesVisitedSet& already_visited_next_elements_from_current_chain) {
+  const auto& current_id = current_message.id();
+
+  auto current_chain = PipelineLogMessagesChain{};
+
+  auto [same_element_chain, next_ids] = GetElementsUnderSameId(
+      current_id, already_visited_next_elements_from_current_chain);
+
   current_chain.splice(std::end(current_chain), same_element_chain);
   messages_visited_.at(current_id) = true;
   auto last_element_in_chain = std::prev(std::end(current_chain));
