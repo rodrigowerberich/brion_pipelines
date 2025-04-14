@@ -8,6 +8,8 @@ elseif (MSVC)
     set(CMAKE_CXX_FLAGS "/W4 /WX /permissive- /EHsc")
 endif()
 
+include(cmake_common/tools.cmake)
+
 enable_testing()
 add_subdirectory(components)
 
@@ -26,6 +28,15 @@ if(DOXYGEN_FOUND)
     #     ${CMAKE_BINARY_DIR}/docs/html/images
     # )
     # ADD_DEPENDENCIES(docs copy-images)
-ELSE()
+else()
     MESSAGE(WARNING "Doxygen not found, documentation won't be generated.")
-ENDIF()
+endif()
+
+# Run at end of top-level CMakeLists
+get_all_cmake_targets(test_targets ${CMAKE_CURRENT_LIST_DIR})
+LIST(FILTER test_targets INCLUDE REGEX "^test_*")
+
+add_custom_target(unit_tests
+    COMMAND echo "Building all unit tests..."
+)
+add_dependencies(unit_tests ${test_targets})

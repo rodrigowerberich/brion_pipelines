@@ -24,8 +24,8 @@ TEST_F(SemanticsParserTest, EmptyInput) {
 
   auto input = LogMessages{};
 
-  auto parser = Parser{input};
-  auto parse_result = parser.Parse();
+  auto parser = Parser{};
+  auto parse_result = parser.Parse(input);
 
   ASSERT_THAT(parse_result.HasErrors(), Eq(false));
   ASSERT_THAT(parse_result.messages().size(), Eq(0));
@@ -39,8 +39,8 @@ TEST_F(SemanticsParserTest, NoBodyParserRegistered) {
 
   auto input = StructureLogMessages{{"1", "2", "3", "4F4B", "-1"}};
 
-  auto parser = Parser{input};
-  auto parse_result = parser.Parse();
+  auto parser = Parser{};
+  auto parse_result = parser.Parse(input);
 
   ASSERT_THAT(parse_result.HasErrors(), Eq(true));
   ASSERT_THAT(parse_result.messages().size(), Eq(0));
@@ -64,9 +64,9 @@ TEST_F(SemanticsParserTest, BodyParserThrowsError) {
   EXPECT_CALL(*mock_body_parser_ptr, Parse("4F4B"))
       .WillOnce(testing::Throw(BodyParserError("Parsing error")));
 
-  auto parser = Parser{input};
+  auto parser = Parser{};
   parser.RegisterBodyParser("3", std::move(mock_body_parser));
-  auto parse_result = parser.Parse();
+  auto parse_result = parser.Parse(input);
 
   ASSERT_THAT(parse_result.HasErrors(), Eq(true));
   ASSERT_THAT(parse_result.messages().size(), Eq(0));
@@ -92,9 +92,9 @@ TEST_F(SemanticsParserTest, BodyParserWorksCorrectly) {
   EXPECT_CALL(*mock_body_parser_ptr, Parse("4F4B"))
       .WillOnce(testing::Return("Parsed body"));
 
-  auto parser = Parser{input};
+  auto parser = Parser{};
   parser.RegisterBodyParser("3", std::move(mock_body_parser));
-  auto parse_result = parser.Parse();
+  auto parse_result = parser.Parse(input);
 
   ASSERT_THAT(parse_result.HasErrors(), Eq(false));
   ASSERT_THAT(parse_result.messages().size(), Eq(1));
@@ -126,9 +126,9 @@ TEST_F(SemanticsParserTest, MultipleMessages) {
   EXPECT_CALL(*mock_body_parser_ptr, Parse("8F8B"))
       .WillOnce(testing::Return("Parsed body 2"));
 
-  auto parser = Parser{input};
+  auto parser = Parser{};
   parser.RegisterBodyParser("3", std::move(mock_body_parser));
-  auto parse_result = parser.Parse();
+  auto parse_result = parser.Parse(input);
 
   ASSERT_THAT(parse_result.HasErrors(), Eq(false));
   ASSERT_THAT(parse_result.messages().size(), Eq(2));
@@ -160,9 +160,9 @@ TEST_F(SemanticsParserTest, MultipleMessagesWithErrors) {
       .WillOnce(testing::Return("Parsed body"));
   EXPECT_CALL(*mock_body_parser_ptr, Parse("8F8B")).Times(0);
 
-  auto parser = Parser{input};
+  auto parser = Parser{};
   parser.RegisterBodyParser("3", std::move(mock_body_parser));
-  auto parse_result = parser.Parse();
+  auto parse_result = parser.Parse(input);
 
   ASSERT_THAT(parse_result.HasErrors(), Eq(true));
   ASSERT_THAT(parse_result.messages().size(), Eq(1));

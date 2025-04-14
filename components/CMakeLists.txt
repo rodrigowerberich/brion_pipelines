@@ -1,8 +1,8 @@
-add_subdirectory(googletest)
+add_subdirectory(googletest EXCLUDE_FROM_ALL)
 include(GoogleTest)
-add_subdirectory(clipp)
+add_subdirectory(clipp EXCLUDE_FROM_ALL)
 
-add_subdirectory(log_message)
-add_subdirectory(log_message_parser)
-add_subdirectory(log_message_organizer)
+add_subdirectory(log_message EXCLUDE_FROM_ALL)
+add_subdirectory(log_message_parser EXCLUDE_FROM_ALL)
+add_subdirectory(log_message_organizer EXCLUDE_FROM_ALL)
 add_subdirectory(app)
