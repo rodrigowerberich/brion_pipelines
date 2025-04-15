@@ -6,6 +6,8 @@
 - Doxygen
 - Graphviz
 
+You can also use the docker file in this repo for a quick build, see the details in the end of this file
+
 ## Style guide used:
 https://google.github.io/styleguide/cppguide.html
 
@@ -60,5 +62,28 @@ cmake -B build
 cmake --build build -j14 --target unit_tests
 ctest -j14 -C Debug -T test --output-on-failure --test-dir build
 ```
+
+
+## Running over docker
+
+If you want to build using docker you can run, with this repo as the working directory
+
+```
+docker build . -t brion_pipeline:latest
+```
+
+If it worked, you should see the help message if you run
+```
+docker run brion_pipeline:latest
+```
+
+To parse a file, e.g example 1, execute:
+
+```
+docker run -v ./examples/test_file1.txt:test_file1.txt brion_pipeline:latest ./bin/pipeline_parser test_file1.txt
+```
+
+
+## More info
 
 For more info see the [overview](@ref Overview)
