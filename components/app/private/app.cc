@@ -296,7 +296,12 @@ static void RunApplication(const CommandLineArguments& cli_args) {
 /******************************************************************************
  * FUNCTIONS
  ******************************************************************************/
-
+/**
+ * @brief Main function of the application.
+ * @param argc The number of command line arguments.
+ * @param argv The command line arguments.
+ * @return The exit code of the application.
+ */
 int main(int argc, char* argv[]) {
   using namespace pipelines::app;
 
