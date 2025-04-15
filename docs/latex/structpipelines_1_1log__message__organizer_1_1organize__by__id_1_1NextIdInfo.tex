@@ -1,0 +1,50 @@
+\doxysection{pipelines\+::log\+\_\+message\+\_\+organizer\+::organize\+\_\+by\+\_\+id\+::Next\+Id\+Info Struct Reference}
+\hypertarget{structpipelines_1_1log__message__organizer_1_1organize__by__id_1_1NextIdInfo}{}\label{structpipelines_1_1log__message__organizer_1_1organize__by__id_1_1NextIdInfo}\index{pipelines::log\_message\_organizer::organize\_by\_id::NextIdInfo@{pipelines::log\_message\_organizer::organize\_by\_id::NextIdInfo}}
+
+
+Structure to hold information about the next ID in the log message chain.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{structpipelines_1_1log__message__organizer_1_1organize__by__id_1_1NextIdInfo_a193a2e9220a5adca704f72abd60e41f6}{valid\+\_\+id}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the ID is valid, i.\+e., an ID that should be followed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structpipelines_1_1log__message__organizer_1_1organize__by__id_1_1NextIdInfo_a525d9d83382f7df3b602e5887d344c6e}\label{structpipelines_1_1log__message__organizer_1_1organize__by__id_1_1NextIdInfo_a525d9d83382f7df3b602e5887d344c6e} 
+bool {\bfseries invalid} \{false\}
+\begin{DoxyCompactList}\small\item\em Indicates if there is an element with this ID in the log messages. \end{DoxyCompactList}\item 
+\Hypertarget{structpipelines_1_1log__message__organizer_1_1organize__by__id_1_1NextIdInfo_a143b31f3197dcab6f5d6f029b0bb23bd}\label{structpipelines_1_1log__message__organizer_1_1organize__by__id_1_1NextIdInfo_a143b31f3197dcab6f5d6f029b0bb23bd} 
+bool {\bfseries terminator} \{false\}
+\begin{DoxyCompactList}\small\item\em Indicates if this ID is a terminator (e.\+g., "{}-\/1"{}) \end{DoxyCompactList}\item 
+\Hypertarget{structpipelines_1_1log__message__organizer_1_1organize__by__id_1_1NextIdInfo_adc5e1bb64b5acd788b1c321d195ab3f2}\label{structpipelines_1_1log__message__organizer_1_1organize__by__id_1_1NextIdInfo_adc5e1bb64b5acd788b1c321d195ab3f2} 
+bool {\bfseries same\+\_\+id} \{false\}
+\begin{DoxyCompactList}\small\item\em Indicates if this ID is the same as the current ID. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Structure to hold information about the next ID in the log message chain. 
+
+This structure contains flags to indicate whether the next ID is invalid, a terminator, or the same as the current ID. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structpipelines_1_1log__message__organizer_1_1organize__by__id_1_1NextIdInfo_a193a2e9220a5adca704f72abd60e41f6}\label{structpipelines_1_1log__message__organizer_1_1organize__by__id_1_1NextIdInfo_a193a2e9220a5adca704f72abd60e41f6} 
+\index{pipelines::log\_message\_organizer::organize\_by\_id::NextIdInfo@{pipelines::log\_message\_organizer::organize\_by\_id::NextIdInfo}!valid\_id@{valid\_id}}
+\index{valid\_id@{valid\_id}!pipelines::log\_message\_organizer::organize\_by\_id::NextIdInfo@{pipelines::log\_message\_organizer::organize\_by\_id::NextIdInfo}}
+\doxysubsubsection{\texorpdfstring{valid\_id()}{valid\_id()}}
+{\footnotesize\ttfamily bool pipelines\+::log\+\_\+message\+\_\+organizer\+::organize\+\_\+by\+\_\+id\+::\+Next\+Id\+Info\+::valid\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Checks if the ID is valid, i.\+e., an ID that should be followed. 
+
+\begin{DoxyReturn}{Returns}
+true if the ID is valid (not invalid, not a terminator, and not the same ID), 
+\end{DoxyReturn}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/rodri/\+Documents/\+Brion-\/\+Assignment/brion\+\_\+pipelines/components/log\+\_\+message\+\_\+organizer/private/\mbox{\hyperlink{organize__by__id_8cc}{organize\+\_\+by\+\_\+id.\+cc}}\end{DoxyCompactItemize}

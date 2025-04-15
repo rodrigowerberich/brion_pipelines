@@ -1,0 +1,94 @@
+\doxysection{clipp\+::detail\+::scoped\+\_\+dfs\+\_\+traverser Class Reference}
+\hypertarget{classclipp_1_1detail_1_1scoped__dfs__traverser}{}\label{classclipp_1_1detail_1_1scoped__dfs__traverser}\index{clipp::detail::scoped\_dfs\_traverser@{clipp::detail::scoped\_dfs\_traverser}}
+
+
+DFS traverser that keeps track of \textquotesingle{}scopes\textquotesingle{} scope = all parameters that are either bounded by two blocking parameters on the same depth level or the beginning/end of the outermost group.  
+
+
+
+
+{\ttfamily \#include $<$clipp.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classclipp_1_1detail_1_1scoped__dfs__traverser_a4c016dccfbee27e23963fa6105cdac76}\label{classclipp_1_1detail_1_1scoped__dfs__traverser_a4c016dccfbee27e23963fa6105cdac76} 
+using {\bfseries dfs\+\_\+traverser} = \mbox{\hyperlink{classclipp_1_1group_1_1depth__first__traverser}{group\+::depth\+\_\+first\+\_\+traverser}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classclipp_1_1detail_1_1scoped__dfs__traverser_a0e3c96dc1aae1f8f76e57f21240a9dd6}\label{classclipp_1_1detail_1_1scoped__dfs__traverser_a0e3c96dc1aae1f8f76e57f21240a9dd6} 
+{\bfseries scoped\+\_\+dfs\+\_\+traverser} (const \mbox{\hyperlink{classclipp_1_1group}{group}} \&g)
+\item 
+\Hypertarget{classclipp_1_1detail_1_1scoped__dfs__traverser_a9586651932c5598e5c210ca3fbb6f71a}\label{classclipp_1_1detail_1_1scoped__dfs__traverser_a9586651932c5598e5c210ca3fbb6f71a} 
+const \mbox{\hyperlink{classclipp_1_1group_1_1depth__first__traverser}{dfs\+\_\+traverser}} \& {\bfseries base} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1detail_1_1scoped__dfs__traverser_aecef4c1fe4b32374c3884ad9c0d9c2c0}\label{classclipp_1_1detail_1_1scoped__dfs__traverser_aecef4c1fe4b32374c3884ad9c0d9c2c0} 
+const \mbox{\hyperlink{classclipp_1_1group_1_1depth__first__traverser}{dfs\+\_\+traverser}} \& {\bfseries last\+\_\+match} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1detail_1_1scoped__dfs__traverser_a58f448ce0192d3beb58c3480b056dbbc}\label{classclipp_1_1detail_1_1scoped__dfs__traverser_a58f448ce0192d3beb58c3480b056dbbc} 
+const \mbox{\hyperlink{classclipp_1_1group}{group}} \& {\bfseries parent} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1detail_1_1scoped__dfs__traverser_a967603a670273176f93847e10321ba95}\label{classclipp_1_1detail_1_1scoped__dfs__traverser_a967603a670273176f93847e10321ba95} 
+const \mbox{\hyperlink{classclipp_1_1group}{group}} \texorpdfstring{$\ast$}{*} {\bfseries innermost\+\_\+repeat\+\_\+group} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1detail_1_1scoped__dfs__traverser_a72154c1086533a03edcd272043813cf2}\label{classclipp_1_1detail_1_1scoped__dfs__traverser_a72154c1086533a03edcd272043813cf2} 
+const \mbox{\hyperlink{classclipp_1_1group}{group}} \texorpdfstring{$\ast$}{*} {\bfseries outermost\+\_\+join\+\_\+group} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1detail_1_1scoped__dfs__traverser_ab9ea866b1c5034f2ec019f1c8452a662}\label{classclipp_1_1detail_1_1scoped__dfs__traverser_ab9ea866b1c5034f2ec019f1c8452a662} 
+const \mbox{\hyperlink{classclipp_1_1group}{group}} \texorpdfstring{$\ast$}{*} {\bfseries innermost\+\_\+blocking\+\_\+group} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1detail_1_1scoped__dfs__traverser_a857d2c986fa5fa85e2eb807312d9d4f1}\label{classclipp_1_1detail_1_1scoped__dfs__traverser_a857d2c986fa5fa85e2eb807312d9d4f1} 
+const \mbox{\hyperlink{classclipp_1_1group}{group}} \texorpdfstring{$\ast$}{*} {\bfseries innermost\+\_\+exclusive\+\_\+group} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1detail_1_1scoped__dfs__traverser_a4ebcc8c9e61d0596bb78022cf9ccb6e5}\label{classclipp_1_1detail_1_1scoped__dfs__traverser_a4ebcc8c9e61d0596bb78022cf9ccb6e5} 
+const \mbox{\hyperlink{namespaceclipp_a832b3ae6a199a3a18d769c03187f59de}{pattern}} \texorpdfstring{$\ast$}{*} {\bfseries operator-\/$>$} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1detail_1_1scoped__dfs__traverser_aa639b81b44e6111ae095ead8aede6957}\label{classclipp_1_1detail_1_1scoped__dfs__traverser_aa639b81b44e6111ae095ead8aede6957} 
+const \mbox{\hyperlink{namespaceclipp_a832b3ae6a199a3a18d769c03187f59de}{pattern}} \& {\bfseries operator\texorpdfstring{$\ast$}{*}} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1detail_1_1scoped__dfs__traverser_aa7de01d4b84d9097f2c52339b8401edd}\label{classclipp_1_1detail_1_1scoped__dfs__traverser_aa7de01d4b84d9097f2c52339b8401edd} 
+const \mbox{\hyperlink{namespaceclipp_a832b3ae6a199a3a18d769c03187f59de}{pattern}} \texorpdfstring{$\ast$}{*} {\bfseries ptr} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1detail_1_1scoped__dfs__traverser_a35bc0eed78e1aeecdb56428aa5a3c2ee}\label{classclipp_1_1detail_1_1scoped__dfs__traverser_a35bc0eed78e1aeecdb56428aa5a3c2ee} 
+{\bfseries operator bool} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1detail_1_1scoped__dfs__traverser_ae83280f27f44a0eeb14c5a3e52022ad5}\label{classclipp_1_1detail_1_1scoped__dfs__traverser_ae83280f27f44a0eeb14c5a3e52022ad5} 
+bool {\bfseries joinable} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1detail_1_1scoped__dfs__traverser_a248e7ea17a278c95912c693e35a66045}\label{classclipp_1_1detail_1_1scoped__dfs__traverser_a248e7ea17a278c95912c693e35a66045} 
+arg\+\_\+string {\bfseries common\+\_\+flag\+\_\+prefix} () const
+\item 
+\Hypertarget{classclipp_1_1detail_1_1scoped__dfs__traverser_ab78d0665bc7df74cfe486fe5e17fbc1c}\label{classclipp_1_1detail_1_1scoped__dfs__traverser_ab78d0665bc7df74cfe486fe5e17fbc1c} 
+void {\bfseries ignore\+\_\+blocking} (bool yes)
+\item 
+\Hypertarget{classclipp_1_1detail_1_1scoped__dfs__traverser_af34d1a5b22730cd2119f6743d3ed0f7b}\label{classclipp_1_1detail_1_1scoped__dfs__traverser_af34d1a5b22730cd2119f6743d3ed0f7b} 
+void {\bfseries invalidate} ()
+\item 
+\Hypertarget{classclipp_1_1detail_1_1scoped__dfs__traverser_ad25b00f440269c4e820e0b941e18838f}\label{classclipp_1_1detail_1_1scoped__dfs__traverser_ad25b00f440269c4e820e0b941e18838f} 
+bool {\bfseries matched} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1detail_1_1scoped__dfs__traverser_af5f12827ca3fa8a27701182a50f171bf}\label{classclipp_1_1detail_1_1scoped__dfs__traverser_af5f12827ca3fa8a27701182a50f171bf} 
+bool {\bfseries start\+\_\+of\+\_\+repeat\+\_\+group} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1detail_1_1scoped__dfs__traverser_af02ad1a19718d18adaa2d4ee8511f4db}\label{classclipp_1_1detail_1_1scoped__dfs__traverser_af02ad1a19718d18adaa2d4ee8511f4db} 
+\mbox{\hyperlink{classclipp_1_1detail_1_1scoped__dfs__traverser}{scoped\+\_\+dfs\+\_\+traverser}} \& {\bfseries next\+\_\+sibling} ()
+\item 
+\Hypertarget{classclipp_1_1detail_1_1scoped__dfs__traverser_ab994a68ac728c408497d4320ce4d48e8}\label{classclipp_1_1detail_1_1scoped__dfs__traverser_ab994a68ac728c408497d4320ce4d48e8} 
+\mbox{\hyperlink{classclipp_1_1detail_1_1scoped__dfs__traverser}{scoped\+\_\+dfs\+\_\+traverser}} \& {\bfseries next\+\_\+after\+\_\+siblings} ()
+\item 
+\Hypertarget{classclipp_1_1detail_1_1scoped__dfs__traverser_af1e6e3b4c23594a878b93390a2b0474e}\label{classclipp_1_1detail_1_1scoped__dfs__traverser_af1e6e3b4c23594a878b93390a2b0474e} 
+\mbox{\hyperlink{classclipp_1_1detail_1_1scoped__dfs__traverser}{scoped\+\_\+dfs\+\_\+traverser}} \& {\bfseries operator++} ()
+\item 
+\Hypertarget{classclipp_1_1detail_1_1scoped__dfs__traverser_aac04edd3fa1b01dc8b4e4d0cb8d77d43}\label{classclipp_1_1detail_1_1scoped__dfs__traverser_aac04edd3fa1b01dc8b4e4d0cb8d77d43} 
+void {\bfseries next\+\_\+after\+\_\+match} (\mbox{\hyperlink{classclipp_1_1detail_1_1scoped__dfs__traverser}{scoped\+\_\+dfs\+\_\+traverser}} match)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+DFS traverser that keeps track of \textquotesingle{}scopes\textquotesingle{} scope = all parameters that are either bounded by two blocking parameters on the same depth level or the beginning/end of the outermost group. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/rodri/\+Documents/\+Brion-\/\+Assignment/brion\+\_\+pipelines/components/clipp/include/clipp.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,5 @@
+<map id="pipelines::log_message_parser::semantics::Hex16BodyParser" name="pipelines::log_message_parser::semantics::Hex16BodyParser">
+<area shape="rect" id="Node000001" title="A parser for hexadecimal 16&#45;bit body messages." alt="" coords="5,93,233,148"/>
+<area shape="rect" id="Node000002" href="$classpipelines_1_1log__message__parser_1_1semantics_1_1BodyParser.html" title="Abstract base class for body parsers." alt="" coords="6,5,233,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="122,59,122,93,117,93,117,59"/>
+</map>

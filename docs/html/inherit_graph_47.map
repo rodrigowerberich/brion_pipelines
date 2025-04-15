@@ -1,0 +1,13 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,77,144,102"/>
+<area shape="rect" id="Node000001" href="$classpipelines_1_1app_1_1ApplicationRuntimeError.html" title=" " alt="" coords="223,5,418,45"/>
+<area shape="poly" id="edge4_Node000000_Node000001" title=" " alt="" coords="133,70,191,55,238,43,239,48,193,60,135,76"/>
+<area shape="rect" id="Node000002" href="$classpipelines_1_1log__message__parser_1_1semantics_1_1BodyParserError.html" title="Represents an error specific to body parsing." alt="" coords="192,69,449,109"/>
+<area shape="poly" id="edge5_Node000000_Node000002" title=" " alt="" coords="158,87,192,87,192,92,158,92"/>
+<area shape="rect" id="Node000003" href="$classpipelines_1_1log__message__parser_1_1structure_1_1StreamReadError.html" title="Represents an error encountered while reading from a stream." alt="" coords="193,133,448,173"/>
+<area shape="poly" id="edge6_Node000000_Node000003" title=" " alt="" coords="135,103,193,119,239,131,238,136,191,124,133,108"/>
+<area shape="rect" id="Node000004" href="$classpipelines_1_1log__message__parser_1_1structure_1_1BadFormatError.html" title="Represents an error caused by encountering a bad format in the input." alt="" coords="497,101,744,141"/>
+<area shape="poly" id="edge7_Node000003_Node000004" title=" " alt="" coords="461,136,497,132,498,137,462,141"/>
+<area shape="rect" id="Node000005" href="$classpipelines_1_1log__message__parser_1_1structure_1_1FileEndError.html" title="Represents an error caused by reaching the end of a file unexpectedly." alt="" coords="509,165,732,205"/>
+<area shape="poly" id="edge8_Node000003_Node000005" title=" " alt="" coords="462,166,509,171,509,176,461,171"/>
+</map>

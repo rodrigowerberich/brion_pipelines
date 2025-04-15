@@ -1,0 +1,143 @@
+\doxysection{testing.\+h}
+\hypertarget{testing_8h_source}{}\label{testing_8h_source}\index{/mnt/c/Users/rodri/Documents/Brion-\/Assignment/brion\_pipelines/components/clipp/test/testing.h@{/mnt/c/Users/rodri/Documents/Brion-\/Assignment/brion\_pipelines/components/clipp/test/testing.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CLIPP\_TESTING\_H\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CLIPP\_TESTING\_H\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{comment}{//don't\ include\ anything\ else\ before\ the\ test\ subject}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}../include/clipp.h"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <initializer\_list>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <type\_traits>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <limits>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{comment}{/*************************************************************************/}}
+\DoxyCodeLine{00023\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtest__location}{test\_location}}}
+\DoxyCodeLine{00024\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{structtest__location}{test\_location}}(std::string\ file\_,\ \textcolor{keywordtype}{int}\ line\_):}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ file\{std::move(file\_)\},\ line\{line\_\}}
+\DoxyCodeLine{00027\ \ \ \ \ \{\}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ std::string\ file;}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{int}\ line;}
+\DoxyCodeLine{00031\ \};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{comment}{/*************************************************************************/}}
+\DoxyCodeLine{00040\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ CLI>}
+\DoxyCodeLine{00041\ std::vector<CLI>}
+\DoxyCodeLine{00042\ wrapped\_variants(\textcolor{keyword}{const}\ CLI\&\ cli)}
+\DoxyCodeLine{00043\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespaceclipp}{clipp}};}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordflow}{return}\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ 1*/}\ cli}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ ,}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ 2*/}\ \mbox{\hyperlink{classclipp_1_1group}{group}}\{cli\}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ ,}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ 3*/}\ \mbox{\hyperlink{classclipp_1_1group}{group}}\{\mbox{\hyperlink{classclipp_1_1group}{group}}\{cli\}\}}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ ,}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ 4*/}\ \mbox{\hyperlink{classclipp_1_1group}{group}}\{\mbox{\hyperlink{namespaceclipp_a49eecb5d433ae8b2a2af78ddc7464618}{option}}(\textcolor{stringliteral}{"{}?a?"{}}),\ cli\}}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ ,}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ 5*/}\ \mbox{\hyperlink{classclipp_1_1group}{group}}\{cli,\ \mbox{\hyperlink{namespaceclipp_a49eecb5d433ae8b2a2af78ddc7464618}{option}}(\textcolor{stringliteral}{"{}?a?"{}})\}}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ ,}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ 6*/}\ \mbox{\hyperlink{classclipp_1_1group}{group}}\{\mbox{\hyperlink{namespaceclipp_a49eecb5d433ae8b2a2af78ddc7464618}{option}}(\textcolor{stringliteral}{"{}?b?"{}}),\ cli,\ \mbox{\hyperlink{namespaceclipp_a49eecb5d433ae8b2a2af78ddc7464618}{option}}(\textcolor{stringliteral}{"{}?a?"{}})\}}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ ,}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ 7*/}\ \mbox{\hyperlink{classclipp_1_1group}{group}}\{\mbox{\hyperlink{classclipp_1_1group}{group}}\{\mbox{\hyperlink{namespaceclipp_a49eecb5d433ae8b2a2af78ddc7464618}{option}}(\textcolor{stringliteral}{"{}?a?"{}})\},\ cli\}}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ ,}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ 8*/}\ \mbox{\hyperlink{classclipp_1_1group}{group}}\{cli,\ \mbox{\hyperlink{classclipp_1_1group}{group}}\{\mbox{\hyperlink{namespaceclipp_a49eecb5d433ae8b2a2af78ddc7464618}{option}}(\textcolor{stringliteral}{"{}?a?"{}})\}\}}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ ,}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ 9*/}\ \mbox{\hyperlink{classclipp_1_1group}{group}}\{\mbox{\hyperlink{namespaceclipp_a49eecb5d433ae8b2a2af78ddc7464618}{option}}(\textcolor{stringliteral}{"{}?a?"{}}),\ \mbox{\hyperlink{classclipp_1_1group}{group}}\{cli\}\}}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ ,}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*10*/}\ \mbox{\hyperlink{classclipp_1_1group}{group}}\{\mbox{\hyperlink{classclipp_1_1group}{group}}\{cli\},\ \mbox{\hyperlink{namespaceclipp_a49eecb5d433ae8b2a2af78ddc7464618}{option}}(\textcolor{stringliteral}{"{}?a?"{}})\}}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ ,}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*11*/}\ \mbox{\hyperlink{classclipp_1_1group}{group}}\{\mbox{\hyperlink{namespaceclipp_a49eecb5d433ae8b2a2af78ddc7464618}{option}}(\textcolor{stringliteral}{"{}?b?"{}}),\ \mbox{\hyperlink{classclipp_1_1group}{group}}\{cli\},\ \mbox{\hyperlink{namespaceclipp_a49eecb5d433ae8b2a2af78ddc7464618}{option}}(\textcolor{stringliteral}{"{}?a?"{}})\}}
+\DoxyCodeLine{00067\ \ \ \ \ \};}
+\DoxyCodeLine{00068\ \}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{comment}{/*************************************************************************/}}
+\DoxyCodeLine{00078\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ CLI>}
+\DoxyCodeLine{00079\ \textcolor{keywordtype}{void}\ run\_wrapped\_variants(}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structtest__location}{test\_location}}\&\ info,}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{const}\ std::initializer\_list<const\ char*>\&\ args,}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{const}\ CLI\&\ cli,}
+\DoxyCodeLine{00083\ \ \ \ \ std::function<\textcolor{keywordtype}{void}()>\ initialize,}
+\DoxyCodeLine{00084\ \ \ \ \ std::function<\textcolor{keywordtype}{bool}()>\ valid)}
+\DoxyCodeLine{00085\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keyword}{using\ }std::cout;}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keyword}{using\ }std::to\_string;}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{int}\ variant\ =\ 0;}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ wrappedCli\ :\ wrapped\_variants(cli))\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ ++variant;}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ initialize();}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceclipp_a2b4c7356890e9113b5d6e9f351428f96}{parse}}(args,\ wrappedCli);}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \textcolor{comment}{//\ \ \ \ \ \ \ \ cout\ <<\ "{}==============================================\(\backslash\)n"{}}}
+\DoxyCodeLine{00098\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ "{}\ in\ file\ "{}\ <<\ info.file\ <<\ "{}\ in\ line\ "{}\ <<\ info.line}}
+\DoxyCodeLine{00099\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ "{}\ with\ variant\ "{}\ <<\ variant\ <<\ '\(\backslash\)n'}}
+\DoxyCodeLine{00100\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ "{}==============================================\(\backslash\)n"{};}}
+\DoxyCodeLine{00101\ \textcolor{comment}{//\ \ \ \ \ \ \ \ clipp::debug::print(cout,\ wrappedCli);}}
+\DoxyCodeLine{00102\ \textcolor{comment}{//\ \ \ \ \ \ \ \ cout\ <<\ "{}args\ =\ \{\ "{};}}
+\DoxyCodeLine{00103\ \textcolor{comment}{//\ \ \ \ \ \ \ \ for(const\ auto\&\ a\ :\ args)\ cout\ <<\ '"{}'\ <<\ a\ <<\ "{}\(\backslash\)"{}\ "{};}}
+\DoxyCodeLine{00104\ \textcolor{comment}{//\ \ \ \ \ \ \ \ cout\ <<\ "{}\}\(\backslash\)n"{};}}
+\DoxyCodeLine{00105\ \textcolor{comment}{//\ \ \ \ \ \ \ \ auto\ res\ =\ clipp::parse(args,\ wrappedCli);}}
+\DoxyCodeLine{00106\ \textcolor{comment}{//\ \ \ \ \ \ \ \ cout\ <<\ "{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{};}}
+\DoxyCodeLine{00107\ \textcolor{comment}{//\ \ \ \ \ \ \ \ clipp::debug::print(cout,\ res);}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!valid())\ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error\{\textcolor{stringliteral}{"{}failed\ test\ "{}}\ +\ info.file\ +}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ in\ line\ "{}}\ +\ to\_string(info.line)\ +}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ with\ variant\ "{}}\ +\ to\_string(variant)\ \};}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00114\ \ \ \ \ \}}
+\DoxyCodeLine{00115\ \}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \textcolor{comment}{/*************************************************************************/}}
+\DoxyCodeLine{00124\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ CLI>}
+\DoxyCodeLine{00125\ \textcolor{keywordtype}{void}\ run\_test(}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structtest__location}{test\_location}}\&\ info,}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keyword}{const}\ std::initializer\_list<const\ char*>\&\ args,}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keyword}{const}\ CLI\&\ cli,}
+\DoxyCodeLine{00129\ \ \ \ \ std::function<\textcolor{keywordtype}{bool}()>\ valid)}
+\DoxyCodeLine{00130\ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keyword}{using\ }std::cout;}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keyword}{using\ }std::to\_string;}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \mbox{\hyperlink{namespaceclipp_a2b4c7356890e9113b5d6e9f351428f96}{parse}}(args,\ cli);}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \textcolor{comment}{//\ \ \ \ cout\ <<\ "{}==============================================\(\backslash\)n"{}}}
+\DoxyCodeLine{00137\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ <<\ "{}\ in\ file\ "{}\ <<\ info.file\ <<\ "{}\ in\ line\ "{}\ <<\ info.line\ <<\ '\(\backslash\)n'}}
+\DoxyCodeLine{00138\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ <<\ "{}==============================================\(\backslash\)n"{};}}
+\DoxyCodeLine{00139\ \textcolor{comment}{//\ \ \ \ clipp::debug::print(cout,\ cli);}}
+\DoxyCodeLine{00140\ \textcolor{comment}{//\ \ \ \ cout\ <<\ "{}args\ =\ \{\ "{};}}
+\DoxyCodeLine{00141\ \textcolor{comment}{//\ \ \ \ for(const\ auto\&\ a\ :\ args)\ cout\ <<\ '"{}'\ <<\ a\ <<\ "{}\(\backslash\)"{}\ "{};}}
+\DoxyCodeLine{00142\ \textcolor{comment}{//\ \ \ \ cout\ <<\ "{}\}\(\backslash\)n"{};}}
+\DoxyCodeLine{00143\ \textcolor{comment}{//\ \ \ \ auto\ res\ =\ clipp::parse(args,\ cli);}}
+\DoxyCodeLine{00144\ \textcolor{comment}{//\ \ \ \ cout\ <<\ "{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{};}}
+\DoxyCodeLine{00145\ \textcolor{comment}{//\ \ \ \ clipp::debug::print(cout,\ res);}}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordflow}{if}(!valid())\ \{}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error\{\textcolor{stringliteral}{"{}failed\ test\ "{}}\ +\ info.file\ +}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ in\ line\ "{}}\ +\ to\_string(info.line)\ \};}
+\DoxyCodeLine{00150\ \ \ \ \ \}}
+\DoxyCodeLine{00151\ \}}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

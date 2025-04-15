@@ -1,0 +1,15 @@
+<map id="/mnt/c/Users/rodri/Documents/Brion&#45;Assignment/brion_pipelines/components/log_message_organizer/public/log_message_organizer/pipeline_log_message.h" name="/mnt/c/Users/rodri/Documents/Brion&#45;Assignment/brion_pipelines/components/log_message_organizer/public/log_message_organizer/pipeline_log_message.h">
+<area shape="rect" id="Node000001" title="This file defines the PipelineLogMessage class, which represents a log message that belongs to a sing..." alt="" coords="105,5,341,104"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,152,56,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="138,106,64,148,62,143,135,102"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="129,225,205,251"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="156,106,136,128,121,153,119,169,123,185,144,214,140,217,118,187,113,169,116,151,132,125,152,102"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="248,225,307,251"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="343,89,383,115,401,131,416,151,421,166,419,181,410,193,396,203,359,220,321,231,319,226,358,215,393,199,406,189,414,178,416,167,411,153,397,135,380,119,340,93"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="338,152,401,177"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="290,102,344,141,341,146,287,106"/>
+<area shape="rect" id="Node000006" href="$message_8h.html" title="Base Log Message class." alt="" coords="131,152,314,177"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="225,104,225,138,220,138,220,104"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="216,179,186,216,182,213,211,176"/>
+<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="234,176,262,213,258,216,230,179"/>
+</map>

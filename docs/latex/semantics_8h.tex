@@ -1,0 +1,78 @@
+\doxysection{/mnt/c/\+Users/rodri/\+Documents/\+Brion-\/\+Assignment/brion\+\_\+pipelines/components/log\+\_\+message\+\_\+parser/public/log\+\_\+message\+\_\+parser/semantics.h File Reference}
+\hypertarget{semantics_8h}{}\label{semantics_8h}\index{/mnt/c/Users/rodri/Documents/Brion-\/Assignment/brion\_pipelines/components/log\_message\_parser/public/log\_message\_parser/semantics.h@{/mnt/c/Users/rodri/Documents/Brion-\/Assignment/brion\_pipelines/components/log\_message\_parser/public/log\_message\_parser/semantics.h}}
+
+
+Defines core classes and types for log message parsing semantics.  
+
+
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$ostream$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include "{}log\+\_\+message/message.\+h"{}}\newline
+{\ttfamily \#include "{}log\+\_\+message\+\_\+parser/structure.\+h"{}}\newline
+Include dependency graph for semantics.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{semantics_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{semantics_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1semantics_1_1ParseError}{pipelines\+::log\+\_\+message\+\_\+parser\+::semantics\+::\+Parse\+Error}}
+\begin{DoxyCompactList}\small\item\em Represents an error encountered during parsing. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1semantics_1_1ParseResult}{pipelines\+::log\+\_\+message\+\_\+parser\+::semantics\+::\+Parse\+Result}}
+\begin{DoxyCompactList}\small\item\em Represents the result of a parsing operation. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1semantics_1_1BodyParserError}{pipelines\+::log\+\_\+message\+\_\+parser\+::semantics\+::\+Body\+Parser\+Error}}
+\begin{DoxyCompactList}\small\item\em Represents an error specific to body parsing. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1semantics_1_1BodyParser}{pipelines\+::log\+\_\+message\+\_\+parser\+::semantics\+::\+Body\+Parser}}
+\begin{DoxyCompactList}\small\item\em Abstract base class for body parsers. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1semantics_1_1Parser}{pipelines\+::log\+\_\+message\+\_\+parser\+::semantics\+::\+Parser}}
+\begin{DoxyCompactList}\small\item\em Main parser class for the semantics of log messages. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{semantics_8h_ab1f79f394c01124a8ae2973c67236081}{pipelines\+::log\+\_\+message\+\_\+parser\+::semantics\+::\+Log\+Message}} = \mbox{\hyperlink{classpipelines_1_1log__message_1_1Message}{\+::pipelines\+::log\+\_\+message\+::\+Message}}
+\item 
+using \mbox{\hyperlink{semantics_8h_a1b1d69ba6dab2e9fba896354b9318831}{pipelines\+::log\+\_\+message\+\_\+parser\+::semantics\+::\+Log\+Messages}} = \+::std\+::vector$<$ \mbox{\hyperlink{semantics_8h_ab1f79f394c01124a8ae2973c67236081}{Log\+Message}} $>$
+\item 
+using \mbox{\hyperlink{semantics_8h_a0d43fbe55f401fedb2531fe519e1fa74}{pipelines\+::log\+\_\+message\+\_\+parser\+::semantics\+::\+Parse\+Errors}} = \+::std\+::vector$<$ class \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1semantics_1_1ParseError}{Parse\+Error}} $>$
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Defines core classes and types for log message parsing semantics. 
+
+This file contains the declarations of key classes and types used in the log message parsing process, including error handling, parsing results, and the base interface for body parsers. 
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{semantics_8h_ab1f79f394c01124a8ae2973c67236081}\label{semantics_8h_ab1f79f394c01124a8ae2973c67236081} 
+\index{semantics.h@{semantics.h}!LogMessage@{LogMessage}}
+\index{LogMessage@{LogMessage}!semantics.h@{semantics.h}}
+\doxysubsubsection{\texorpdfstring{LogMessage}{LogMessage}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{semantics_8h_ab1f79f394c01124a8ae2973c67236081}{pipelines\+::log\+\_\+message\+\_\+parser\+::semantics\+::\+Log\+Message}} = typedef \mbox{\hyperlink{classpipelines_1_1log__message_1_1Message}{\+::pipelines\+::log\+\_\+message\+::\+Message}}}
+
+Alias for log message type. \Hypertarget{semantics_8h_a1b1d69ba6dab2e9fba896354b9318831}\label{semantics_8h_a1b1d69ba6dab2e9fba896354b9318831} 
+\index{semantics.h@{semantics.h}!LogMessages@{LogMessages}}
+\index{LogMessages@{LogMessages}!semantics.h@{semantics.h}}
+\doxysubsubsection{\texorpdfstring{LogMessages}{LogMessages}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{semantics_8h_a1b1d69ba6dab2e9fba896354b9318831}{pipelines\+::log\+\_\+message\+\_\+parser\+::semantics\+::\+Log\+Messages}} = typedef \+::std\+::vector$<$Log\+Message$>$}
+
+Collection of log messages. \Hypertarget{semantics_8h_a0d43fbe55f401fedb2531fe519e1fa74}\label{semantics_8h_a0d43fbe55f401fedb2531fe519e1fa74} 
+\index{semantics.h@{semantics.h}!ParseErrors@{ParseErrors}}
+\index{ParseErrors@{ParseErrors}!semantics.h@{semantics.h}}
+\doxysubsubsection{\texorpdfstring{ParseErrors}{ParseErrors}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{semantics_8h_a0d43fbe55f401fedb2531fe519e1fa74}{pipelines\+::log\+\_\+message\+\_\+parser\+::semantics\+::\+Parse\+Errors}} = typedef \+::std\+::vector$<$class Parse\+Error$>$}
+
+Collection of parsing errors. 

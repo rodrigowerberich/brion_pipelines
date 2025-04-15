@@ -1,0 +1,82 @@
+\doxysection{lexer.\+h}
+\hypertarget{lexer_8h_source}{}\label{lexer_8h_source}\index{/mnt/c/Users/rodri/Documents/Brion-\/Assignment/brion\_pipelines/components/log\_message\_parser/private/lexer.h@{/mnt/c/Users/rodri/Documents/Brion-\/Assignment/brion\_pipelines/components/log\_message\_parser/private/lexer.h}}
+\mbox{\hyperlink{lexer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#ifndef\ BRION\_PIPELINES\_COMPONENTS\_LOG\_MESSAGE\_PARSER\_PRIVATE\_LEXER\_H\_}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ BRION\_PIPELINES\_COMPONENTS\_LOG\_MESSAGE\_PARSER\_PRIVATE\_LEXER\_H\_s}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ INCLUDES}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *****************************************************************************/}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <istream>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <ostream>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ TYPE\ DEFINITIONS}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *****************************************************************************/}}
+\DoxyCodeLine{00022\ \textcolor{keyword}{namespace\ }pipelines::log\_message\_parser::lexer\ \{}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{using\ }\mbox{\hyperlink{lexer_8h_a414fd5bfdfc24e60324d582c522c8685}{TokenList}}\ =\ std::vector<class\ Token>;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \}\ \ \textcolor{comment}{//\ namespace\ pipelines::log\_message\_parser::lexer}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *\ CLASSES}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *****************************************************************************/}}
+\DoxyCodeLine{00032\ \textcolor{keyword}{namespace\ }pipelines::log\_message\_parser::lexer\ \{}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1lexer_1_1Token}{Token}}\ \{}
+\DoxyCodeLine{00042\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00047\ \ \ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1lexer_1_1Token_a0c4eb26749d380b96fa49fbeb74596c2}{Type}}\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ kContinousString,}
+\DoxyCodeLine{00049\ \ \ \ \ kWhitespace,}
+\DoxyCodeLine{00050\ \ \ \ \ kEndOfLine,}
+\DoxyCodeLine{00051\ \ \ \ \ kOpenBracket,}
+\DoxyCodeLine{00052\ \ \ \ \ kCloseBracket,}
+\DoxyCodeLine{00053\ \ \ \};}
+\DoxyCodeLine{00059\ \ \ \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1lexer_1_1Token_af3dfa4af8d69fdaf5bcca3dee0fa3c63}{Token}}(\mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1lexer_1_1Token_a0c4eb26749d380b96fa49fbeb74596c2}{Type}}\ \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1lexer_1_1Token_a485506021bd353baa18cb10794ec1152}{type}},\ \textcolor{keyword}{const}\ std::string\&\ value)\ :\ type\_(\mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1lexer_1_1Token_a485506021bd353baa18cb10794ec1152}{type}}),\ value\_(value)\ \{\}}
+\DoxyCodeLine{00064\ \ \ \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1lexer_1_1Token_a0c4eb26749d380b96fa49fbeb74596c2}{Type}}\ \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1lexer_1_1Token_a485506021bd353baa18cb10794ec1152}{type}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ type\_;\ \}}
+\DoxyCodeLine{00065\ \ \ \textcolor{keyword}{const}\ std::string\&\ value()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ value\_;\ \}}
+\DoxyCodeLine{00071\ \ \ \textcolor{keyword}{friend}\ std::ostream\&\ \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1lexer_1_1Token_abe142e9574481fef3f1f07e5f4cb6338}{operator<<}}(std::ostream\&\ os,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1lexer_1_1Token}{Token}}\&\ token)\ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordflow}{return}\ os\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}}\ <<\ token.value\_\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}};}
+\DoxyCodeLine{00073\ \ \ \}}
+\DoxyCodeLine{00078\ \ \ std::string\ \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1lexer_1_1Token_a438d4009ecea92f7ea26d3b397f07f5b}{TypeAsString}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordflow}{switch}\ (type\_)\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Type::kContinousString:}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Continuous\ String"{}};}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Type::kWhitespace:}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Whitespace"{}};}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Type::kEndOfLine:}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}End\ Of\ Line"{}};}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Type::kOpenBracket:}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Open\ Bracket"{}};}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Type::kCloseBracket:}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Close\ Bracket"{}};}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Unknown\ Type"{}};}
+\DoxyCodeLine{00092\ \ \ \ \ \}}
+\DoxyCodeLine{00093\ \ \ \}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00097\ \ \ \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1lexer_1_1Token_a0c4eb26749d380b96fa49fbeb74596c2}{Type}}\ type\_;}
+\DoxyCodeLine{00099\ \ \ std::string\ value\_;}
+\DoxyCodeLine{00100\ \};}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00108\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1lexer_1_1Lexer}{Lexer}}\ \{}
+\DoxyCodeLine{00109\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00114\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1lexer_1_1Lexer_a65df71765b0611910efcf631a62e4f11}{Lexer}}(std::istream\&\ input)\ :\ input\_(input)\ \{\}}
+\DoxyCodeLine{00119\ \ \ \mbox{\hyperlink{lexer_8h_a414fd5bfdfc24e60324d582c522c8685}{TokenList}}\ \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1lexer_1_1Lexer_a1474ebcc8e1962cb7f02807f2d5eb4d2}{Tokenize}}();}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00123\ \ \ std::istream\&\ input\_;}
+\DoxyCodeLine{00124\ \};}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \}\ \ \textcolor{comment}{//\ namespace\ pipelines::log\_message\_parser::lexer}}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ BRION\_PIPELINES\_COMPONENTS\_LOG\_MESSAGE\_PARSER\_PRIVATE\_LEXER\_H\_}}
+
+\end{DoxyCode}

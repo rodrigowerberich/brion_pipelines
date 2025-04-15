@@ -26,14 +26,23 @@ and a list of the errors found during parsing.
 These fields are just a blob of data at this point and don't represent anything.
 
 The current algorithm used to identify the fields are:
+
 1) Skip all whitespace until a non-whitespace is found
+
 2) Read all data until a whitespace, this is our pipeline ID.
+
 3) Skip all whitespace
+
 4) Read all data until a whitespace, this is our ID
+
 5) Skip all whitespace
+
 6) Read all data until a whitespace, this is our encoding
+
 7) Read all whitespace
+
 8) If we found an open bracket, continue, otherwise throw a parsing error
+
 9) Read all characters until you find a close bracket, followed by whitespace, followed by a continuous string without close bracket, followed by a new line. If the file ends before that, throw a parsing error. Otherwise, the body is the content between the open brackets and the last close bracket. And the next id is the continuous string after that close bracket.
 
 Advantages of this algorithm:

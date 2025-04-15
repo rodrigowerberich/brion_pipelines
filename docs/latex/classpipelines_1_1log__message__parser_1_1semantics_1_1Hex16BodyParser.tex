@@ -1,0 +1,77 @@
+\doxysection{pipelines\+::log\+\_\+message\+\_\+parser\+::semantics\+::Hex16\+Body\+Parser Class Reference}
+\hypertarget{classpipelines_1_1log__message__parser_1_1semantics_1_1Hex16BodyParser}{}\label{classpipelines_1_1log__message__parser_1_1semantics_1_1Hex16BodyParser}\index{pipelines::log\_message\_parser::semantics::Hex16BodyParser@{pipelines::log\_message\_parser::semantics::Hex16BodyParser}}
+
+
+A parser for hexadecimal 16-\/bit body messages.  
+
+
+
+
+{\ttfamily \#include $<$hex16\+\_\+body\+\_\+parser.\+h$>$}
+
+
+
+Inheritance diagram for pipelines\+::log\+\_\+message\+\_\+parser\+::semantics\+::Hex16\+Body\+Parser\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=251pt]{classpipelines_1_1log__message__parser_1_1semantics_1_1Hex16BodyParser__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for pipelines\+::log\+\_\+message\+\_\+parser\+::semantics\+::Hex16\+Body\+Parser\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=251pt]{classpipelines_1_1log__message__parser_1_1semantics_1_1Hex16BodyParser__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1semantics_1_1Hex16BodyParser_a4b33de7d5b0fdfb92b9773333cc7b32c}{Parse}} (const std\+::string \&body) const override
+\begin{DoxyCompactList}\small\item\em Parses a hexadecimal 16-\/bit formatted body message. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1semantics_1_1BodyParser}{pipelines\+::log\+\_\+message\+\_\+parser\+::semantics\+::\+Body\+Parser}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Body\+Parser} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for the \doxylink{classpipelines_1_1log__message__parser_1_1semantics_1_1BodyParser}{Body\+Parser} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A parser for hexadecimal 16-\/bit body messages. 
+
+The \doxylink{classpipelines_1_1log__message__parser_1_1semantics_1_1Hex16BodyParser}{Hex16\+Body\+Parser} class is responsible for parsing body messages that are formatted as hexadecimal 16-\/bit values. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classpipelines_1_1log__message__parser_1_1semantics_1_1Hex16BodyParser_a4b33de7d5b0fdfb92b9773333cc7b32c}\label{classpipelines_1_1log__message__parser_1_1semantics_1_1Hex16BodyParser_a4b33de7d5b0fdfb92b9773333cc7b32c} 
+\index{pipelines::log\_message\_parser::semantics::Hex16BodyParser@{pipelines::log\_message\_parser::semantics::Hex16BodyParser}!Parse@{Parse}}
+\index{Parse@{Parse}!pipelines::log\_message\_parser::semantics::Hex16BodyParser@{pipelines::log\_message\_parser::semantics::Hex16BodyParser}}
+\doxysubsubsection{\texorpdfstring{Parse()}{Parse()}}
+{\footnotesize\ttfamily std\+::string pipelines\+::log\+\_\+message\+\_\+parser\+::semantics\+::\+Hex16\+Body\+Parser\+::\+Parse (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{body }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Parses a hexadecimal 16-\/bit formatted body message. 
+
+This method takes a string representation of a body message and parses it as a hexadecimal 16-\/bit value. The parsed result is returned as a string. Any whitespace characters in the input string are ignored. If the input string has an odd length or contains non-\/hexadecimal characters, a \doxylink{classpipelines_1_1log__message__parser_1_1semantics_1_1BodyParserError}{Body\+Parser\+Error} exception is thrown.
+
+
+\begin{DoxyParams}{Parameters}
+{\em body} & The body message to be parsed, represented as a string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A string containing the parsed result. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1semantics_1_1BodyParser_a3d57809e905d654f91c120dcd509724b}{pipelines\+::log\+\_\+message\+\_\+parser\+::semantics\+::\+Body\+Parser}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/rodri/\+Documents/\+Brion-\/\+Assignment/brion\+\_\+pipelines/components/log\+\_\+message\+\_\+parser/public/log\+\_\+message\+\_\+parser/\mbox{\hyperlink{hex16__body__parser_8h}{hex16\+\_\+body\+\_\+parser.\+h}}\item 
+/mnt/c/\+Users/rodri/\+Documents/\+Brion-\/\+Assignment/brion\+\_\+pipelines/components/log\+\_\+message\+\_\+parser/private/\mbox{\hyperlink{hex16__body__parser_8cc}{hex16\+\_\+body\+\_\+parser.\+cc}}\end{DoxyCompactItemize}

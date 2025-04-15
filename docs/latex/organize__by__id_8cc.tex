@@ -1,0 +1,57 @@
+\doxysection{/mnt/c/\+Users/rodri/\+Documents/\+Brion-\/\+Assignment/brion\+\_\+pipelines/components/log\+\_\+message\+\_\+organizer/private/organize\+\_\+by\+\_\+id.cc File Reference}
+\hypertarget{organize__by__id_8cc}{}\label{organize__by__id_8cc}\index{/mnt/c/Users/rodri/Documents/Brion-\/Assignment/brion\_pipelines/components/log\_message\_organizer/private/organize\_by\_id.cc@{/mnt/c/Users/rodri/Documents/Brion-\/Assignment/brion\_pipelines/components/log\_message\_organizer/private/organize\_by\_id.cc}}
+
+
+Implementation of the Organize\+By\+Id class.  
+
+
+{\ttfamily \#include "{}log\+\_\+message\+\_\+organizer/organize\+\_\+by\+\_\+id.\+h"{}}\newline
+{\ttfamily \#include $<$list$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$ranges$>$}\newline
+{\ttfamily \#include $<$set$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$string\+\_\+view$>$}\newline
+Include dependency graph for organize\+\_\+by\+\_\+id.\+cc\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{organize__by__id_8cc__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain}{pipelines\+::log\+\_\+message\+\_\+organizer\+::organize\+\_\+by\+\_\+id\+::\+Pipeline\+Log\+Messages\+Chain}}
+\begin{DoxyCompactList}\small\item\em Class to manage a chain of pipeline log messages. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structpipelines_1_1log__message__organizer_1_1organize__by__id_1_1NextIdInfo}{pipelines\+::log\+\_\+message\+\_\+organizer\+::organize\+\_\+by\+\_\+id\+::\+Next\+Id\+Info}}
+\begin{DoxyCompactList}\small\item\em Structure to hold information about the next ID in the log message chain. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1Organizer}{pipelines\+::log\+\_\+message\+\_\+organizer\+::organize\+\_\+by\+\_\+id\+::\+Organizer}}
+\begin{DoxyCompactList}\small\item\em Class to organize log messages by their IDs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{organize__by__id_8cc_a56636de86660fa93ad8afaafd902a014}\label{organize__by__id_8cc_a56636de86660fa93ad8afaafd902a014} 
+using {\bfseries pipelines\+::log\+\_\+message\+\_\+organizer\+::organize\+\_\+by\+\_\+id\+::\+Messages\+By\+Id} = std\+::multimap$<$ std\+::string, \mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage}{Pipeline\+Log\+Message}} $>$
+\begin{DoxyCompactList}\small\item\em Type alias for pipeline log messages grouped by ID. \end{DoxyCompactList}\item 
+\Hypertarget{organize__by__id_8cc_a7bb24eaac6300401b22648c1a2dee963}\label{organize__by__id_8cc_a7bb24eaac6300401b22648c1a2dee963} 
+using {\bfseries pipelines\+::log\+\_\+message\+\_\+organizer\+::organize\+\_\+by\+\_\+id\+::\+Messages\+Visited} = std\+::map$<$ std\+::string, bool $>$
+\begin{DoxyCompactList}\small\item\em Type alias for an id map which tells if a message was already processed. \end{DoxyCompactList}\item 
+\Hypertarget{organize__by__id_8cc_afd6b86f4f64f91234a15d98a0843ea26}\label{organize__by__id_8cc_afd6b86f4f64f91234a15d98a0843ea26} 
+using {\bfseries pipelines\+::log\+\_\+message\+\_\+organizer\+::organize\+\_\+by\+\_\+id\+::\+Messages\+Visited\+Set} = std\+::set$<$ \mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage}{Pipeline\+Log\+Message}} $>$
+\begin{DoxyCompactList}\small\item\em Type alias with a set of all the ids that should have been added to the current chain, but are already visited. \end{DoxyCompactList}\item 
+\Hypertarget{organize__by__id_8cc_a955d413ff42f0241ce0ffea37b8f8031}\label{organize__by__id_8cc_a955d413ff42f0241ce0ffea37b8f8031} 
+using {\bfseries pipelines\+::log\+\_\+message\+\_\+organizer\+::organize\+\_\+by\+\_\+id\+::\+Elements\+Under\+Same\+Id} = std\+::pair$<$ class \mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain}{Pipeline\+Log\+Messages\+Chain}}, std\+::map$<$ std\+::string, struct \mbox{\hyperlink{structpipelines_1_1log__message__organizer_1_1organize__by__id_1_1NextIdInfo}{Next\+Id\+Info}} $>$ $>$
+\begin{DoxyCompactList}\small\item\em Type alias for a pair of pipeline log messages that share the same ID and all the valid next IDs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{organize__by__id_8cc_ab98a150953fced75165004959e412265}\label{organize__by__id_8cc_ab98a150953fced75165004959e412265} 
+constexpr auto {\bfseries pipelines\+::log\+\_\+message\+\_\+organizer\+::organize\+\_\+by\+\_\+id\+::k\+Terminator} = std\+::string\+\_\+view\{"{}-\/1"{}\}
+\begin{DoxyCompactList}\small\item\em Constant for the terminator ID. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of the Organize\+By\+Id class. 
+
+This file contains the implementation of the Organize\+By\+Id class, which is responsible for organizing log messages based on their identifiers. 

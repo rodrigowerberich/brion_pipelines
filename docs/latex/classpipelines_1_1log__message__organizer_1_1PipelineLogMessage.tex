@@ -1,0 +1,175 @@
+\doxysection{pipelines\+::log\+\_\+message\+\_\+organizer\+::Pipeline\+Log\+Message Class Reference}
+\hypertarget{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage}{}\label{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage}\index{pipelines::log\_message\_organizer::PipelineLogMessage@{pipelines::log\_message\_organizer::PipelineLogMessage}}
+
+
+This class represents a log message that belongs to a singular pipeline.  
+
+
+
+
+{\ttfamily \#include $<$pipeline\+\_\+log\+\_\+message.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+constexpr \mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage_a912eec29e0c8197d156e8fc3e2384b47}{Pipeline\+Log\+Message}} ()=default
+\item 
+constexpr \mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage_a96ff0dd04b449fb646b8a5f1acba2aea}{Pipeline\+Log\+Message}} (const std\+::string \&\mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage_a66ef2d49f05dd3fc500fae67fdc6b808}{id}}, const std\+::string \&\mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage_acd1f65979016ae83172f2d69ade0a9c9}{body}}, const std\+::string \&\mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage_ab23c985747b9fade6cdc9d51fba164cf}{next\+\_\+id}})
+\begin{DoxyCompactList}\small\item\em Constructor to initialize a \doxylink{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage}{Pipeline\+Log\+Message} with the given parameters. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage_a66ef2d49f05dd3fc500fae67fdc6b808}{id}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the ID of the log message. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage_acd1f65979016ae83172f2d69ade0a9c9}{body}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the body of the log message. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage_ab23c985747b9fade6cdc9d51fba164cf}{next\+\_\+id}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the ID of the next log message. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage_a7c11290bcf82e495e143d5123cc1b150}{operator==}} (const \mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage}{Pipeline\+Log\+Message}} \&other) const
+\begin{DoxyCompactList}\small\item\em Equality operator to compare two Message objects. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage_a089998c10125adf879856ed1dbd191c5}{operator$<$}} (const \mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage}{Pipeline\+Log\+Message}} \&other) const
+\begin{DoxyCompactList}\small\item\em Less than operator to compare two Message objects. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage_a40719921cbe638c7272beca345a50852}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage}{Pipeline\+Log\+Message}} \&message)
+\begin{DoxyCompactList}\small\item\em Output operator to format the \doxylink{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage}{Pipeline\+Log\+Message} object as a string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class represents a log message that belongs to a singular pipeline. 
+
+It contains the message ID, body and the next ID of the message. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage_a912eec29e0c8197d156e8fc3e2384b47}\label{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage_a912eec29e0c8197d156e8fc3e2384b47} 
+\index{pipelines::log\_message\_organizer::PipelineLogMessage@{pipelines::log\_message\_organizer::PipelineLogMessage}!PipelineLogMessage@{PipelineLogMessage}}
+\index{PipelineLogMessage@{PipelineLogMessage}!pipelines::log\_message\_organizer::PipelineLogMessage@{pipelines::log\_message\_organizer::PipelineLogMessage}}
+\doxysubsubsection{\texorpdfstring{PipelineLogMessage()}{PipelineLogMessage()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily constexpr pipelines\+::log\+\_\+message\+\_\+organizer\+::\+Pipeline\+Log\+Message\+::\+Pipeline\+Log\+Message (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}, {\ttfamily [default]}}
+
+Default constructor. \Hypertarget{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage_a96ff0dd04b449fb646b8a5f1acba2aea}\label{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage_a96ff0dd04b449fb646b8a5f1acba2aea} 
+\index{pipelines::log\_message\_organizer::PipelineLogMessage@{pipelines::log\_message\_organizer::PipelineLogMessage}!PipelineLogMessage@{PipelineLogMessage}}
+\index{PipelineLogMessage@{PipelineLogMessage}!pipelines::log\_message\_organizer::PipelineLogMessage@{pipelines::log\_message\_organizer::PipelineLogMessage}}
+\doxysubsubsection{\texorpdfstring{PipelineLogMessage()}{PipelineLogMessage()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily constexpr pipelines\+::log\+\_\+message\+\_\+organizer\+::\+Pipeline\+Log\+Message\+::\+Pipeline\+Log\+Message (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{id,  }\item[{const std\+::string \&}]{body,  }\item[{const std\+::string \&}]{next\+\_\+id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Constructor to initialize a \doxylink{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage}{Pipeline\+Log\+Message} with the given parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the log message. \\
+\hline
+{\em body} & The body of the log message. \\
+\hline
+{\em next\+\_\+id} & The ID of the next log message. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage_acd1f65979016ae83172f2d69ade0a9c9}\label{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage_acd1f65979016ae83172f2d69ade0a9c9} 
+\index{pipelines::log\_message\_organizer::PipelineLogMessage@{pipelines::log\_message\_organizer::PipelineLogMessage}!body@{body}}
+\index{body@{body}!pipelines::log\_message\_organizer::PipelineLogMessage@{pipelines::log\_message\_organizer::PipelineLogMessage}}
+\doxysubsubsection{\texorpdfstring{body()}{body()}}
+{\footnotesize\ttfamily const std\+::string \& pipelines\+::log\+\_\+message\+\_\+organizer\+::\+Pipeline\+Log\+Message\+::body (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter for the body of the log message. 
+
+\begin{DoxyReturn}{Returns}
+The body of the log message. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The body is expected to be a decoded string. 
+\end{DoxyNote}
+\Hypertarget{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage_a66ef2d49f05dd3fc500fae67fdc6b808}\label{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage_a66ef2d49f05dd3fc500fae67fdc6b808} 
+\index{pipelines::log\_message\_organizer::PipelineLogMessage@{pipelines::log\_message\_organizer::PipelineLogMessage}!id@{id}}
+\index{id@{id}!pipelines::log\_message\_organizer::PipelineLogMessage@{pipelines::log\_message\_organizer::PipelineLogMessage}}
+\doxysubsubsection{\texorpdfstring{id()}{id()}}
+{\footnotesize\ttfamily const std\+::string \& pipelines\+::log\+\_\+message\+\_\+organizer\+::\+Pipeline\+Log\+Message\+::id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter for the ID of the log message. 
+
+\begin{DoxyReturn}{Returns}
+The ID of the log message. 
+\end{DoxyReturn}
+\Hypertarget{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage_ab23c985747b9fade6cdc9d51fba164cf}\label{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage_ab23c985747b9fade6cdc9d51fba164cf} 
+\index{pipelines::log\_message\_organizer::PipelineLogMessage@{pipelines::log\_message\_organizer::PipelineLogMessage}!next\_id@{next\_id}}
+\index{next\_id@{next\_id}!pipelines::log\_message\_organizer::PipelineLogMessage@{pipelines::log\_message\_organizer::PipelineLogMessage}}
+\doxysubsubsection{\texorpdfstring{next\_id()}{next\_id()}}
+{\footnotesize\ttfamily const std\+::string \& pipelines\+::log\+\_\+message\+\_\+organizer\+::\+Pipeline\+Log\+Message\+::next\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter for the ID of the next log message. 
+
+\begin{DoxyReturn}{Returns}
+The ID of the next log message. 
+\end{DoxyReturn}
+\Hypertarget{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage_a089998c10125adf879856ed1dbd191c5}\label{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage_a089998c10125adf879856ed1dbd191c5} 
+\index{pipelines::log\_message\_organizer::PipelineLogMessage@{pipelines::log\_message\_organizer::PipelineLogMessage}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!pipelines::log\_message\_organizer::PipelineLogMessage@{pipelines::log\_message\_organizer::PipelineLogMessage}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool pipelines\+::log\+\_\+message\+\_\+organizer\+::\+Pipeline\+Log\+Message\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage}{Pipeline\+Log\+Message}} \&}]{other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Less than operator to compare two Message objects. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The other Message object to compare with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if this message is less than the other, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage_a7c11290bcf82e495e143d5123cc1b150}\label{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage_a7c11290bcf82e495e143d5123cc1b150} 
+\index{pipelines::log\_message\_organizer::PipelineLogMessage@{pipelines::log\_message\_organizer::PipelineLogMessage}!operator==@{operator==}}
+\index{operator==@{operator==}!pipelines::log\_message\_organizer::PipelineLogMessage@{pipelines::log\_message\_organizer::PipelineLogMessage}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool pipelines\+::log\+\_\+message\+\_\+organizer\+::\+Pipeline\+Log\+Message\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage}{Pipeline\+Log\+Message}} \&}]{other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Equality operator to compare two Message objects. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The other Message object to compare with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the two messages are equal, false otherwise. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage_a40719921cbe638c7272beca345a50852}\label{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage_a40719921cbe638c7272beca345a50852} 
+\index{pipelines::log\_message\_organizer::PipelineLogMessage@{pipelines::log\_message\_organizer::PipelineLogMessage}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!pipelines::log\_message\_organizer::PipelineLogMessage@{pipelines::log\_message\_organizer::PipelineLogMessage}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage}{Pipeline\+Log\+Message}} \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Output operator to format the \doxylink{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage}{Pipeline\+Log\+Message} object as a string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & The output stream. \\
+\hline
+{\em message} & The \doxylink{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage}{Pipeline\+Log\+Message} object to format. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The output stream with the formatted message. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/rodri/\+Documents/\+Brion-\/\+Assignment/brion\+\_\+pipelines/components/log\+\_\+message\+\_\+organizer/public/log\+\_\+message\+\_\+organizer/\mbox{\hyperlink{pipeline__log__message_8h}{pipeline\+\_\+log\+\_\+message.\+h}}\end{DoxyCompactItemize}

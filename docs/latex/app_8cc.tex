@@ -1,0 +1,74 @@
+\doxysection{/mnt/c/\+Users/rodri/\+Documents/\+Brion-\/\+Assignment/brion\+\_\+pipelines/components/app/private/app.cc File Reference}
+\hypertarget{app_8cc}{}\label{app_8cc}\index{/mnt/c/Users/rodri/Documents/Brion-\/Assignment/brion\_pipelines/components/app/private/app.cc@{/mnt/c/Users/rodri/Documents/Brion-\/Assignment/brion\_pipelines/components/app/private/app.cc}}
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$ostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include "{}clipp.\+h"{}}\newline
+{\ttfamily \#include "{}log\+\_\+message/message.\+h"{}}\newline
+{\ttfamily \#include "{}log\+\_\+message\+\_\+organizer/organize\+\_\+by\+\_\+id.\+h"{}}\newline
+{\ttfamily \#include "{}log\+\_\+message\+\_\+organizer/split\+\_\+by\+\_\+pipeline.\+h"{}}\newline
+{\ttfamily \#include "{}log\+\_\+message\+\_\+parser/ascii\+\_\+body\+\_\+parser.\+h"{}}\newline
+{\ttfamily \#include "{}log\+\_\+message\+\_\+parser/hex16\+\_\+body\+\_\+parser.\+h"{}}\newline
+{\ttfamily \#include "{}log\+\_\+message\+\_\+parser/semantics.\+h"{}}\newline
+{\ttfamily \#include "{}log\+\_\+message\+\_\+parser/structure.\+h"{}}\newline
+Include dependency graph for app.\+cc\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{app_8cc__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{structpipelines_1_1app_1_1CommandLineArguments}{pipelines\+::app\+::\+Command\+Line\+Arguments}}
+\begin{DoxyCompactList}\small\item\em The command line arguments of the application. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classpipelines_1_1app_1_1ApplicationRuntimeError}{pipelines\+::app\+::\+Application\+Runtime\+Error}}
+\begin{DoxyCompactList}\small\item\em All runtime application errors should inherit from this class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{app_8cc_adbc41bab4e4adc386e501e7ae81b38d7}\label{app_8cc_adbc41bab4e4adc386e501e7ae81b38d7} 
+using {\bfseries pipelines\+::app\+::\+Structure\+Parse\+Result} = \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1ParseResult}{log\+\_\+message\+\_\+parser\+::structure\+::\+Parse\+Result}}
+\begin{DoxyCompactList}\small\item\em Type alias for the structure parser results. \end{DoxyCompactList}\item 
+\Hypertarget{app_8cc_ac012eac578e877b04caf4fbd2b60a167}\label{app_8cc_ac012eac578e877b04caf4fbd2b60a167} 
+using {\bfseries pipelines\+::app\+::\+Semantics\+Parse\+Result} = \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1semantics_1_1ParseResult}{log\+\_\+message\+\_\+parser\+::semantics\+::\+Parse\+Result}}
+\begin{DoxyCompactList}\small\item\em Type alias for the semantics parser results. \end{DoxyCompactList}\item 
+\Hypertarget{app_8cc_a3cc72d93e12522d15413c8b37a47d083}\label{app_8cc_a3cc72d93e12522d15413c8b37a47d083} 
+using {\bfseries pipelines\+::app\+::\+Semantics\+Log\+Messages} = \mbox{\hyperlink{semantics_8h_a1b1d69ba6dab2e9fba896354b9318831}{log\+\_\+message\+\_\+parser\+::semantics\+::\+Log\+Messages}}
+\begin{DoxyCompactList}\small\item\em Type alias for the log messages. \end{DoxyCompactList}\item 
+\Hypertarget{app_8cc_aee9cd9091d6ace090b8872a4bb121159}\label{app_8cc_aee9cd9091d6ace090b8872a4bb121159} 
+using {\bfseries pipelines\+::app\+::\+Messages\+By\+Pipeline} = \mbox{\hyperlink{pipeline__log__message_8h_a79b53be25776eee8ebc5ecc86e669ad1}{log\+\_\+message\+\_\+organizer\+::\+Pipeline\+Log\+Messages\+By\+Pipeline}}
+\begin{DoxyCompactList}\small\item\em Type alias for the log message errors separated by pipeline. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{app_8cc_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Main function of the application. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Main application file for the pipeline log message processing system. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{app_8cc_a0ddf1224851353fc92bfbff6f499fa97}\label{app_8cc_a0ddf1224851353fc92bfbff6f499fa97} 
+\index{app.cc@{app.cc}!main@{main}}
+\index{main@{main}!app.cc@{app.cc}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Main function of the application. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & The number of command line arguments. \\
+\hline
+{\em argv} & The command line arguments. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The exit code of the application. 
+\end{DoxyReturn}

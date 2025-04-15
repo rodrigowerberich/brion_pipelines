@@ -1,0 +1,82 @@
+\doxysection{clipp\+::parser Class Reference}
+\hypertarget{classclipp_1_1parser}{}\label{classclipp_1_1parser}\index{clipp::parser@{clipp::parser}}
+
+
+default command line arguments parser  
+
+
+
+
+{\ttfamily \#include $<$clipp.\+h$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classclipp_1_1parser_1_1arg__mapping}{arg\+\_\+mapping}}
+\begin{DoxyCompactList}\small\item\em arg -\/\texorpdfstring{$>$}{>} parameter mapping \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classclipp_1_1parser_1_1missing__event}{missing\+\_\+event}}
+\begin{DoxyCompactList}\small\item\em references a non-\/matched, required parameter \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classclipp_1_1parser_aa00b665b20e27b07078bcbadcd78f3bf}\label{classclipp_1_1parser_aa00b665b20e27b07078bcbadcd78f3bf} 
+using {\bfseries dfs\+\_\+traverser} = \mbox{\hyperlink{classclipp_1_1group_1_1depth__first__traverser}{group\+::depth\+\_\+first\+\_\+traverser}}
+\item 
+\Hypertarget{classclipp_1_1parser_a99ef8b69d271966daa092b6882ad417c}\label{classclipp_1_1parser_a99ef8b69d271966daa092b6882ad417c} 
+using {\bfseries scoped\+\_\+dfs\+\_\+traverser} = \mbox{\hyperlink{classclipp_1_1detail_1_1scoped__dfs__traverser}{detail\+::scoped\+\_\+dfs\+\_\+traverser}}
+\item 
+\Hypertarget{classclipp_1_1parser_a69b366828ead2fad9a315379dd8fe85f}\label{classclipp_1_1parser_a69b366828ead2fad9a315379dd8fe85f} 
+using {\bfseries missing\+\_\+events} = std\+::vector$<$ \mbox{\hyperlink{classclipp_1_1parser_1_1missing__event}{missing\+\_\+event}} $>$
+\item 
+\Hypertarget{classclipp_1_1parser_af4edd501692da322fbd15628780c3f95}\label{classclipp_1_1parser_af4edd501692da322fbd15628780c3f95} 
+using {\bfseries arg\+\_\+mappings} = std\+::vector$<$ \mbox{\hyperlink{classclipp_1_1parser_1_1arg__mapping}{arg\+\_\+mapping}} $>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classclipp_1_1parser_ad7a4f4dfa06ee82eb17b0f7101961d38}{parser}} (const \mbox{\hyperlink{classclipp_1_1group}{group}} \&root, arg\+\_\+index offset=0)
+\begin{DoxyCompactList}\small\item\em initializes parser with a command line interface \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1parser_ab28ca754b0bbe9bb9c811910e32581aa}\label{classclipp_1_1parser_ab28ca754b0bbe9bb9c811910e32581aa} 
+bool {\bfseries operator()} (const arg\+\_\+string \&arg)
+\begin{DoxyCompactList}\small\item\em processes one command line argument \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1parser_aea20dfcf8a0e3dd2c36c397bed0cd139}\label{classclipp_1_1parser_aea20dfcf8a0e3dd2c36c397bed0cd139} 
+const arg\+\_\+mappings \& {\bfseries args} () const
+\begin{DoxyCompactList}\small\item\em returns range of argument -\/\texorpdfstring{$>$}{>} parameter mappings \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1parser_ad90abfffd0a507452d3eb907d239f17f}\label{classclipp_1_1parser_ad90abfffd0a507452d3eb907d239f17f} 
+missing\+\_\+events {\bfseries missed} () const
+\begin{DoxyCompactList}\small\item\em returns list of missing events \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1parser_ab63f65ee25fefef6997c0c4af52f073e}\label{classclipp_1_1parser_ab63f65ee25fefef6997c0c4af52f073e} 
+arg\+\_\+index {\bfseries parse\+\_\+count} () const noexcept
+\begin{DoxyCompactList}\small\item\em returns number of processed command line arguments \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1parser_a104c187ef9ed9ec4e1435429de264c6c}\label{classclipp_1_1parser_a104c187ef9ed9ec4e1435429de264c6c} 
+bool {\bfseries valid} () const noexcept
+\begin{DoxyCompactList}\small\item\em returns false if previously processed command line arguments lead to an invalid / inconsistent parsing result \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1parser_a2bd309fbf50127bc5d16cfc1dbe42a24}\label{classclipp_1_1parser_a2bd309fbf50127bc5d16cfc1dbe42a24} 
+{\bfseries operator bool} () const noexcept
+\begin{DoxyCompactList}\small\item\em returns false if previously processed command line arguments lead to an invalid / inconsistent parsing result \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+default command line arguments parser 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classclipp_1_1parser_ad7a4f4dfa06ee82eb17b0f7101961d38}\label{classclipp_1_1parser_ad7a4f4dfa06ee82eb17b0f7101961d38} 
+\index{clipp::parser@{clipp::parser}!parser@{parser}}
+\index{parser@{parser}!clipp::parser@{clipp::parser}}
+\doxysubsubsection{\texorpdfstring{parser()}{parser()}}
+{\footnotesize\ttfamily clipp\+::parser\+::parser (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classclipp_1_1group}{group}} \&}]{root,  }\item[{arg\+\_\+index}]{offset = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+initializes parser with a command line interface 
+
+
+\begin{DoxyParams}{Parameters}
+{\em offset} & = argument index offset used for reports \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/rodri/\+Documents/\+Brion-\/\+Assignment/brion\+\_\+pipelines/components/clipp/include/clipp.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,134 @@
+\doxysection{clipp\+::group\+::depth\+\_\+first\+\_\+traverser Class Reference}
+\hypertarget{classclipp_1_1group_1_1depth__first__traverser}{}\label{classclipp_1_1group_1_1depth__first__traverser}\index{clipp::group::depth\_first\_traverser@{clipp::group::depth\_first\_traverser}}
+
+
+recursively iterates over all nodes  
+
+
+
+
+{\ttfamily \#include $<$clipp.\+h$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structclipp_1_1group_1_1depth__first__traverser_1_1context}{context}}
+\item 
+class \mbox{\hyperlink{classclipp_1_1group_1_1depth__first__traverser_1_1memento}{memento}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classclipp_1_1group_1_1depth__first__traverser_ab12b4313ec54c91eaccac3c693323d80}\label{classclipp_1_1group_1_1depth__first__traverser_ab12b4313ec54c91eaccac3c693323d80} 
+using {\bfseries context\+\_\+list} = std\+::vector$<$ \mbox{\hyperlink{structclipp_1_1group_1_1depth__first__traverser_1_1context}{context}} $>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classclipp_1_1group_1_1depth__first__traverser_aafaaeacd3d5b68806d9881c5acbf4518}\label{classclipp_1_1group_1_1depth__first__traverser_aafaaeacd3d5b68806d9881c5acbf4518} 
+{\bfseries depth\+\_\+first\+\_\+traverser} (const \mbox{\hyperlink{classclipp_1_1group}{group}} \&cur)
+\item 
+\Hypertarget{classclipp_1_1group_1_1depth__first__traverser_abd4e7d5c109ddfb03f4c9f9d4432ab29}\label{classclipp_1_1group_1_1depth__first__traverser_abd4e7d5c109ddfb03f4c9f9d4432ab29} 
+{\bfseries operator bool} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1group_1_1depth__first__traverser_a87f116cf63b2caa1cdc647b01ebdffe2}\label{classclipp_1_1group_1_1depth__first__traverser_a87f116cf63b2caa1cdc647b01ebdffe2} 
+int {\bfseries level} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1group_1_1depth__first__traverser_a1e6c4d2641e5e3b37a5a4b2506e8cc21}\label{classclipp_1_1group_1_1depth__first__traverser_a1e6c4d2641e5e3b37a5a4b2506e8cc21} 
+bool {\bfseries is\+\_\+first\+\_\+in\+\_\+parent} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1group_1_1depth__first__traverser_abdaded139247ab40a0deebea3df26e3b}\label{classclipp_1_1group_1_1depth__first__traverser_abdaded139247ab40a0deebea3df26e3b} 
+bool {\bfseries is\+\_\+last\+\_\+in\+\_\+parent} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1group_1_1depth__first__traverser_a7cc7d5c5daacc307d8530efbb3325c59}\label{classclipp_1_1group_1_1depth__first__traverser_a7cc7d5c5daacc307d8530efbb3325c59} 
+bool {\bfseries is\+\_\+last\+\_\+in\+\_\+path} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1group_1_1depth__first__traverser_a39c4c2d5122f728c4b23a9455ad6d061}\label{classclipp_1_1group_1_1depth__first__traverser_a39c4c2d5122f728c4b23a9455ad6d061} 
+bool {\bfseries is\+\_\+alternative} (int minlevel=0) const noexcept
+\begin{DoxyCompactList}\small\item\em inside a group of alternatives \texorpdfstring{$>$}{>}= minlevel \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1group_1_1depth__first__traverser_ab99db572c74fe69cef01f1ead82f7603}\label{classclipp_1_1group_1_1depth__first__traverser_ab99db572c74fe69cef01f1ead82f7603} 
+bool {\bfseries is\+\_\+repeatable} (int minlevel=0) const noexcept
+\begin{DoxyCompactList}\small\item\em repeatable or inside a repeatable group \texorpdfstring{$>$}{>}= minlevel \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1group_1_1depth__first__traverser_a45b0a0695dbac5fad435c5038682629b}\label{classclipp_1_1group_1_1depth__first__traverser_a45b0a0695dbac5fad435c5038682629b} 
+bool {\bfseries is\+\_\+inside} (const \mbox{\hyperlink{classclipp_1_1group}{group}} \texorpdfstring{$\ast$}{*}g) const noexcept
+\begin{DoxyCompactList}\small\item\em inside a particular group \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1group_1_1depth__first__traverser_af9e83dddd7e3207bcc795d1e60f7317e}\label{classclipp_1_1group_1_1depth__first__traverser_af9e83dddd7e3207bcc795d1e60f7317e} 
+bool {\bfseries joinable} () const noexcept
+\begin{DoxyCompactList}\small\item\em inside group with joinable flags \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1group_1_1depth__first__traverser_aa5a1bae71f4f4946b9f537732c0e3838}\label{classclipp_1_1group_1_1depth__first__traverser_aa5a1bae71f4f4946b9f537732c0e3838} 
+const context\+\_\+list \& {\bfseries stack} () const
+\item 
+\Hypertarget{classclipp_1_1group_1_1depth__first__traverser_a5145d429bfd7f84fbd5aa7c7edf9fb4f}\label{classclipp_1_1group_1_1depth__first__traverser_a5145d429bfd7f84fbd5aa7c7edf9fb4f} 
+const \mbox{\hyperlink{classclipp_1_1group}{group}} \texorpdfstring{$\ast$}{*} {\bfseries innermost\+\_\+repeat\+\_\+group} () const noexcept
+\begin{DoxyCompactList}\small\item\em innermost repeat group \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1group_1_1depth__first__traverser_ae532c54f33bc1111506afb606379a761}\label{classclipp_1_1group_1_1depth__first__traverser_ae532c54f33bc1111506afb606379a761} 
+const \mbox{\hyperlink{classclipp_1_1group}{group}} \texorpdfstring{$\ast$}{*} {\bfseries innermost\+\_\+exclusive\+\_\+group} () const noexcept
+\begin{DoxyCompactList}\small\item\em innermost exclusive (alternatives) group \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1group_1_1depth__first__traverser_ad94ebdbfe0c7ef847c5c6b18d8112fd0}\label{classclipp_1_1group_1_1depth__first__traverser_ad94ebdbfe0c7ef847c5c6b18d8112fd0} 
+const \mbox{\hyperlink{classclipp_1_1group}{group}} \texorpdfstring{$\ast$}{*} {\bfseries innermost\+\_\+blocking\+\_\+group} () const noexcept
+\begin{DoxyCompactList}\small\item\em innermost blocking group \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1group_1_1depth__first__traverser_ad818572cd9226221d8a3feba030818d8}\label{classclipp_1_1group_1_1depth__first__traverser_ad818572cd9226221d8a3feba030818d8} 
+const \mbox{\hyperlink{classclipp_1_1group}{group}} \texorpdfstring{$\ast$}{*} {\bfseries outermost\+\_\+blocking\+\_\+group\+\_\+fully\+\_\+explored} () const noexcept
+\begin{DoxyCompactList}\small\item\em returns the outermost group that will be left on next ++ \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1group_1_1depth__first__traverser_a527b4b250caa1c3c068f769148f498fb}\label{classclipp_1_1group_1_1depth__first__traverser_a527b4b250caa1c3c068f769148f498fb} 
+const \mbox{\hyperlink{classclipp_1_1group}{group}} \texorpdfstring{$\ast$}{*} {\bfseries outermost\+\_\+join\+\_\+group} () const noexcept
+\begin{DoxyCompactList}\small\item\em outermost join group \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1group_1_1depth__first__traverser_a4d7d6ae9f563404d5e2ab8d6fd51d159}\label{classclipp_1_1group_1_1depth__first__traverser_a4d7d6ae9f563404d5e2ab8d6fd51d159} 
+const \mbox{\hyperlink{classclipp_1_1group}{group}} \texorpdfstring{$\ast$}{*} {\bfseries root} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1group_1_1depth__first__traverser_a42a94390a348b5957ea5db1e55b43421}\label{classclipp_1_1group_1_1depth__first__traverser_a42a94390a348b5957ea5db1e55b43421} 
+arg\+\_\+string {\bfseries common\+\_\+flag\+\_\+prefix} () const noexcept
+\begin{DoxyCompactList}\small\item\em common flag prefix of all flags in current group \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1group_1_1depth__first__traverser_a645f65a41ce635e1e804dd25bdc7d0db}\label{classclipp_1_1group_1_1depth__first__traverser_a645f65a41ce635e1e804dd25bdc7d0db} 
+const child \& {\bfseries operator\texorpdfstring{$\ast$}{*}} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1group_1_1depth__first__traverser_aaec6a596f34888adbcb3c62f3540d71e}\label{classclipp_1_1group_1_1depth__first__traverser_aaec6a596f34888adbcb3c62f3540d71e} 
+const child \texorpdfstring{$\ast$}{*} {\bfseries operator-\/$>$} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1group_1_1depth__first__traverser_ae70b93be8f4932203ec9b19e0bd9762d}\label{classclipp_1_1group_1_1depth__first__traverser_ae70b93be8f4932203ec9b19e0bd9762d} 
+const \mbox{\hyperlink{classclipp_1_1group}{group}} \& {\bfseries parent} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1group_1_1depth__first__traverser_a4351483f3e3fba3ce58f2c1be4deb72b}\label{classclipp_1_1group_1_1depth__first__traverser_a4351483f3e3fba3ce58f2c1be4deb72b} 
+\mbox{\hyperlink{classclipp_1_1group_1_1depth__first__traverser}{depth\+\_\+first\+\_\+traverser}} \& {\bfseries operator++} ()
+\begin{DoxyCompactList}\small\item\em go to next element of depth first search \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1group_1_1depth__first__traverser_a8c4b46fe475d602d60b55ab5c4928b30}\label{classclipp_1_1group_1_1depth__first__traverser_a8c4b46fe475d602d60b55ab5c4928b30} 
+\mbox{\hyperlink{classclipp_1_1group_1_1depth__first__traverser}{depth\+\_\+first\+\_\+traverser}} \& {\bfseries next\+\_\+sibling} ()
+\begin{DoxyCompactList}\small\item\em go to next sibling of current \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1group_1_1depth__first__traverser_a28865fe710b433b38115d82e6b815461}\label{classclipp_1_1group_1_1depth__first__traverser_a28865fe710b433b38115d82e6b815461} 
+\mbox{\hyperlink{classclipp_1_1group_1_1depth__first__traverser}{depth\+\_\+first\+\_\+traverser}} \& {\bfseries next\+\_\+after\+\_\+siblings} ()
+\begin{DoxyCompactList}\small\item\em go to next position after siblings of current \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1group_1_1depth__first__traverser_a546489cc8d9cdfce5c071eb683845464}\label{classclipp_1_1group_1_1depth__first__traverser_a546489cc8d9cdfce5c071eb683845464} 
+\mbox{\hyperlink{classclipp_1_1group_1_1depth__first__traverser}{depth\+\_\+first\+\_\+traverser}} \& {\bfseries back\+\_\+to\+\_\+ancestor} (const \mbox{\hyperlink{classclipp_1_1group}{group}} \texorpdfstring{$\ast$}{*}g)
+\item 
+\Hypertarget{classclipp_1_1group_1_1depth__first__traverser_af4c2f5ac64792eb3744f11705b8a073a}\label{classclipp_1_1group_1_1depth__first__traverser_af4c2f5ac64792eb3744f11705b8a073a} 
+\mbox{\hyperlink{classclipp_1_1group_1_1depth__first__traverser}{depth\+\_\+first\+\_\+traverser}} \& {\bfseries skip\+\_\+siblings} ()
+\begin{DoxyCompactList}\small\item\em don\textquotesingle{}t visit next siblings, go back to parent on next ++ note\+: renders siblings unreachable for \texorpdfstring{$\ast$}{*}this \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1group_1_1depth__first__traverser_a0e18fbe29b602c78edb88b605f139dd9}\label{classclipp_1_1group_1_1depth__first__traverser_a0e18fbe29b602c78edb88b605f139dd9} 
+\mbox{\hyperlink{classclipp_1_1group_1_1depth__first__traverser}{depth\+\_\+first\+\_\+traverser}} \& {\bfseries skip\+\_\+alternatives} ()
+\begin{DoxyCompactList}\small\item\em skips all other alternatives in surrounding exclusive groups on next ++ note\+: renders alternatives unreachable for \texorpdfstring{$\ast$}{*}this \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1group_1_1depth__first__traverser_aeaf092b5e808f06253922fbe854da55e}\label{classclipp_1_1group_1_1depth__first__traverser_aeaf092b5e808f06253922fbe854da55e} 
+void {\bfseries invalidate} ()
+\item 
+\Hypertarget{classclipp_1_1group_1_1depth__first__traverser_a31b11a37adc8926bdd17a970065a7eba}\label{classclipp_1_1group_1_1depth__first__traverser_a31b11a37adc8926bdd17a970065a7eba} 
+\mbox{\hyperlink{classclipp_1_1group_1_1depth__first__traverser_1_1memento}{memento}} {\bfseries undo\+\_\+point} () const
+\item 
+\Hypertarget{classclipp_1_1group_1_1depth__first__traverser_af15c16489c1d6b482009a98c6279203e}\label{classclipp_1_1group_1_1depth__first__traverser_af15c16489c1d6b482009a98c6279203e} 
+void {\bfseries undo} (const \mbox{\hyperlink{classclipp_1_1group_1_1depth__first__traverser_1_1memento}{memento}} \&m)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classclipp_1_1group_1_1depth__first__traverser_af1bd97c0c84954b409827e034e161ea0}\label{classclipp_1_1group_1_1depth__first__traverser_af1bd97c0c84954b409827e034e161ea0} 
+bool {\bfseries operator==} (const \mbox{\hyperlink{classclipp_1_1group_1_1depth__first__traverser}{depth\+\_\+first\+\_\+traverser}} \&a, const \mbox{\hyperlink{classclipp_1_1group_1_1depth__first__traverser}{depth\+\_\+first\+\_\+traverser}} \&b)
+\item 
+\Hypertarget{classclipp_1_1group_1_1depth__first__traverser_a80d25b1cb4649234826a3b59985675af}\label{classclipp_1_1group_1_1depth__first__traverser_a80d25b1cb4649234826a3b59985675af} 
+bool {\bfseries operator!=} (const \mbox{\hyperlink{classclipp_1_1group_1_1depth__first__traverser}{depth\+\_\+first\+\_\+traverser}} \&a, const \mbox{\hyperlink{classclipp_1_1group_1_1depth__first__traverser}{depth\+\_\+first\+\_\+traverser}} \&b)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+recursively iterates over all nodes 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/rodri/\+Documents/\+Brion-\/\+Assignment/brion\+\_\+pipelines/components/clipp/include/clipp.\+h\end{DoxyCompactItemize}

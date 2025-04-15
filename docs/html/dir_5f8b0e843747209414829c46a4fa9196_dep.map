@@ -1,0 +1,18 @@
+<map id="/mnt/c/Users/rodri/Documents/Brion&#45;Assignment/brion_pipelines/components" name="/mnt/c/Users/rodri/Documents/Brion&#45;Assignment/brion_pipelines/components">
+<area shape="rect" id="node2" href="dir_e02fa303eca20ea71215cbc51243ec5b.html" title="app" alt="" coords="129,63,175,88"/>
+<area shape="rect" id="node3" href="dir_90a4d89df3ac9863d3376f0cd5169fe8.html" title="log_message" alt="" coords="98,209,206,235"/>
+<area shape="poly" id="edge1" href="dir_000002_000017.html" alt="" coords="130,86,89,104,69,119,54,137,51,147,51,156,62,174,82,189,107,202,104,206,79,194,58,177,46,158,45,146,50,135,66,115,86,100,127,81"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000002_000017.html" title="1" alt="" coords="100,187,109,202"/>
+<area shape="rect" id="node4" href="dir_87071110e24a3c0a44bc41d1a30386ee.html" title="log_message_organizer" alt="" coords="64,136,240,161"/>
+<area shape="poly" id="edge2" href="dir_000002_000020.html" alt="" coords="155,88,155,122,149,122,149,88"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000002_000020.html" title="2" alt="" coords="156,110,165,125"/>
+<area shape="rect" id="node5" href="dir_8deebb1ea9c64764fe6f0065583a3a9f.html" title="log_message_parser" alt="" coords="265,136,421,161"/>
+<area shape="poly" id="edge3" href="dir_000002_000024.html" alt="" coords="176,83,300,129,298,134,174,88"/>
+<area shape="rect" id="edge3-headlabel" href="dir_000002_000024.html" title="4" alt="" coords="293,114,302,129"/>
+<area shape="poly" id="edge4" href="dir_000020_000017.html" alt="" coords="155,162,155,196,149,196,149,162"/>
+<area shape="rect" id="edge4-headlabel" href="dir_000020_000017.html" title="1" alt="" coords="156,184,165,198"/>
+<area shape="poly" id="edge5" href="dir_000024_000017.html" alt="" coords="313,164,197,207,195,202,311,159"/>
+<area shape="rect" id="edge5-headlabel" href="dir_000024_000017.html" title="1" alt="" coords="198,203,208,218"/>
+<area shape="rect" id="clust2" href="dir_5f8b0e843747209414829c46a4fa9196.html" alt="" coords="27,52,432,245"/>
+<area shape="rect" id="clust1" href="dir_f5040fb6f33eb7020738797e5d4cee5c.html" title="brion_pipelines" alt="" coords="16,16,443,256"/>
+</map>

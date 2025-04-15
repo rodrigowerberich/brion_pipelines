@@ -1,0 +1,19 @@
+<map id="/mnt/c/Users/rodri/Documents/Brion&#45;Assignment/brion_pipelines/components/log_message_parser/public/log_message_parser/semantics.h" name="/mnt/c/Users/rodri/Documents/Brion&#45;Assignment/brion_pipelines/components/log_message_parser/public/log_message_parser/semantics.h">
+<area shape="rect" id="Node000001" title="Defines core classes and types for log message parsing semantics." alt="" coords="373,5,616,89"/>
+<area shape="rect" id="Node000002" href="$app_8cc.html" title=" " alt="" coords="27,291,247,361"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="359,58,261,68,161,84,77,107,46,122,26,139,12,162,9,184,14,208,26,235,47,265,76,289,72,293,44,268,21,237,9,210,3,185,7,161,22,136,44,117,75,102,160,78,260,62,359,53"/>
+<area shape="rect" id="Node000003" href="$ascii__body__parser_8cc.html" title="Implementation of the AsciiBodyParser class." alt="" coords="271,284,491,368"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="536,100,551,136,565,188,563,211,551,237,525,268,493,291,490,286,522,264,547,235,558,210,559,189,546,138,531,102"/>
+<area shape="rect" id="Node000004" href="$hex16__body__parser_8cc.html" title="Implementation of the Hex16BodyParser class." alt="" coords="515,284,735,368"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="549,98,575,136,592,173,606,213,622,283,616,285,600,214,587,175,571,139,544,101"/>
+<area shape="rect" id="Node000005" href="$semantics_8cc.html" title="Implementation of the Parser class and related functionality." alt="" coords="663,145,883,229"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="591,93,691,142,688,147,589,98"/>
+<area shape="rect" id="Node000006" href="$ascii__body__parser_8h.html" title="This file defines the AsciiBodyParser class, which is responsible for parsing ASCII&#45;encoded log messa..." alt="" coords="36,137,270,236"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="380,97,271,141,269,136,378,92"/>
+<area shape="rect" id="Node000007" href="$hex16__body__parser_8h.html" title="Defines the Hex16BodyParser class for parsing hexadecimal 16&#45;bit body messages." alt="" coords="294,137,537,236"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="466,103,446,138,441,136,461,100"/>
+<area shape="poly" id="edge6_Node000006_Node000002" title=" " alt="" coords="148,250,143,291,138,291,143,249"/>
+<area shape="poly" id="edge7_Node000006_Node000003" title=" " alt="" coords="246,241,314,282,312,286,244,246"/>
+<area shape="poly" id="edge9_Node000007_Node000002" title=" " alt="" coords="306,245,206,294,204,289,304,240"/>
+<area shape="poly" id="edge10_Node000007_Node000004" title=" " alt="" coords="502,241,564,282,561,286,499,246"/>
+</map>

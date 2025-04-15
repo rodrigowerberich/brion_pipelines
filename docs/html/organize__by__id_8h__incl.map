@@ -1,0 +1,17 @@
+<map id="/mnt/c/Users/rodri/Documents/Brion&#45;Assignment/brion_pipelines/components/log_message_organizer/public/log_message_organizer/organize_by_id.h" name="/mnt/c/Users/rodri/Documents/Brion&#45;Assignment/brion_pipelines/components/log_message_organizer/public/log_message_organizer/organize_by_id.h">
+<area shape="rect" id="Node000001" title="This file defines the OrganizeById class, which is responsible for organizing log messages based on t..." alt="" coords="75,5,370,89"/>
+<area shape="rect" id="Node000002" href="$pipeline__log__message_8h.html" title="This file defines the PipelineLogMessage class, which represents a log message that belongs to a sing..." alt="" coords="131,137,314,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="225,90,225,124,220,124,220,90"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,225,56,251"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="178,180,70,224,68,219,176,175"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="129,299,205,324"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="175,180,144,199,121,227,117,242,122,258,144,288,140,291,117,260,112,242,116,224,141,195,172,175"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="248,299,307,324"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="315,165,343,173,370,185,395,202,416,224,422,239,420,253,411,265,397,276,361,292,321,304,320,299,359,287,394,271,407,261,415,251,417,240,411,227,392,206,368,190,341,178,313,170"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="338,225,401,251"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="259,175,337,216,334,221,257,180"/>
+<area shape="rect" id="Node000007" href="$message_8h.html" title="Base Log Message class." alt="" coords="131,225,314,251"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="225,178,225,211,220,211,220,178"/>
+<area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="216,253,186,289,182,286,211,249"/>
+<area shape="poly" id="edge8_Node000007_Node000005" title=" " alt="" coords="234,249,262,286,258,289,230,253"/>
+</map>

@@ -1,0 +1,372 @@
+\doxysection{clipp Namespace Reference}
+\hypertarget{namespaceclipp}{}\label{namespaceclipp}\index{clipp@{clipp}}
+
+
+primary namespace  
+
+
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceclipp_1_1debug}{debug}}
+\begin{DoxyCompactList}\small\item\em printing methods for debugging command line interfaces \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespaceclipp_1_1detail}{detail}}
+\begin{DoxyCompactList}\small\item\em helpers (NOT FOR DIRECT USE IN CLIENT CODE!) no interface guarantees; might be changed or removed in the future \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespaceclipp_1_1match}{match}}
+\begin{DoxyCompactList}\small\item\em contains parameter matching functions and function classes \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespaceclipp_1_1str}{str}}
+\begin{DoxyCompactList}\small\item\em string matching and processing tools \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespaceclipp_1_1traits}{traits}}
+\begin{DoxyCompactList}\small\item\em type traits (NOT FOR DIRECT USE IN CLIENT CODE!) no interface guarantees; might be changed or removed in the future \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classclipp_1_1doc__formatting}{doc\+\_\+formatting}}
+\begin{DoxyCompactList}\small\item\em documentation formatting options \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classclipp_1_1documentation}{documentation}}
+\begin{DoxyCompactList}\small\item\em generates parameter and group documentation from docstrings \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classclipp_1_1group}{group}}
+\begin{DoxyCompactList}\small\item\em group of parameters and/or other groups; can be configured to act as a group of alternatives (exclusive match) \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classclipp_1_1man__page}{man\+\_\+page}}
+\begin{DoxyCompactList}\small\item\em stores strings for man page sections \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classclipp_1_1param__filter}{param\+\_\+filter}}
+\begin{DoxyCompactList}\small\item\em filter predicate for parameters and groups; Can be used to limit documentation generation to parameter subsets. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classclipp_1_1parameter}{parameter}}
+\begin{DoxyCompactList}\small\item\em command line parameter that can match one or many arguments. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classclipp_1_1parser}{parser}}
+\begin{DoxyCompactList}\small\item\em default command line arguments parser \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classclipp_1_1parsing__result}{parsing\+\_\+result}}
+\begin{DoxyCompactList}\small\item\em contains argument -\/\texorpdfstring{$>$}{>} parameter mappings and missing parameters \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classclipp_1_1subrange}{subrange}}
+\begin{DoxyCompactList}\small\item\em (start,size) index range \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classclipp_1_1usage__lines}{usage\+\_\+lines}}
+\begin{DoxyCompactList}\small\item\em generates usage lines \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{namespaceclipp_a504b491bb2d997fe814ffb0634d6fb30}\label{namespaceclipp_a504b491bb2d997fe814ffb0634d6fb30} 
+using {\bfseries arg\+\_\+index} = int
+\item 
+\Hypertarget{namespaceclipp_a87fe2958da973d888c7eb410e642f031}\label{namespaceclipp_a87fe2958da973d888c7eb410e642f031} 
+using {\bfseries arg\+\_\+string} = std\+::string
+\item 
+\Hypertarget{namespaceclipp_a48fd225f213e0cd37c30a7c298b40e58}\label{namespaceclipp_a48fd225f213e0cd37c30a7c298b40e58} 
+using {\bfseries doc\+\_\+string} = std\+::string
+\item 
+\Hypertarget{namespaceclipp_a20af2019206dddba96f46e8047ad44cd}\label{namespaceclipp_a20af2019206dddba96f46e8047ad44cd} 
+using {\bfseries arg\+\_\+list} = std\+::vector$<$ arg\+\_\+string $>$
+\item 
+\Hypertarget{namespaceclipp_a0820412d60f4c8a0cc3c3febf02bc84e}\label{namespaceclipp_a0820412d60f4c8a0cc3c3febf02bc84e} 
+using {\bfseries match\+\_\+predicate} = std\+::function$<$ bool(const arg\+\_\+string \&)$>$
+\begin{DoxyCompactList}\small\item\em match predicates \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_a24f6e298e23478445170fca9ae556787}\label{namespaceclipp_a24f6e298e23478445170fca9ae556787} 
+using {\bfseries match\+\_\+function} = std\+::function$<$ \mbox{\hyperlink{classclipp_1_1subrange}{subrange}}(const arg\+\_\+string \&)$>$
+\item 
+\Hypertarget{namespaceclipp_a832b3ae6a199a3a18d769c03187f59de}\label{namespaceclipp_a832b3ae6a199a3a18d769c03187f59de} 
+using {\bfseries pattern} = group\+::child
+\begin{DoxyCompactList}\small\item\em group or parameter \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{namespaceclipp_ad9bc4652de2e33d5c5f27def5aa5fe7c}\label{namespaceclipp_ad9bc4652de2e33d5c5f27def5aa5fe7c} 
+enum class \mbox{\hyperlink{namespaceclipp_ad9bc4652de2e33d5c5f27def5aa5fe7c}{tri}} \+: char \{ {\bfseries no}
+, {\bfseries yes}
+, {\bfseries either}
+ \}
+\begin{DoxyCompactList}\small\item\em tristate \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{namespaceclipp_a018dedab23518a48c4d94703a0fad3ae}\label{namespaceclipp_a018dedab23518a48c4d94703a0fad3ae} 
+constexpr bool {\bfseries operator==} (\mbox{\hyperlink{namespaceclipp_ad9bc4652de2e33d5c5f27def5aa5fe7c}{tri}} t, bool b) noexcept
+\item 
+\Hypertarget{namespaceclipp_a4634163fc7d5c28622561357f67a942e}\label{namespaceclipp_a4634163fc7d5c28622561357f67a942e} 
+constexpr bool {\bfseries operator==} (bool b, \mbox{\hyperlink{namespaceclipp_ad9bc4652de2e33d5c5f27def5aa5fe7c}{tri}} t) noexcept
+\item 
+\Hypertarget{namespaceclipp_ac18657ed70262795def8c8014a40b505}\label{namespaceclipp_ac18657ed70262795def8c8014a40b505} 
+constexpr bool {\bfseries operator!=} (\mbox{\hyperlink{namespaceclipp_ad9bc4652de2e33d5c5f27def5aa5fe7c}{tri}} t, bool b) noexcept
+\item 
+\Hypertarget{namespaceclipp_a17b51bc7536c0b332263ed6c6a2df59f}\label{namespaceclipp_a17b51bc7536c0b332263ed6c6a2df59f} 
+constexpr bool {\bfseries operator!=} (bool b, \mbox{\hyperlink{namespaceclipp_ad9bc4652de2e33d5c5f27def5aa5fe7c}{tri}} t) noexcept
+\item 
+\Hypertarget{namespaceclipp_a26d28e2c0b96c9d171cca4d694b866fd}\label{namespaceclipp_a26d28e2c0b96c9d171cca4d694b866fd} 
+{\footnotesize template$<$class T , class V $>$ }\\detail\+::assign\+\_\+value$<$ T, V $>$ {\bfseries set} (T \&target, V \mbox{\hyperlink{namespaceclipp_a3cecc1b8e2ded82a4e6aff98d1f308a7}{value}})
+\begin{DoxyCompactList}\small\item\em makes function object with a const char\texorpdfstring{$\ast$}{*} parameter that assigns a value to a ref-\/captured object \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_a6b85acd8068087da709b46bc9156d038}\label{namespaceclipp_a6b85acd8068087da709b46bc9156d038} 
+{\footnotesize template$<$class T $>$ }\\detail\+::map\+\_\+arg\+\_\+to$<$ T $>$ {\bfseries set} (T \&target)
+\begin{DoxyCompactList}\small\item\em makes parameter-\/less function object that assigns value(s) to a ref-\/captured object; value(s) are obtained by converting the const char\texorpdfstring{$\ast$}{*} argument to the captured object types; bools are always set to true if the argument is not nullptr \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_a411de4204b7531106eb01807146f4090}\label{namespaceclipp_a411de4204b7531106eb01807146f4090} 
+detail\+::assign\+\_\+value$<$ bool $>$ {\bfseries set} (bool \&target)
+\begin{DoxyCompactList}\small\item\em makes function object that sets a bool to true \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_a0f75013ceac121c6de68ae782b064618}\label{namespaceclipp_a0f75013ceac121c6de68ae782b064618} 
+detail\+::assign\+\_\+value$<$ bool $>$ {\bfseries unset} (bool \&target)
+\begin{DoxyCompactList}\small\item\em makes function object that sets a bool to false \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_a955037bb9ffd13c6403791cc9eaac276}\label{namespaceclipp_a955037bb9ffd13c6403791cc9eaac276} 
+detail\+::flip\+\_\+bool {\bfseries flip} (bool \&b)
+\begin{DoxyCompactList}\small\item\em makes function object that flips the value of a ref-\/captured bool \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_a7dcece346ae2a98d5b1ab86580fe1ab0}\label{namespaceclipp_a7dcece346ae2a98d5b1ab86580fe1ab0} 
+{\footnotesize template$<$class T $>$ }\\detail\+::increment$<$ T $>$ {\bfseries increment} (T \&target)
+\begin{DoxyCompactList}\small\item\em makes function object that increments using operator ++ \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_ac49d7f1e0917df475ff5fd8d22eda4bb}\label{namespaceclipp_ac49d7f1e0917df475ff5fd8d22eda4bb} 
+{\footnotesize template$<$class T $>$ }\\detail\+::increment\+\_\+by$<$ T $>$ {\bfseries increment} (T \&target, T by)
+\begin{DoxyCompactList}\small\item\em makes function object that decrements using operator -- \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_afd911773c66b67377c15046c5dfab9e0}\label{namespaceclipp_afd911773c66b67377c15046c5dfab9e0} 
+{\footnotesize template$<$class T $>$ }\\detail\+::decrement$<$ T $>$ {\bfseries decrement} (T \&target)
+\begin{DoxyCompactList}\small\item\em makes function object that increments by a fixed amount using operator += \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_ab8faca01b9b27c39c5f048691acd2704}\label{namespaceclipp_ab8faca01b9b27c39c5f048691acd2704} 
+{\footnotesize template$<$class String , class... Strings$>$ }\\\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} {\bfseries command} (String \&\&flag, Strings \&\&... flags)
+\begin{DoxyCompactList}\small\item\em makes required non-\/blocking exact match parameter \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_a529ed76157c0cab73ab28e2e1815319f}\label{namespaceclipp_a529ed76157c0cab73ab28e2e1815319f} 
+{\footnotesize template$<$class String , class... Strings$>$ }\\\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} {\bfseries required} (String \&\&flag, Strings \&\&... flags)
+\begin{DoxyCompactList}\small\item\em makes required non-\/blocking exact match parameter \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_a49eecb5d433ae8b2a2af78ddc7464618}\label{namespaceclipp_a49eecb5d433ae8b2a2af78ddc7464618} 
+{\footnotesize template$<$class String , class... Strings$>$ }\\\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} {\bfseries option} (String \&\&flag, Strings \&\&... flags)
+\begin{DoxyCompactList}\small\item\em makes optional, non-\/blocking exact match parameter \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_a3cecc1b8e2ded82a4e6aff98d1f308a7}\label{namespaceclipp_a3cecc1b8e2ded82a4e6aff98d1f308a7} 
+{\footnotesize template$<$class... Targets$>$ }\\\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} {\bfseries value} (const doc\+\_\+string \&label, Targets \&\&... tgts)
+\begin{DoxyCompactList}\small\item\em makes required, blocking, repeatable value parameter; matches any non-\/empty string \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_a4bea2d4937e31910c32bc5bb958e030d}\label{namespaceclipp_a4bea2d4937e31910c32bc5bb958e030d} 
+{\footnotesize template$<$class Filter , class... Targets, class  = typename std\+::enable\+\_\+if$<$    traits\+::is\+\_\+callable$<$\+Filter,bool(const char\texorpdfstring{$\ast$}{*})$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}    traits\+::is\+\_\+callable$<$\+Filter,subrange(const char\texorpdfstring{$\ast$}{*})$>$\+::value$>$\+::type$>$ }\\\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} {\bfseries value} (Filter \&\&filter, doc\+\_\+string label, Targets \&\&... tgts)
+\item 
+\Hypertarget{namespaceclipp_a4a3c31c8c4535b137c385d40a3a56ab3}\label{namespaceclipp_a4a3c31c8c4535b137c385d40a3a56ab3} 
+{\footnotesize template$<$class... Targets$>$ }\\\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} {\bfseries values} (const doc\+\_\+string \&label, Targets \&\&... tgts)
+\begin{DoxyCompactList}\small\item\em makes required, blocking, repeatable value parameter; matches any non-\/empty string \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_ae9753699a6354b0edd537dc5a8f621db}\label{namespaceclipp_ae9753699a6354b0edd537dc5a8f621db} 
+{\footnotesize template$<$class Filter , class... Targets, class  = typename std\+::enable\+\_\+if$<$    traits\+::is\+\_\+callable$<$\+Filter,bool(const char\texorpdfstring{$\ast$}{*})$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}    traits\+::is\+\_\+callable$<$\+Filter,subrange(const char\texorpdfstring{$\ast$}{*})$>$\+::value$>$\+::type$>$ }\\\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} {\bfseries values} (Filter \&\&filter, doc\+\_\+string label, Targets \&\&... tgts)
+\item 
+\Hypertarget{namespaceclipp_afe119492ef412d2f392d6b766fe9c859}\label{namespaceclipp_afe119492ef412d2f392d6b766fe9c859} 
+{\footnotesize template$<$class... Targets$>$ }\\\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} {\bfseries opt\+\_\+value} (const doc\+\_\+string \&label, Targets \&\&... tgts)
+\begin{DoxyCompactList}\small\item\em makes optional, blocking value parameter; matches any non-\/empty string \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_a23caf15498db9968db5a569ed028f570}\label{namespaceclipp_a23caf15498db9968db5a569ed028f570} 
+{\footnotesize template$<$class Filter , class... Targets, class  = typename std\+::enable\+\_\+if$<$    traits\+::is\+\_\+callable$<$\+Filter,bool(const char\texorpdfstring{$\ast$}{*})$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}    traits\+::is\+\_\+callable$<$\+Filter,subrange(const char\texorpdfstring{$\ast$}{*})$>$\+::value$>$\+::type$>$ }\\\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} {\bfseries opt\+\_\+value} (Filter \&\&filter, doc\+\_\+string label, Targets \&\&... tgts)
+\item 
+\Hypertarget{namespaceclipp_acfef6a1792790f22019c7590bd8028b1}\label{namespaceclipp_acfef6a1792790f22019c7590bd8028b1} 
+{\footnotesize template$<$class... Targets$>$ }\\\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} {\bfseries opt\+\_\+values} (const doc\+\_\+string \&label, Targets \&\&... tgts)
+\begin{DoxyCompactList}\small\item\em makes optional, blocking, repeatable value parameter; matches any non-\/empty string \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_a4a6c952f4e666b314452cd5a1e604e1a}\label{namespaceclipp_a4a6c952f4e666b314452cd5a1e604e1a} 
+{\footnotesize template$<$class Filter , class... Targets, class  = typename std\+::enable\+\_\+if$<$    traits\+::is\+\_\+callable$<$\+Filter,bool(const char\texorpdfstring{$\ast$}{*})$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}    traits\+::is\+\_\+callable$<$\+Filter,subrange(const char\texorpdfstring{$\ast$}{*})$>$\+::value$>$\+::type$>$ }\\\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} {\bfseries opt\+\_\+values} (Filter \&\&filter, doc\+\_\+string label, Targets \&\&... tgts)
+\item 
+\Hypertarget{namespaceclipp_a530fa8a3ac4fd5579e7444935929c5ff}\label{namespaceclipp_a530fa8a3ac4fd5579e7444935929c5ff} 
+{\footnotesize template$<$class... Targets$>$ }\\\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} {\bfseries word} (const doc\+\_\+string \&label, Targets \&\&... tgts)
+\begin{DoxyCompactList}\small\item\em makes required, blocking value parameter; matches any string consisting of alphanumeric characters \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_a58d6468f3f441d49f57ff1b73dfe9bb8}\label{namespaceclipp_a58d6468f3f441d49f57ff1b73dfe9bb8} 
+{\footnotesize template$<$class... Targets$>$ }\\\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} {\bfseries words} (const doc\+\_\+string \&label, Targets \&\&... tgts)
+\begin{DoxyCompactList}\small\item\em makes required, blocking, repeatable value parameter; matches any string consisting of alphanumeric characters \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_a1fa0989bd5e84834546b0f334412ffdb}\label{namespaceclipp_a1fa0989bd5e84834546b0f334412ffdb} 
+{\footnotesize template$<$class... Targets$>$ }\\\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} {\bfseries opt\+\_\+word} (const doc\+\_\+string \&label, Targets \&\&... tgts)
+\begin{DoxyCompactList}\small\item\em makes optional, blocking value parameter; matches any string consisting of alphanumeric characters \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_a10e60a2282d6ce70a57666b24b9f4c2f}\label{namespaceclipp_a10e60a2282d6ce70a57666b24b9f4c2f} 
+{\footnotesize template$<$class... Targets$>$ }\\\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} {\bfseries opt\+\_\+words} (const doc\+\_\+string \&label, Targets \&\&... tgts)
+\begin{DoxyCompactList}\small\item\em makes optional, blocking, repeatable value parameter; matches any string consisting of alphanumeric characters \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_a7e646335040860006f05a643abfb4f83}\label{namespaceclipp_a7e646335040860006f05a643abfb4f83} 
+{\footnotesize template$<$class... Targets$>$ }\\\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} {\bfseries number} (const doc\+\_\+string \&label, Targets \&\&... tgts)
+\begin{DoxyCompactList}\small\item\em makes required, blocking value parameter; matches any string that represents a number \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_a7a9b2dbfa2e09583a9b49c483355e9d7}\label{namespaceclipp_a7a9b2dbfa2e09583a9b49c483355e9d7} 
+{\footnotesize template$<$class... Targets$>$ }\\\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} {\bfseries numbers} (const doc\+\_\+string \&label, Targets \&\&... tgts)
+\begin{DoxyCompactList}\small\item\em makes required, blocking, repeatable value parameter; matches any string that represents a number \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_a26e7c5fb46722eab8d65dd4c7130fa28}\label{namespaceclipp_a26e7c5fb46722eab8d65dd4c7130fa28} 
+{\footnotesize template$<$class... Targets$>$ }\\\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} {\bfseries opt\+\_\+number} (const doc\+\_\+string \&label, Targets \&\&... tgts)
+\begin{DoxyCompactList}\small\item\em makes optional, blocking value parameter; matches any string that represents a number \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_a677415f8fccb555b4f080435063b65c9}\label{namespaceclipp_a677415f8fccb555b4f080435063b65c9} 
+{\footnotesize template$<$class... Targets$>$ }\\\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} {\bfseries opt\+\_\+numbers} (const doc\+\_\+string \&label, Targets \&\&... tgts)
+\begin{DoxyCompactList}\small\item\em makes optional, blocking, repeatable value parameter; matches any string that represents a number \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_a2953742ab70edbfa7dd2911a9865fccf}\label{namespaceclipp_a2953742ab70edbfa7dd2911a9865fccf} 
+{\footnotesize template$<$class... Targets$>$ }\\\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} {\bfseries integer} (const doc\+\_\+string \&label, Targets \&\&... tgts)
+\begin{DoxyCompactList}\small\item\em makes required, blocking value parameter; matches any string that represents an integer \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_ac8e179726ebc64f98b5e2dcf467c0edf}\label{namespaceclipp_ac8e179726ebc64f98b5e2dcf467c0edf} 
+{\footnotesize template$<$class... Targets$>$ }\\\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} {\bfseries integers} (const doc\+\_\+string \&label, Targets \&\&... tgts)
+\begin{DoxyCompactList}\small\item\em makes required, blocking, repeatable value parameter; matches any string that represents an integer \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_ade226ee7eab79703cee3b6985a571442}\label{namespaceclipp_ade226ee7eab79703cee3b6985a571442} 
+{\footnotesize template$<$class... Targets$>$ }\\\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} {\bfseries opt\+\_\+integer} (const doc\+\_\+string \&label, Targets \&\&... tgts)
+\begin{DoxyCompactList}\small\item\em makes optional, blocking value parameter; matches any string that represents an integer \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_a8856cfecb76b5c455f8fd9e64f551532}\label{namespaceclipp_a8856cfecb76b5c455f8fd9e64f551532} 
+{\footnotesize template$<$class... Targets$>$ }\\\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} {\bfseries opt\+\_\+integers} (const doc\+\_\+string \&label, Targets \&\&... tgts)
+\begin{DoxyCompactList}\small\item\em makes optional, blocking, repeatable value parameter; matches any string that represents an integer \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_a711c11020498433d930caab6f2a88efb}\label{namespaceclipp_a711c11020498433d930caab6f2a88efb} 
+{\footnotesize template$<$class... Targets$>$ }\\\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} {\bfseries any\+\_\+other} (Targets \&\&... tgts)
+\begin{DoxyCompactList}\small\item\em makes catch-\/all value parameter \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_a2e66b83771cfdcc8e12610a32338b05f}\label{namespaceclipp_a2e66b83771cfdcc8e12610a32338b05f} 
+{\footnotesize template$<$class Filter , class... Targets, class  = typename std\+::enable\+\_\+if$<$    traits\+::is\+\_\+callable$<$\+Filter,bool(const char\texorpdfstring{$\ast$}{*})$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}    traits\+::is\+\_\+callable$<$\+Filter,subrange(const char\texorpdfstring{$\ast$}{*})$>$\+::value$>$\+::type$>$ }\\\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} {\bfseries any} (Filter \&\&filter, Targets \&\&... tgts)
+\begin{DoxyCompactList}\small\item\em makes catch-\/all value parameter with custom filter \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_a1b7e7b9e3481d4cc8c9da6d9904904ca}\label{namespaceclipp_a1b7e7b9e3481d4cc8c9da6d9904904ca} 
+{\footnotesize template$<$class Action $>$ }\\void {\bfseries for\+\_\+all\+\_\+params} (\mbox{\hyperlink{classclipp_1_1group}{group}} \&g, Action \&\&action)
+\begin{DoxyCompactList}\small\item\em apply an action to all parameters in a group \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_ace91bde161d1cb5ccb3c8be27cbc7717}\label{namespaceclipp_ace91bde161d1cb5ccb3c8be27cbc7717} 
+{\footnotesize template$<$class Action $>$ }\\void {\bfseries for\+\_\+all\+\_\+params} (const \mbox{\hyperlink{classclipp_1_1group}{group}} \&g, Action \&\&action)
+\item 
+\Hypertarget{namespaceclipp_aa63d1c68c82caa6aae41779dee216a74}\label{namespaceclipp_aa63d1c68c82caa6aae41779dee216a74} 
+\mbox{\hyperlink{classclipp_1_1group}{group}} {\bfseries operator,} (\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} a, \mbox{\hyperlink{classclipp_1_1parameter}{parameter}} b)
+\begin{DoxyCompactList}\small\item\em makes a group of parameters and/or groups \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_ac4ddd6fff4b375b038cbaf569bdad635}\label{namespaceclipp_ac4ddd6fff4b375b038cbaf569bdad635} 
+\mbox{\hyperlink{classclipp_1_1group}{group}} {\bfseries operator,} (\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} a, \mbox{\hyperlink{classclipp_1_1group}{group}} b)
+\item 
+\Hypertarget{namespaceclipp_a57714bf09c2991cfd16cd101f5fb962b}\label{namespaceclipp_a57714bf09c2991cfd16cd101f5fb962b} 
+\mbox{\hyperlink{classclipp_1_1group}{group}} {\bfseries operator,} (\mbox{\hyperlink{classclipp_1_1group}{group}} a, \mbox{\hyperlink{classclipp_1_1parameter}{parameter}} b)
+\item 
+\Hypertarget{namespaceclipp_a6eb60c54f58a9bca2a88235e37e86b1e}\label{namespaceclipp_a6eb60c54f58a9bca2a88235e37e86b1e} 
+\mbox{\hyperlink{classclipp_1_1group}{group}} {\bfseries operator,} (\mbox{\hyperlink{classclipp_1_1group}{group}} a, \mbox{\hyperlink{classclipp_1_1group}{group}} b)
+\item 
+\Hypertarget{namespaceclipp_a2a9ea139c0ea75645d72d3071aae6b70}\label{namespaceclipp_a2a9ea139c0ea75645d72d3071aae6b70} 
+{\footnotesize template$<$class Param , class... Params$>$ }\\\mbox{\hyperlink{classclipp_1_1group}{group}} {\bfseries one\+\_\+of} (Param param, Params... params)
+\begin{DoxyCompactList}\small\item\em makes a group of alternative parameters or groups \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_a21d2c5d51eb10bb0ce51323384778836}\label{namespaceclipp_a21d2c5d51eb10bb0ce51323384778836} 
+\mbox{\hyperlink{classclipp_1_1group}{group}} {\bfseries operator\texorpdfstring{$\vert$}{|}} (\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} a, \mbox{\hyperlink{classclipp_1_1parameter}{parameter}} b)
+\begin{DoxyCompactList}\small\item\em makes a group of alternative parameters or groups \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_aab849aee88dc5c0b0101dfce2ca4b2a9}\label{namespaceclipp_aab849aee88dc5c0b0101dfce2ca4b2a9} 
+\mbox{\hyperlink{classclipp_1_1group}{group}} {\bfseries operator\texorpdfstring{$\vert$}{|}} (\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} a, \mbox{\hyperlink{classclipp_1_1group}{group}} b)
+\item 
+\Hypertarget{namespaceclipp_a2f261f2ae53dc43626faddc065cb176f}\label{namespaceclipp_a2f261f2ae53dc43626faddc065cb176f} 
+\mbox{\hyperlink{classclipp_1_1group}{group}} {\bfseries operator\texorpdfstring{$\vert$}{|}} (\mbox{\hyperlink{classclipp_1_1group}{group}} a, \mbox{\hyperlink{classclipp_1_1parameter}{parameter}} b)
+\item 
+\Hypertarget{namespaceclipp_ab843cdb4a78a6d84898b4faf37810722}\label{namespaceclipp_ab843cdb4a78a6d84898b4faf37810722} 
+\mbox{\hyperlink{classclipp_1_1group}{group}} {\bfseries operator\texorpdfstring{$\vert$}{|}} (\mbox{\hyperlink{classclipp_1_1group}{group}} a, \mbox{\hyperlink{classclipp_1_1group}{group}} b)
+\item 
+\Hypertarget{namespaceclipp_a6c7b5be48ce20bfa23f61f436468a3ef}\label{namespaceclipp_a6c7b5be48ce20bfa23f61f436468a3ef} 
+{\footnotesize template$<$class Param , class... Params$>$ }\\\mbox{\hyperlink{classclipp_1_1group}{group}} {\bfseries in\+\_\+sequence} (Param param, Params... params)
+\begin{DoxyCompactList}\small\item\em makes a parameter/group sequence by making all input objects blocking \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_ab87e5b70cb8ac8b931cdf0a0d2b0c899}\label{namespaceclipp_ab87e5b70cb8ac8b931cdf0a0d2b0c899} 
+\mbox{\hyperlink{classclipp_1_1group}{group}} {\bfseries operator\&} (\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} a, \mbox{\hyperlink{classclipp_1_1parameter}{parameter}} b)
+\begin{DoxyCompactList}\small\item\em makes a parameter/group sequence by making all input objects blocking \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_aa9e4432bacff632bbd0f3df781d96121}\label{namespaceclipp_aa9e4432bacff632bbd0f3df781d96121} 
+\mbox{\hyperlink{classclipp_1_1group}{group}} {\bfseries operator\&} (\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} a, \mbox{\hyperlink{classclipp_1_1group}{group}} b)
+\item 
+\Hypertarget{namespaceclipp_aab7c04c70336079b02b2b74b72bbaeb1}\label{namespaceclipp_aab7c04c70336079b02b2b74b72bbaeb1} 
+\mbox{\hyperlink{classclipp_1_1group}{group}} {\bfseries operator\&} (\mbox{\hyperlink{classclipp_1_1group}{group}} a, \mbox{\hyperlink{classclipp_1_1parameter}{parameter}} b)
+\item 
+\Hypertarget{namespaceclipp_a0e475709e579fff4cf8b59013452d46d}\label{namespaceclipp_a0e475709e579fff4cf8b59013452d46d} 
+\mbox{\hyperlink{classclipp_1_1group}{group}} {\bfseries operator\&} (\mbox{\hyperlink{classclipp_1_1group}{group}} a, \mbox{\hyperlink{classclipp_1_1group}{group}} b)
+\item 
+\Hypertarget{namespaceclipp_a2016b3961d790070f15fc25873232785}\label{namespaceclipp_a2016b3961d790070f15fc25873232785} 
+\mbox{\hyperlink{classclipp_1_1group}{group}} {\bfseries joinable} (\mbox{\hyperlink{classclipp_1_1group}{group}} g)
+\begin{DoxyCompactList}\small\item\em makes a group of parameters and/or groups where all single char flag params ("{}-\/a"{}, "{}b"{}, ...) are joinable \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_aac5e581ef928d283adea827a765dbba5}\label{namespaceclipp_aac5e581ef928d283adea827a765dbba5} 
+{\footnotesize template$<$class... Params$>$ }\\\mbox{\hyperlink{classclipp_1_1group}{group}} {\bfseries joinable} (\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} param, Params... params)
+\item 
+\Hypertarget{namespaceclipp_ac74e1f83f8e42ad3023aa0c379868e7f}\label{namespaceclipp_ac74e1f83f8e42ad3023aa0c379868e7f} 
+{\footnotesize template$<$class P2 , class... Ps$>$ }\\\mbox{\hyperlink{classclipp_1_1group}{group}} {\bfseries joinable} (\mbox{\hyperlink{classclipp_1_1group}{group}} p1, P2 p2, Ps... ps)
+\item 
+\Hypertarget{namespaceclipp_adf4c2e13ffdddb40d7d10244576687e6}\label{namespaceclipp_adf4c2e13ffdddb40d7d10244576687e6} 
+{\footnotesize template$<$class Param , class... Params$>$ }\\\mbox{\hyperlink{classclipp_1_1group}{group}} {\bfseries joinable} (doc\+\_\+string docstr, Param param, Params... params)
+\item 
+\Hypertarget{namespaceclipp_a7de409905bae818ae92c3573c1cd7a6e}\label{namespaceclipp_a7de409905bae818ae92c3573c1cd7a6e} 
+\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} {\bfseries repeatable} (\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} p)
+\begin{DoxyCompactList}\small\item\em makes a repeatable copy of a parameter \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_a49504a487a18bb7b3b417e58db534fed}\label{namespaceclipp_a49504a487a18bb7b3b417e58db534fed} 
+\mbox{\hyperlink{classclipp_1_1group}{group}} {\bfseries repeatable} (\mbox{\hyperlink{classclipp_1_1group}{group}} g)
+\begin{DoxyCompactList}\small\item\em makes a repeatable copy of a group \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_a4b702f30b328f1a72777f531692e2b71}\label{namespaceclipp_a4b702f30b328f1a72777f531692e2b71} 
+{\footnotesize template$<$class P2 , class... Ps$>$ }\\\mbox{\hyperlink{classclipp_1_1group}{group}} {\bfseries repeatable} (\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} p1, P2 p2, Ps... ps)
+\begin{DoxyCompactList}\small\item\em makes a group of parameters and/or groups that is repeatable as a whole Note that a repeatable group consisting entirely of non-\/blocking children is equivalent to a non-\/repeatable group of repeatable children. \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_a348c64709f21ebc035106405fd0480e7}\label{namespaceclipp_a348c64709f21ebc035106405fd0480e7} 
+{\footnotesize template$<$class P2 , class... Ps$>$ }\\\mbox{\hyperlink{classclipp_1_1group}{group}} {\bfseries repeatable} (\mbox{\hyperlink{classclipp_1_1group}{group}} p1, P2 p2, Ps... ps)
+\item 
+\Hypertarget{namespaceclipp_ace8583db6f15d6cf9f98962a466722eb}\label{namespaceclipp_ace8583db6f15d6cf9f98962a466722eb} 
+\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} {\bfseries greedy} (\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} p)
+\begin{DoxyCompactList}\small\item\em makes a parameter greedy (match with top priority) \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_a6ad3fb5f8b9b54d82e9c360256c46e1a}\label{namespaceclipp_a6ad3fb5f8b9b54d82e9c360256c46e1a} 
+\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} {\bfseries operator!} (\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} p)
+\item 
+\Hypertarget{namespaceclipp_a91ede7c3373d345b12376530f1cb652c}\label{namespaceclipp_a91ede7c3373d345b12376530f1cb652c} 
+\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} \&\& {\bfseries with\+\_\+prefix} (const arg\+\_\+string \&prefix, \mbox{\hyperlink{classclipp_1_1parameter}{parameter}} \&\&p)
+\begin{DoxyCompactList}\small\item\em recursively prepends a prefix to all flags \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_a978ba0428fd30964ce6d375ac7dddb45}\label{namespaceclipp_a978ba0428fd30964ce6d375ac7dddb45} 
+\mbox{\hyperlink{classclipp_1_1group}{group}} \& {\bfseries with\+\_\+prefix} (const arg\+\_\+string \&prefix, \mbox{\hyperlink{classclipp_1_1group}{group}} \&g)
+\item 
+\Hypertarget{namespaceclipp_a8007d47e955a18b7ccf19c0c84820bd9}\label{namespaceclipp_a8007d47e955a18b7ccf19c0c84820bd9} 
+\mbox{\hyperlink{classclipp_1_1group}{group}} \&\& {\bfseries with\+\_\+prefix} (const arg\+\_\+string \&prefix, \mbox{\hyperlink{classclipp_1_1group}{group}} \&\&params)
+\item 
+\Hypertarget{namespaceclipp_a0985053f756c68a0d2fe95f5e37cdd25}\label{namespaceclipp_a0985053f756c68a0d2fe95f5e37cdd25} 
+{\footnotesize template$<$class Param , class... Params$>$ }\\\mbox{\hyperlink{classclipp_1_1group}{group}} {\bfseries with\+\_\+prefix} (arg\+\_\+string prefix, Param \&\&param, Params \&\&... params)
+\item 
+\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} \&\& \mbox{\hyperlink{namespaceclipp_a3da88ad1d0ae508ced45a2c1f03a560a}{with\+\_\+prefixes\+\_\+short\+\_\+long}} (const arg\+\_\+string \&shortpfx, const arg\+\_\+string \&longpfx, \mbox{\hyperlink{classclipp_1_1parameter}{parameter}} \&\&p)
+\begin{DoxyCompactList}\small\item\em recursively prepends a prefix to all flags \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_a296e02921d395d643f7376808638d77f}\label{namespaceclipp_a296e02921d395d643f7376808638d77f} 
+\mbox{\hyperlink{classclipp_1_1group}{group}} \& {\bfseries with\+\_\+prefixes\+\_\+short\+\_\+long} (const arg\+\_\+string \&short\+Flag\+Prefix, const arg\+\_\+string \&long\+Flag\+Prefix, \mbox{\hyperlink{classclipp_1_1group}{group}} \&g)
+\item 
+\Hypertarget{namespaceclipp_a2d86c347cc66348be390af4702f8d39d}\label{namespaceclipp_a2d86c347cc66348be390af4702f8d39d} 
+\mbox{\hyperlink{classclipp_1_1group}{group}} \&\& {\bfseries with\+\_\+prefixes\+\_\+short\+\_\+long} (const arg\+\_\+string \&short\+Flag\+Prefix, const arg\+\_\+string \&long\+Flag\+Prefix, \mbox{\hyperlink{classclipp_1_1group}{group}} \&\&params)
+\item 
+\Hypertarget{namespaceclipp_a448fc22d1bb2519b121b4932a62280b2}\label{namespaceclipp_a448fc22d1bb2519b121b4932a62280b2} 
+{\footnotesize template$<$class Param , class... Params$>$ }\\\mbox{\hyperlink{classclipp_1_1group}{group}} {\bfseries with\+\_\+prefixes\+\_\+short\+\_\+long} (const arg\+\_\+string \&short\+Flag\+Prefix, const arg\+\_\+string \&long\+Flag\+Prefix, Param \&\&param, Params \&\&... params)
+\item 
+\Hypertarget{namespaceclipp_ad5a8c61c2266b57fb1f175fafc38704a}\label{namespaceclipp_ad5a8c61c2266b57fb1f175fafc38704a} 
+\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} \&\& {\bfseries with\+\_\+suffix} (const arg\+\_\+string \&suffix, \mbox{\hyperlink{classclipp_1_1parameter}{parameter}} \&\&p)
+\begin{DoxyCompactList}\small\item\em recursively prepends a suffix to all flags \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_aa3326d242737d7ef5d846e2f2c97545e}\label{namespaceclipp_aa3326d242737d7ef5d846e2f2c97545e} 
+\mbox{\hyperlink{classclipp_1_1group}{group}} \& {\bfseries with\+\_\+suffix} (const arg\+\_\+string \&suffix, \mbox{\hyperlink{classclipp_1_1group}{group}} \&g)
+\item 
+\Hypertarget{namespaceclipp_ae5acb00eeaa9c27abff12bf9c3e06930}\label{namespaceclipp_ae5acb00eeaa9c27abff12bf9c3e06930} 
+\mbox{\hyperlink{classclipp_1_1group}{group}} \&\& {\bfseries with\+\_\+suffix} (const arg\+\_\+string \&suffix, \mbox{\hyperlink{classclipp_1_1group}{group}} \&\&params)
+\item 
+\Hypertarget{namespaceclipp_ab8afeeb853e3b3173320128fe177c584}\label{namespaceclipp_ab8afeeb853e3b3173320128fe177c584} 
+{\footnotesize template$<$class Param , class... Params$>$ }\\\mbox{\hyperlink{classclipp_1_1group}{group}} {\bfseries with\+\_\+suffix} (arg\+\_\+string suffix, Param \&\&param, Params \&\&... params)
+\item 
+\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} \&\& \mbox{\hyperlink{namespaceclipp_a8eaceef2f4d1dc34cddd4a57f3fc96e9}{with\+\_\+suffixes\+\_\+short\+\_\+long}} (const arg\+\_\+string \&shortsfx, const arg\+\_\+string \&longsfx, \mbox{\hyperlink{classclipp_1_1parameter}{parameter}} \&\&p)
+\begin{DoxyCompactList}\small\item\em recursively prepends a suffix to all flags \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_a8ff2d13ba145224cde110cae299f1e60}\label{namespaceclipp_a8ff2d13ba145224cde110cae299f1e60} 
+\mbox{\hyperlink{classclipp_1_1group}{group}} \& {\bfseries with\+\_\+suffixes\+\_\+short\+\_\+long} (const arg\+\_\+string \&short\+Flag\+Suffix, const arg\+\_\+string \&long\+Flag\+Suffix, \mbox{\hyperlink{classclipp_1_1group}{group}} \&g)
+\item 
+\Hypertarget{namespaceclipp_ab916e0e17d2d5ea54dc9adb562f2ada1}\label{namespaceclipp_ab916e0e17d2d5ea54dc9adb562f2ada1} 
+\mbox{\hyperlink{classclipp_1_1group}{group}} \&\& {\bfseries with\+\_\+suffixes\+\_\+short\+\_\+long} (const arg\+\_\+string \&short\+Flag\+Suffix, const arg\+\_\+string \&long\+Flag\+Suffix, \mbox{\hyperlink{classclipp_1_1group}{group}} \&\&params)
+\item 
+\Hypertarget{namespaceclipp_aa61535b8c10a36b85149ff84816ba5f9}\label{namespaceclipp_aa61535b8c10a36b85149ff84816ba5f9} 
+{\footnotesize template$<$class Param , class... Params$>$ }\\\mbox{\hyperlink{classclipp_1_1group}{group}} {\bfseries with\+\_\+suffixes\+\_\+short\+\_\+long} (const arg\+\_\+string \&short\+Flag\+Suffix, const arg\+\_\+string \&long\+Flag\+Suffix, Param \&\&param, Params \&\&... params)
+\item 
+\Hypertarget{namespaceclipp_a2b4c7356890e9113b5d6e9f351428f96}\label{namespaceclipp_a2b4c7356890e9113b5d6e9f351428f96} 
+\mbox{\hyperlink{classclipp_1_1parsing__result}{parsing\+\_\+result}} {\bfseries parse} (arg\+\_\+list args, const \mbox{\hyperlink{classclipp_1_1group}{group}} \&cli)
+\begin{DoxyCompactList}\small\item\em parses vector of arg strings and executes actions \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_a4caa5fd7b42c6b56377411885a9065a3}\label{namespaceclipp_a4caa5fd7b42c6b56377411885a9065a3} 
+\mbox{\hyperlink{classclipp_1_1parsing__result}{parsing\+\_\+result}} {\bfseries parse} (std\+::initializer\+\_\+list$<$ const char \texorpdfstring{$\ast$}{*} $>$ arglist, const \mbox{\hyperlink{classclipp_1_1group}{group}} \&cli)
+\begin{DoxyCompactList}\small\item\em parses initializer\+\_\+list of C-\/style arg strings and executes actions \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_af0b8d6d052e6f1c7ca1e07a3edc182a3}\label{namespaceclipp_af0b8d6d052e6f1c7ca1e07a3edc182a3} 
+{\footnotesize template$<$class Input\+Iterator $>$ }\\\mbox{\hyperlink{classclipp_1_1parsing__result}{parsing\+\_\+result}} {\bfseries parse} (Input\+Iterator first, Input\+Iterator last, const \mbox{\hyperlink{classclipp_1_1group}{group}} \&cli)
+\begin{DoxyCompactList}\small\item\em parses range of arg strings and executes actions \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_ac49e386e679b9e1d25a96a9cafb5945d}\label{namespaceclipp_ac49e386e679b9e1d25a96a9cafb5945d} 
+\mbox{\hyperlink{classclipp_1_1parsing__result}{parsing\+\_\+result}} {\bfseries parse} (const int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]}, const \mbox{\hyperlink{classclipp_1_1group}{group}} \&cli, arg\+\_\+index offset=1)
+\begin{DoxyCompactList}\small\item\em parses the standard array of command line arguments; omits argv\mbox{[}0\mbox{]} \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_a3616cbfc340cc4e9e2890609ae1a808d}\label{namespaceclipp_a3616cbfc340cc4e9e2890609ae1a808d} 
+\mbox{\hyperlink{classclipp_1_1man__page}{man\+\_\+page}} {\bfseries make\+\_\+man\+\_\+page} (const \mbox{\hyperlink{classclipp_1_1group}{group}} \&cli, doc\+\_\+string progname="{}"{}, const \mbox{\hyperlink{classclipp_1_1doc__formatting}{doc\+\_\+formatting}} \&fmt=\mbox{\hyperlink{classclipp_1_1doc__formatting}{doc\+\_\+formatting}}\{\})
+\begin{DoxyCompactList}\small\item\em generates man sections from command line parameters with sections "{}synopsis"{} and "{}options"{} \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_a440b23e786f9becd0b99e4b805995d7b}\label{namespaceclipp_a440b23e786f9becd0b99e4b805995d7b} 
+{\footnotesize template$<$class OStream $>$ }\\OStream \& {\bfseries operator$<$$<$} (OStream \&os, const \mbox{\hyperlink{classclipp_1_1man__page}{man\+\_\+page}} \&man)
+\begin{DoxyCompactList}\small\item\em generates man page based on command line parameters \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+primary namespace 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespaceclipp_a3da88ad1d0ae508ced45a2c1f03a560a}\label{namespaceclipp_a3da88ad1d0ae508ced45a2c1f03a560a} 
+\index{clipp@{clipp}!with\_prefixes\_short\_long@{with\_prefixes\_short\_long}}
+\index{with\_prefixes\_short\_long@{with\_prefixes\_short\_long}!clipp@{clipp}}
+\doxysubsubsection{\texorpdfstring{with\_prefixes\_short\_long()}{with\_prefixes\_short\_long()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classclipp_1_1parameter}{parameter}} \&\& clipp\+::with\+\_\+prefixes\+\_\+short\+\_\+long (\begin{DoxyParamCaption}\item[{const arg\+\_\+string \&}]{shortpfx,  }\item[{const arg\+\_\+string \&}]{longpfx,  }\item[{\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} \&\&}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+recursively prepends a prefix to all flags 
+
+
+\begin{DoxyParams}{Parameters}
+{\em shortpfx} & \+: used for single-\/letter flags \\
+\hline
+{\em longpfx} & \+: used for flags with length \texorpdfstring{$>$}{>} 1 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespaceclipp_a8eaceef2f4d1dc34cddd4a57f3fc96e9}\label{namespaceclipp_a8eaceef2f4d1dc34cddd4a57f3fc96e9} 
+\index{clipp@{clipp}!with\_suffixes\_short\_long@{with\_suffixes\_short\_long}}
+\index{with\_suffixes\_short\_long@{with\_suffixes\_short\_long}!clipp@{clipp}}
+\doxysubsubsection{\texorpdfstring{with\_suffixes\_short\_long()}{with\_suffixes\_short\_long()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classclipp_1_1parameter}{parameter}} \&\& clipp\+::with\+\_\+suffixes\+\_\+short\+\_\+long (\begin{DoxyParamCaption}\item[{const arg\+\_\+string \&}]{shortsfx,  }\item[{const arg\+\_\+string \&}]{longsfx,  }\item[{\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} \&\&}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+recursively prepends a suffix to all flags 
+
+
+\begin{DoxyParams}{Parameters}
+{\em shortsfx} & \+: used for single-\/letter flags \\
+\hline
+{\em longsfx} & \+: used for flags with length \texorpdfstring{$>$}{>} 1 \\
+\hline
+\end{DoxyParams}

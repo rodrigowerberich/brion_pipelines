@@ -3,8 +3,8 @@
 
 - C++ compiler with c++20 support
 - Cmake
-- Doxygen
-- Graphviz
+- Doxygen (For documentation)
+- Graphviz (For documentation)
 
 You can also use the docker file in this repo for a quick build, see the details in the end of this file
 
@@ -42,7 +42,7 @@ bin/pipeline_parser <file_name>
 
 A small help with some further options can be seen by passing -h
 ```
-bin/pipeline_parser <file_name>
+bin/pipeline_parser -h
 ```
 
 ## Generating the documentation

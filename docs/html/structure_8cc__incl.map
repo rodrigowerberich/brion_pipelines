@@ -1,0 +1,24 @@
+<map id="/mnt/c/Users/rodri/Documents/Brion&#45;Assignment/brion_pipelines/components/log_message_parser/private/structure.cc" name="/mnt/c/Users/rodri/Documents/Brion&#45;Assignment/brion_pipelines/components/log_message_parser/private/structure.cc">
+<area shape="rect" id="Node000001" title="Implementation of the structured log message parser. This file contains the implementation of the str..." alt="" coords="359,5,579,89"/>
+<area shape="rect" id="Node000002" href="$structure_8h.html" title="Parses a stream of data into a structured log message format." alt="" coords="47,137,203,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="360,86,199,136,197,131,358,81"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="204,225,263,251"/>
+<area shape="poly" id="edge11_Node000001_Node000004" title=" " alt="" coords="360,80,311,105,288,121,269,139,257,156,248,175,239,212,233,211,243,173,252,153,265,136,285,117,308,100,358,75"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="279,145,364,170"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="415,92,350,139,347,134,411,87"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="389,145,459,170"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="454,91,437,133,432,131,449,89"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="484,145,545,170"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="489,89,507,131,502,133,484,91"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="569,145,636,170"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="522,87,579,134,576,138,518,92"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="660,145,735,170"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="557,87,662,136,660,141,555,92"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="759,145,846,170"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="580,81,747,135,756,138,755,143,746,140,579,86"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,225,77,251"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="107,180,66,218,62,214,103,176"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="153,175,207,215,204,219,150,180"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="102,225,165,251"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="130,177,133,211,128,212,125,178"/>
+</map>

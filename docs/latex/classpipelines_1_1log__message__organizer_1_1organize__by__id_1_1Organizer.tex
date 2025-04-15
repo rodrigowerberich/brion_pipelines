@@ -1,0 +1,64 @@
+\doxysection{pipelines\+::log\+\_\+message\+\_\+organizer\+::organize\+\_\+by\+\_\+id\+::Organizer Class Reference}
+\hypertarget{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1Organizer}{}\label{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1Organizer}\index{pipelines::log\_message\_organizer::organize\_by\_id::Organizer@{pipelines::log\_message\_organizer::organize\_by\_id::Organizer}}
+
+
+Class to organize log messages by their IDs.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1Organizer_add399c5c3ce31e297ed174ad158a585c}\label{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1Organizer_add399c5c3ce31e297ed174ad158a585c} 
+{\bfseries Organizer} ()=delete
+\begin{DoxyCompactList}\small\item\em Default constructor is deleted. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1Organizer_a0ba2dd1c99beeb931e680f6ab420c81a}{Organizer}} (const \mbox{\hyperlink{pipeline__log__message_8h_a04eb5725809c8e0432715b743eccceef}{Pipeline\+Log\+Messages}} \&log\+\_\+messages)
+\begin{DoxyCompactList}\small\item\em Constructor that initializes the \doxylink{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1Organizer}{Organizer} with a list of log messages. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{pipeline__log__message_8h_a04eb5725809c8e0432715b743eccceef}{Pipeline\+Log\+Messages}} \mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1Organizer_a6e63893a4ecfaacb42e555c55866acdd}{Get\+Organized\+List}} ()
+\begin{DoxyCompactList}\small\item\em Returns the organized list of log messages. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class to organize log messages by their IDs. 
+
+This class takes a list of log messages and organizes them into a chain based on their IDs. It handles the merging of chains, marking messages as visited, and retrieving the organized list. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1Organizer_a0ba2dd1c99beeb931e680f6ab420c81a}\label{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1Organizer_a0ba2dd1c99beeb931e680f6ab420c81a} 
+\index{pipelines::log\_message\_organizer::organize\_by\_id::Organizer@{pipelines::log\_message\_organizer::organize\_by\_id::Organizer}!Organizer@{Organizer}}
+\index{Organizer@{Organizer}!pipelines::log\_message\_organizer::organize\_by\_id::Organizer@{pipelines::log\_message\_organizer::organize\_by\_id::Organizer}}
+\doxysubsubsection{\texorpdfstring{Organizer()}{Organizer()}}
+{\footnotesize\ttfamily pipelines\+::log\+\_\+message\+\_\+organizer\+::organize\+\_\+by\+\_\+id\+::\+Organizer\+::\+Organizer (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{pipeline__log__message_8h_a04eb5725809c8e0432715b743eccceef}{Pipeline\+Log\+Messages}} \&}]{log\+\_\+messages }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Constructor that initializes the \doxylink{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1Organizer}{Organizer} with a list of log messages. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em log\+\_\+messages} & The list of log messages to organize. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1Organizer_a6e63893a4ecfaacb42e555c55866acdd}\label{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1Organizer_a6e63893a4ecfaacb42e555c55866acdd} 
+\index{pipelines::log\_message\_organizer::organize\_by\_id::Organizer@{pipelines::log\_message\_organizer::organize\_by\_id::Organizer}!GetOrganizedList@{GetOrganizedList}}
+\index{GetOrganizedList@{GetOrganizedList}!pipelines::log\_message\_organizer::organize\_by\_id::Organizer@{pipelines::log\_message\_organizer::organize\_by\_id::Organizer}}
+\doxysubsubsection{\texorpdfstring{GetOrganizedList()}{GetOrganizedList()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{pipeline__log__message_8h_a04eb5725809c8e0432715b743eccceef}{Pipeline\+Log\+Messages}} pipelines\+::log\+\_\+message\+\_\+organizer\+::organize\+\_\+by\+\_\+id\+::\+Organizer\+::\+Get\+Organized\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the organized list of log messages. 
+
+\begin{DoxyReturn}{Returns}
+The organized list of log messages. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This method is meant to be called once, after that the \doxylink{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1Organizer}{Organizer} should be destroyed. 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/rodri/\+Documents/\+Brion-\/\+Assignment/brion\+\_\+pipelines/components/log\+\_\+message\+\_\+organizer/private/\mbox{\hyperlink{organize__by__id_8cc}{organize\+\_\+by\+\_\+id.\+cc}}\end{DoxyCompactItemize}

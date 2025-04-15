@@ -1,0 +1,7 @@
+<map id="/mnt/c/Users/rodri/Documents/Brion&#45;Assignment/brion_pipelines/components/log_message_organizer/public/log_message_organizer/split_by_pipeline.h" name="/mnt/c/Users/rodri/Documents/Brion&#45;Assignment/brion_pipelines/components/log_message_organizer/public/log_message_organizer/split_by_pipeline.h">
+<area shape="rect" id="Node000001" title="This file defines the SplitByPipeline class, which is responsible for splitting log messages by their..." alt="" coords="128,5,351,104"/>
+<area shape="rect" id="Node000002" href="$app_8cc.html" title=" " alt="" coords="5,159,225,229"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="189,116,148,161,144,157,185,112"/>
+<area shape="rect" id="Node000003" href="$split__by__pipeline_8cc.html" title="Implementation of the SplitByPipeline class." alt="" coords="249,152,480,236"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="295,112,329,150,325,154,291,116"/>
+</map>

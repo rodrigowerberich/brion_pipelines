@@ -1,0 +1,7 @@
+<map id="clipp::group::depth_first_traverser::context" name="clipp::group::depth_first_traverser::context">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,183,183,223"/>
+<area shape="rect" id="Node000002" href="$classclipp_1_1group.html" title="group of parameters and/or other groups; can be configured to act as a group of alternatives (exclusi..." alt="" coords="45,95,143,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,134,97,182,91,182,91,134"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="23,5,165,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="97,59,97,94,91,94,91,59"/>
+</map>

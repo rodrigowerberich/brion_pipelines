@@ -9,13 +9,17 @@ Organizing is divided into two parts:
     - organize_by_id.cc
 
 
+## Spliting the messages by pipeline
+
+They are separated into different maps based on the pipeline id.
+
 ## Possible types of ids and references
 
 At first glance you could imagine that the pipeline log could be represented as a chain of elements that end at one element that points at -1. 
 But when you take into account the possible types of error that can exist it becomes a bit more complex.
 You could have:
 - Multiple messages with the same id
-- Messages that point to themselvels
+- Messages that point to themselves
 - Messages that point to an id that does not exist
 
 To better undersdand the implications of this lets take a look at the possible configuration a list can have, let's consider that elements that point to an invalid id and elements that point to nothing are the same.
@@ -112,7 +116,9 @@ This already show many problematic scenarios such as detached lists and cyclic r
 To try and solve this a couple of choices were made.
 
 1) All termination nodes, pointing to -1, will be put at the front of the list.
+
 2) All nodes that point to invalid ids, will be after the termination nodes, as they are in a sense, also termination points.
+
 3) The rest of the nodes will follow, maintaning when possible (cyclic dependencies) the inverse order of direction.
 
 Let's look at one example to understand it better:
@@ -152,11 +158,17 @@ Following the rules we proposed the order of output would be something similar t
 ```
 
 To make that happen the following algorithm is followed:
+
 1) We create 3 lists, one for general elements, one for termination elements and one for invalid id elements (ones that point to invalid ids).
+
 2) Starting with any element we create a temporary chain list with the same 3 types of lists.
+
 3) Add all elements with that id to the appropriate list, i.e., if it points to a valid element, to the general list, if it points to a termination, to the termination and if it points to an invalid element, to the invalid element list.
+
 4) Mark this id as visited and follow the valid links that are not marked as visited. 
+
 5) Repeat step 3 until you have added all elements to the temporary chain list
+
 6) Add the list to general chain and then repeat from step 2 until you have no elements that are not marked as visited.
 
 Seeing it in action:
@@ -714,7 +726,7 @@ digraph G {
  }
 }
 @enddot
-We then append the invalid list and termination list, in this order, to the general list. And if we invert this order, we will have the desired organiztion of messages!
+We then append the invalid list and termination list, in this order, to the general list. And if we invert this order, we will have the desired organization of messages!
 @dot
 digraph G {
   rankdir="LR";

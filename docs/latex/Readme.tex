@@ -1,0 +1,88 @@
+\chapter{README}
+\hypertarget{Readme}{}\label{Readme}\index{README@{README}}
+\hypertarget{Readme_autotoc_md18}{}\doxysection{\texorpdfstring{Requirements for the project}{Requirements for the project}}\label{Readme_autotoc_md18}
+
+\begin{DoxyItemize}
+\item C++ compiler with c++20 support
+\item Cmake
+\item Doxygen (For documentation)
+\item Graphviz (For documentation)
+\end{DoxyItemize}
+
+You can also use the docker file in this repo for a quick build, see the details in the end of this file\hypertarget{Readme_autotoc_md19}{}\doxysection{\texorpdfstring{Style guide used\+:}{Style guide used:}}\label{Readme_autotoc_md19}
+\href{https://google.github.io/styleguide/cppguide.html}{\texttt{ https\+://google.\+github.\+io/styleguide/cppguide.\+html}}\hypertarget{Readme_autotoc_md20}{}\doxysection{\texorpdfstring{How to build?}{How to build?}}\label{Readme_autotoc_md20}
+Using cmake you can build following these instructions\+: Assuming you are running from this projects root. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cmake\ -\/B\ build}
+\DoxyCodeLine{cmake\ -\/-\/build\ build\ -\/j\ 14}
+
+\end{DoxyCode}
+
+
+The compiled binary will be {\ttfamily brion\+\_\+pipelines/build/components/pipeline\+\_\+parser} But it can be installed on your system by calling cmake install 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cmake\ -\/-\/install\ build\ -\/-\/prefix\ ./}
+
+\end{DoxyCode}
+ This will create a folder called bin in your current directory and the executable pipeline\+\_\+parser will be inside it.
+
+For the -\/j option (parallel building), use whatever is more efficient on your machine.
+
+You will be able to find the more complete documentation in the docs folder. Please use the html version, the latex was not revised.
+
+To open the documentation you can open docs/html/index.\+html.\hypertarget{Readme_autotoc_md21}{}\doxysection{\texorpdfstring{How to run?}{How to run?}}\label{Readme_autotoc_md21}
+You can run the application by calling it and passing the file you want to parse as argument. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{bin/pipeline\_parser\ <file\_name>}
+
+\end{DoxyCode}
+
+
+A small help with some further options can be seen by passing -\/h 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{bin/pipeline\_parser\ -\/h}
+
+\end{DoxyCode}
+\hypertarget{Readme_autotoc_md22}{}\doxysection{\texorpdfstring{Generating the documentation}{Generating the documentation}}\label{Readme_autotoc_md22}
+To generate the documentation you can run 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cmake\ -\/B\ build\ //\ If\ you\ didn't\ before}
+\DoxyCodeLine{cmake\ -\/-\/build\ build\ -\/j\ 14\ -\/-\/target\ docs}
+
+\end{DoxyCode}
+
+
+The generated documentation will be inside build/docs\hypertarget{Readme_autotoc_md23}{}\doxysection{\texorpdfstring{Running unit tests}{Running unit tests}}\label{Readme_autotoc_md23}
+The unit tests can be build individualy or all at the same time using the {\ttfamily unit\+\_\+tests} target 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cmake\ -\/B\ build}
+\DoxyCodeLine{cmake\ -\/-\/build\ build\ -\/j14\ -\/-\/target\ unit\_tests}
+\DoxyCodeLine{ctest\ -\/j14\ -\/C\ Debug\ -\/T\ test\ -\/-\/output-\/on-\/failure\ -\/-\/test-\/dir\ build}
+
+\end{DoxyCode}
+\hypertarget{Readme_autotoc_md24}{}\doxysection{\texorpdfstring{Running over docker}{Running over docker}}\label{Readme_autotoc_md24}
+If you want to build using docker you can run, with this repo as the working directory
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{docker\ build\ .\ -\/t\ brion\_pipeline:latest}
+
+\end{DoxyCode}
+
+
+If it worked, you should see the help message if you run 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{docker\ run\ brion\_pipeline:latest}
+
+\end{DoxyCode}
+
+
+To parse a file, e.\+g example 1, execute\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{docker\ run\ -\/v\ ./examples/test\_file1.txt:test\_file1.txt\ brion\_pipeline:latest\ ./bin/pipeline\_parser\ test\_file1.txt}
+
+\end{DoxyCode}
+\hypertarget{Readme_autotoc_md25}{}\doxysection{\texorpdfstring{More info}{More info}}\label{Readme_autotoc_md25}
+For more info see the \doxysectlink{index_Overview}{overview}{1} 

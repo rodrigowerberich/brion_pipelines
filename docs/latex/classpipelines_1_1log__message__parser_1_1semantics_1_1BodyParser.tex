@@ -1,0 +1,68 @@
+\doxysection{pipelines\+::log\+\_\+message\+\_\+parser\+::semantics\+::Body\+Parser Class Reference}
+\hypertarget{classpipelines_1_1log__message__parser_1_1semantics_1_1BodyParser}{}\label{classpipelines_1_1log__message__parser_1_1semantics_1_1BodyParser}\index{pipelines::log\_message\_parser::semantics::BodyParser@{pipelines::log\_message\_parser::semantics::BodyParser}}
+
+
+Abstract base class for body parsers.  
+
+
+
+
+{\ttfamily \#include $<$semantics.\+h$>$}
+
+
+
+Inheritance diagram for pipelines\+::log\+\_\+message\+\_\+parser\+::semantics\+::Body\+Parser\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classpipelines_1_1log__message__parser_1_1semantics_1_1BodyParser__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classpipelines_1_1log__message__parser_1_1semantics_1_1BodyParser_a1209b727857f244980652b4093604bb0}\label{classpipelines_1_1log__message__parser_1_1semantics_1_1BodyParser_a1209b727857f244980652b4093604bb0} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Body\+Parser} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for the \doxylink{classpipelines_1_1log__message__parser_1_1semantics_1_1BodyParser}{Body\+Parser} class. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1semantics_1_1BodyParser_a3d57809e905d654f91c120dcd509724b}{Parse}} (const std\+::string \&body) const =0
+\begin{DoxyCompactList}\small\item\em Parses the given body message. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract base class for body parsers. 
+
+This class defines the interface for body parsers, which are responsible for parsing the body of a log message based on a specific encoding. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classpipelines_1_1log__message__parser_1_1semantics_1_1BodyParser_a3d57809e905d654f91c120dcd509724b}\label{classpipelines_1_1log__message__parser_1_1semantics_1_1BodyParser_a3d57809e905d654f91c120dcd509724b} 
+\index{pipelines::log\_message\_parser::semantics::BodyParser@{pipelines::log\_message\_parser::semantics::BodyParser}!Parse@{Parse}}
+\index{Parse@{Parse}!pipelines::log\_message\_parser::semantics::BodyParser@{pipelines::log\_message\_parser::semantics::BodyParser}}
+\doxysubsubsection{\texorpdfstring{Parse()}{Parse()}}
+{\footnotesize\ttfamily virtual std\+::string pipelines\+::log\+\_\+message\+\_\+parser\+::semantics\+::\+Body\+Parser\+::\+Parse (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{body }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Parses the given body message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em body} & The body message to parse. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The parsed body as a string. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classpipelines_1_1log__message__parser_1_1semantics_1_1BodyParserError}{Body\+Parser\+Error}} & if parsing fails. \\
+\hline
+\end{DoxyExceptions}
+
+
+Implemented in \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1semantics_1_1AsciiBodyParser_a70a67377458e6f3135184c7d44d73c84}{pipelines\+::log\+\_\+message\+\_\+parser\+::semantics\+::\+Ascii\+Body\+Parser}}, and \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1semantics_1_1Hex16BodyParser_a4b33de7d5b0fdfb92b9773333cc7b32c}{pipelines\+::log\+\_\+message\+\_\+parser\+::semantics\+::\+Hex16\+Body\+Parser}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/rodri/\+Documents/\+Brion-\/\+Assignment/brion\+\_\+pipelines/components/log\+\_\+message\+\_\+parser/public/log\+\_\+message\+\_\+parser/\mbox{\hyperlink{semantics_8h}{semantics.\+h}}\end{DoxyCompactItemize}

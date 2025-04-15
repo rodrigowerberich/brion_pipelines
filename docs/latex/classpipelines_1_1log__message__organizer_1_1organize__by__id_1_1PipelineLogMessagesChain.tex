@@ -1,0 +1,177 @@
+\doxysection{pipelines\+::log\+\_\+message\+\_\+organizer\+::organize\+\_\+by\+\_\+id\+::Pipeline\+Log\+Messages\+Chain Class Reference}
+\hypertarget{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain}{}\label{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain}\index{pipelines::log\_message\_organizer::organize\_by\_id::PipelineLogMessagesChain@{pipelines::log\_message\_organizer::organize\_by\_id::PipelineLogMessagesChain}}
+
+
+Class to manage a chain of pipeline log messages.  
+
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain_a58e849f89d372b13d5c2402aee5232fd}\label{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain_a58e849f89d372b13d5c2402aee5232fd} 
+using {\bfseries Chain} = std\+::list$<$ \mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage}{Pipeline\+Log\+Message}} $>$
+\begin{DoxyCompactList}\small\item\em Type alias for a list of pipeline log messages. \end{DoxyCompactList}\item 
+\Hypertarget{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain_a3350be596dd32eb3df73ea161f821f34}\label{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain_a3350be596dd32eb3df73ea161f821f34} 
+using {\bfseries Chain\+Iterator} = Chain\+::iterator
+\begin{DoxyCompactList}\small\item\em Type alias for an iterator over the list of pipeline log messages. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain_a45616165682f297e043a97f8b0b1ca39}\label{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain_a45616165682f297e043a97f8b0b1ca39} 
+{\bfseries Pipeline\+Log\+Messages\+Chain} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain_aba15d8132254335f13991ca1bfd897d0}{Add\+To\+Chain}} (const \mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage}{Pipeline\+Log\+Message}} \&message)
+\begin{DoxyCompactList}\small\item\em Adds a message to the chain of regular messages. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain_ac464b6da22fc3e2d01e8bf7d10d0642e}{Add\+To\+Termination\+Chain}} (const \mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage}{Pipeline\+Log\+Message}} \&message)
+\begin{DoxyCompactList}\small\item\em Adds a message to the chain of termination messages. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain_ab849bfd969d8527b3e1ff2d62e16122f}{Add\+To\+Invalid\+Chain}} (const \mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage}{Pipeline\+Log\+Message}} \&message)
+\begin{DoxyCompactList}\small\item\em Adds a message to the chain of invalid messages. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain_a1b7ae643f7413e98c94af466810cb32b}{Merge}} (\mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain}{Pipeline\+Log\+Messages\+Chain}} \&other)
+\begin{DoxyCompactList}\small\item\em Merges another \doxylink{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain}{Pipeline\+Log\+Messages\+Chain} into this one. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain_aace5310d6835b2128fe665c1d9df7f86}{Merge\+After}} (\mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain}{Pipeline\+Log\+Messages\+Chain}} \&other, \mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain_a3350be596dd32eb3df73ea161f821f34}{Chain\+Iterator}} it)
+\begin{DoxyCompactList}\small\item\em Same as Merge, but the regular messages are added after the given iterator. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain_ace52ac63a485006963ee5c48ce377642}{Merge\+At\+Beginning}} (\mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain}{Pipeline\+Log\+Messages\+Chain}} \&other)
+\begin{DoxyCompactList}\small\item\em Same as Merge, but the regular messages are added at the beginning of the chain. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain_a3350be596dd32eb3df73ea161f821f34}{Chain\+Iterator}} \mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain_ae94a156472b8c00dc78f55889fd57d38}{Before\+Chain\+End}} ()
+\begin{DoxyCompactList}\small\item\em Returns an iterator to last element of the chain. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain_a58e849f89d372b13d5c2402aee5232fd}{Chain}} \mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain_ad7aa7b9394b3775a6d0903b0e66c7572}{Complete\+Chain}} ()
+\begin{DoxyCompactList}\small\item\em Returns the complete chain of messages, including regular, invalid, and termination messages. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class to manage a chain of pipeline log messages. 
+
+By keeping a split between normal messages, invalid messages, and termination messages, this class allows for better organization and management of log messages. It provides methods to add messages to the chain, merge chains, and retrieve the complete chain. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain_aba15d8132254335f13991ca1bfd897d0}\label{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain_aba15d8132254335f13991ca1bfd897d0} 
+\index{pipelines::log\_message\_organizer::organize\_by\_id::PipelineLogMessagesChain@{pipelines::log\_message\_organizer::organize\_by\_id::PipelineLogMessagesChain}!AddToChain@{AddToChain}}
+\index{AddToChain@{AddToChain}!pipelines::log\_message\_organizer::organize\_by\_id::PipelineLogMessagesChain@{pipelines::log\_message\_organizer::organize\_by\_id::PipelineLogMessagesChain}}
+\doxysubsubsection{\texorpdfstring{AddToChain()}{AddToChain()}}
+{\footnotesize\ttfamily void pipelines\+::log\+\_\+message\+\_\+organizer\+::organize\+\_\+by\+\_\+id\+::\+Pipeline\+Log\+Messages\+Chain\+::\+Add\+To\+Chain (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage}{Pipeline\+Log\+Message}} \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds a message to the chain of regular messages. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The pipeline log message to add. This method adds the message to the normal chain of messages. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain_ab849bfd969d8527b3e1ff2d62e16122f}\label{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain_ab849bfd969d8527b3e1ff2d62e16122f} 
+\index{pipelines::log\_message\_organizer::organize\_by\_id::PipelineLogMessagesChain@{pipelines::log\_message\_organizer::organize\_by\_id::PipelineLogMessagesChain}!AddToInvalidChain@{AddToInvalidChain}}
+\index{AddToInvalidChain@{AddToInvalidChain}!pipelines::log\_message\_organizer::organize\_by\_id::PipelineLogMessagesChain@{pipelines::log\_message\_organizer::organize\_by\_id::PipelineLogMessagesChain}}
+\doxysubsubsection{\texorpdfstring{AddToInvalidChain()}{AddToInvalidChain()}}
+{\footnotesize\ttfamily void pipelines\+::log\+\_\+message\+\_\+organizer\+::organize\+\_\+by\+\_\+id\+::\+Pipeline\+Log\+Messages\+Chain\+::\+Add\+To\+Invalid\+Chain (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage}{Pipeline\+Log\+Message}} \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds a message to the chain of invalid messages. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The pipeline log message to add. This method adds the message to the invalid chain of messages. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain_ac464b6da22fc3e2d01e8bf7d10d0642e}\label{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain_ac464b6da22fc3e2d01e8bf7d10d0642e} 
+\index{pipelines::log\_message\_organizer::organize\_by\_id::PipelineLogMessagesChain@{pipelines::log\_message\_organizer::organize\_by\_id::PipelineLogMessagesChain}!AddToTerminationChain@{AddToTerminationChain}}
+\index{AddToTerminationChain@{AddToTerminationChain}!pipelines::log\_message\_organizer::organize\_by\_id::PipelineLogMessagesChain@{pipelines::log\_message\_organizer::organize\_by\_id::PipelineLogMessagesChain}}
+\doxysubsubsection{\texorpdfstring{AddToTerminationChain()}{AddToTerminationChain()}}
+{\footnotesize\ttfamily void pipelines\+::log\+\_\+message\+\_\+organizer\+::organize\+\_\+by\+\_\+id\+::\+Pipeline\+Log\+Messages\+Chain\+::\+Add\+To\+Termination\+Chain (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage}{Pipeline\+Log\+Message}} \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds a message to the chain of termination messages. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The pipeline log message to add. This method adds the message to the termination chain of messages. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain_ae94a156472b8c00dc78f55889fd57d38}\label{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain_ae94a156472b8c00dc78f55889fd57d38} 
+\index{pipelines::log\_message\_organizer::organize\_by\_id::PipelineLogMessagesChain@{pipelines::log\_message\_organizer::organize\_by\_id::PipelineLogMessagesChain}!BeforeChainEnd@{BeforeChainEnd}}
+\index{BeforeChainEnd@{BeforeChainEnd}!pipelines::log\_message\_organizer::organize\_by\_id::PipelineLogMessagesChain@{pipelines::log\_message\_organizer::organize\_by\_id::PipelineLogMessagesChain}}
+\doxysubsubsection{\texorpdfstring{BeforeChainEnd()}{BeforeChainEnd()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain_a3350be596dd32eb3df73ea161f821f34}{Chain\+Iterator}} pipelines\+::log\+\_\+message\+\_\+organizer\+::organize\+\_\+by\+\_\+id\+::\+Pipeline\+Log\+Messages\+Chain\+::\+Before\+Chain\+End (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns an iterator to last element of the chain. 
+
+\begin{DoxyReturn}{Returns}
+An iterator to the last element of the chain. 
+\end{DoxyReturn}
+\Hypertarget{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain_ad7aa7b9394b3775a6d0903b0e66c7572}\label{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain_ad7aa7b9394b3775a6d0903b0e66c7572} 
+\index{pipelines::log\_message\_organizer::organize\_by\_id::PipelineLogMessagesChain@{pipelines::log\_message\_organizer::organize\_by\_id::PipelineLogMessagesChain}!CompleteChain@{CompleteChain}}
+\index{CompleteChain@{CompleteChain}!pipelines::log\_message\_organizer::organize\_by\_id::PipelineLogMessagesChain@{pipelines::log\_message\_organizer::organize\_by\_id::PipelineLogMessagesChain}}
+\doxysubsubsection{\texorpdfstring{CompleteChain()}{CompleteChain()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain_a58e849f89d372b13d5c2402aee5232fd}{Pipeline\+Log\+Messages\+Chain\+::\+Chain}} pipelines\+::log\+\_\+message\+\_\+organizer\+::organize\+\_\+by\+\_\+id\+::\+Pipeline\+Log\+Messages\+Chain\+::\+Complete\+Chain (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the complete chain of messages, including regular, invalid, and termination messages. 
+
+\begin{DoxyReturn}{Returns}
+The complete chain of messages. This method combines all the messages from the three chains into one. The order of the messages is as follows\+:
+\begin{DoxyItemize}
+\item Regular messages
+\item Invalid messages
+\item Termination messages 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\Hypertarget{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain_a1b7ae643f7413e98c94af466810cb32b}\label{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain_a1b7ae643f7413e98c94af466810cb32b} 
+\index{pipelines::log\_message\_organizer::organize\_by\_id::PipelineLogMessagesChain@{pipelines::log\_message\_organizer::organize\_by\_id::PipelineLogMessagesChain}!Merge@{Merge}}
+\index{Merge@{Merge}!pipelines::log\_message\_organizer::organize\_by\_id::PipelineLogMessagesChain@{pipelines::log\_message\_organizer::organize\_by\_id::PipelineLogMessagesChain}}
+\doxysubsubsection{\texorpdfstring{Merge()}{Merge()}}
+{\footnotesize\ttfamily void pipelines\+::log\+\_\+message\+\_\+organizer\+::organize\+\_\+by\+\_\+id\+::\+Pipeline\+Log\+Messages\+Chain\+::\+Merge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain}{Pipeline\+Log\+Messages\+Chain}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Merges another \doxylink{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain}{Pipeline\+Log\+Messages\+Chain} into this one. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The other \doxylink{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain}{Pipeline\+Log\+Messages\+Chain} to merge. This method combines the messages from the other chain into this one. It adds all messages tot the end of their respective chains. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain_aace5310d6835b2128fe665c1d9df7f86}\label{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain_aace5310d6835b2128fe665c1d9df7f86} 
+\index{pipelines::log\_message\_organizer::organize\_by\_id::PipelineLogMessagesChain@{pipelines::log\_message\_organizer::organize\_by\_id::PipelineLogMessagesChain}!MergeAfter@{MergeAfter}}
+\index{MergeAfter@{MergeAfter}!pipelines::log\_message\_organizer::organize\_by\_id::PipelineLogMessagesChain@{pipelines::log\_message\_organizer::organize\_by\_id::PipelineLogMessagesChain}}
+\doxysubsubsection{\texorpdfstring{MergeAfter()}{MergeAfter()}}
+{\footnotesize\ttfamily void pipelines\+::log\+\_\+message\+\_\+organizer\+::organize\+\_\+by\+\_\+id\+::\+Pipeline\+Log\+Messages\+Chain\+::\+Merge\+After (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain}{Pipeline\+Log\+Messages\+Chain}} \&}]{other,  }\item[{\mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain_a3350be596dd32eb3df73ea161f821f34}{Chain\+Iterator}}}]{it }\end{DoxyParamCaption})}
+
+
+
+Same as Merge, but the regular messages are added after the given iterator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The other \doxylink{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain}{Pipeline\+Log\+Messages\+Chain} to merge. \\
+\hline
+{\em it} & The iterator to the position in the chain where the merge should occur. This method combines the messages from the other chain into this one. It adds the regular messages after the given iterator. The termination and invalid messages are added to the end of their respective chains. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The iterator must be valid and point to a position in the chain. 
+\end{DoxyNote}
+\Hypertarget{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain_ace52ac63a485006963ee5c48ce377642}\label{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain_ace52ac63a485006963ee5c48ce377642} 
+\index{pipelines::log\_message\_organizer::organize\_by\_id::PipelineLogMessagesChain@{pipelines::log\_message\_organizer::organize\_by\_id::PipelineLogMessagesChain}!MergeAtBeginning@{MergeAtBeginning}}
+\index{MergeAtBeginning@{MergeAtBeginning}!pipelines::log\_message\_organizer::organize\_by\_id::PipelineLogMessagesChain@{pipelines::log\_message\_organizer::organize\_by\_id::PipelineLogMessagesChain}}
+\doxysubsubsection{\texorpdfstring{MergeAtBeginning()}{MergeAtBeginning()}}
+{\footnotesize\ttfamily void pipelines\+::log\+\_\+message\+\_\+organizer\+::organize\+\_\+by\+\_\+id\+::\+Pipeline\+Log\+Messages\+Chain\+::\+Merge\+At\+Beginning (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain}{Pipeline\+Log\+Messages\+Chain}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Same as Merge, but the regular messages are added at the beginning of the chain. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The other \doxylink{classpipelines_1_1log__message__organizer_1_1organize__by__id_1_1PipelineLogMessagesChain}{Pipeline\+Log\+Messages\+Chain} to merge. This method combines the messages from the other chain into this one. It adds the regular messages at the beginning of the chain. The termination and invalid messages are added to the end of their respective chains. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/rodri/\+Documents/\+Brion-\/\+Assignment/brion\+\_\+pipelines/components/log\+\_\+message\+\_\+organizer/private/\mbox{\hyperlink{organize__by__id_8cc}{organize\+\_\+by\+\_\+id.\+cc}}\end{DoxyCompactItemize}

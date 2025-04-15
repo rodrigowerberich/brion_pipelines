@@ -1,0 +1,240 @@
+\doxysection{pipelines\+::log\+\_\+message\+\_\+parser\+::structure\+::Stream\+Processor Class Reference}
+\hypertarget{classpipelines_1_1log__message__parser_1_1structure_1_1StreamProcessor}{}\label{classpipelines_1_1log__message__parser_1_1structure_1_1StreamProcessor}\index{pipelines::log\_message\_parser::structure::StreamProcessor@{pipelines::log\_message\_parser::structure::StreamProcessor}}
+
+
+Processes structured log messages from an input stream.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1StreamProcessor_a24998e8c3cb5136d9084c6284c328e89}{Stream\+Processor}} (std\+::istream \&input\+\_\+stream)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{classpipelines_1_1log__message__parser_1_1structure_1_1StreamProcessor}{Stream\+Processor} with the given input stream. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1StreamProcessor_adb3a9786858cf7c869529040bf569072}{Attempt\+To\+Read\+Pipeline\+Id}} ()
+\begin{DoxyCompactList}\small\item\em Attempts to read the pipeline ID from the stream. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1StreamProcessor_acc65b9aa95ff963354998fe9cc1f2d65}{Attempt\+To\+Read\+Id}} ()
+\begin{DoxyCompactList}\small\item\em Attempts to read the ID from the stream. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1StreamProcessor_a3d419559f815bac66af9bf1acda9942d}{Attempt\+To\+Read\+Encoding}} ()
+\begin{DoxyCompactList}\small\item\em Attempts to read the encoding from the stream. \end{DoxyCompactList}\item 
+std\+::pair$<$ std\+::string, std\+::string $>$ \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1StreamProcessor_a864b835740f34b15726a9237b501e23a}{Attempt\+To\+Read\+Body\+And\+Next\+Id}} ()
+\begin{DoxyCompactList}\small\item\em Attempts to read the body from the stream. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1StreamProcessor_a11bce3ac71f4e0ce8e08980aa2543ce5}{Attempt\+To\+Read\+Next\+Id}} ()
+\begin{DoxyCompactList}\small\item\em Attempts to read the next ID from the stream. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1StreamProcessor_a29764c2e14c53d3e667bd283e88a7293}{Read\+Until\+End\+Of\+Line}} ()
+\begin{DoxyCompactList}\small\item\em Reads characters from the stream until the end of the line. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1StreamProcessor_a25d7ce396590e2bcd13ebd460639307b}{Read\+Until\+Character}} (char character)
+\begin{DoxyCompactList}\small\item\em Reads characters from the stream until the character is found. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1StreamProcessor_ab46330432bc91acc0bf33277441796b3}{Read\+Until\+Whitespace\+Or\+Character}} (char character)
+\begin{DoxyCompactList}\small\item\em Reads characters from the stream until whitespace or a specific character is found. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1StreamProcessor_a96095b168185220e2d039a73cf6563b5}{Is\+Done}} ()
+\begin{DoxyCompactList}\small\item\em Checks if the stream processing is complete. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1StreamProcessor_a994126f9ff0177b061dbf3346678abbd}{line\+\_\+number}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the current line number in the stream. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Processes structured log messages from an input stream. 
+
+This class provides methods for reading and parsing structured log messages from an input stream. It handles whitespace, brackets, and other formatting details to extract the components of a log message. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classpipelines_1_1log__message__parser_1_1structure_1_1StreamProcessor_a24998e8c3cb5136d9084c6284c328e89}\label{classpipelines_1_1log__message__parser_1_1structure_1_1StreamProcessor_a24998e8c3cb5136d9084c6284c328e89} 
+\index{pipelines::log\_message\_parser::structure::StreamProcessor@{pipelines::log\_message\_parser::structure::StreamProcessor}!StreamProcessor@{StreamProcessor}}
+\index{StreamProcessor@{StreamProcessor}!pipelines::log\_message\_parser::structure::StreamProcessor@{pipelines::log\_message\_parser::structure::StreamProcessor}}
+\doxysubsubsection{\texorpdfstring{StreamProcessor()}{StreamProcessor()}}
+{\footnotesize\ttfamily pipelines\+::log\+\_\+message\+\_\+parser\+::structure\+::\+Stream\+Processor\+::\+Stream\+Processor (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{input\+\_\+stream }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Constructs a \doxylink{classpipelines_1_1log__message__parser_1_1structure_1_1StreamProcessor}{Stream\+Processor} with the given input stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input\+\_\+stream} & The input stream to process. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classpipelines_1_1log__message__parser_1_1structure_1_1StreamProcessor_a864b835740f34b15726a9237b501e23a}\label{classpipelines_1_1log__message__parser_1_1structure_1_1StreamProcessor_a864b835740f34b15726a9237b501e23a} 
+\index{pipelines::log\_message\_parser::structure::StreamProcessor@{pipelines::log\_message\_parser::structure::StreamProcessor}!AttemptToReadBodyAndNextId@{AttemptToReadBodyAndNextId}}
+\index{AttemptToReadBodyAndNextId@{AttemptToReadBodyAndNextId}!pipelines::log\_message\_parser::structure::StreamProcessor@{pipelines::log\_message\_parser::structure::StreamProcessor}}
+\doxysubsubsection{\texorpdfstring{AttemptToReadBodyAndNextId()}{AttemptToReadBodyAndNextId()}}
+{\footnotesize\ttfamily std\+::pair$<$ std\+::string, std\+::string $>$ pipelines\+::log\+\_\+message\+\_\+parser\+::structure\+::\+Stream\+Processor\+::\+Attempt\+To\+Read\+Body\+And\+Next\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Attempts to read the body from the stream. 
+
+\begin{DoxyReturn}{Returns}
+The body as a string. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classpipelines_1_1log__message__parser_1_1structure_1_1FileEndError}{File\+End\+Error}} & if the body cannot be read. \\
+\hline
+{\em \doxylink{classpipelines_1_1log__message__parser_1_1structure_1_1BadFormatError}{Bad\+Format\+Error}} & if the body format is invalid. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classpipelines_1_1log__message__parser_1_1structure_1_1StreamProcessor_a3d419559f815bac66af9bf1acda9942d}\label{classpipelines_1_1log__message__parser_1_1structure_1_1StreamProcessor_a3d419559f815bac66af9bf1acda9942d} 
+\index{pipelines::log\_message\_parser::structure::StreamProcessor@{pipelines::log\_message\_parser::structure::StreamProcessor}!AttemptToReadEncoding@{AttemptToReadEncoding}}
+\index{AttemptToReadEncoding@{AttemptToReadEncoding}!pipelines::log\_message\_parser::structure::StreamProcessor@{pipelines::log\_message\_parser::structure::StreamProcessor}}
+\doxysubsubsection{\texorpdfstring{AttemptToReadEncoding()}{AttemptToReadEncoding()}}
+{\footnotesize\ttfamily std\+::string pipelines\+::log\+\_\+message\+\_\+parser\+::structure\+::\+Stream\+Processor\+::\+Attempt\+To\+Read\+Encoding (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Attempts to read the encoding from the stream. 
+
+\begin{DoxyReturn}{Returns}
+The encoding as a string. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classpipelines_1_1log__message__parser_1_1structure_1_1FileEndError}{File\+End\+Error}} & if the encoding cannot be read. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classpipelines_1_1log__message__parser_1_1structure_1_1StreamProcessor_acc65b9aa95ff963354998fe9cc1f2d65}\label{classpipelines_1_1log__message__parser_1_1structure_1_1StreamProcessor_acc65b9aa95ff963354998fe9cc1f2d65} 
+\index{pipelines::log\_message\_parser::structure::StreamProcessor@{pipelines::log\_message\_parser::structure::StreamProcessor}!AttemptToReadId@{AttemptToReadId}}
+\index{AttemptToReadId@{AttemptToReadId}!pipelines::log\_message\_parser::structure::StreamProcessor@{pipelines::log\_message\_parser::structure::StreamProcessor}}
+\doxysubsubsection{\texorpdfstring{AttemptToReadId()}{AttemptToReadId()}}
+{\footnotesize\ttfamily std\+::string pipelines\+::log\+\_\+message\+\_\+parser\+::structure\+::\+Stream\+Processor\+::\+Attempt\+To\+Read\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Attempts to read the ID from the stream. 
+
+\begin{DoxyReturn}{Returns}
+The ID as a string. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classpipelines_1_1log__message__parser_1_1structure_1_1FileEndError}{File\+End\+Error}} & if the ID cannot be read. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classpipelines_1_1log__message__parser_1_1structure_1_1StreamProcessor_a11bce3ac71f4e0ce8e08980aa2543ce5}\label{classpipelines_1_1log__message__parser_1_1structure_1_1StreamProcessor_a11bce3ac71f4e0ce8e08980aa2543ce5} 
+\index{pipelines::log\_message\_parser::structure::StreamProcessor@{pipelines::log\_message\_parser::structure::StreamProcessor}!AttemptToReadNextId@{AttemptToReadNextId}}
+\index{AttemptToReadNextId@{AttemptToReadNextId}!pipelines::log\_message\_parser::structure::StreamProcessor@{pipelines::log\_message\_parser::structure::StreamProcessor}}
+\doxysubsubsection{\texorpdfstring{AttemptToReadNextId()}{AttemptToReadNextId()}}
+{\footnotesize\ttfamily std\+::string pipelines\+::log\+\_\+message\+\_\+parser\+::structure\+::\+Stream\+Processor\+::\+Attempt\+To\+Read\+Next\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Attempts to read the next ID from the stream. 
+
+\begin{DoxyReturn}{Returns}
+The next ID as a string. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classpipelines_1_1log__message__parser_1_1structure_1_1FileEndError}{File\+End\+Error}} & if the next ID cannot be read. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classpipelines_1_1log__message__parser_1_1structure_1_1StreamProcessor_adb3a9786858cf7c869529040bf569072}\label{classpipelines_1_1log__message__parser_1_1structure_1_1StreamProcessor_adb3a9786858cf7c869529040bf569072} 
+\index{pipelines::log\_message\_parser::structure::StreamProcessor@{pipelines::log\_message\_parser::structure::StreamProcessor}!AttemptToReadPipelineId@{AttemptToReadPipelineId}}
+\index{AttemptToReadPipelineId@{AttemptToReadPipelineId}!pipelines::log\_message\_parser::structure::StreamProcessor@{pipelines::log\_message\_parser::structure::StreamProcessor}}
+\doxysubsubsection{\texorpdfstring{AttemptToReadPipelineId()}{AttemptToReadPipelineId()}}
+{\footnotesize\ttfamily std\+::string pipelines\+::log\+\_\+message\+\_\+parser\+::structure\+::\+Stream\+Processor\+::\+Attempt\+To\+Read\+Pipeline\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Attempts to read the pipeline ID from the stream. 
+
+\begin{DoxyReturn}{Returns}
+The pipeline ID as a string. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classpipelines_1_1log__message__parser_1_1structure_1_1FileEndError}{File\+End\+Error}} & if the pipeline ID cannot be read. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classpipelines_1_1log__message__parser_1_1structure_1_1StreamProcessor_a96095b168185220e2d039a73cf6563b5}\label{classpipelines_1_1log__message__parser_1_1structure_1_1StreamProcessor_a96095b168185220e2d039a73cf6563b5} 
+\index{pipelines::log\_message\_parser::structure::StreamProcessor@{pipelines::log\_message\_parser::structure::StreamProcessor}!IsDone@{IsDone}}
+\index{IsDone@{IsDone}!pipelines::log\_message\_parser::structure::StreamProcessor@{pipelines::log\_message\_parser::structure::StreamProcessor}}
+\doxysubsubsection{\texorpdfstring{IsDone()}{IsDone()}}
+{\footnotesize\ttfamily bool pipelines\+::log\+\_\+message\+\_\+parser\+::structure\+::\+Stream\+Processor\+::\+Is\+Done (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks if the stream processing is complete. 
+
+\begin{DoxyReturn}{Returns}
+true if the stream has been fully processed, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classpipelines_1_1log__message__parser_1_1structure_1_1StreamProcessor_a994126f9ff0177b061dbf3346678abbd}\label{classpipelines_1_1log__message__parser_1_1structure_1_1StreamProcessor_a994126f9ff0177b061dbf3346678abbd} 
+\index{pipelines::log\_message\_parser::structure::StreamProcessor@{pipelines::log\_message\_parser::structure::StreamProcessor}!line\_number@{line\_number}}
+\index{line\_number@{line\_number}!pipelines::log\_message\_parser::structure::StreamProcessor@{pipelines::log\_message\_parser::structure::StreamProcessor}}
+\doxysubsubsection{\texorpdfstring{line\_number()}{line\_number()}}
+{\footnotesize\ttfamily size\+\_\+t pipelines\+::log\+\_\+message\+\_\+parser\+::structure\+::\+Stream\+Processor\+::line\+\_\+number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves the current line number in the stream. 
+
+\begin{DoxyReturn}{Returns}
+The current line number as a size\+\_\+t. 
+\end{DoxyReturn}
+\Hypertarget{classpipelines_1_1log__message__parser_1_1structure_1_1StreamProcessor_a25d7ce396590e2bcd13ebd460639307b}\label{classpipelines_1_1log__message__parser_1_1structure_1_1StreamProcessor_a25d7ce396590e2bcd13ebd460639307b} 
+\index{pipelines::log\_message\_parser::structure::StreamProcessor@{pipelines::log\_message\_parser::structure::StreamProcessor}!ReadUntilCharacter@{ReadUntilCharacter}}
+\index{ReadUntilCharacter@{ReadUntilCharacter}!pipelines::log\_message\_parser::structure::StreamProcessor@{pipelines::log\_message\_parser::structure::StreamProcessor}}
+\doxysubsubsection{\texorpdfstring{ReadUntilCharacter()}{ReadUntilCharacter()}}
+{\footnotesize\ttfamily std\+::string pipelines\+::log\+\_\+message\+\_\+parser\+::structure\+::\+Stream\+Processor\+::\+Read\+Until\+Character (\begin{DoxyParamCaption}\item[{char}]{character }\end{DoxyParamCaption})}
+
+
+
+Reads characters from the stream until the character is found. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em character} & The character to stop reading at. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A string containing all the content until that character (character not included). 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classpipelines_1_1log__message__parser_1_1structure_1_1FileEndError}{File\+End\+Error}} & if the end of the file is reached unexpectedly. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classpipelines_1_1log__message__parser_1_1structure_1_1StreamProcessor_a29764c2e14c53d3e667bd283e88a7293}\label{classpipelines_1_1log__message__parser_1_1structure_1_1StreamProcessor_a29764c2e14c53d3e667bd283e88a7293} 
+\index{pipelines::log\_message\_parser::structure::StreamProcessor@{pipelines::log\_message\_parser::structure::StreamProcessor}!ReadUntilEndOfLine@{ReadUntilEndOfLine}}
+\index{ReadUntilEndOfLine@{ReadUntilEndOfLine}!pipelines::log\_message\_parser::structure::StreamProcessor@{pipelines::log\_message\_parser::structure::StreamProcessor}}
+\doxysubsubsection{\texorpdfstring{ReadUntilEndOfLine()}{ReadUntilEndOfLine()}}
+{\footnotesize\ttfamily std\+::string pipelines\+::log\+\_\+message\+\_\+parser\+::structure\+::\+Stream\+Processor\+::\+Read\+Until\+End\+Of\+Line (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reads characters from the stream until the end of the line. 
+
+\begin{DoxyReturn}{Returns}
+A string containing the characters read. 
+\end{DoxyReturn}
+\Hypertarget{classpipelines_1_1log__message__parser_1_1structure_1_1StreamProcessor_ab46330432bc91acc0bf33277441796b3}\label{classpipelines_1_1log__message__parser_1_1structure_1_1StreamProcessor_ab46330432bc91acc0bf33277441796b3} 
+\index{pipelines::log\_message\_parser::structure::StreamProcessor@{pipelines::log\_message\_parser::structure::StreamProcessor}!ReadUntilWhitespaceOrCharacter@{ReadUntilWhitespaceOrCharacter}}
+\index{ReadUntilWhitespaceOrCharacter@{ReadUntilWhitespaceOrCharacter}!pipelines::log\_message\_parser::structure::StreamProcessor@{pipelines::log\_message\_parser::structure::StreamProcessor}}
+\doxysubsubsection{\texorpdfstring{ReadUntilWhitespaceOrCharacter()}{ReadUntilWhitespaceOrCharacter()}}
+{\footnotesize\ttfamily std\+::string pipelines\+::log\+\_\+message\+\_\+parser\+::structure\+::\+Stream\+Processor\+::\+Read\+Until\+Whitespace\+Or\+Character (\begin{DoxyParamCaption}\item[{char}]{character }\end{DoxyParamCaption})}
+
+
+
+Reads characters from the stream until whitespace or a specific character is found. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em character} & The character to stop reading at. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A string containing all the content until that character (character not included). 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classpipelines_1_1log__message__parser_1_1structure_1_1FileEndError}{File\+End\+Error}} & if the end of the file is reached unexpectedly. \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/rodri/\+Documents/\+Brion-\/\+Assignment/brion\+\_\+pipelines/components/log\+\_\+message\+\_\+parser/private/\mbox{\hyperlink{structure_8cc}{structure.\+cc}}\end{DoxyCompactItemize}

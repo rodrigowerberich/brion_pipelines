@@ -1,0 +1,5 @@
+@startuml inline_umlgraph_1.png
+[app] ..> [log_message_organizer]
+[app] ..> [log_message_parser]
+[app] ..> [clipp]
+@enduml

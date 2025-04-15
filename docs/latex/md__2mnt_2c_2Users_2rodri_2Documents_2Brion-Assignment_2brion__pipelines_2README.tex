@@ -1,0 +1,19 @@
+\chapter{Dependencies}
+\hypertarget{md__2mnt_2c_2Users_2rodri_2Documents_2Brion-Assignment_2brion__pipelines_2README}{}\label{md__2mnt_2c_2Users_2rodri_2Documents_2Brion-Assignment_2brion__pipelines_2README}\index{Dependencies@{Dependencies}}
+\label{md__2mnt_2c_2Users_2rodri_2Documents_2Brion-Assignment_2brion__pipelines_2README_autotoc_md0}%
+\Hypertarget{md__2mnt_2c_2Users_2rodri_2Documents_2Brion-Assignment_2brion__pipelines_2README_autotoc_md0}%
+
+\begin{DoxyItemize}
+\item C++ compiler with c++20 support
+\item Cmake
+\item Doxygen
+\item Graphviz
+\end{DoxyItemize}\hypertarget{md__2mnt_2c_2Users_2rodri_2Documents_2Brion-Assignment_2brion__pipelines_2README_autotoc_md1}{}\doxysection{\texorpdfstring{Style guide used\+:}{Style guide used:}}\label{md__2mnt_2c_2Users_2rodri_2Documents_2Brion-Assignment_2brion__pipelines_2README_autotoc_md1}
+\href{https://google.github.io/styleguide/cppguide.html}{\texttt{ https\+://google.\+github.\+io/styleguide/cppguide.\+html}}\hypertarget{md__2mnt_2c_2Users_2rodri_2Documents_2Brion-Assignment_2brion__pipelines_2README_autotoc_md2}{}\doxysection{\texorpdfstring{About this project}{About this project}}\label{md__2mnt_2c_2Users_2rodri_2Documents_2Brion-Assignment_2brion__pipelines_2README_autotoc_md2}
+Each log message is of the following format\+:
+
+pipeline\+\_\+id id encoding \mbox{[}body\mbox{]} next\+\_\+id
+
+Assumption 1\+: Between the 4 different parts of the message any whitespace can be used in any amount. Even before the first part of the log message. Assumption 2\+: pipeline\+\_\+id is a "{}continous string"{}. Assumption 3\+: id and next\+\_\+id are also "{}continous strings"{} Assumption 4\+: If the body is encoded as ascii, all ascii characters are allowed, including \mbox{[}\mbox{]} without the need for any form of escape (There are some limitations for the body TODO\+: Explain) Assumption 5\+: If the message is ill-\/formed an warning will be print, the user can chose to run in silent mode, or print all ill formed lines in the end.
+
+Definition 1\+: Continous string is a string where no whitespace characters is allowed. Definition 1\+: Ill-\/formed "{}line"{} here is specified as any sequence of chars on a buffer that do no fall into the following pattern\+: (newline)(whitespaces)(Continous string)(whitespaces)(Continous string)(whitespaces)(0\texorpdfstring{$\vert$}{|}1)(whitespaces)(\mbox{[})(anything)(\mbox{]})(whitespaces)(Continuous string)(whitespaces)(end of line/file) 

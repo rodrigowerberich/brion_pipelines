@@ -1,0 +1,64 @@
+\doxysection{/mnt/c/\+Users/rodri/\+Documents/\+Brion-\/\+Assignment/brion\+\_\+pipelines/components/log\+\_\+message\+\_\+organizer/public/log\+\_\+message\+\_\+organizer/pipeline\+\_\+log\+\_\+message.h File Reference}
+\hypertarget{pipeline__log__message_8h}{}\label{pipeline__log__message_8h}\index{/mnt/c/Users/rodri/Documents/Brion-\/Assignment/brion\_pipelines/components/log\_message\_organizer/public/log\_message\_organizer/pipeline\_log\_message.h@{/mnt/c/Users/rodri/Documents/Brion-\/Assignment/brion\_pipelines/components/log\_message\_organizer/public/log\_message\_organizer/pipeline\_log\_message.h}}
+
+
+This file defines the Pipeline\+Log\+Message class, which represents a log message that belongs to a singular pipeline.  
+
+
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$ostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include "{}log\+\_\+message/message.\+h"{}}\newline
+Include dependency graph for pipeline\+\_\+log\+\_\+message.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pipeline__log__message_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pipeline__log__message_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage}{pipelines\+::log\+\_\+message\+\_\+organizer\+::\+Pipeline\+Log\+Message}}
+\begin{DoxyCompactList}\small\item\em This class represents a log message that belongs to a singular pipeline. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{pipeline__log__message_8h_aad3b28cb1f8c0a7df9cfd849b44e7224}\label{pipeline__log__message_8h_aad3b28cb1f8c0a7df9cfd849b44e7224} 
+using {\bfseries pipelines\+::log\+\_\+message\+\_\+organizer\+::\+Log\+Message} = \mbox{\hyperlink{classpipelines_1_1log__message_1_1Message}{pipelines\+::log\+\_\+message\+::\+Message}}
+\begin{DoxyCompactList}\small\item\em Type alias for a log message with a pipeline ID. \end{DoxyCompactList}\item 
+\Hypertarget{pipeline__log__message_8h_ada8f972af36eede6152fc14ef0cb2894}\label{pipeline__log__message_8h_ada8f972af36eede6152fc14ef0cb2894} 
+using {\bfseries pipelines\+::log\+\_\+message\+\_\+organizer\+::\+Log\+Messages} = std\+::vector$<$ \mbox{\hyperlink{pipeline__log__message_8h_aad3b28cb1f8c0a7df9cfd849b44e7224}{Log\+Message}} $>$
+\begin{DoxyCompactList}\small\item\em Type alias for a collection of log messages with their pipeline IDs. \end{DoxyCompactList}\item 
+\Hypertarget{pipeline__log__message_8h_a04eb5725809c8e0432715b743eccceef}\label{pipeline__log__message_8h_a04eb5725809c8e0432715b743eccceef} 
+using {\bfseries pipelines\+::log\+\_\+message\+\_\+organizer\+::\+Pipeline\+Log\+Messages} = std\+::vector$<$ class \mbox{\hyperlink{classpipelines_1_1log__message__organizer_1_1PipelineLogMessage}{Pipeline\+Log\+Message}} $>$
+\begin{DoxyCompactList}\small\item\em Type alias for a collection of log messages that belong to a pipeline. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{pipeline__log__message_8h_a79b53be25776eee8ebc5ecc86e669ad1}{pipelines\+::log\+\_\+message\+\_\+organizer\+::\+Pipeline\+Log\+Messages\+By\+Pipeline}} = std\+::map$<$ std\+::string, \mbox{\hyperlink{pipeline__log__message_8h_a04eb5725809c8e0432715b743eccceef}{Pipeline\+Log\+Messages}} $>$
+\begin{DoxyCompactList}\small\item\em Type alias for a collection of log messages organized by pipeline ID. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file defines the Pipeline\+Log\+Message class, which represents a log message that belongs to a singular pipeline. 
+
+It also has some helpful type definitions for log messages and collections of log messages. 
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{pipeline__log__message_8h_a79b53be25776eee8ebc5ecc86e669ad1}\label{pipeline__log__message_8h_a79b53be25776eee8ebc5ecc86e669ad1} 
+\index{pipeline\_log\_message.h@{pipeline\_log\_message.h}!PipelineLogMessagesByPipeline@{PipelineLogMessagesByPipeline}}
+\index{PipelineLogMessagesByPipeline@{PipelineLogMessagesByPipeline}!pipeline\_log\_message.h@{pipeline\_log\_message.h}}
+\doxysubsubsection{\texorpdfstring{PipelineLogMessagesByPipeline}{PipelineLogMessagesByPipeline}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{pipeline__log__message_8h_a79b53be25776eee8ebc5ecc86e669ad1}{pipelines\+::log\+\_\+message\+\_\+organizer\+::\+Pipeline\+Log\+Messages\+By\+Pipeline}} = typedef std\+::map$<$std\+::string, Pipeline\+Log\+Messages$>$}
+
+
+
+Type alias for a collection of log messages organized by pipeline ID. 
+
+This is a map where the key is the pipeline ID and the value is a vector of Pipeline\+Log\+Messages. 

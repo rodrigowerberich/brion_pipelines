@@ -1,0 +1,94 @@
+\doxysection{pipelines\+::log\+\_\+message\+\_\+parser\+::semantics\+::Parse\+Result Class Reference}
+\hypertarget{classpipelines_1_1log__message__parser_1_1semantics_1_1ParseResult}{}\label{classpipelines_1_1log__message__parser_1_1semantics_1_1ParseResult}\index{pipelines::log\_message\_parser::semantics::ParseResult@{pipelines::log\_message\_parser::semantics::ParseResult}}
+
+
+Represents the result of a parsing operation.  
+
+
+
+
+{\ttfamily \#include $<$semantics.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1semantics_1_1ParseResult_a6cb425f7d036d2ac95dd3fdd07344b0b}{Parse\+Result}} (const \mbox{\hyperlink{semantics_8h_a1b1d69ba6dab2e9fba896354b9318831}{Log\+Messages}} \&\mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1semantics_1_1ParseResult_aa68f77e2560a2047353c020802ee2d86}{messages}}, const \mbox{\hyperlink{semantics_8h_a0d43fbe55f401fedb2531fe519e1fa74}{Parse\+Errors}} \&\mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1semantics_1_1ParseResult_a924248441ab97bdb465478e76e253f53}{errors}})
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{classpipelines_1_1log__message__parser_1_1semantics_1_1ParseResult}{Parse\+Result} with the given messages and errors. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{semantics_8h_a1b1d69ba6dab2e9fba896354b9318831}{Log\+Messages}} \& \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1semantics_1_1ParseResult_aa68f77e2560a2047353c020802ee2d86}{messages}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the parsed log messages. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{semantics_8h_a0d43fbe55f401fedb2531fe519e1fa74}{Parse\+Errors}} \& \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1semantics_1_1ParseResult_a924248441ab97bdb465478e76e253f53}{errors}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the parsing errors. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1semantics_1_1ParseResult_a65dcbd061dd24fdb652ba04b6903de25}{Has\+Errors}} () const
+\begin{DoxyCompactList}\small\item\em Checks if any errors were encountered during parsing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents the result of a parsing operation. 
+
+This class encapsulates the results of a parsing operation, including successfully parsed log messages and any errors encountered during parsing. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classpipelines_1_1log__message__parser_1_1semantics_1_1ParseResult_a6cb425f7d036d2ac95dd3fdd07344b0b}\label{classpipelines_1_1log__message__parser_1_1semantics_1_1ParseResult_a6cb425f7d036d2ac95dd3fdd07344b0b} 
+\index{pipelines::log\_message\_parser::semantics::ParseResult@{pipelines::log\_message\_parser::semantics::ParseResult}!ParseResult@{ParseResult}}
+\index{ParseResult@{ParseResult}!pipelines::log\_message\_parser::semantics::ParseResult@{pipelines::log\_message\_parser::semantics::ParseResult}}
+\doxysubsubsection{\texorpdfstring{ParseResult()}{ParseResult()}}
+{\footnotesize\ttfamily pipelines\+::log\+\_\+message\+\_\+parser\+::semantics\+::\+Parse\+Result\+::\+Parse\+Result (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{semantics_8h_a1b1d69ba6dab2e9fba896354b9318831}{Log\+Messages}} \&}]{messages,  }\item[{const \mbox{\hyperlink{semantics_8h_a0d43fbe55f401fedb2531fe519e1fa74}{Parse\+Errors}} \&}]{errors }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs a \doxylink{classpipelines_1_1log__message__parser_1_1semantics_1_1ParseResult}{Parse\+Result} with the given messages and errors. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em messages} & The successfully parsed log messages. \\
+\hline
+{\em errors} & The errors encountered during parsing. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classpipelines_1_1log__message__parser_1_1semantics_1_1ParseResult_a924248441ab97bdb465478e76e253f53}\label{classpipelines_1_1log__message__parser_1_1semantics_1_1ParseResult_a924248441ab97bdb465478e76e253f53} 
+\index{pipelines::log\_message\_parser::semantics::ParseResult@{pipelines::log\_message\_parser::semantics::ParseResult}!errors@{errors}}
+\index{errors@{errors}!pipelines::log\_message\_parser::semantics::ParseResult@{pipelines::log\_message\_parser::semantics::ParseResult}}
+\doxysubsubsection{\texorpdfstring{errors()}{errors()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{semantics_8h_a0d43fbe55f401fedb2531fe519e1fa74}{Parse\+Errors}} \& pipelines\+::log\+\_\+message\+\_\+parser\+::semantics\+::\+Parse\+Result\+::errors (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves the parsing errors. 
+
+\begin{DoxyReturn}{Returns}
+A reference to the collection of parsing errors. 
+\end{DoxyReturn}
+\Hypertarget{classpipelines_1_1log__message__parser_1_1semantics_1_1ParseResult_a65dcbd061dd24fdb652ba04b6903de25}\label{classpipelines_1_1log__message__parser_1_1semantics_1_1ParseResult_a65dcbd061dd24fdb652ba04b6903de25} 
+\index{pipelines::log\_message\_parser::semantics::ParseResult@{pipelines::log\_message\_parser::semantics::ParseResult}!HasErrors@{HasErrors}}
+\index{HasErrors@{HasErrors}!pipelines::log\_message\_parser::semantics::ParseResult@{pipelines::log\_message\_parser::semantics::ParseResult}}
+\doxysubsubsection{\texorpdfstring{HasErrors()}{HasErrors()}}
+{\footnotesize\ttfamily bool pipelines\+::log\+\_\+message\+\_\+parser\+::semantics\+::\+Parse\+Result\+::\+Has\+Errors (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Checks if any errors were encountered during parsing. 
+
+\begin{DoxyReturn}{Returns}
+true if there are errors, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classpipelines_1_1log__message__parser_1_1semantics_1_1ParseResult_aa68f77e2560a2047353c020802ee2d86}\label{classpipelines_1_1log__message__parser_1_1semantics_1_1ParseResult_aa68f77e2560a2047353c020802ee2d86} 
+\index{pipelines::log\_message\_parser::semantics::ParseResult@{pipelines::log\_message\_parser::semantics::ParseResult}!messages@{messages}}
+\index{messages@{messages}!pipelines::log\_message\_parser::semantics::ParseResult@{pipelines::log\_message\_parser::semantics::ParseResult}}
+\doxysubsubsection{\texorpdfstring{messages()}{messages()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{semantics_8h_a1b1d69ba6dab2e9fba896354b9318831}{Log\+Messages}} \& pipelines\+::log\+\_\+message\+\_\+parser\+::semantics\+::\+Parse\+Result\+::messages (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves the parsed log messages. 
+
+\begin{DoxyReturn}{Returns}
+A reference to the collection of parsed log messages. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/rodri/\+Documents/\+Brion-\/\+Assignment/brion\+\_\+pipelines/components/log\+\_\+message\+\_\+parser/public/log\+\_\+message\+\_\+parser/\mbox{\hyperlink{semantics_8h}{semantics.\+h}}\end{DoxyCompactItemize}

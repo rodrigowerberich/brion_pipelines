@@ -1,0 +1,58 @@
+\doxysection{clipp\+::param\+\_\+filter Class Reference}
+\hypertarget{classclipp_1_1param__filter}{}\label{classclipp_1_1param__filter}\index{clipp::param\_filter@{clipp::param\_filter}}
+
+
+filter predicate for parameters and groups; Can be used to limit documentation generation to parameter subsets.  
+
+
+
+
+{\ttfamily \#include $<$clipp.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classclipp_1_1param__filter_afd2f65b5e864abcb214af305241ccaeb}\label{classclipp_1_1param__filter_afd2f65b5e864abcb214af305241ccaeb} 
+\mbox{\hyperlink{classclipp_1_1param__filter}{param\+\_\+filter}} \& {\bfseries prefix} (const arg\+\_\+string \&p) noexcept
+\begin{DoxyCompactList}\small\item\em only allow parameters with given prefix \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1param__filter_a8bfd03b6c79ceaf4e651ea047b70b189}\label{classclipp_1_1param__filter_a8bfd03b6c79ceaf4e651ea047b70b189} 
+\mbox{\hyperlink{classclipp_1_1param__filter}{param\+\_\+filter}} \& {\bfseries prefix} (arg\+\_\+string \&\&p) noexcept
+\begin{DoxyCompactList}\small\item\em only allow parameters with given prefix \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1param__filter_ab7435bb7522a3035f97270351828c333}\label{classclipp_1_1param__filter_ab7435bb7522a3035f97270351828c333} 
+const arg\+\_\+string \& {\bfseries prefix} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1param__filter_a90dbe66f368e2fbc3e2b8b18940663bf}\label{classclipp_1_1param__filter_a90dbe66f368e2fbc3e2b8b18940663bf} 
+\mbox{\hyperlink{classclipp_1_1param__filter}{param\+\_\+filter}} \& {\bfseries required} (\mbox{\hyperlink{namespaceclipp_ad9bc4652de2e33d5c5f27def5aa5fe7c}{tri}} t) noexcept
+\begin{DoxyCompactList}\small\item\em only allow parameters with given requirement status \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1param__filter_ad8002caec77ccbc84486f7b6a39bed82}\label{classclipp_1_1param__filter_ad8002caec77ccbc84486f7b6a39bed82} 
+\mbox{\hyperlink{namespaceclipp_ad9bc4652de2e33d5c5f27def5aa5fe7c}{tri}} {\bfseries required} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1param__filter_a4b9b45a5f2942836ff73b0c920600870}\label{classclipp_1_1param__filter_a4b9b45a5f2942836ff73b0c920600870} 
+\mbox{\hyperlink{classclipp_1_1param__filter}{param\+\_\+filter}} \& {\bfseries blocking} (\mbox{\hyperlink{namespaceclipp_ad9bc4652de2e33d5c5f27def5aa5fe7c}{tri}} t) noexcept
+\begin{DoxyCompactList}\small\item\em only allow parameters with given blocking status \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1param__filter_a5b6ae52c7094f74949d09ac66173ac82}\label{classclipp_1_1param__filter_a5b6ae52c7094f74949d09ac66173ac82} 
+\mbox{\hyperlink{namespaceclipp_ad9bc4652de2e33d5c5f27def5aa5fe7c}{tri}} {\bfseries blocking} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1param__filter_a0140f9aa18089bcd0ff737207a5968d1}\label{classclipp_1_1param__filter_a0140f9aa18089bcd0ff737207a5968d1} 
+\mbox{\hyperlink{classclipp_1_1param__filter}{param\+\_\+filter}} \& {\bfseries repeatable} (\mbox{\hyperlink{namespaceclipp_ad9bc4652de2e33d5c5f27def5aa5fe7c}{tri}} t) noexcept
+\begin{DoxyCompactList}\small\item\em only allow parameters with given repeatable status \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1param__filter_a21f92959d58e7f7a882af58e7cace486}\label{classclipp_1_1param__filter_a21f92959d58e7f7a882af58e7cace486} 
+\mbox{\hyperlink{namespaceclipp_ad9bc4652de2e33d5c5f27def5aa5fe7c}{tri}} {\bfseries repeatable} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1param__filter_aec19da31d402e5212e1feb3196840226}\label{classclipp_1_1param__filter_aec19da31d402e5212e1feb3196840226} 
+\mbox{\hyperlink{classclipp_1_1param__filter}{param\+\_\+filter}} \& {\bfseries has\+\_\+doc} (\mbox{\hyperlink{namespaceclipp_ad9bc4652de2e33d5c5f27def5aa5fe7c}{tri}} t) noexcept
+\begin{DoxyCompactList}\small\item\em only allow parameters with given docstring status \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1param__filter_abd583ae4fda158b04aad2a2a05839a89}\label{classclipp_1_1param__filter_abd583ae4fda158b04aad2a2a05839a89} 
+\mbox{\hyperlink{namespaceclipp_ad9bc4652de2e33d5c5f27def5aa5fe7c}{tri}} {\bfseries has\+\_\+doc} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1param__filter_a84e39ee9f4ba64300707e3aa5e4be2f0}\label{classclipp_1_1param__filter_a84e39ee9f4ba64300707e3aa5e4be2f0} 
+bool {\bfseries operator()} (const \mbox{\hyperlink{classclipp_1_1parameter}{parameter}} \&p) const noexcept
+\begin{DoxyCompactList}\small\item\em returns true, if parameter satisfies all filters \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+filter predicate for parameters and groups; Can be used to limit documentation generation to parameter subsets. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/rodri/\+Documents/\+Brion-\/\+Assignment/brion\+\_\+pipelines/components/clipp/include/clipp.\+h\end{DoxyCompactItemize}

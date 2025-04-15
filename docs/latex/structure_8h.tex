@@ -1,0 +1,63 @@
+\doxysection{/mnt/c/\+Users/rodri/\+Documents/\+Brion-\/\+Assignment/brion\+\_\+pipelines/components/log\+\_\+message\+\_\+parser/public/log\+\_\+message\+\_\+parser/structure.h File Reference}
+\hypertarget{structure_8h}{}\label{structure_8h}\index{/mnt/c/Users/rodri/Documents/Brion-\/Assignment/brion\_pipelines/components/log\_message\_parser/public/log\_message\_parser/structure.h@{/mnt/c/Users/rodri/Documents/Brion-\/Assignment/brion\_pipelines/components/log\_message\_parser/public/log\_message\_parser/structure.h}}
+
+
+Parses a stream of data into a structured log message format.  
+
+
+{\ttfamily \#include $<$istream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+Include dependency graph for structure.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=262pt]{structure_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structure_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage}{pipelines\+::log\+\_\+message\+\_\+parser\+::structure\+::\+Log\+Message}}
+\begin{DoxyCompactList}\small\item\em Represents a structured log message. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1ParseError}{pipelines\+::log\+\_\+message\+\_\+parser\+::structure\+::\+Parse\+Error}}
+\begin{DoxyCompactList}\small\item\em Represents an error encountered during parsing. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1ParseResult}{pipelines\+::log\+\_\+message\+\_\+parser\+::structure\+::\+Parse\+Result}}
+\begin{DoxyCompactList}\small\item\em Represents the result of a parsing operation. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1Parser}{pipelines\+::log\+\_\+message\+\_\+parser\+::structure\+::\+Parser}}
+\begin{DoxyCompactList}\small\item\em Parses structured log messages from an input stream. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{structure_8h_aa7de7f773c834f34825d7704ac00b07f}{pipelines\+::log\+\_\+message\+\_\+parser\+::structure\+::\+Log\+Messages}} = std\+::vector$<$ class \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage}{Log\+Message}} $>$
+\item 
+using \mbox{\hyperlink{structure_8h_a0bf1660d550b3839916772b9c8663b75}{pipelines\+::log\+\_\+message\+\_\+parser\+::structure\+::\+Parse\+Errors}} = std\+::vector$<$ class \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1ParseError}{Parse\+Error}} $>$
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Parses a stream of data into a structured log message format. 
+
+This file contains the declarations of the Log\+Message, Parse\+Error, and Parse\+Result classes, as well as the Parser class for processing structured log messages. These classes provide the foundation for handling log message parsing and error reporting. 
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{structure_8h_aa7de7f773c834f34825d7704ac00b07f}\label{structure_8h_aa7de7f773c834f34825d7704ac00b07f} 
+\index{structure.h@{structure.h}!LogMessages@{LogMessages}}
+\index{LogMessages@{LogMessages}!structure.h@{structure.h}}
+\doxysubsubsection{\texorpdfstring{LogMessages}{LogMessages}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{structure_8h_aa7de7f773c834f34825d7704ac00b07f}{pipelines\+::log\+\_\+message\+\_\+parser\+::structure\+::\+Log\+Messages}} = typedef std\+::vector$<$class Log\+Message$>$}
+
+Collection of log messages. \Hypertarget{structure_8h_a0bf1660d550b3839916772b9c8663b75}\label{structure_8h_a0bf1660d550b3839916772b9c8663b75} 
+\index{structure.h@{structure.h}!ParseErrors@{ParseErrors}}
+\index{ParseErrors@{ParseErrors}!structure.h@{structure.h}}
+\doxysubsubsection{\texorpdfstring{ParseErrors}{ParseErrors}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{structure_8h_a0bf1660d550b3839916772b9c8663b75}{pipelines\+::log\+\_\+message\+\_\+parser\+::structure\+::\+Parse\+Errors}} = typedef std\+::vector$<$class Parse\+Error$>$}
+
+Collection of parsing errors. 

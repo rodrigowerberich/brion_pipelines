@@ -1,0 +1,212 @@
+\doxysection{clipp\+::doc\+\_\+formatting Class Reference}
+\hypertarget{classclipp_1_1doc__formatting}{}\label{classclipp_1_1doc__formatting}\index{clipp::doc\_formatting@{clipp::doc\_formatting}}
+
+
+documentation formatting options  
+
+
+
+
+{\ttfamily \#include $<$clipp.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classclipp_1_1doc__formatting_a0388ee958a5aa3ed88a3c74a48e76c7b}\label{classclipp_1_1doc__formatting_a0388ee958a5aa3ed88a3c74a48e76c7b} 
+using {\bfseries string} = doc\+\_\+string
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classclipp_1_1doc__formatting_a44c96e35b326bc5cc1d44fd7f9ee4dc2}\label{classclipp_1_1doc__formatting_a44c96e35b326bc5cc1d44fd7f9ee4dc2} 
+\mbox{\hyperlink{classclipp_1_1doc__formatting}{doc\+\_\+formatting}} \& {\bfseries start\+\_\+column} (int col)
+\begin{DoxyCompactList}\small\item\em same as \textquotesingle{}first\+\_\+column\textquotesingle{} \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1doc__formatting_a39202dde52f7c607232ddd3d1914814a}\label{classclipp_1_1doc__formatting_a39202dde52f7c607232ddd3d1914814a} 
+int {\bfseries start\+\_\+column} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1doc__formatting_aa7ff8e31d26e5b82b4f7026bc6032573}\label{classclipp_1_1doc__formatting_aa7ff8e31d26e5b82b4f7026bc6032573} 
+\mbox{\hyperlink{classclipp_1_1doc__formatting}{doc\+\_\+formatting}} \& {\bfseries first\+\_\+column} (int col)
+\begin{DoxyCompactList}\small\item\em determines column where documentation printing starts \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1doc__formatting_a70b4ad7cd5a78b2a6586db64292445ff}\label{classclipp_1_1doc__formatting_a70b4ad7cd5a78b2a6586db64292445ff} 
+int {\bfseries first\+\_\+column} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1doc__formatting_a2d3b049f0590bc3376fc471034a310b2}\label{classclipp_1_1doc__formatting_a2d3b049f0590bc3376fc471034a310b2} 
+\mbox{\hyperlink{classclipp_1_1doc__formatting}{doc\+\_\+formatting}} \& {\bfseries doc\+\_\+column} (int col)
+\begin{DoxyCompactList}\small\item\em determines column where docstrings start \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1doc__formatting_ad33a5d0e0f6732e95c7d6af78982156e}\label{classclipp_1_1doc__formatting_ad33a5d0e0f6732e95c7d6af78982156e} 
+int {\bfseries doc\+\_\+column} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1doc__formatting_a077bdec1a9c3bfd9c2a1cbe09aa17be4}\label{classclipp_1_1doc__formatting_a077bdec1a9c3bfd9c2a1cbe09aa17be4} 
+\mbox{\hyperlink{classclipp_1_1doc__formatting}{doc\+\_\+formatting}} \& {\bfseries last\+\_\+column} (int col)
+\begin{DoxyCompactList}\small\item\em determines column that no documentation text must exceed; (text should be wrapped appropriately after this column) \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1doc__formatting_abc2b4f2fb77f45a799769efd9bb798a9}\label{classclipp_1_1doc__formatting_abc2b4f2fb77f45a799769efd9bb798a9} 
+int {\bfseries last\+\_\+column} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1doc__formatting_abd332ba7c7a9fefa41f421f5912a51a3}\label{classclipp_1_1doc__formatting_abd332ba7c7a9fefa41f421f5912a51a3} 
+\mbox{\hyperlink{classclipp_1_1doc__formatting}{doc\+\_\+formatting}} \& {\bfseries indent\+\_\+size} (int indent)
+\begin{DoxyCompactList}\small\item\em determines indent of documentation lines for children of a documented group \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1doc__formatting_a6fbb04c66c19ba4552c4d151fd024d3c}\label{classclipp_1_1doc__formatting_a6fbb04c66c19ba4552c4d151fd024d3c} 
+int {\bfseries indent\+\_\+size} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1doc__formatting_ae70ececcc5498e661829ff53978361ae}\label{classclipp_1_1doc__formatting_ae70ececcc5498e661829ff53978361ae} 
+\mbox{\hyperlink{classclipp_1_1doc__formatting}{doc\+\_\+formatting}} \& {\bfseries empty\+\_\+label} (const string \&label)
+\begin{DoxyCompactList}\small\item\em determines string to be used if a parameter has no flags and no label ~\newline
+ \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1doc__formatting_aba12064206ba542aacfc2b97a304450c}\label{classclipp_1_1doc__formatting_aba12064206ba542aacfc2b97a304450c} 
+const string \& {\bfseries empty\+\_\+label} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1doc__formatting_a74ac549ad18177d7e335ea2d63e4c6f6}\label{classclipp_1_1doc__formatting_a74ac549ad18177d7e335ea2d63e4c6f6} 
+\mbox{\hyperlink{classclipp_1_1doc__formatting}{doc\+\_\+formatting}} \& {\bfseries param\+\_\+separator} (const string \&sep)
+\begin{DoxyCompactList}\small\item\em determines string for separating parameters \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1doc__formatting_ad76c0cab89584a68ba29be68af33441c}\label{classclipp_1_1doc__formatting_ad76c0cab89584a68ba29be68af33441c} 
+const string \& {\bfseries param\+\_\+separator} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1doc__formatting_adda1e24604edc5f52bc94011b9933f91}\label{classclipp_1_1doc__formatting_adda1e24604edc5f52bc94011b9933f91} 
+\mbox{\hyperlink{classclipp_1_1doc__formatting}{doc\+\_\+formatting}} \& {\bfseries group\+\_\+separator} (const string \&sep)
+\begin{DoxyCompactList}\small\item\em determines string for separating groups (in usage lines) \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1doc__formatting_ae81717a7967b34481914a0547d580329}\label{classclipp_1_1doc__formatting_ae81717a7967b34481914a0547d580329} 
+const string \& {\bfseries group\+\_\+separator} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1doc__formatting_a2561e728e89ebd3c2947a6317cb91cd8}\label{classclipp_1_1doc__formatting_a2561e728e89ebd3c2947a6317cb91cd8} 
+\mbox{\hyperlink{classclipp_1_1doc__formatting}{doc\+\_\+formatting}} \& {\bfseries alternative\+\_\+param\+\_\+separator} (const string \&sep)
+\begin{DoxyCompactList}\small\item\em determines string for separating alternative parameters \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1doc__formatting_ac2292bc7f48d425df8b2b43ade09790b}\label{classclipp_1_1doc__formatting_ac2292bc7f48d425df8b2b43ade09790b} 
+const string \& {\bfseries alternative\+\_\+param\+\_\+separator} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1doc__formatting_ad4017a54a9d5fb9eb8ae976d49984b93}\label{classclipp_1_1doc__formatting_ad4017a54a9d5fb9eb8ae976d49984b93} 
+\mbox{\hyperlink{classclipp_1_1doc__formatting}{doc\+\_\+formatting}} \& {\bfseries alternative\+\_\+group\+\_\+separator} (const string \&sep)
+\begin{DoxyCompactList}\small\item\em determines string for separating alternative groups \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1doc__formatting_ae5e8cd6ed868bde3b3620b80704d3491}\label{classclipp_1_1doc__formatting_ae5e8cd6ed868bde3b3620b80704d3491} 
+const string \& {\bfseries alternative\+\_\+group\+\_\+separator} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1doc__formatting_a5be1ebe5541bca4c9bb8afd0dc2dc600}\label{classclipp_1_1doc__formatting_a5be1ebe5541bca4c9bb8afd0dc2dc600} 
+\mbox{\hyperlink{classclipp_1_1doc__formatting}{doc\+\_\+formatting}} \& {\bfseries flag\+\_\+separator} (const string \&sep)
+\begin{DoxyCompactList}\small\item\em determines string for separating flags of the same parameter \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1doc__formatting_a72f36b4f15c754520489f8dc6a4ddb34}\label{classclipp_1_1doc__formatting_a72f36b4f15c754520489f8dc6a4ddb34} 
+const string \& {\bfseries flag\+\_\+separator} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1doc__formatting_a9647c2f5f59a957b3defb4529568b2b2}\label{classclipp_1_1doc__formatting_a9647c2f5f59a957b3defb4529568b2b2} 
+\mbox{\hyperlink{classclipp_1_1doc__formatting}{doc\+\_\+formatting}} \& {\bfseries surround\+\_\+labels} (const string \&prefix, const string \&postfix)
+\begin{DoxyCompactList}\small\item\em determines strings surrounding parameter labels \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1doc__formatting_ab87ad9f1c10b98ec069d69e01cf68f7e}\label{classclipp_1_1doc__formatting_ab87ad9f1c10b98ec069d69e01cf68f7e} 
+const string \& {\bfseries label\+\_\+prefix} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1doc__formatting_a926a24af6145a07f685ae4c41bf70865}\label{classclipp_1_1doc__formatting_a926a24af6145a07f685ae4c41bf70865} 
+const string \& {\bfseries label\+\_\+postfix} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1doc__formatting_a92b041e605cc4f1e2d53f30a1c891ed7}\label{classclipp_1_1doc__formatting_a92b041e605cc4f1e2d53f30a1c891ed7} 
+\mbox{\hyperlink{classclipp_1_1doc__formatting}{doc\+\_\+formatting}} \& {\bfseries surround\+\_\+optional} (const string \&prefix, const string \&postfix)
+\begin{DoxyCompactList}\small\item\em determines strings surrounding optional parameters/groups \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1doc__formatting_af4d9a5c59bb3f6d1e4c04b3dcb13d7a3}\label{classclipp_1_1doc__formatting_af4d9a5c59bb3f6d1e4c04b3dcb13d7a3} 
+const string \& {\bfseries optional\+\_\+prefix} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1doc__formatting_a34ca07aac3d216ffc83d7da0c8b8c57a}\label{classclipp_1_1doc__formatting_a34ca07aac3d216ffc83d7da0c8b8c57a} 
+const string \& {\bfseries optional\+\_\+postfix} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1doc__formatting_adad439e27fac49ddaff7ad9b9c7391bc}\label{classclipp_1_1doc__formatting_adad439e27fac49ddaff7ad9b9c7391bc} 
+\mbox{\hyperlink{classclipp_1_1doc__formatting}{doc\+\_\+formatting}} \& {\bfseries surround\+\_\+repeat} (const string \&prefix, const string \&postfix)
+\begin{DoxyCompactList}\small\item\em determines strings surrounding repeatable parameters/groups \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1doc__formatting_a88932a77eefae4a1c5531def38c5e680}\label{classclipp_1_1doc__formatting_a88932a77eefae4a1c5531def38c5e680} 
+const string \& {\bfseries repeat\+\_\+prefix} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1doc__formatting_a5c67f7b1b7717955679b9e15f7be3729}\label{classclipp_1_1doc__formatting_a5c67f7b1b7717955679b9e15f7be3729} 
+const string \& {\bfseries repeat\+\_\+postfix} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1doc__formatting_afccd8e2d8399a320b446c73fb78ded0e}\label{classclipp_1_1doc__formatting_afccd8e2d8399a320b446c73fb78ded0e} 
+\mbox{\hyperlink{classclipp_1_1doc__formatting}{doc\+\_\+formatting}} \& {\bfseries surround\+\_\+alternatives} (const string \&prefix, const string \&postfix)
+\begin{DoxyCompactList}\small\item\em determines strings surrounding exclusive groups \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1doc__formatting_a26a4e72cbccfabd1c6b8cc0a4a4a2859}\label{classclipp_1_1doc__formatting_a26a4e72cbccfabd1c6b8cc0a4a4a2859} 
+const string \& {\bfseries alternatives\+\_\+prefix} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1doc__formatting_afce0e39107959c47541671d0d7413b14}\label{classclipp_1_1doc__formatting_afce0e39107959c47541671d0d7413b14} 
+const string \& {\bfseries alternatives\+\_\+postfix} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1doc__formatting_a034990b6a3867b0ae3c01e54e79edc7d}\label{classclipp_1_1doc__formatting_a034990b6a3867b0ae3c01e54e79edc7d} 
+\mbox{\hyperlink{classclipp_1_1doc__formatting}{doc\+\_\+formatting}} \& {\bfseries surround\+\_\+alternative\+\_\+flags} (const string \&prefix, const string \&postfix)
+\begin{DoxyCompactList}\small\item\em determines strings surrounding alternative flags \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1doc__formatting_a92e2196f3a76652140820bbbdb2d6544}\label{classclipp_1_1doc__formatting_a92e2196f3a76652140820bbbdb2d6544} 
+const string \& {\bfseries alternative\+\_\+flags\+\_\+prefix} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1doc__formatting_a10b6aa25e92d09f308a4bd74c174b092}\label{classclipp_1_1doc__formatting_a10b6aa25e92d09f308a4bd74c174b092} 
+const string \& {\bfseries alternative\+\_\+flags\+\_\+postfix} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1doc__formatting_ae0606d9033dca36b8d20fc66e5ce60e4}\label{classclipp_1_1doc__formatting_ae0606d9033dca36b8d20fc66e5ce60e4} 
+\mbox{\hyperlink{classclipp_1_1doc__formatting}{doc\+\_\+formatting}} \& {\bfseries surround\+\_\+group} (const string \&prefix, const string \&postfix)
+\begin{DoxyCompactList}\small\item\em determines strings surrounding non-\/exclusive groups \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1doc__formatting_abb99e9260cf334836dfe166db1f2f483}\label{classclipp_1_1doc__formatting_abb99e9260cf334836dfe166db1f2f483} 
+const string \& {\bfseries group\+\_\+prefix} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1doc__formatting_a12fdc86e867350a7d554679a00ca91f9}\label{classclipp_1_1doc__formatting_a12fdc86e867350a7d554679a00ca91f9} 
+const string \& {\bfseries group\+\_\+postfix} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1doc__formatting_a223715bafaf6d06bcad6eb5d0ff78a80}\label{classclipp_1_1doc__formatting_a223715bafaf6d06bcad6eb5d0ff78a80} 
+\mbox{\hyperlink{classclipp_1_1doc__formatting}{doc\+\_\+formatting}} \& {\bfseries surround\+\_\+joinable} (const string \&prefix, const string \&postfix)
+\begin{DoxyCompactList}\small\item\em determines strings surrounding joinable groups \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1doc__formatting_a4944a85b6a2eb64da2462b0a5ef9e74b}\label{classclipp_1_1doc__formatting_a4944a85b6a2eb64da2462b0a5ef9e74b} 
+const string \& {\bfseries joinable\+\_\+prefix} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1doc__formatting_a097d35fe010aaf580d6904b953143dae}\label{classclipp_1_1doc__formatting_a097d35fe010aaf580d6904b953143dae} 
+const string \& {\bfseries joinable\+\_\+postfix} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1doc__formatting_a0d8381d072db73ea47be172bd8bd64e2}\label{classclipp_1_1doc__formatting_a0d8381d072db73ea47be172bd8bd64e2} 
+\mbox{\hyperlink{classclipp_1_1doc__formatting}{doc\+\_\+formatting}} \& {\bfseries max\+\_\+flags\+\_\+per\+\_\+param\+\_\+in\+\_\+doc} (int max)
+\begin{DoxyCompactList}\small\item\em determines maximum number of flags per parameter to be printed in detailed parameter documentation lines \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1doc__formatting_acc72314340c4617ccf52c41d4bcd6642}\label{classclipp_1_1doc__formatting_acc72314340c4617ccf52c41d4bcd6642} 
+int {\bfseries max\+\_\+flags\+\_\+per\+\_\+param\+\_\+in\+\_\+doc} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1doc__formatting_a59348be810593e7f896bfd24e759a85b}\label{classclipp_1_1doc__formatting_a59348be810593e7f896bfd24e759a85b} 
+\mbox{\hyperlink{classclipp_1_1doc__formatting}{doc\+\_\+formatting}} \& {\bfseries max\+\_\+flags\+\_\+per\+\_\+param\+\_\+in\+\_\+usage} (int max)
+\begin{DoxyCompactList}\small\item\em determines maximum number of flags per parameter to be printed in usage lines \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1doc__formatting_a9eb338710b291e6d35a7e6dcb34c694d}\label{classclipp_1_1doc__formatting_a9eb338710b291e6d35a7e6dcb34c694d} 
+int {\bfseries max\+\_\+flags\+\_\+per\+\_\+param\+\_\+in\+\_\+usage} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1doc__formatting_abf8f6cfaa1d4cf72b1a5fa3953e7befa}\label{classclipp_1_1doc__formatting_abf8f6cfaa1d4cf72b1a5fa3953e7befa} 
+\mbox{\hyperlink{classclipp_1_1doc__formatting}{doc\+\_\+formatting}} \& {\bfseries line\+\_\+spacing} (int lines)
+\begin{DoxyCompactList}\small\item\em determines number of empty rows after one single-\/line documentation entry \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1doc__formatting_a90acb0463c6c80b417e4567f808b4832}\label{classclipp_1_1doc__formatting_a90acb0463c6c80b417e4567f808b4832} 
+int {\bfseries line\+\_\+spacing} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1doc__formatting_a4279e922485651c7fb3a99308d6d55da}\label{classclipp_1_1doc__formatting_a4279e922485651c7fb3a99308d6d55da} 
+\mbox{\hyperlink{classclipp_1_1doc__formatting}{doc\+\_\+formatting}} \& {\bfseries paragraph\+\_\+spacing} (int lines)
+\begin{DoxyCompactList}\small\item\em determines number of empty rows before and after a paragraph; a paragraph is defined by a documented group or if a parameter documentation entry used more than one line \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1doc__formatting_a885e908223689c273db9c70a10b901fb}\label{classclipp_1_1doc__formatting_a885e908223689c273db9c70a10b901fb} 
+int {\bfseries paragraph\+\_\+spacing} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1doc__formatting_a8a8f73311084afcf6ef3d5edf1046062}\label{classclipp_1_1doc__formatting_a8a8f73311084afcf6ef3d5edf1046062} 
+\mbox{\hyperlink{classclipp_1_1doc__formatting}{doc\+\_\+formatting}} \& {\bfseries merge\+\_\+alternative\+\_\+flags\+\_\+with\+\_\+common\+\_\+prefix} (bool yes=true)
+\begin{DoxyCompactList}\small\item\em determines if alternative flags with a common prefix should be printed in a merged fashion \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1doc__formatting_a4707a35905ab156c05d07b9186351803}\label{classclipp_1_1doc__formatting_a4707a35905ab156c05d07b9186351803} 
+bool {\bfseries merge\+\_\+alternative\+\_\+flags\+\_\+with\+\_\+common\+\_\+prefix} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1doc__formatting_aaccbf5faf66e51d265cbf922a6b6692e}\label{classclipp_1_1doc__formatting_aaccbf5faf66e51d265cbf922a6b6692e} 
+\mbox{\hyperlink{classclipp_1_1doc__formatting}{doc\+\_\+formatting}} \& {\bfseries merge\+\_\+joinable\+\_\+with\+\_\+common\+\_\+prefix} (bool yes=true)
+\begin{DoxyCompactList}\small\item\em determines if joinable flags with a common prefix should be printed in a merged fashion \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1doc__formatting_a57e032df856dc63065afb6cbfaa19a21}\label{classclipp_1_1doc__formatting_a57e032df856dc63065afb6cbfaa19a21} 
+bool {\bfseries merge\+\_\+joinable\+\_\+with\+\_\+common\+\_\+prefix} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1doc__formatting_acf2ab19d13a17491d303e889bd875983}\label{classclipp_1_1doc__formatting_acf2ab19d13a17491d303e889bd875983} 
+\mbox{\hyperlink{classclipp_1_1doc__formatting}{doc\+\_\+formatting}} \& {\bfseries split\+\_\+alternatives} (bool yes=true)
+\begin{DoxyCompactList}\small\item\em determines if children of exclusive groups should be printed on individual lines if the exceed \textquotesingle{}alternatives\+\_\+min\+\_\+split\+\_\+size\textquotesingle{} \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1doc__formatting_aa99585c2b9e64ba5a522f18f46dd3b42}\label{classclipp_1_1doc__formatting_aa99585c2b9e64ba5a522f18f46dd3b42} 
+bool {\bfseries split\+\_\+alternatives} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1doc__formatting_a416a38887d0f250afce0019fa29f6492}\label{classclipp_1_1doc__formatting_a416a38887d0f250afce0019fa29f6492} 
+\mbox{\hyperlink{classclipp_1_1doc__formatting}{doc\+\_\+formatting}} \& {\bfseries alternatives\+\_\+min\+\_\+split\+\_\+size} (int size)
+\begin{DoxyCompactList}\small\item\em determines how many children exclusive groups can have before their children are printed on individual usage lines \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1doc__formatting_a85274f9e92e1fa968a6eed074c69b401}\label{classclipp_1_1doc__formatting_a85274f9e92e1fa968a6eed074c69b401} 
+int {\bfseries alternatives\+\_\+min\+\_\+split\+\_\+size} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1doc__formatting_a24c927e30cb167320814b1ea578263ae}\label{classclipp_1_1doc__formatting_a24c927e30cb167320814b1ea578263ae} 
+\mbox{\hyperlink{classclipp_1_1doc__formatting}{doc\+\_\+formatting}} \& {\bfseries ignore\+\_\+newline\+\_\+chars} (bool yes=true)
+\begin{DoxyCompactList}\small\item\em determines whether to ignore new line characters in docstrings \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1doc__formatting_a38c9aab7cb5518751292a2245e4ff4d6}\label{classclipp_1_1doc__formatting_a38c9aab7cb5518751292a2245e4ff4d6} 
+bool {\bfseries ignore\+\_\+newline\+\_\+chars} () const noexcept
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+documentation formatting options 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/rodri/\+Documents/\+Brion-\/\+Assignment/brion\+\_\+pipelines/components/clipp/include/clipp.\+h\end{DoxyCompactItemize}

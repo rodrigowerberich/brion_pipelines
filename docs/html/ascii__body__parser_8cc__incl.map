@@ -1,0 +1,31 @@
+<map id="/mnt/c/Users/rodri/Documents/Brion&#45;Assignment/brion_pipelines/components/log_message_parser/private/ascii_body_parser.cc" name="/mnt/c/Users/rodri/Documents/Brion&#45;Assignment/brion_pipelines/components/log_message_parser/private/ascii_body_parser.cc">
+<area shape="rect" id="Node000001" title="Implementation of the AsciiBodyParser class." alt="" coords="446,5,666,89"/>
+<area shape="rect" id="Node000002" href="$ascii__body__parser_8h.html" title="This file defines the AsciiBodyParser class, which is responsible for parsing ASCII&#45;encoded log messa..." alt="" coords="537,137,693,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="581,89,600,124,595,126,576,91"/>
+<area shape="rect" id="Node000004" href="$semantics_8h.html" title="Defines core classes and types for log message parsing semantics." alt="" coords="421,225,577,265"/>
+<area shape="poly" id="edge17_Node000001_Node000004" title=" " alt="" coords="543,90,527,138,508,213,503,211,521,137,538,89"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="560,401,619,427"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="615,178,595,387,589,387,610,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="591,180,537,219,534,215,587,175"/>
+<area shape="poly" id="edge8_Node000004_Node000003" title=" " alt="" coords="513,264,541,312,580,387,575,390,536,315,508,267"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="476,321,527,346"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="502,266,503,307,498,307,497,266"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="5,321,83,346"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="421,259,272,281,102,316,90,319,89,314,101,311,271,276,420,254"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="202,401,278,427"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="421,253,343,259,261,271,191,289,165,301,147,315,142,324,141,332,148,352,168,376,195,393,192,398,165,380,143,355,135,333,137,322,143,312,162,297,189,284,260,266,343,254,420,247"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="158,321,245,346"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="427,268,257,316,247,319,246,314,255,311,425,263"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="803,401,866,427"/>
+<area shape="poly" id="edge9_Node000004_Node000009" title=" " alt="" coords="577,250,646,258,719,270,782,288,806,299,823,312,834,329,840,349,841,387,836,387,835,350,830,331,819,315,804,303,780,293,718,275,646,263,576,255"/>
+<area shape="rect" id="Node000010" href="$message_8h.html" title="Base Log Message class." alt="" coords="269,321,451,346"/>
+<area shape="poly" id="edge10_Node000004_Node000010" title=" " alt="" coords="470,268,392,316,389,311,467,263"/>
+<area shape="rect" id="Node000011" href="$structure_8h.html" title="Parses a stream of data into a structured log message format." alt="" coords="653,313,809,353"/>
+<area shape="poly" id="edge13_Node000004_Node000011" title=" " alt="" coords="551,263,668,306,666,311,549,268"/>
+<area shape="poly" id="edge12_Node000010_Node000003" title=" " alt="" coords="394,343,548,396,546,401,392,349"/>
+<area shape="poly" id="edge11_Node000010_Node000007" title=" " alt="" coords="344,348,271,396,268,391,341,344"/>
+<area shape="poly" id="edge15_Node000011_Node000003" title=" " alt="" coords="698,356,624,397,621,392,696,351"/>
+<area shape="poly" id="edge16_Node000011_Node000009" title=" " alt="" coords="757,351,810,391,807,395,754,356"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="695,401,767,427"/>
+<area shape="poly" id="edge14_Node000011_Node000012" title=" " alt="" coords="733,354,733,387,728,387,728,354"/>
+</map>

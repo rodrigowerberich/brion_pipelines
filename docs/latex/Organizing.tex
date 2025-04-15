@@ -1,0 +1,171 @@
+\chapter{Organizing pipeline messages}
+\hypertarget{Organizing}{}\label{Organizing}\index{Organizing pipeline messages@{Organizing pipeline messages}}
+Organizing is divided into two parts\+:
+\begin{DoxyItemize}
+\item Spliting the messages by pipeline
+\begin{DoxyItemize}
+\item \doxylink{split__by__pipeline_8h}{split\+\_\+by\+\_\+pipeline.\+h}
+\item \doxylink{split__by__pipeline_8cc}{split\+\_\+by\+\_\+pipeline.\+cc}
+\end{DoxyItemize}
+\item Ordering and organizing the messages of the same pipeline\+:
+\begin{DoxyItemize}
+\item \doxylink{organize__by__id_8h}{organize\+\_\+by\+\_\+id.\+h}
+\item \doxylink{organize__by__id_8cc}{organize\+\_\+by\+\_\+id.\+cc}
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{Organizing_autotoc_md6}{}\doxysection{\texorpdfstring{Spliting the messages by pipeline}{Spliting the messages by pipeline}}\label{Organizing_autotoc_md6}
+They are separated into different maps based on the pipeline id.\hypertarget{Organizing_autotoc_md7}{}\doxysection{\texorpdfstring{Possible types of ids and references}{Possible types of ids and references}}\label{Organizing_autotoc_md7}
+At first glance you could imagine that the pipeline log could be represented as a chain of elements that end at one element that points at -\/1. But when you take into account the possible types of error that can exist it becomes a bit more complex. You could have\+:
+\begin{DoxyItemize}
+\item Multiple messages with the same id
+\item Messages that point to themselves
+\item Messages that point to an id that does not exist
+\end{DoxyItemize}
+
+To better undersdand the implications of this lets take a look at the possible configuration a list can have, let\textquotesingle{}s consider that elements that point to an invalid id and elements that point to nothing are the same.
+
+We will use the notation x,y where x is the current id and y the next one.
+
+If you have 1 element, you have two options\+: 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{dot_inline_dotgraph_2}}
+\end{DoxyImageNoCaption}
+
+
+If you have 2 elements, you have 9 options\+:
+
+
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{dot_inline_dotgraph_3}}
+\end{DoxyImageNoCaption}
+
+
+With 3 more if you take cases 1, 2 and 3 and have them have the same ids.
+
+This already show many problematic scenarios such as detached lists and cyclic references. How should we order them?\hypertarget{Organizing_autotoc_md8}{}\doxysection{\texorpdfstring{Organizing algorithm}{Organizing algorithm}}\label{Organizing_autotoc_md8}
+To try and solve this a couple of choices were made.
+
+1) All termination nodes, pointing to -\/1, will be put at the front of the list.
+
+2) All nodes that point to invalid ids, will be after the termination nodes, as they are in a sense, also termination points.
+
+3) The rest of the nodes will follow, maintaning when possible (cyclic dependencies) the inverse order of direction.
+
+Let\textquotesingle{}s look at one example to understand it better\+:\hypertarget{Organizing_autotoc_md9}{}\doxysubsection{\texorpdfstring{Example}{Example}}\label{Organizing_autotoc_md9}
+
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{dot_inline_dotgraph_4}}
+\end{DoxyImageNoCaption}
+
+
+Consider that the notation {\ttfamily b,(c,d,d)} represents three messages with id {\ttfamily b}, one pointing to {\ttfamily c}, another to {\ttfamily d}, and a third one pointing to {\ttfamily d} again. The line with {\ttfamily m} represents a message pointing to an index {\ttfamily m} which does not exist.
+
+Following the rules we proposed the order of output would be something similar to\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(e,-\/1),\ (d,m),\ (d,e),\ (c,e),\ (b,c),\ (b,d),\ (b,\ d),\ (a,b)}
+
+\end{DoxyCode}
+
+
+To make that happen the following algorithm is followed\+:
+
+1) We create 3 lists, one for general elements, one for termination elements and one for invalid id elements (ones that point to invalid ids).
+
+2) Starting with any element we create a temporary chain list with the same 3 types of lists.
+
+3) Add all elements with that id to the appropriate list, i.\+e., if it points to a valid element, to the general list, if it points to a termination, to the termination and if it points to an invalid element, to the invalid element list.
+
+4) Mark this id as visited and follow the valid links that are not marked as visited.
+
+5) Repeat step 3 until you have added all elements to the temporary chain list
+
+6) Add the list to general chain and then repeat from step 2 until you have no elements that are not marked as visited.
+
+Seeing it in action\+:
+
+We start with with "{}a random"{} id, let\textquotesingle{}s say {\ttfamily b}. Id {\ttfamily b}, has 3 elements, they all point to valid ids, so they are all added one after each other to the temporary {\ttfamily b} general list.
+
+The elements in id {\ttfamily b} points to two (actually 3, but one of them is repeated) ids. {\ttfamily C} and {\ttfamily d}.
+
+So let\textquotesingle{}s mark {\ttfamily b} as visited and go to {\ttfamily c}.
+
+
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{dot_inline_dotgraph_5}}
+\end{DoxyImageNoCaption}
+
+
+{\ttfamily C} only has one element, and it points to a valid element. So it goes in the temporary {\ttfamily c} general list. Let\textquotesingle{}s mark id {\ttfamily c} as valid and go to id {\ttfamily e}.
+
+
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{dot_inline_dotgraph_6}}
+\end{DoxyImageNoCaption}
+
+
+{\ttfamily e} also only has one element, but it points to the termination id. So it goes into the temporary {\ttfamily e} termination list.
+
+
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{dot_inline_dotgraph_7}}
+\end{DoxyImageNoCaption}
+
+
+Since, {\ttfamily e} has no next id, we now merge all temporary elements from {\ttfamily e} to the temporary lists from {\ttfamily c}. So now c has two lists\+: a general list and a termination list.
+
+
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{dot_inline_dotgraph_8}}
+\end{DoxyImageNoCaption}
+
+
+Now we merge the lists from {\ttfamily c} into the list from {\ttfamily b}. For general list, we add the descendent merging list into the original ending of the {\ttfamily b} general list. This ensures that descendent order is guaranteed.
+
+For termination lists and invalid lists, the order does not matter.
+
+
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{dot_inline_dotgraph_9}}
+\end{DoxyImageNoCaption}
+
+
+Now we go to the next descendent from {\ttfamily b}, which is {\ttfamily d}. {\ttfamily d} has two elements. One on the general list, the other in the invalid list.
+
+
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{dot_inline_dotgraph_10}}
+\end{DoxyImageNoCaption}
+
+
+Merging the lists from {\ttfamily d} into {\ttfamily b} yields the result below. Notice how {\ttfamily (d,e)} went before {\ttfamily (c,e)}. Like said before, new chain are added at the end of the original chain. This guarantess for instance that if {\ttfamily e} instead of pointing to the termination, pointed to another node {\ttfamily k}, that node {\ttfamily k} would be after {\ttfamily d} as it should, as it is an indirect descendent.
+
+
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{dot_inline_dotgraph_11}}
+\end{DoxyImageNoCaption}
+
+
+Now we are done with {\ttfamily b}, so we merge {\ttfamily b}\textquotesingle{}s lists into the global list. And search for a new unvisited node.
+
+
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{dot_inline_dotgraph_12}}
+\end{DoxyImageNoCaption}
+ {\ttfamily a} is the next one, it only has one element, and that goes in the temporary {\ttfamily a} general list. The descendent from {\ttfamily a} is already marked as visit, so we are done. 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{dot_inline_dotgraph_13}}
+\end{DoxyImageNoCaption}
+
+
+{\ttfamily a}\textquotesingle{}s list is merged into the global list. It follows the same logic as merging to another list. The new list needs to be added at the original end of the old list. Since the original global list, that is the same as adding the new chain to the beginning.
+
+
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{dot_inline_dotgraph_14}}
+\end{DoxyImageNoCaption}
+ We then append the invalid list and termination list, in this order, to the general list. And if we invert this order, we will have the desired organization of messages! 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{dot_inline_dotgraph_15}}
+\end{DoxyImageNoCaption}
+
+
+If you want to see more examples, please check the unit tests for the \doxylink{organize__by__id_8cc}{organize\+\_\+by\+\_\+id.\+cc} 

@@ -1,0 +1,79 @@
+\chapter{Parsing}
+\hypertarget{Parsing}{}\label{Parsing}\index{Parsing@{Parsing}}
+Parsing is divided into two parts\+:
+\begin{DoxyItemize}
+\item Structure
+\begin{DoxyItemize}
+\item \doxylink{structure_8h}{structure.\+h}
+\item \doxylink{structure_8cc}{structure.\+cc}
+\end{DoxyItemize}
+\item Semantics
+\begin{DoxyItemize}
+\item \doxylink{semantics_8h}{semantics.\+h}
+\item \doxylink{semantics_8cc}{semantics.\+cc}
+\item \doxylink{ascii__body__parser_8h}{ascii\+\_\+body\+\_\+parser.\+h}
+\item \doxylink{ascii__body__parser_8cc}{ascii\+\_\+body\+\_\+parser.\+cc}
+\item \doxylink{hex16__body__parser_8h}{hex16\+\_\+body\+\_\+parser.\+h}
+\item \doxylink{hex16__body__parser_8cc}{hex16\+\_\+body\+\_\+parser.\+cc}
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{Parsing_autotoc_md10}{}\doxysection{\texorpdfstring{Structure Parsing}{Structure Parsing}}\label{Parsing_autotoc_md10}
+The structure parsing goes over the file and tries to identify the Pipeline Log Messages. Its output is a list of log messages with the 5 fields\+:
+
+
+\begin{DoxyItemize}
+\item Pipeline ID
+\item ID
+\item Encoding
+\item Body
+\item Next ID
+\end{DoxyItemize}
+
+and a list of the errors found during parsing. These fields are just a blob of data at this point and don\textquotesingle{}t represent anything.
+
+The current algorithm used to identify the fields are\+:
+
+1) Skip all whitespace until a non-\/whitespace is found
+
+2) Read all data until a whitespace, this is our pipeline ID.
+
+3) Skip all whitespace
+
+4) Read all data until a whitespace, this is our ID
+
+5) Skip all whitespace
+
+6) Read all data until a whitespace, this is our encoding
+
+7) Read all whitespace
+
+8) If we found an open bracket, continue, otherwise throw a parsing error
+
+9) Read all characters until you find a close bracket, followed by whitespace, followed by a continuous string without close bracket, followed by a new line. If the file ends before that, throw a parsing error. Otherwise, the body is the content between the open brackets and the last close bracket. And the next id is the continuous string after that close bracket.
+
+Advantages of this algorithm\+:
+\begin{DoxyItemize}
+\item If there is no ill form related to the body, it allows open brackets "{}\mbox{[}"{} and close bracket "{}\mbox{]}"{} to be freely used inside the body and can parse correctly
+\end{DoxyItemize}
+
+Disadvantages of this algorithm
+\begin{DoxyItemize}
+\item If there is an ill form, the next valid message will be added to the body of this message, or if there are other brackets in that body it can lead to even more messages being dropped.
+\item Closing brackets can not be used as ids, as they will cause problem in the parsing.
+\end{DoxyItemize}
+
+Ideally the ascii body should have character scaping for the brackets, this way this could be avoid.
+
+Another options that was considered was to use regexes, but they are a bit slower and this parser does not take much too write. (It also allow me to show a bit more for this coding exercise)\hypertarget{Parsing_autotoc_md11}{}\doxysection{\texorpdfstring{Semantics parsing}{Semantics parsing}}\label{Parsing_autotoc_md11}
+For the semantics parsing there is not much to do, all the fields except the body and the encoding don\textquotesingle{}t really have any semantic meaning and any value is allowed there.
+
+In the future in case there was some id form we would like to reject it could be added here.
+
+For extensibility the semantics parser allows body parsers to be registered under different encoding codes. These encoding codes are any continous string, but for this application we only use 0 or 1.
+
+The semantics parser then checks if the encoding code is one of the registereds one, and then call the appropriated body parser. If no encoding is found, a parsing error is added to the list of errors and that message is ignored.
+
+The body parsers can also throw parsing errors, which are added to the list of errors. If a body parser throws an error, that message will be ignored and not processed.
+
+The hex parser cleans up any whitespace inside the body, checks the number of characters is even, and that the characters are valid hex numbers. It then transforms then into ascii characters.
+
+The ascii parser currently does nothing. But it could in theory clean up escaped characters. 

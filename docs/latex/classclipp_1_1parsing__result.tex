@@ -1,0 +1,75 @@
+\doxysection{clipp\+::parsing\+\_\+result Class Reference}
+\hypertarget{classclipp_1_1parsing__result}{}\label{classclipp_1_1parsing__result}\index{clipp::parsing\_result@{clipp::parsing\_result}}
+
+
+contains argument -\/\texorpdfstring{$>$}{>} parameter mappings and missing parameters  
+
+
+
+
+{\ttfamily \#include $<$clipp.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classclipp_1_1parsing__result_ac8ae7a2051e07f6f0dd635b3e585a5be}\label{classclipp_1_1parsing__result_ac8ae7a2051e07f6f0dd635b3e585a5be} 
+using {\bfseries arg\+\_\+mapping} = \mbox{\hyperlink{classclipp_1_1parser_1_1arg__mapping}{parser\+::arg\+\_\+mapping}}
+\item 
+\Hypertarget{classclipp_1_1parsing__result_ab92dce65a7c7000c7c71c7aa57d02ebe}\label{classclipp_1_1parsing__result_ab92dce65a7c7000c7c71c7aa57d02ebe} 
+using {\bfseries arg\+\_\+mappings} = parser\+::arg\+\_\+mappings
+\item 
+\Hypertarget{classclipp_1_1parsing__result_a963a15d659ca56b8c9c6bb8be1d44870}\label{classclipp_1_1parsing__result_a963a15d659ca56b8c9c6bb8be1d44870} 
+using {\bfseries missing\+\_\+event} = \mbox{\hyperlink{classclipp_1_1parser_1_1missing__event}{parser\+::missing\+\_\+event}}
+\item 
+\Hypertarget{classclipp_1_1parsing__result_a4385f834126ab0c4489c6713627cefb3}\label{classclipp_1_1parsing__result_a4385f834126ab0c4489c6713627cefb3} 
+using {\bfseries missing\+\_\+events} = parser\+::missing\+\_\+events
+\item 
+\Hypertarget{classclipp_1_1parsing__result_a2d06cef8de15e44e67574543995fc21a}\label{classclipp_1_1parsing__result_a2d06cef8de15e44e67574543995fc21a} 
+using {\bfseries iterator} = arg\+\_\+mappings\+::const\+\_\+iterator
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classclipp_1_1parsing__result_a3151adf7a9a03783b00d1b81fa71487d}\label{classclipp_1_1parsing__result_a3151adf7a9a03783b00d1b81fa71487d} 
+{\bfseries parsing\+\_\+result} ()=default
+\begin{DoxyCompactList}\small\item\em default\+: empty result \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1parsing__result_a82be894769298514277eeffc392e4a47}\label{classclipp_1_1parsing__result_a82be894769298514277eeffc392e4a47} 
+{\bfseries parsing\+\_\+result} (arg\+\_\+mappings arg2param, missing\+\_\+events misses)
+\item 
+\Hypertarget{classclipp_1_1parsing__result_a222fe6d76fcc7b2ba2c3f0f179c604a0}\label{classclipp_1_1parsing__result_a222fe6d76fcc7b2ba2c3f0f179c604a0} 
+arg\+\_\+mappings\+::size\+\_\+type {\bfseries unmapped\+\_\+args\+\_\+count} () const noexcept
+\begin{DoxyCompactList}\small\item\em returns number of arguments that could not be mapped to a parameter \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1parsing__result_a7d95de4b362137aff3e8c6637bf91453}\label{classclipp_1_1parsing__result_a7d95de4b362137aff3e8c6637bf91453} 
+bool {\bfseries any\+\_\+blocked} () const noexcept
+\begin{DoxyCompactList}\small\item\em returns if any argument could only be matched by an unreachable parameter \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1parsing__result_a12ee8c840e73d8dcf893bd9ef39fc4ae}\label{classclipp_1_1parsing__result_a12ee8c840e73d8dcf893bd9ef39fc4ae} 
+bool {\bfseries any\+\_\+conflict} () const noexcept
+\begin{DoxyCompactList}\small\item\em returns if any argument matched more than one parameter that were mutually exclusive \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1parsing__result_a2b94399c2f4c8022499e5efcef0df087}\label{classclipp_1_1parsing__result_a2b94399c2f4c8022499e5efcef0df087} 
+bool {\bfseries any\+\_\+bad\+\_\+repeat} () const noexcept
+\begin{DoxyCompactList}\small\item\em returns if any parameter matched repeatedly although it was not allowed to \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1parsing__result_a5cb6a230f9116596ae44a1cd05085db1}\label{classclipp_1_1parsing__result_a5cb6a230f9116596ae44a1cd05085db1} 
+bool {\bfseries any\+\_\+error} () const noexcept
+\begin{DoxyCompactList}\small\item\em returns true if any parsing error / violation of the command line interface definition occurred \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1parsing__result_a15f0f06b7186070032e0a5ef9f7ac0da}\label{classclipp_1_1parsing__result_a15f0f06b7186070032e0a5ef9f7ac0da} 
+{\bfseries operator bool} () const noexcept
+\begin{DoxyCompactList}\small\item\em returns true if no parsing error / violation of the command line interface definition occurred \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1parsing__result_a924c59e62b6688f7dbb0fe1f4ccde946}\label{classclipp_1_1parsing__result_a924c59e62b6688f7dbb0fe1f4ccde946} 
+const missing\+\_\+events \& {\bfseries missing} () const noexcept
+\begin{DoxyCompactList}\small\item\em access to range of missing parameter match events \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1parsing__result_a7cd27be71c0f7c51f18eff3124c3eebd}\label{classclipp_1_1parsing__result_a7cd27be71c0f7c51f18eff3124c3eebd} 
+iterator {\bfseries begin} () const noexcept
+\begin{DoxyCompactList}\small\item\em returns non-\/mutating iterator to position of first argument -\/\texorpdfstring{$>$}{>} parameter mapping ~\newline
+ \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1parsing__result_a16eb4858c71f2acb795167ddbcb9b942}\label{classclipp_1_1parsing__result_a16eb4858c71f2acb795167ddbcb9b942} 
+iterator {\bfseries end} () const noexcept
+\begin{DoxyCompactList}\small\item\em returns non-\/mutating iterator to position one past the last argument -\/\texorpdfstring{$>$}{>} parameter mapping ~\newline
+ \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+contains argument -\/\texorpdfstring{$>$}{>} parameter mappings and missing parameters 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/rodri/\+Documents/\+Brion-\/\+Assignment/brion\+\_\+pipelines/components/clipp/include/clipp.\+h\end{DoxyCompactItemize}

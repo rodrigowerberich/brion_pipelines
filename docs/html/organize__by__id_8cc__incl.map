@@ -1,0 +1,29 @@
+<map id="/mnt/c/Users/rodri/Documents/Brion&#45;Assignment/brion_pipelines/components/log_message_organizer/private/organize_by_id.cc" name="/mnt/c/Users/rodri/Documents/Brion&#45;Assignment/brion_pipelines/components/log_message_organizer/private/organize_by_id.cc">
+<area shape="rect" id="Node000001" title="Implementation of the OrganizeById class." alt="" coords="434,5,665,89"/>
+<area shape="rect" id="Node000002" href="$organize__by__id_8h.html" title="This file defines the OrganizeById class, which is responsible for organizing log messages based on t..." alt="" coords="231,137,407,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="463,92,373,134,370,129,460,87"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,313,56,339"/>
+<area shape="poly" id="edge11_Node000001_Node000004" title=" " alt="" coords="434,68,327,95,272,115,220,140,165,177,116,223,77,267,48,304,44,301,73,264,113,219,162,173,217,135,270,110,326,90,433,63"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="411,387,469,412"/>
+<area shape="poly" id="edge14_Node000001_Node000006" title=" " alt="" coords="536,90,519,138,478,271,449,374,444,373,473,270,513,136,531,89"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="528,145,571,170"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="552,90,552,131,547,131,547,90"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="595,145,661,170"/>
+<area shape="poly" id="edge12_Node000001_Node000010" title=" " alt="" coords="582,88,614,132,609,135,577,91"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="685,145,728,170"/>
+<area shape="poly" id="edge13_Node000001_Node000011" title=" " alt="" coords="611,87,680,135,677,139,608,92"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="753,145,850,170"/>
+<area shape="poly" id="edge15_Node000001_Node000012" title=" " alt="" coords="646,87,763,137,761,142,644,92"/>
+<area shape="rect" id="Node000003" href="$pipeline__log__message_8h.html" title="This file defines the PipelineLogMessage class, which represents a log message that belongs to a sing..." alt="" coords="135,225,318,265"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="300,180,259,218,255,214,296,176"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="181,268,70,312,68,307,179,263"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="209,387,285,412"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="219,266,208,300,207,319,209,338,218,357,229,374,225,377,213,360,204,339,201,319,203,299,214,265"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="319,259,370,279,394,293,415,312,433,341,441,373,435,374,428,343,411,315,391,298,368,284,317,264"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="81,313,143,339"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="200,268,142,308,139,303,197,263"/>
+<area shape="rect" id="Node000008" href="$message_8h.html" title="Base Log Message class." alt="" coords="219,313,402,339"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="249,264,290,302,286,306,245,268"/>
+<area shape="poly" id="edge8_Node000008_Node000005" title=" " alt="" coords="302,341,268,378,264,375,298,337"/>
+<area shape="poly" id="edge9_Node000008_Node000006" title=" " alt="" coords="333,336,408,377,405,382,330,341"/>
+</map>

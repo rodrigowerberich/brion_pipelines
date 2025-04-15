@@ -1,0 +1,78 @@
+\doxysection{clipp\+::man\+\_\+page Class Reference}
+\hypertarget{classclipp_1_1man__page}{}\label{classclipp_1_1man__page}\index{clipp::man\_page@{clipp::man\_page}}
+
+
+stores strings for man page sections  
+
+
+
+
+{\ttfamily \#include $<$clipp.\+h$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classclipp_1_1man__page_1_1section}{section}}
+\begin{DoxyCompactList}\small\item\em man page section \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classclipp_1_1man__page_a392efca463ff2560096254619d4c0797}\label{classclipp_1_1man__page_a392efca463ff2560096254619d4c0797} 
+using {\bfseries string} = doc\+\_\+string
+\item 
+\Hypertarget{classclipp_1_1man__page_aced06029d09f58becec10a5c4664ab2c}\label{classclipp_1_1man__page_aced06029d09f58becec10a5c4664ab2c} 
+using {\bfseries value\+\_\+type} = \mbox{\hyperlink{classclipp_1_1man__page_1_1section}{section}}
+\item 
+\Hypertarget{classclipp_1_1man__page_af215f80c8a74a88320d723e526fec259}\label{classclipp_1_1man__page_af215f80c8a74a88320d723e526fec259} 
+using {\bfseries const\+\_\+iterator} = section\+\_\+store\+::const\+\_\+iterator
+\item 
+\Hypertarget{classclipp_1_1man__page_a0c77e30ae58f967f1996ddcc325b905a}\label{classclipp_1_1man__page_a0c77e30ae58f967f1996ddcc325b905a} 
+using {\bfseries size\+\_\+type} = section\+\_\+store\+::size\+\_\+type
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classclipp_1_1man__page_a9ee17b70391cfb40890d8d6732f73758}\label{classclipp_1_1man__page_a9ee17b70391cfb40890d8d6732f73758} 
+\mbox{\hyperlink{classclipp_1_1man__page}{man\+\_\+page}} \& {\bfseries append\+\_\+section} (string title, string content)
+\item 
+\Hypertarget{classclipp_1_1man__page_a87de2943ae9d06bc9fb2516de9914650}\label{classclipp_1_1man__page_a87de2943ae9d06bc9fb2516de9914650} 
+\mbox{\hyperlink{classclipp_1_1man__page}{man\+\_\+page}} \& {\bfseries prepend\+\_\+section} (string title, string content)
+\item 
+\Hypertarget{classclipp_1_1man__page_a8c70bd3ce75eb3010fc47ac918a2ffac}\label{classclipp_1_1man__page_a8c70bd3ce75eb3010fc47ac918a2ffac} 
+const \mbox{\hyperlink{classclipp_1_1man__page_1_1section}{section}} \& {\bfseries operator\mbox{[}$\,$\mbox{]}} (size\+\_\+type index) const noexcept
+\item 
+\Hypertarget{classclipp_1_1man__page_ae9c010e1cab348886671f72bb9710e29}\label{classclipp_1_1man__page_ae9c010e1cab348886671f72bb9710e29} 
+size\+\_\+type {\bfseries size} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1man__page_af3c6b973a9a1ff647ce2a3930f9f3cfc}\label{classclipp_1_1man__page_af3c6b973a9a1ff647ce2a3930f9f3cfc} 
+bool {\bfseries empty} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1man__page_a4958fc377706f10ac447b3762c332d4b}\label{classclipp_1_1man__page_a4958fc377706f10ac447b3762c332d4b} 
+const\+\_\+iterator {\bfseries begin} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1man__page_aacbc1727ba453d2c2738f7701729e054}\label{classclipp_1_1man__page_aacbc1727ba453d2c2738f7701729e054} 
+const\+\_\+iterator {\bfseries end} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1man__page_ae9909a30d443620cb15c99fb2ff85e83}\label{classclipp_1_1man__page_ae9909a30d443620cb15c99fb2ff85e83} 
+\mbox{\hyperlink{classclipp_1_1man__page}{man\+\_\+page}} \& {\bfseries program\+\_\+name} (const string \&n)
+\item 
+\Hypertarget{classclipp_1_1man__page_ad09408713f1eef0f3472047daaaab79f}\label{classclipp_1_1man__page_ad09408713f1eef0f3472047daaaab79f} 
+\mbox{\hyperlink{classclipp_1_1man__page}{man\+\_\+page}} \& {\bfseries program\+\_\+name} (string \&\&n)
+\item 
+\Hypertarget{classclipp_1_1man__page_a93174ed9bb68cc823ad8caba9f21686f}\label{classclipp_1_1man__page_a93174ed9bb68cc823ad8caba9f21686f} 
+const string \& {\bfseries program\+\_\+name} () const noexcept
+\item 
+\Hypertarget{classclipp_1_1man__page_acaac4336bd4b6ea68d6049bc9ef0efde}\label{classclipp_1_1man__page_acaac4336bd4b6ea68d6049bc9ef0efde} 
+\mbox{\hyperlink{classclipp_1_1man__page}{man\+\_\+page}} \& {\bfseries section\+\_\+row\+\_\+spacing} (int rows)
+\item 
+\Hypertarget{classclipp_1_1man__page_ac4a4a2a6f05ab3cf9116ba2f65244b7b}\label{classclipp_1_1man__page_ac4a4a2a6f05ab3cf9116ba2f65244b7b} 
+int {\bfseries section\+\_\+row\+\_\+spacing} () const noexcept
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+stores strings for man page sections 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/rodri/\+Documents/\+Brion-\/\+Assignment/brion\+\_\+pipelines/components/clipp/include/clipp.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,178 @@
+\doxysection{pipelines\+::log\+\_\+message\+\_\+parser\+::structure\+::Log\+Message Class Reference}
+\hypertarget{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage}{}\label{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage}\index{pipelines::log\_message\_parser::structure::LogMessage@{pipelines::log\_message\_parser::structure::LogMessage}}
+
+
+Represents a structured log message.  
+
+
+
+
+{\ttfamily \#include $<$structure.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_a8783fe7ce20502bb3b8f57411d768bd4}{Log\+Message}} (const std\+::string \&\mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_acd0604454f43ca5570537d835120b292}{pipeline\+\_\+id}}, const std\+::string \&\mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_a8cf01b72dc5fc988b3d7bc53c6fdb752}{id}}, const std\+::string \&\mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_a676c9220306ddee98df3e00b5db7f103}{encoding}}, const std\+::string \&\mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_a9f7b7ade3087c668b7e86961fc74bfc2}{body}}, const std\+::string \&\mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_ad84c2db2b0b1dbfc3d0e0a0660c03f20}{next\+\_\+id}})
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage}{Log\+Message} with the given parameters. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_acd0604454f43ca5570537d835120b292}{pipeline\+\_\+id}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the pipeline ID. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_a8cf01b72dc5fc988b3d7bc53c6fdb752}{id}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the log message ID. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_a9f7b7ade3087c668b7e86961fc74bfc2}{body}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the body content of the log message. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_ad84c2db2b0b1dbfc3d0e0a0660c03f20}{next\+\_\+id}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the ID of the next log message in the sequence. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_a676c9220306ddee98df3e00b5db7f103}{encoding}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the encoding type of the log message body. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_afbea165e67a0619b587e6626c0257309}{operator==}} (const \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage}{Log\+Message}} \&other) const
+\begin{DoxyCompactList}\small\item\em Compares two \doxylink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage}{Log\+Message} objects for equality. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_ad10bb83a2aa8116ec4bc04c66c74ff3f}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage}{Log\+Message}} \&message)
+\begin{DoxyCompactList}\small\item\em Outputs the \doxylink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage}{Log\+Message} details to a stream. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a structured log message. 
+
+This class encapsulates the details of a log message, including its pipeline ID, message ID, encoding type, body content, and the ID of the next message in the sequence. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_a8783fe7ce20502bb3b8f57411d768bd4}\label{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_a8783fe7ce20502bb3b8f57411d768bd4} 
+\index{pipelines::log\_message\_parser::structure::LogMessage@{pipelines::log\_message\_parser::structure::LogMessage}!LogMessage@{LogMessage}}
+\index{LogMessage@{LogMessage}!pipelines::log\_message\_parser::structure::LogMessage@{pipelines::log\_message\_parser::structure::LogMessage}}
+\doxysubsubsection{\texorpdfstring{LogMessage()}{LogMessage()}}
+{\footnotesize\ttfamily pipelines\+::log\+\_\+message\+\_\+parser\+::structure\+::\+Log\+Message\+::\+Log\+Message (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{pipeline\+\_\+id,  }\item[{const std\+::string \&}]{id,  }\item[{const std\+::string \&}]{encoding,  }\item[{const std\+::string \&}]{body,  }\item[{const std\+::string \&}]{next\+\_\+id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs a \doxylink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage}{Log\+Message} with the given parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pipeline\+\_\+id} & The ID of the pipeline. \\
+\hline
+{\em id} & The ID of the log message. \\
+\hline
+{\em encoding} & The encoding type of the log message body. \\
+\hline
+{\em body} & The body content of the log message. \\
+\hline
+{\em next\+\_\+id} & The ID of the next log message in the sequence. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_a9f7b7ade3087c668b7e86961fc74bfc2}\label{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_a9f7b7ade3087c668b7e86961fc74bfc2} 
+\index{pipelines::log\_message\_parser::structure::LogMessage@{pipelines::log\_message\_parser::structure::LogMessage}!body@{body}}
+\index{body@{body}!pipelines::log\_message\_parser::structure::LogMessage@{pipelines::log\_message\_parser::structure::LogMessage}}
+\doxysubsubsection{\texorpdfstring{body()}{body()}}
+{\footnotesize\ttfamily const std\+::string \& pipelines\+::log\+\_\+message\+\_\+parser\+::structure\+::\+Log\+Message\+::body (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves the body content of the log message. 
+
+\begin{DoxyReturn}{Returns}
+The body content as a string. 
+\end{DoxyReturn}
+\Hypertarget{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_a676c9220306ddee98df3e00b5db7f103}\label{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_a676c9220306ddee98df3e00b5db7f103} 
+\index{pipelines::log\_message\_parser::structure::LogMessage@{pipelines::log\_message\_parser::structure::LogMessage}!encoding@{encoding}}
+\index{encoding@{encoding}!pipelines::log\_message\_parser::structure::LogMessage@{pipelines::log\_message\_parser::structure::LogMessage}}
+\doxysubsubsection{\texorpdfstring{encoding()}{encoding()}}
+{\footnotesize\ttfamily const std\+::string \& pipelines\+::log\+\_\+message\+\_\+parser\+::structure\+::\+Log\+Message\+::encoding (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves the encoding type of the log message body. 
+
+\begin{DoxyReturn}{Returns}
+The encoding type as a string. 
+\end{DoxyReturn}
+\Hypertarget{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_a8cf01b72dc5fc988b3d7bc53c6fdb752}\label{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_a8cf01b72dc5fc988b3d7bc53c6fdb752} 
+\index{pipelines::log\_message\_parser::structure::LogMessage@{pipelines::log\_message\_parser::structure::LogMessage}!id@{id}}
+\index{id@{id}!pipelines::log\_message\_parser::structure::LogMessage@{pipelines::log\_message\_parser::structure::LogMessage}}
+\doxysubsubsection{\texorpdfstring{id()}{id()}}
+{\footnotesize\ttfamily const std\+::string \& pipelines\+::log\+\_\+message\+\_\+parser\+::structure\+::\+Log\+Message\+::id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves the log message ID. 
+
+\begin{DoxyReturn}{Returns}
+The log message ID as a string. 
+\end{DoxyReturn}
+\Hypertarget{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_ad84c2db2b0b1dbfc3d0e0a0660c03f20}\label{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_ad84c2db2b0b1dbfc3d0e0a0660c03f20} 
+\index{pipelines::log\_message\_parser::structure::LogMessage@{pipelines::log\_message\_parser::structure::LogMessage}!next\_id@{next\_id}}
+\index{next\_id@{next\_id}!pipelines::log\_message\_parser::structure::LogMessage@{pipelines::log\_message\_parser::structure::LogMessage}}
+\doxysubsubsection{\texorpdfstring{next\_id()}{next\_id()}}
+{\footnotesize\ttfamily const std\+::string \& pipelines\+::log\+\_\+message\+\_\+parser\+::structure\+::\+Log\+Message\+::next\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves the ID of the next log message in the sequence. 
+
+\begin{DoxyReturn}{Returns}
+The next log message ID as a string. 
+\end{DoxyReturn}
+\Hypertarget{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_afbea165e67a0619b587e6626c0257309}\label{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_afbea165e67a0619b587e6626c0257309} 
+\index{pipelines::log\_message\_parser::structure::LogMessage@{pipelines::log\_message\_parser::structure::LogMessage}!operator==@{operator==}}
+\index{operator==@{operator==}!pipelines::log\_message\_parser::structure::LogMessage@{pipelines::log\_message\_parser::structure::LogMessage}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool pipelines\+::log\+\_\+message\+\_\+parser\+::structure\+::\+Log\+Message\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage}{Log\+Message}} \&}]{other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Compares two \doxylink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage}{Log\+Message} objects for equality. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The other \doxylink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage}{Log\+Message} object to compare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the two \doxylink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage}{Log\+Message} objects are equal, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_acd0604454f43ca5570537d835120b292}\label{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_acd0604454f43ca5570537d835120b292} 
+\index{pipelines::log\_message\_parser::structure::LogMessage@{pipelines::log\_message\_parser::structure::LogMessage}!pipeline\_id@{pipeline\_id}}
+\index{pipeline\_id@{pipeline\_id}!pipelines::log\_message\_parser::structure::LogMessage@{pipelines::log\_message\_parser::structure::LogMessage}}
+\doxysubsubsection{\texorpdfstring{pipeline\_id()}{pipeline\_id()}}
+{\footnotesize\ttfamily const std\+::string \& pipelines\+::log\+\_\+message\+\_\+parser\+::structure\+::\+Log\+Message\+::pipeline\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves the pipeline ID. 
+
+\begin{DoxyReturn}{Returns}
+The pipeline ID as a string. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_ad10bb83a2aa8116ec4bc04c66c74ff3f}\label{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_ad10bb83a2aa8116ec4bc04c66c74ff3f} 
+\index{pipelines::log\_message\_parser::structure::LogMessage@{pipelines::log\_message\_parser::structure::LogMessage}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!pipelines::log\_message\_parser::structure::LogMessage@{pipelines::log\_message\_parser::structure::LogMessage}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage}{Log\+Message}} \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Outputs the \doxylink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage}{Log\+Message} details to a stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & The output stream. \\
+\hline
+{\em message} & The \doxylink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage}{Log\+Message} object to output. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The output stream. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/rodri/\+Documents/\+Brion-\/\+Assignment/brion\+\_\+pipelines/components/log\+\_\+message\+\_\+parser/public/log\+\_\+message\+\_\+parser/\mbox{\hyperlink{structure_8h}{structure.\+h}}\end{DoxyCompactItemize}

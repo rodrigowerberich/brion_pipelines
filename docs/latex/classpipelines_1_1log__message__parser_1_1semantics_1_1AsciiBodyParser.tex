@@ -1,0 +1,77 @@
+\doxysection{pipelines\+::log\+\_\+message\+\_\+parser\+::semantics\+::Ascii\+Body\+Parser Class Reference}
+\hypertarget{classpipelines_1_1log__message__parser_1_1semantics_1_1AsciiBodyParser}{}\label{classpipelines_1_1log__message__parser_1_1semantics_1_1AsciiBodyParser}\index{pipelines::log\_message\_parser::semantics::AsciiBodyParser@{pipelines::log\_message\_parser::semantics::AsciiBodyParser}}
+
+
+The \doxylink{classpipelines_1_1log__message__parser_1_1semantics_1_1AsciiBodyParser}{Ascii\+Body\+Parser} class is responsible for parsing ASCII-\/encoded log message bodies.  
+
+
+
+
+{\ttfamily \#include $<$ascii\+\_\+body\+\_\+parser.\+h$>$}
+
+
+
+Inheritance diagram for pipelines\+::log\+\_\+message\+\_\+parser\+::semantics\+::Ascii\+Body\+Parser\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{classpipelines_1_1log__message__parser_1_1semantics_1_1AsciiBodyParser__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for pipelines\+::log\+\_\+message\+\_\+parser\+::semantics\+::Ascii\+Body\+Parser\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{classpipelines_1_1log__message__parser_1_1semantics_1_1AsciiBodyParser__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1semantics_1_1AsciiBodyParser_a70a67377458e6f3135184c7d44d73c84}{Parse}} (const std\+::string \&body) const override
+\begin{DoxyCompactList}\small\item\em Parses the given ASCII-\/encoded body. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1semantics_1_1BodyParser}{pipelines\+::log\+\_\+message\+\_\+parser\+::semantics\+::\+Body\+Parser}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Body\+Parser} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for the \doxylink{classpipelines_1_1log__message__parser_1_1semantics_1_1BodyParser}{Body\+Parser} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \doxylink{classpipelines_1_1log__message__parser_1_1semantics_1_1AsciiBodyParser}{Ascii\+Body\+Parser} class is responsible for parsing ASCII-\/encoded log message bodies. 
+
+This class implements the \doxylink{classpipelines_1_1log__message__parser_1_1semantics_1_1BodyParser}{Body\+Parser} interface and provides a method to parse the body of a log message encoded in ASCII format. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classpipelines_1_1log__message__parser_1_1semantics_1_1AsciiBodyParser_a70a67377458e6f3135184c7d44d73c84}\label{classpipelines_1_1log__message__parser_1_1semantics_1_1AsciiBodyParser_a70a67377458e6f3135184c7d44d73c84} 
+\index{pipelines::log\_message\_parser::semantics::AsciiBodyParser@{pipelines::log\_message\_parser::semantics::AsciiBodyParser}!Parse@{Parse}}
+\index{Parse@{Parse}!pipelines::log\_message\_parser::semantics::AsciiBodyParser@{pipelines::log\_message\_parser::semantics::AsciiBodyParser}}
+\doxysubsubsection{\texorpdfstring{Parse()}{Parse()}}
+{\footnotesize\ttfamily std\+::string pipelines\+::log\+\_\+message\+\_\+parser\+::semantics\+::\+Ascii\+Body\+Parser\+::\+Parse (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{body }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Parses the given ASCII-\/encoded body. 
+
+The current version does nothing, as the body is already in ASCII
+
+
+\begin{DoxyParams}{Parameters}
+{\em body} & The ASCII-\/encoded body to parse. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The parsed body as a string. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1semantics_1_1BodyParser_a3d57809e905d654f91c120dcd509724b}{pipelines\+::log\+\_\+message\+\_\+parser\+::semantics\+::\+Body\+Parser}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/rodri/\+Documents/\+Brion-\/\+Assignment/brion\+\_\+pipelines/components/log\+\_\+message\+\_\+parser/public/log\+\_\+message\+\_\+parser/\mbox{\hyperlink{ascii__body__parser_8h}{ascii\+\_\+body\+\_\+parser.\+h}}\item 
+/mnt/c/\+Users/rodri/\+Documents/\+Brion-\/\+Assignment/brion\+\_\+pipelines/components/log\+\_\+message\+\_\+parser/private/\mbox{\hyperlink{ascii__body__parser_8cc}{ascii\+\_\+body\+\_\+parser.\+cc}}\end{DoxyCompactItemize}

@@ -1,0 +1,82 @@
+\doxysection{pipelines\+::log\+\_\+message\+\_\+parser\+::semantics\+::Parser Class Reference}
+\hypertarget{classpipelines_1_1log__message__parser_1_1semantics_1_1Parser}{}\label{classpipelines_1_1log__message__parser_1_1semantics_1_1Parser}\index{pipelines::log\_message\_parser::semantics::Parser@{pipelines::log\_message\_parser::semantics::Parser}}
+
+
+Main parser class for the semantics of log messages.  
+
+
+
+
+{\ttfamily \#include $<$semantics.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1semantics_1_1Parser_ada8afac4805a37e138a1e18ddafeb49e}{Parser}} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor for the \doxylink{classpipelines_1_1log__message__parser_1_1semantics_1_1Parser}{Parser} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1semantics_1_1Parser_ab3c701fcee08d34d4e951e195a224c15}{Register\+Body\+Parser}} (const std\+::string \&encoding, Body\+Parser\+Ptr body\+\_\+parser)
+\begin{DoxyCompactList}\small\item\em Registers a body parser for a specific encoding. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1semantics_1_1ParseResult}{Parse\+Result}} \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1semantics_1_1Parser_a3c1f2b511109b2c8f236de4a4ed01e6d}{Parse}} (const \mbox{\hyperlink{structure_8h_aa7de7f773c834f34825d7704ac00b07f}{structure\+::\+Log\+Messages}} \&structure\+\_\+log\+\_\+messages)
+\begin{DoxyCompactList}\small\item\em Parses the structured log messages. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Main parser class for the semantics of log messages. 
+
+This class manages the parsing of log messages using registered body parsers for specific encodings. It processes a collection of structured log messages and produces a \doxylink{classpipelines_1_1log__message__parser_1_1semantics_1_1ParseResult}{Parse\+Result} containing the parsed messages and any errors encountered. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classpipelines_1_1log__message__parser_1_1semantics_1_1Parser_ada8afac4805a37e138a1e18ddafeb49e}\label{classpipelines_1_1log__message__parser_1_1semantics_1_1Parser_ada8afac4805a37e138a1e18ddafeb49e} 
+\index{pipelines::log\_message\_parser::semantics::Parser@{pipelines::log\_message\_parser::semantics::Parser}!Parser@{Parser}}
+\index{Parser@{Parser}!pipelines::log\_message\_parser::semantics::Parser@{pipelines::log\_message\_parser::semantics::Parser}}
+\doxysubsubsection{\texorpdfstring{Parser()}{Parser()}}
+{\footnotesize\ttfamily pipelines\+::log\+\_\+message\+\_\+parser\+::semantics\+::\+Parser\+::\+Parser (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Default constructor for the \doxylink{classpipelines_1_1log__message__parser_1_1semantics_1_1Parser}{Parser} class. 
+
+Map of body parsers. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classpipelines_1_1log__message__parser_1_1semantics_1_1Parser_a3c1f2b511109b2c8f236de4a4ed01e6d}\label{classpipelines_1_1log__message__parser_1_1semantics_1_1Parser_a3c1f2b511109b2c8f236de4a4ed01e6d} 
+\index{pipelines::log\_message\_parser::semantics::Parser@{pipelines::log\_message\_parser::semantics::Parser}!Parse@{Parse}}
+\index{Parse@{Parse}!pipelines::log\_message\_parser::semantics::Parser@{pipelines::log\_message\_parser::semantics::Parser}}
+\doxysubsubsection{\texorpdfstring{Parse()}{Parse()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1semantics_1_1ParseResult}{Parse\+Result}} pipelines\+::log\+\_\+message\+\_\+parser\+::semantics\+::\+Parser\+::\+Parse (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structure_8h_aa7de7f773c834f34825d7704ac00b07f}{structure\+::\+Log\+Messages}} \&}]{structure\+\_\+log\+\_\+messages }\end{DoxyParamCaption})}
+
+
+
+Parses the structured log messages. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em structure\+\_\+log\+\_\+messages} & The structured log messages to parse. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \doxylink{classpipelines_1_1log__message__parser_1_1semantics_1_1ParseResult}{Parse\+Result} containing the parsed messages and errors. 
+\end{DoxyReturn}
+\Hypertarget{classpipelines_1_1log__message__parser_1_1semantics_1_1Parser_ab3c701fcee08d34d4e951e195a224c15}\label{classpipelines_1_1log__message__parser_1_1semantics_1_1Parser_ab3c701fcee08d34d4e951e195a224c15} 
+\index{pipelines::log\_message\_parser::semantics::Parser@{pipelines::log\_message\_parser::semantics::Parser}!RegisterBodyParser@{RegisterBodyParser}}
+\index{RegisterBodyParser@{RegisterBodyParser}!pipelines::log\_message\_parser::semantics::Parser@{pipelines::log\_message\_parser::semantics::Parser}}
+\doxysubsubsection{\texorpdfstring{RegisterBodyParser()}{RegisterBodyParser()}}
+{\footnotesize\ttfamily void pipelines\+::log\+\_\+message\+\_\+parser\+::semantics\+::\+Parser\+::\+Register\+Body\+Parser (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{encoding,  }\item[{Body\+Parser\+Ptr}]{body\+\_\+parser }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Registers a body parser for a specific encoding. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em encoding} & The encoding type can be any string, for future use. Currently only "{}0"{} (ascii) and "{}1"{}(hex16) are used. \\
+\hline
+{\em body\+\_\+parser} & A unique pointer to the body parser. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/rodri/\+Documents/\+Brion-\/\+Assignment/brion\+\_\+pipelines/components/log\+\_\+message\+\_\+parser/public/log\+\_\+message\+\_\+parser/\mbox{\hyperlink{semantics_8h}{semantics.\+h}}\item 
+/mnt/c/\+Users/rodri/\+Documents/\+Brion-\/\+Assignment/brion\+\_\+pipelines/components/log\+\_\+message\+\_\+parser/private/\mbox{\hyperlink{semantics_8cc}{semantics.\+cc}}\end{DoxyCompactItemize}

@@ -1,0 +1,21 @@
+\chapter{App}
+\hypertarget{app}{}\label{app}\index{App@{App}}
+\hypertarget{app_autotoc_md0}{}\doxysection{\texorpdfstring{Application logic}{Application logic}}\label{app_autotoc_md0}
+The execution parses the command line arguments and provides them to application runner.
+
+The runner is enveloped with a bare bones error handling mechanism, just to differentiate between known application errors(\+Application\+Runtime\+Error), unexpected standard error, or any other abnormal behavior and provide a more graceful termination, returning 1.
+
+The following is the happy flow of the application\+: 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{dot_inline_dotgraph_1}}
+\end{DoxyImageNoCaption}
+\hypertarget{app_autotoc_md1}{}\doxysection{\texorpdfstring{Program options}{Program options}}\label{app_autotoc_md1}
+\hypertarget{app_autotoc_md2}{}\doxysubsection{\texorpdfstring{Verbosity}{Verbosity}}\label{app_autotoc_md2}
+By default messages that are ill-\/formed are silently ignored. If run in the verbose mode (-\/v or --verbose), the identified errors will be print out.\hypertarget{app_autotoc_md3}{}\doxysubsection{\texorpdfstring{Strict mode}{Strict mode}}\label{app_autotoc_md3}
+With the strict mode (-\/s or --strict), any ill formed message will cause the program to stop.\hypertarget{app_autotoc_md4}{}\doxysubsection{\texorpdfstring{Save output to file}{Save output to file}}\label{app_autotoc_md4}
+By default the output is writen to the standard output. That can be changed with the -\/o or --output option, which will instead save the result on the give file.\hypertarget{app_autotoc_md5}{}\doxysection{\texorpdfstring{Parsing and organizing}{Parsing and organizing}}\label{app_autotoc_md5}
+For details on parsing and organizing the messages check
+\begin{DoxyItemize}
+\item \doxysectlink{Parsing}{Parsing}{0}
+\item \doxysectlink{Organizing}{Organizing}{0} 
+\end{DoxyItemize}

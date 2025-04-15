@@ -1,0 +1,46 @@
+\doxysection{clipp\+::subrange Class Reference}
+\hypertarget{classclipp_1_1subrange}{}\label{classclipp_1_1subrange}\index{clipp::subrange@{clipp::subrange}}
+
+
+(start,size) index range  
+
+
+
+
+{\ttfamily \#include $<$clipp.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classclipp_1_1subrange_ad7916ee0f3793140ebecbe91fb05e347}\label{classclipp_1_1subrange_ad7916ee0f3793140ebecbe91fb05e347} 
+using {\bfseries size\+\_\+type} = arg\+\_\+string\+::size\+\_\+type
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classclipp_1_1subrange_a1fe15008e440070b2f890ce7f60be95e}\label{classclipp_1_1subrange_a1fe15008e440070b2f890ce7f60be95e} 
+constexpr {\bfseries subrange} () noexcept
+\begin{DoxyCompactList}\small\item\em default\+: no match \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1subrange_adf7df38d58797f1501adc8a235e1655f}\label{classclipp_1_1subrange_adf7df38d58797f1501adc8a235e1655f} 
+constexpr {\bfseries subrange} (size\+\_\+type pos, size\+\_\+type len) noexcept
+\begin{DoxyCompactList}\small\item\em match length \& position within subject string \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1subrange_ae2922514e83450c5e5a403f49cd20346}\label{classclipp_1_1subrange_ae2922514e83450c5e5a403f49cd20346} 
+constexpr size\+\_\+type {\bfseries at} () const noexcept
+\begin{DoxyCompactList}\small\item\em position of the match within the subject string \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1subrange_ac1ac924221a8bebb59eedb7e0e20c325}\label{classclipp_1_1subrange_ac1ac924221a8bebb59eedb7e0e20c325} 
+constexpr size\+\_\+type {\bfseries length} () const noexcept
+\begin{DoxyCompactList}\small\item\em length of the matching subsequence \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1subrange_abbb9a623d01f9754e14cf528a72ccf24}\label{classclipp_1_1subrange_abbb9a623d01f9754e14cf528a72ccf24} 
+constexpr bool {\bfseries prefix} () const noexcept
+\begin{DoxyCompactList}\small\item\em returns true, if query string is a prefix of the subject string \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1subrange_a2ef30357b49479ca63d00a7354750309}\label{classclipp_1_1subrange_a2ef30357b49479ca63d00a7354750309} 
+constexpr {\bfseries operator bool} () const noexcept
+\begin{DoxyCompactList}\small\item\em returns true, if query is a substring of the query string \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+(start,size) index range 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/rodri/\+Documents/\+Brion-\/\+Assignment/brion\+\_\+pipelines/components/clipp/include/clipp.\+h\end{DoxyCompactItemize}

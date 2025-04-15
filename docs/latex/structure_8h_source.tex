@@ -1,0 +1,123 @@
+\doxysection{structure.\+h}
+\hypertarget{structure_8h_source}{}\label{structure_8h_source}\index{/mnt/c/Users/rodri/Documents/Brion-\/Assignment/brion\_pipelines/components/log\_message\_parser/public/log\_message\_parser/structure.h@{/mnt/c/Users/rodri/Documents/Brion-\/Assignment/brion\_pipelines/components/log\_message\_parser/public/log\_message\_parser/structure.h}}
+\mbox{\hyperlink{structure_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifndef\ COMPONENT\_LOG\_MESSAGE\_PARSER\_PUBLIC\_LOG\_MESSAGE\_PARSER\_STRUCTURE\_H\_}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ COMPONENT\_LOG\_MESSAGE\_PARSER\_PUBLIC\_LOG\_MESSAGE\_PARSER\_STRUCTURE\_H\_}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ INCLUDES}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *****************************************************************************/}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <istream>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ TYPE\ DEFINITIONS}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *****************************************************************************/}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{namespace\ }pipelines::log\_message\_parser::structure\ \{}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{using\ }\mbox{\hyperlink{structure_8h_aa7de7f773c834f34825d7704ac00b07f}{LogMessages}}\ =}
+\DoxyCodeLine{00029\ \ \ \ \ std::vector<class\ LogMessage>;\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{using\ }\mbox{\hyperlink{structure_8h_a0bf1660d550b3839916772b9c8663b75}{ParseErrors}}\ =}
+\DoxyCodeLine{00031\ \ \ \ \ std::vector<class\ ParseError>;\ }
+\DoxyCodeLine{00033\ \}\ \ \textcolor{comment}{//\ namespace\ pipelines::log\_message\_parser::structure}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\ *\ CLASSES}}
+\DoxyCodeLine{00037\ \textcolor{comment}{\ *****************************************************************************/}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{namespace\ }pipelines::log\_message\_parser::structure\ \{}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage}{LogMessage}}\ \{}
+\DoxyCodeLine{00049\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00058\ \ \ \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_a8783fe7ce20502bb3b8f57411d768bd4}{LogMessage}}(\textcolor{keyword}{const}\ std::string\&\ \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_acd0604454f43ca5570537d835120b292}{pipeline\_id}},\ \textcolor{keyword}{const}\ std::string\&\ \textcolor{keywordtype}{id},}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_a676c9220306ddee98df3e00b5db7f103}{encoding}},\ \textcolor{keyword}{const}\ std::string\&\ \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_a9f7b7ade3087c668b7e86961fc74bfc2}{body}},}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_ad84c2db2b0b1dbfc3d0e0a0660c03f20}{next\_id}})}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ :\ pipeline\_id\_(\mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_acd0604454f43ca5570537d835120b292}{pipeline\_id}}),}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ id\_(\mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_a8cf01b72dc5fc988b3d7bc53c6fdb752}{id}}),}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ encoding\_(\mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_a676c9220306ddee98df3e00b5db7f103}{encoding}}),}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ body\_(\mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_a9f7b7ade3087c668b7e86961fc74bfc2}{body}}),}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ next\_id\_(\mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_ad84c2db2b0b1dbfc3d0e0a0660c03f20}{next\_id}})\ \{\}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00071\ \ \ \textcolor{keyword}{const}\ std::string\&\ \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_acd0604454f43ca5570537d835120b292}{pipeline\_id}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ pipeline\_id\_;\ \}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00077\ \ \ \textcolor{keyword}{const}\ std::string\&\ \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_a8cf01b72dc5fc988b3d7bc53c6fdb752}{id}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ id\_;\ \}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00083\ \ \ \textcolor{keyword}{const}\ std::string\&\ \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_a9f7b7ade3087c668b7e86961fc74bfc2}{body}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ body\_;\ \}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00089\ \ \ \textcolor{keyword}{const}\ std::string\&\ \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_ad84c2db2b0b1dbfc3d0e0a0660c03f20}{next\_id}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ next\_id\_;\ \}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00095\ \ \ \textcolor{keyword}{const}\ std::string\&\ \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_a676c9220306ddee98df3e00b5db7f103}{encoding}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ encoding\_;\ \}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00102\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_afbea165e67a0619b587e6626c0257309}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage}{LogMessage}}\&\ other)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordflow}{return}\ pipeline\_id\_\ ==\ other.pipeline\_id\_\ \&\&\ id\_\ ==\ other.id\_\ \&\&}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ encoding\_\ ==\ other.encoding\_\ \&\&\ body\_\ ==\ other.body\_\ \&\&}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ next\_id\_\ ==\ other.next\_id\_;}
+\DoxyCodeLine{00106\ \ \ \}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00114\ \ \ \textcolor{keyword}{friend}\ std::ostream\&\ \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage_ad10bb83a2aa8116ec4bc04c66c74ff3f}{operator<<}}(std::ostream\&\ os,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1LogMessage}{LogMessage}}\&\ message)\ \{}
+\DoxyCodeLine{00115\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}(Pipeline\ ID:\ \(\backslash\)"{}"{}}\ <<\ message.pipeline\_id\_\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{},\ "{}}}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}ID:\ \(\backslash\)"{}"{}}\ <<\ message.id\_\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{},\ "{}}}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}Encoding:\ \(\backslash\)"{}"{}}\ <<\ message.encoding\_\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{},\ "{}}}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}Body:\ \(\backslash\)"{}"{}}\ <<\ message.body\_\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{},\ "{}}}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}Next\ ID:\ \(\backslash\)"{}"{}}\ <<\ message.next\_id\_\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{})"{}};}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{00121\ \ \ \}}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00124\ \ \ std::string\ pipeline\_id\_;\ }
+\DoxyCodeLine{00125\ \ \ std::string\ id\_;\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00126\ \ \ std::string\ encoding\_;\ \ \ \ }
+\DoxyCodeLine{00127\ \ \ std::string\ body\_;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00128\ \ \ std::string\ next\_id\_;\ }
+\DoxyCodeLine{00129\ \};}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00138\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1ParseError}{ParseError}}\ \{}
+\DoxyCodeLine{00139\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00145\ \ \ \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1ParseError_a0eeb763dd67e875c8953001566cc2c31}{ParseError}}(\textcolor{keyword}{const}\ std::string\&\ \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1ParseError_a922fb306833d0ceed8a946a56ae6c50d}{message}},\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1ParseError_ada1cd820b5ca56df19d07968552ca72c}{line\_number}})}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ :\ message\_(\mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1ParseError_a922fb306833d0ceed8a946a56ae6c50d}{message}}),\ line\_number\_(\mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1ParseError_ada1cd820b5ca56df19d07968552ca72c}{line\_number}})\ \{\}}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00152\ \ \ \textcolor{keyword}{const}\ std::string\&\ \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1ParseError_a922fb306833d0ceed8a946a56ae6c50d}{message}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ message\_;\ \}}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00158\ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1ParseError_ada1cd820b5ca56df19d07968552ca72c}{line\_number}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ line\_number\_;\ \}}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00161\ \ \ std::string\ message\_;\ }
+\DoxyCodeLine{00162\ \ \ \textcolor{keywordtype}{size\_t}\ line\_number\_;\ \ }
+\DoxyCodeLine{00163\ \};}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00172\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1ParseResult}{ParseResult}}\ \{}
+\DoxyCodeLine{00173\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00179\ \ \ \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1ParseResult_a11b74a0dd5111ff0615128e9365daa5e}{ParseResult}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structure_8h_aa7de7f773c834f34825d7704ac00b07f}{LogMessages}}\&\ \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1ParseResult_adc222a33bc55b480929732cc1ee049d9}{messages}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structure_8h_a0bf1660d550b3839916772b9c8663b75}{ParseErrors}}\&\ \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1ParseResult_a005adea71c48e48f623eed40a2065070}{errors}})}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ :\ messages\_(\mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1ParseResult_adc222a33bc55b480929732cc1ee049d9}{messages}}),\ errors\_(\mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1ParseResult_a005adea71c48e48f623eed40a2065070}{errors}})\ \{\}}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00186\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structure_8h_aa7de7f773c834f34825d7704ac00b07f}{LogMessages}}\&\ \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1ParseResult_adc222a33bc55b480929732cc1ee049d9}{messages}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ messages\_;\ \}}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00192\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structure_8h_a0bf1660d550b3839916772b9c8663b75}{ParseErrors}}\&\ \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1ParseResult_a005adea71c48e48f623eed40a2065070}{errors}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ errors\_;\ \}}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00198\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1ParseResult_a55b4393abca8e9d1a17cb73423ccaf5e}{HasErrors}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ !errors\_.empty();\ \}}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00201\ \ \ \mbox{\hyperlink{structure_8h_aa7de7f773c834f34825d7704ac00b07f}{LogMessages}}\ messages\_;\ }
+\DoxyCodeLine{00202\ \ \ \mbox{\hyperlink{structure_8h_a0bf1660d550b3839916772b9c8663b75}{ParseErrors}}\ errors\_;\ \ \ }
+\DoxyCodeLine{00203\ \};}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00213\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1Parser}{Parser}}\ \{}
+\DoxyCodeLine{00214\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00219\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1Parser_a49ec40d083a7238b03d2d53d5aaa6c7c}{Parser}}(std::istream\&\ input\_stream)\ :\ input\_stream\_(input\_stream)\ \{\}}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00225\ \ \ \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1ParseResult}{ParseResult}}\ \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1structure_1_1Parser_a289d208eae4e6ab46de5eee9f8f232ce}{Parse}}();}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00228\ \ \ std::istream\&\ input\_stream\_;\ }
+\DoxyCodeLine{00229\ \};}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00231\ \}\ \ \textcolor{comment}{//\ namespace\ pipelines::log\_message\_parser::structure}}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ COMPONENT\_LOG\_MESSAGE\_PARSER\_PUBLIC\_LOG\_MESSAGE\_PARSER\_STRUCTURE\_H\_}}
+
+\end{DoxyCode}

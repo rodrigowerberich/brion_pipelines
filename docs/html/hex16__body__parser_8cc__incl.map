@@ -1,0 +1,42 @@
+<map id="/mnt/c/Users/rodri/Documents/Brion&#45;Assignment/brion_pipelines/components/log_message_parser/private/hex16_body_parser.cc" name="/mnt/c/Users/rodri/Documents/Brion&#45;Assignment/brion_pipelines/components/log_message_parser/private/hex16_body_parser.cc">
+<area shape="rect" id="Node000001" title="Implementation of the Hex16BodyParser class." alt="" coords="289,5,509,89"/>
+<area shape="rect" id="Node000002" href="$hex16__body__parser_8h.html" title="Defines the Hex16BodyParser class for parsing hexadecimal 16&#45;bit body messages." alt="" coords="66,137,230,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="305,92,206,134,204,130,303,87"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="314,401,372,427"/>
+<area shape="poly" id="edge23_Node000001_Node000003" title=" " alt="" coords="289,67,220,80,151,97,93,117,71,128,56,139,38,160,27,179,17,217,16,260,14,314,9,335,9,343,13,352,32,366,61,378,139,395,226,405,300,409,300,414,225,410,138,400,59,383,29,370,9,355,3,344,3,335,8,313,11,260,12,216,22,177,34,156,52,135,68,123,91,112,150,92,219,75,288,62"/>
+<area shape="rect" id="Node000004" href="$semantics_8h.html" title="Defines core classes and types for log message parsing semantics." alt="" coords="224,225,380,265"/>
+<area shape="poly" id="edge17_Node000001_Node000004" title=" " alt="" coords="335,91,313,113,296,138,291,156,289,175,294,212,289,212,284,175,285,155,291,136,309,110,331,87"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="306,145,391,170"/>
+<area shape="poly" id="edge18_Node000001_Node000013" title=" " alt="" coords="382,91,362,134,357,131,377,89"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="416,145,486,170"/>
+<area shape="poly" id="edge19_Node000001_Node000014" title=" " alt="" coords="421,89,442,131,437,134,417,91"/>
+<area shape="rect" id="Node000015" title=" " alt="" coords="511,145,572,170"/>
+<area shape="poly" id="edge20_Node000001_Node000015" title=" " alt="" coords="455,87,517,134,514,138,452,92"/>
+<area shape="rect" id="Node000016" title=" " alt="" coords="596,145,663,170"/>
+<area shape="poly" id="edge21_Node000001_Node000016" title=" " alt="" coords="488,87,594,137,592,141,486,92"/>
+<area shape="rect" id="Node000017" title=" " alt="" coords="687,145,762,170"/>
+<area shape="poly" id="edge22_Node000001_Node000017" title=" " alt="" coords="511,80,676,135,683,137,681,142,674,140,509,85"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="123,180,82,214,41,259,27,283,19,306,20,330,32,352,49,365,76,376,149,393,230,403,300,408,300,414,229,409,148,399,75,382,47,370,28,355,15,331,14,306,22,280,37,255,78,210,120,175"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="183,175,258,216,255,221,181,180"/>
+<area shape="poly" id="edge8_Node000004_Node000003" title=" " alt="" coords="309,265,340,387,334,389,304,266"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="42,321,92,346"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="240,268,105,316,102,317,100,312,103,311,238,263"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="116,321,194,346"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="271,268,188,316,185,311,268,263"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="477,401,553,427"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="380,252,438,261,497,274,547,290,566,300,579,312,584,322,586,334,578,356,563,377,544,395,540,391,559,373,574,354,580,333,579,324,574,315,563,305,545,295,496,279,437,266,379,258"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="218,321,305,346"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="295,267,275,309,271,307,290,264"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="633,401,696,427"/>
+<area shape="poly" id="edge9_Node000004_Node000009" title=" " alt="" coords="381,246,433,252,489,264,547,283,599,311,619,328,635,348,657,387,652,390,630,351,615,332,596,316,544,288,488,269,432,257,380,251"/>
+<area shape="rect" id="Node000010" href="$message_8h.html" title="Base Log Message class." alt="" coords="381,321,564,346"/>
+<area shape="poly" id="edge10_Node000004_Node000010" title=" " alt="" coords="340,263,439,312,436,317,338,268"/>
+<area shape="rect" id="Node000011" href="$structure_8h.html" title="Parses a stream of data into a structured log message format." alt="" coords="690,313,846,353"/>
+<area shape="poly" id="edge13_Node000004_Node000011" title=" " alt="" coords="380,258,672,311,678,312,677,317,671,316,380,263"/>
+<area shape="poly" id="edge12_Node000010_Node000003" title=" " alt="" coords="455,348,375,396,373,392,452,344"/>
+<area shape="poly" id="edge11_Node000010_Node000007" title=" " alt="" coords="481,345,505,388,500,391,476,347"/>
+<area shape="poly" id="edge15_Node000011_Node000003" title=" " alt="" coords="691,352,387,407,386,402,690,346"/>
+<area shape="poly" id="edge16_Node000011_Node000009" title=" " alt="" coords="745,356,692,395,689,391,742,351"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="732,401,804,427"/>
+<area shape="poly" id="edge14_Node000011_Node000012" title=" " alt="" coords="771,354,771,387,766,387,766,354"/>
+</map>

@@ -1,0 +1,102 @@
+\doxysection{clipp\+::parameter Class Reference}
+\hypertarget{classclipp_1_1parameter}{}\label{classclipp_1_1parameter}\index{clipp::parameter@{clipp::parameter}}
+
+
+command line parameter that can match one or many arguments.  
+
+
+
+
+{\ttfamily \#include $<$clipp.\+h$>$}
+
+
+
+Inheritance diagram for clipp\+::parameter\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{classclipp_1_1parameter__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for clipp\+::parameter\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{classclipp_1_1parameter__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classclipp_1_1parameter_a4eb22784b84c8aada15a399d03d9dd54}\label{classclipp_1_1parameter_a4eb22784b84c8aada15a399d03d9dd54} 
+{\bfseries parameter} ()
+\begin{DoxyCompactList}\small\item\em makes default parameter, that will match nothing \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1parameter_aed47cc1a3bd227b00f727121be2a258c}\label{classclipp_1_1parameter_aed47cc1a3bd227b00f727121be2a258c} 
+{\footnotesize template$<$class... Strings$>$ }\\{\bfseries parameter} (arg\+\_\+string str, Strings \&\&... strs)
+\begin{DoxyCompactList}\small\item\em makes "{}flag"{} parameter \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1parameter_a3f89b976abaaf27b8ac1fec57d24a163}\label{classclipp_1_1parameter_a3f89b976abaaf27b8ac1fec57d24a163} 
+{\bfseries parameter} (const arg\+\_\+list \&flaglist)
+\begin{DoxyCompactList}\small\item\em makes "{}flag"{} parameter from range of strings \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1parameter_abb06aec021a79f99ef6e9c8147f45a5a}\label{classclipp_1_1parameter_abb06aec021a79f99ef6e9c8147f45a5a} 
+{\bfseries parameter} (\mbox{\hyperlink{namespaceclipp_a0820412d60f4c8a0cc3c3febf02bc84e}{match\+\_\+predicate}} filter)
+\begin{DoxyCompactList}\small\item\em makes "{}value"{} parameter with custom match predicate (= yes/no matcher) \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1parameter_a30d7e6173a06570a16ff39fad0b6be2f}\label{classclipp_1_1parameter_a30d7e6173a06570a16ff39fad0b6be2f} 
+{\bfseries parameter} (match\+\_\+function filter)
+\begin{DoxyCompactList}\small\item\em makes "{}value"{} parameter with custom match function (= partial matcher) \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1parameter_ab80dc22eea997a29536884baed01ec60}\label{classclipp_1_1parameter_ab80dc22eea997a29536884baed01ec60} 
+bool {\bfseries required} () const noexcept
+\begin{DoxyCompactList}\small\item\em returns if a parameter is required \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1parameter_a26d418d0e3a49c2c96d4452e6d9790f7}\label{classclipp_1_1parameter_a26d418d0e3a49c2c96d4452e6d9790f7} 
+\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} \& {\bfseries required} (bool yes) noexcept
+\begin{DoxyCompactList}\small\item\em determines if a parameter is required \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1parameter_a9f8a73be928e3115e9754679f9f1703d}\label{classclipp_1_1parameter_a9f8a73be928e3115e9754679f9f1703d} 
+bool {\bfseries greedy} () const noexcept
+\begin{DoxyCompactList}\small\item\em returns if a parameter should match greedily \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1parameter_aec0c35d7ab34d82e6b74d1cd2e32680d}\label{classclipp_1_1parameter_aec0c35d7ab34d82e6b74d1cd2e32680d} 
+\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} \& {\bfseries greedy} (bool yes) noexcept
+\begin{DoxyCompactList}\small\item\em determines if a parameter should match greedily \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1parameter_a1797e20c969e1af04136adeb67c034f9}\label{classclipp_1_1parameter_a1797e20c969e1af04136adeb67c034f9} 
+const doc\+\_\+string \& {\bfseries label} () const
+\begin{DoxyCompactList}\small\item\em returns parameter label; will be used for documentation, if flags are empty \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1parameter_ac1038098e4ecaa19bb298f1e0b4787e0}\label{classclipp_1_1parameter_ac1038098e4ecaa19bb298f1e0b4787e0} 
+\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} \& {\bfseries label} (const doc\+\_\+string \&lbl)
+\begin{DoxyCompactList}\small\item\em sets parameter label; will be used for documentation, if flags are empty \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1parameter_aea285101f9d968925f41c6feb7d4133d}\label{classclipp_1_1parameter_aea285101f9d968925f41c6feb7d4133d} 
+\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} \& {\bfseries label} (doc\+\_\+string \&\&lbl)
+\begin{DoxyCompactList}\small\item\em sets parameter label; will be used for documentation, if flags are empty \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1parameter_aacdc7c04ba57f4d74faf148b7e4abeb2}\label{classclipp_1_1parameter_aacdc7c04ba57f4d74faf148b7e4abeb2} 
+\mbox{\hyperlink{classclipp_1_1subrange}{subrange}} {\bfseries match} (const arg\+\_\+string \&arg) const
+\begin{DoxyCompactList}\small\item\em returns either longest matching prefix of \textquotesingle{}arg\textquotesingle{} in any of the flags or the result of the custom match operation \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1parameter_aaf67a0e4be07e5cd27c7d3fddc5bb2b0}\label{classclipp_1_1parameter_aaf67a0e4be07e5cd27c7d3fddc5bb2b0} 
+const arg\+\_\+list \& {\bfseries flags} () const noexcept
+\begin{DoxyCompactList}\small\item\em access range of flag strings \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1parameter_a0e0027e56a4a719014acef3c9a820b7a}\label{classclipp_1_1parameter_a0e0027e56a4a719014acef3c9a820b7a} 
+const match\+\_\+function \& {\bfseries matcher} () const noexcept
+\begin{DoxyCompactList}\small\item\em access custom match operation \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classclipp_1_1parameter_a78cc6a6e0da6ddd26e1e6f580a6d0aea}\label{classclipp_1_1parameter_a78cc6a6e0da6ddd26e1e6f580a6d0aea} 
+\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} \& {\bfseries with\+\_\+prefix} (const arg\+\_\+string \&prefix, \mbox{\hyperlink{classclipp_1_1parameter}{parameter}} \&p)
+\begin{DoxyCompactList}\small\item\em prepend prefix to each flag \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1parameter_abb1e0ee345e271621efb29e10e6025a9}\label{classclipp_1_1parameter_abb1e0ee345e271621efb29e10e6025a9} 
+\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} \& {\bfseries with\+\_\+prefixes\+\_\+short\+\_\+long} (const arg\+\_\+string \&shortpfx, const arg\+\_\+string \&longpfx, \mbox{\hyperlink{classclipp_1_1parameter}{parameter}} \&p)
+\begin{DoxyCompactList}\small\item\em prepend prefix to each flag \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1parameter_ae4978a742208bad97a78e9dea1a8ca36}\label{classclipp_1_1parameter_ae4978a742208bad97a78e9dea1a8ca36} 
+\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} \& {\bfseries with\+\_\+suffix} (const arg\+\_\+string \&suffix, \mbox{\hyperlink{classclipp_1_1parameter}{parameter}} \&p)
+\begin{DoxyCompactList}\small\item\em prepend suffix to each flag \end{DoxyCompactList}\item 
+\Hypertarget{classclipp_1_1parameter_a71a5954c5045ca424c73cfdce7fb4167}\label{classclipp_1_1parameter_a71a5954c5045ca424c73cfdce7fb4167} 
+\mbox{\hyperlink{classclipp_1_1parameter}{parameter}} \& {\bfseries with\+\_\+suffixes\+\_\+short\+\_\+long} (const arg\+\_\+string \&shortsfx, const arg\+\_\+string \&longsfx, \mbox{\hyperlink{classclipp_1_1parameter}{parameter}} \&p)
+\begin{DoxyCompactList}\small\item\em prepend suffix to each flag \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+command line parameter that can match one or many arguments. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/rodri/\+Documents/\+Brion-\/\+Assignment/brion\+\_\+pipelines/components/clipp/include/clipp.\+h\end{DoxyCompactItemize}

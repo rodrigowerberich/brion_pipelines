@@ -1,0 +1,7 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$classpipelines_1_1log__message__parser_1_1semantics_1_1BodyParser.html" title="Abstract base class for body parsers." alt="" coords="5,53,232,93"/>
+<area shape="rect" id="Node000001" href="$classpipelines_1_1log__message__parser_1_1semantics_1_1AsciiBodyParser.html" title="The AsciiBodyParser class is responsible for parsing ASCII&#45;encoded log message bodies." alt="" coords="285,5,503,60"/>
+<area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="245,52,285,46,285,51,246,57"/>
+<area shape="rect" id="Node000002" href="$classpipelines_1_1log__message__parser_1_1semantics_1_1Hex16BodyParser.html" title="A parser for hexadecimal 16&#45;bit body messages." alt="" coords="280,84,508,139"/>
+<area shape="poly" id="edge2_Node000000_Node000002" title=" " alt="" coords="246,88,280,93,279,98,245,93"/>
+</map>

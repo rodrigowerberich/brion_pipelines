@@ -1,0 +1,121 @@
+\doxysection{pipelines\+::log\+\_\+message\+\_\+parser\+::lexer\+::Token Class Reference}
+\hypertarget{classpipelines_1_1log__message__parser_1_1lexer_1_1Token}{}\label{classpipelines_1_1log__message__parser_1_1lexer_1_1Token}\index{pipelines::log\_message\_parser::lexer::Token@{pipelines::log\_message\_parser::lexer::Token}}
+
+
+Represents a token in the lexer.  
+
+
+
+
+{\ttfamily \#include $<$lexer.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classpipelines_1_1log__message__parser_1_1lexer_1_1Token_a0c4eb26749d380b96fa49fbeb74596c2}\label{classpipelines_1_1log__message__parser_1_1lexer_1_1Token_a0c4eb26749d380b96fa49fbeb74596c2} 
+enum class \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1lexer_1_1Token_a0c4eb26749d380b96fa49fbeb74596c2}{Type}} \{ \newline
+{\bfseries k\+Continous\+String}
+, {\bfseries k\+Whitespace}
+, {\bfseries k\+End\+Of\+Line}
+, {\bfseries k\+Open\+Bracket}
+, \newline
+{\bfseries k\+Close\+Bracket}
+ \}
+\begin{DoxyCompactList}\small\item\em Represents the type of token. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1lexer_1_1Token_af3dfa4af8d69fdaf5bcca3dee0fa3c63}{Token}} (\mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1lexer_1_1Token_a0c4eb26749d380b96fa49fbeb74596c2}{Type}} \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1lexer_1_1Token_a485506021bd353baa18cb10794ec1152}{type}}, const std\+::string \&value)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{classpipelines_1_1log__message__parser_1_1lexer_1_1Token}{Token} with the given type and value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1lexer_1_1Token_a0c4eb26749d380b96fa49fbeb74596c2}{Type}} \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1lexer_1_1Token_a485506021bd353baa18cb10794ec1152}{type}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the type of the token. \end{DoxyCompactList}\item 
+\Hypertarget{classpipelines_1_1log__message__parser_1_1lexer_1_1Token_a8978c907b9cda07ecb6f257a2dffca70}\label{classpipelines_1_1log__message__parser_1_1lexer_1_1Token_a8978c907b9cda07ecb6f257a2dffca70} 
+const std\+::string \& {\bfseries value} () const
+\item 
+std\+::string \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1lexer_1_1Token_a438d4009ecea92f7ea26d3b397f07f5b}{Type\+As\+String}} () const
+\begin{DoxyCompactList}\small\item\em Converts the token type to a string representation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1lexer_1_1Token_abe142e9574481fef3f1f07e5f4cb6338}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1lexer_1_1Token}{Token}} \&token)
+\begin{DoxyCompactList}\small\item\em Checks if the token is of the specified type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a token in the lexer. 
+
+This class encapsulates the type and value of a token, which can be used for parsing structured log messages. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classpipelines_1_1log__message__parser_1_1lexer_1_1Token_af3dfa4af8d69fdaf5bcca3dee0fa3c63}\label{classpipelines_1_1log__message__parser_1_1lexer_1_1Token_af3dfa4af8d69fdaf5bcca3dee0fa3c63} 
+\index{pipelines::log\_message\_parser::lexer::Token@{pipelines::log\_message\_parser::lexer::Token}!Token@{Token}}
+\index{Token@{Token}!pipelines::log\_message\_parser::lexer::Token@{pipelines::log\_message\_parser::lexer::Token}}
+\doxysubsubsection{\texorpdfstring{Token()}{Token()}}
+{\footnotesize\ttfamily pipelines\+::log\+\_\+message\+\_\+parser\+::lexer\+::\+Token\+::\+Token (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1lexer_1_1Token_a0c4eb26749d380b96fa49fbeb74596c2}{Type}}}]{type,  }\item[{const std\+::string \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs a \doxylink{classpipelines_1_1log__message__parser_1_1lexer_1_1Token}{Token} with the given type and value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The type of the token. \\
+\hline
+{\em value} & The value of the token. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classpipelines_1_1log__message__parser_1_1lexer_1_1Token_a485506021bd353baa18cb10794ec1152}\label{classpipelines_1_1log__message__parser_1_1lexer_1_1Token_a485506021bd353baa18cb10794ec1152} 
+\index{pipelines::log\_message\_parser::lexer::Token@{pipelines::log\_message\_parser::lexer::Token}!type@{type}}
+\index{type@{type}!pipelines::log\_message\_parser::lexer::Token@{pipelines::log\_message\_parser::lexer::Token}}
+\doxysubsubsection{\texorpdfstring{type()}{type()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1lexer_1_1Token_a0c4eb26749d380b96fa49fbeb74596c2}{Type}} pipelines\+::log\+\_\+message\+\_\+parser\+::lexer\+::\+Token\+::type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves the type of the token. 
+
+\begin{DoxyReturn}{Returns}
+The type of the token. 
+\end{DoxyReturn}
+\Hypertarget{classpipelines_1_1log__message__parser_1_1lexer_1_1Token_a438d4009ecea92f7ea26d3b397f07f5b}\label{classpipelines_1_1log__message__parser_1_1lexer_1_1Token_a438d4009ecea92f7ea26d3b397f07f5b} 
+\index{pipelines::log\_message\_parser::lexer::Token@{pipelines::log\_message\_parser::lexer::Token}!TypeAsString@{TypeAsString}}
+\index{TypeAsString@{TypeAsString}!pipelines::log\_message\_parser::lexer::Token@{pipelines::log\_message\_parser::lexer::Token}}
+\doxysubsubsection{\texorpdfstring{TypeAsString()}{TypeAsString()}}
+{\footnotesize\ttfamily std\+::string pipelines\+::log\+\_\+message\+\_\+parser\+::lexer\+::\+Token\+::\+Type\+As\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Converts the token type to a string representation. 
+
+\begin{DoxyReturn}{Returns}
+A string representing the token type. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classpipelines_1_1log__message__parser_1_1lexer_1_1Token_abe142e9574481fef3f1f07e5f4cb6338}\label{classpipelines_1_1log__message__parser_1_1lexer_1_1Token_abe142e9574481fef3f1f07e5f4cb6338} 
+\index{pipelines::log\_message\_parser::lexer::Token@{pipelines::log\_message\_parser::lexer::Token}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!pipelines::log\_message\_parser::lexer::Token@{pipelines::log\_message\_parser::lexer::Token}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{classpipelines_1_1log__message__parser_1_1lexer_1_1Token}{Token}} \&}]{token }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Checks if the token is of the specified type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The type to check against. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the token is of the specified type, false otherwise. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/rodri/\+Documents/\+Brion-\/\+Assignment/brion\+\_\+pipelines/components/log\+\_\+message\+\_\+parser/private/\mbox{\hyperlink{lexer_8h}{lexer.\+h}}\end{DoxyCompactItemize}

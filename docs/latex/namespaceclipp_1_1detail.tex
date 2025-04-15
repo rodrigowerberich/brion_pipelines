@@ -1,0 +1,46 @@
+\doxysection{clipp\+::detail Namespace Reference}
+\hypertarget{namespaceclipp_1_1detail}{}\label{namespaceclipp_1_1detail}\index{clipp::detail@{clipp::detail}}
+
+
+helpers (NOT FOR DIRECT USE IN CLIENT CODE!) no interface guarantees; might be changed or removed in the future  
+
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classclipp_1_1detail_1_1match__t}{match\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em result of a matching operation \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classclipp_1_1detail_1_1scoped__dfs__traverser}{scoped\+\_\+dfs\+\_\+traverser}}
+\begin{DoxyCompactList}\small\item\em DFS traverser that keeps track of \textquotesingle{}scopes\textquotesingle{} scope = all parameters that are either bounded by two blocking parameters on the same depth level or the beginning/end of the outermost group. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structclipp_1_1detail_1_1select__all}{select\+\_\+all}}
+\item 
+struct \mbox{\hyperlink{structclipp_1_1detail_1_1select__flags}{select\+\_\+flags}}
+\item 
+struct \mbox{\hyperlink{structclipp_1_1detail_1_1select__values}{select\+\_\+values}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{namespaceclipp_1_1detail_a5bcdd662da9650bfb1ad3d905318ae49}\label{namespaceclipp_1_1detail_a5bcdd662da9650bfb1ad3d905318ae49} 
+void {\bfseries set\+\_\+blocking} (bool)
+\item 
+\Hypertarget{namespaceclipp_1_1detail_adc4e7fad628be0b7610f39ae0743f69f}\label{namespaceclipp_1_1detail_adc4e7fad628be0b7610f39ae0743f69f} 
+{\footnotesize template$<$class P , class... Ps$>$ }\\void {\bfseries set\+\_\+blocking} (bool yes, P \&p, Ps \&... ps)
+\item 
+\Hypertarget{namespaceclipp_1_1detail_a9a1c6485d2cea1d0913fb664bed34d82}\label{namespaceclipp_1_1detail_a9a1c6485d2cea1d0913fb664bed34d82} 
+{\footnotesize template$<$class Param\+Selector $>$ }\\\mbox{\hyperlink{classclipp_1_1detail_1_1match__t}{match\+\_\+t}} {\bfseries full\+\_\+match} (\mbox{\hyperlink{classclipp_1_1detail_1_1scoped__dfs__traverser}{scoped\+\_\+dfs\+\_\+traverser}} pos, const arg\+\_\+string \&arg, const Param\+Selector \&select)
+\begin{DoxyCompactList}\small\item\em finds the first parameter that matches a given string; candidate parameters are traversed using a scoped DFS traverser \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_1_1detail_ae1d513e3d14a59fe301840be25ec5ffa}\label{namespaceclipp_1_1detail_ae1d513e3d14a59fe301840be25ec5ffa} 
+{\footnotesize template$<$class Param\+Selector $>$ }\\\mbox{\hyperlink{classclipp_1_1detail_1_1match__t}{match\+\_\+t}} {\bfseries longest\+\_\+prefix\+\_\+match} (\mbox{\hyperlink{classclipp_1_1detail_1_1scoped__dfs__traverser}{scoped\+\_\+dfs\+\_\+traverser}} pos, const arg\+\_\+string \&arg, const Param\+Selector \&select)
+\begin{DoxyCompactList}\small\item\em finds the first parameter that matches any (non-\/empty) prefix of a given string; candidate parameters are traversed using a scoped DFS traverser \end{DoxyCompactList}\item 
+\Hypertarget{namespaceclipp_1_1detail_a9a430fc887c473544debcb39ed0c0dd2}\label{namespaceclipp_1_1detail_a9a430fc887c473544debcb39ed0c0dd2} 
+{\footnotesize template$<$class Param\+Selector $>$ }\\\mbox{\hyperlink{classclipp_1_1detail_1_1match__t}{match\+\_\+t}} {\bfseries partial\+\_\+match} (\mbox{\hyperlink{classclipp_1_1detail_1_1scoped__dfs__traverser}{scoped\+\_\+dfs\+\_\+traverser}} pos, const arg\+\_\+string \&arg, const Param\+Selector \&select)
+\begin{DoxyCompactList}\small\item\em finds the first parameter that partially matches a given string; candidate parameters are traversed using a scoped DFS traverser \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+helpers (NOT FOR DIRECT USE IN CLIENT CODE!) no interface guarantees; might be changed or removed in the future 
+
+parsing implementation details
+
+helpers (NOT FOR DIRECT USE IN CLIENT CODE!) 

@@ -1,0 +1,9 @@
+<map id="/mnt/c/Users/rodri/Documents/Brion&#45;Assignment/brion_pipelines/components/log_message_parser/public/log_message_parser/structure.h" name="/mnt/c/Users/rodri/Documents/Brion&#45;Assignment/brion_pipelines/components/log_message_parser/public/log_message_parser/structure.h">
+<area shape="rect" id="Node000001" title="Parses a stream of data into a structured log message format." alt="" coords="13,5,248,89"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,137,77,163"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,91,62,129,59,125,92,88"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="101,137,160,163"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="133,89,133,124,128,124,128,89"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="185,137,247,163"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="167,88,199,125,195,129,163,91"/>
+</map>

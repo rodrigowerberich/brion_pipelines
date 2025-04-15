@@ -1,0 +1,5 @@
+<map id="pipelines::log_message_parser::structure::StreamReadError" name="pipelines::log_message_parser::structure::StreamReadError">
+<area shape="rect" id="Node000001" title="Represents an error encountered while reading from a stream." alt="" coords="5,79,260,119"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="63,5,202,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,44,135,79,130,79,130,44"/>
+</map>
